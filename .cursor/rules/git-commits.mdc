@@ -1,0 +1,5 @@
+---
+alwaysApply: true
+---
+
+i want to push each edit and feature to the branch manually , so we wont make all the features/edits at once in a massive commit

@@ -1,0 +1,5 @@
+---
+alwaysApply: true
+---
+
+we dont have the api endpoints at the moment so we will prepare the code and pass a temporary json file and fetch it
