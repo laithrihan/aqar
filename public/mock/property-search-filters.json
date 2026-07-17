@@ -1,0 +1,30 @@
+{
+  "propertyTypes": [
+    { "value": "apartment", "labelKey": "search.propertyTypes.apartment" },
+    { "value": "villa", "labelKey": "search.propertyTypes.villa" },
+    { "value": "house", "labelKey": "search.propertyTypes.house" },
+    { "value": "land", "labelKey": "search.propertyTypes.land" },
+    { "value": "office", "labelKey": "search.propertyTypes.office" }
+  ],
+  "priceRanges": [
+    { "value": "0-50000", "labelKey": "search.priceRanges.under50k" },
+    { "value": "50000-100000", "labelKey": "search.priceRanges.50to100k" },
+    { "value": "100000-250000", "labelKey": "search.priceRanges.100to250k" },
+    { "value": "250000-500000", "labelKey": "search.priceRanges.250to500k" },
+    { "value": "500000+", "labelKey": "search.priceRanges.over500k" }
+  ],
+  "rooms": [
+    { "value": "1", "labelKey": "search.rooms.one" },
+    { "value": "2", "labelKey": "search.rooms.two" },
+    { "value": "3", "labelKey": "search.rooms.three" },
+    { "value": "4", "labelKey": "search.rooms.four" },
+    { "value": "5+", "labelKey": "search.rooms.fivePlus" }
+  ],
+  "beds": [
+    { "value": "1", "labelKey": "search.beds.one" },
+    { "value": "2", "labelKey": "search.beds.two" },
+    { "value": "3", "labelKey": "search.beds.three" },
+    { "value": "4", "labelKey": "search.beds.four" },
+    { "value": "5+", "labelKey": "search.beds.fivePlus" }
+  ]
+}

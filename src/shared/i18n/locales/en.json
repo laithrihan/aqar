@@ -62,5 +62,49 @@
       "slide4Title": "Architectural masterpieces",
       "slide4Subtitle": "Bold designs that turn houses into landmarks."
     }
+  },
+  "search": {
+    "modesLabel": "Listing type",
+    "modes": {
+      "sale": "For Sale",
+      "rent": "For Rent",
+      "invest": "For Invest"
+    },
+    "locationPlaceholder": "Location...",
+    "results": "Results",
+    "filters": {
+      "propertyType": "Property Type",
+      "priceRange": "Price Range",
+      "rooms": "Rooms",
+      "beds": "Beds"
+    },
+    "propertyTypes": {
+      "apartment": "Apartment",
+      "villa": "Villa",
+      "house": "House",
+      "land": "Land",
+      "office": "Office"
+    },
+    "priceRanges": {
+      "under50k": "Under $50k",
+      "50to100k": "$50k – $100k",
+      "100to250k": "$100k – $250k",
+      "250to500k": "$250k – $500k",
+      "over500k": "$500k+"
+    },
+    "rooms": {
+      "one": "1",
+      "two": "2",
+      "three": "3",
+      "four": "4",
+      "fivePlus": "5+"
+    },
+    "beds": {
+      "one": "1",
+      "two": "2",
+      "three": "3",
+      "four": "4",
+      "fivePlus": "5+"
+    }
   }
 }

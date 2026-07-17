@@ -197,6 +197,14 @@
     @apply w-full;
   }
 
+  .home-hero {
+    @apply relative pb-10 sm:pb-14;
+  }
+
+  .home-hero-search {
+    @apply relative z-30 mx-auto -mt-28 w-full max-w-[1100px] px-4 sm:-mt-36 sm:px-6 lg:max-w-[1340px] lg:px-10;
+  }
+
   .panorama-carousel {
     @apply relative h-[min(78vh,720px)] w-full min-h-[320px] overflow-hidden bg-primary;
   }
@@ -234,8 +242,8 @@
   }
 
   .panorama-carousel-content {
-    @apply absolute inset-y-0 start-0 z-10 flex w-[70%] md:max-w-xl flex-col justify-center px-5 text-white;
-    @apply sm:px-10 lg:px-[100px];
+    @apply absolute inset-y-0 start-0 z-10 flex w-[70%] flex-col justify-center px-5 pb-28 text-white md:max-w-xl;
+    @apply sm:px-10 sm:pb-36 lg:px-[100px];
   }
 
   .panorama-carousel-eyebrow {
@@ -266,7 +274,7 @@
   }
 
   .panorama-carousel-dots {
-    @apply absolute bottom-5 start-1/2 z-20 flex -translate-x-1/2 items-center gap-2;
+    @apply absolute bottom-36 start-1/2 z-20 flex -translate-x-1/2 items-center gap-2 sm:bottom-44;
   }
 
   .panorama-carousel-dot {
@@ -275,5 +283,135 @@
 
   .panorama-carousel-dot--active {
     @apply w-7 bg-secondary;
+  }
+}
+
+/* ── Property search / filter card (Figma) ──────────────── */
+@layer components {
+  .property-search {
+    @apply relative mx-auto flex w-full flex-col items-center gap-5 rounded-[10px] bg-white px-4 pb-10 pt-6 shadow-[0px_3px_12px_0px_rgba(81,81,81,0.22)];
+    @apply sm:gap-6 sm:px-8 sm:pb-12 sm:pt-8;
+  }
+
+  .property-search-tabs {
+    @apply flex w-full max-w-[654px] rounded-[10px] border border-primary;
+  }
+
+  .property-search-tab {
+    @apply relative z-0 flex-1 rounded-[9px] bg-[#fafafa] px-2 py-3.5 text-center text-sm font-normal text-primary transition-colors;
+    @apply sm:py-4 sm:text-xl;
+  }
+
+  .property-search-tab--active {
+    @apply z-10 bg-primary font-bold text-white;
+  }
+
+  /* Caret under the active tab — must not be clipped by overflow */
+  .property-search-tab--active::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    z-index: 10;
+    width: 0;
+    height: 0;
+    transform: translateX(-50%);
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-top: 10px solid rgb(var(--primary));
+  }
+
+  .property-search-location {
+    @apply flex h-[56px] w-full max-w-[861px] items-center gap-3 rounded-full border border-primary bg-white px-5 sm:h-[70px] sm:gap-4 sm:px-6;
+  }
+
+  .property-search-location-icon {
+    @apply size-5 shrink-0 text-primary sm:size-6;
+  }
+
+  .property-search-location-input {
+    @apply min-w-0 flex-1 bg-transparent text-base text-primary outline-none placeholder:text-primary/40 sm:text-xl;
+  }
+
+  .property-search-filters {
+    @apply grid w-full max-w-[860px] grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4;
+  }
+
+  .search-filter-select {
+    @apply relative block w-full;
+  }
+
+  .search-filter-select-field {
+    @apply relative flex h-[52px] w-full items-center justify-center rounded-[10px] border border-primary bg-white px-3 pe-9 text-center text-sm font-medium tracking-wide text-primary outline-none;
+    @apply sm:h-[60px] sm:px-4 sm:pe-10 sm:text-[15px];
+  }
+
+  /* Uppercase styling is English-only — Arabic must keep natural casing */
+  :lang(en) .search-filter-select-field {
+    @apply uppercase;
+  }
+
+  .search-filter-select-field--open {
+    @apply rounded-b-none;
+  }
+
+  .search-filter-select-field--placeholder {
+    @apply text-base;
+  }
+
+  .search-filter-select-value {
+    @apply min-w-0 truncate;
+  }
+
+  .search-filter-select-icon {
+    @apply absolute end-3 top-1/2 size-3 -translate-y-1/2 text-primary transition-transform sm:size-3.5;
+  }
+
+  .search-filter-select-icon--open {
+    @apply rotate-180;
+  }
+
+  /* Options panel — drops open from the trigger */
+  .search-filter-select-list {
+    @apply absolute inset-x-0 top-full z-40 overflow-hidden border border-t-0 border-primary bg-primary;
+    border-radius: 0 0 5px 5px;
+    transform-origin: top center;
+    animation: search-filter-drop 200ms ease-out;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .search-filter-select-list {
+      animation: none;
+    }
+  }
+
+  .search-filter-select-option {
+    @apply flex w-full items-center justify-center px-3 py-2.5 text-center text-base font-medium tracking-wide text-white transition-colors;
+    @apply hover:bg-white/10;
+  }
+
+  :lang(en) .search-filter-select-option {
+    @apply uppercase;
+  }
+
+  .search-filter-select-option--active {
+    @apply bg-white/15 font-bold;
+  }
+
+  .property-search-submit {
+    @apply absolute -bottom-5 left-1/2 flex h-[52px] w-[min(100%,280px)] -translate-x-1/2 items-center justify-center rounded-[10px] bg-primary text-lg font-bold text-white transition-opacity hover:opacity-90;
+    @apply sm:-bottom-7 sm:h-[60px] sm:w-[370px] sm:text-[28px];
+  }
+}
+
+@keyframes search-filter-drop {
+  from {
+    opacity: 0;
+    transform: scaleY(0.35);
+  }
+
+  to {
+    opacity: 1;
+    transform: scaleY(1);
   }
 }

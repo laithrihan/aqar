@@ -62,5 +62,49 @@
       "slide4Title": "تحف معمارية استثنائية",
       "slide4Subtitle": "تصاميم جريئة تحول المنازل إلى معالم."
     }
+  },
+  "search": {
+    "modesLabel": "نوع العرض",
+    "modes": {
+      "sale": "للبيع",
+      "rent": "للإيجار",
+      "invest": "للاستثمار"
+    },
+    "locationPlaceholder": "الموقع...",
+    "results": "النتائج",
+    "filters": {
+      "propertyType": "نوع العقار",
+      "priceRange": "نطاق السعر",
+      "rooms": "الغرف",
+      "beds": "غرف النوم"
+    },
+    "propertyTypes": {
+      "apartment": "شقة",
+      "villa": "فيلا",
+      "house": "منزل",
+      "land": "أرض",
+      "office": "مكتب"
+    },
+    "priceRanges": {
+      "under50k": "أقل من 50 ألف",
+      "50to100k": "50 – 100 ألف",
+      "100to250k": "100 – 250 ألف",
+      "250to500k": "250 – 500 ألف",
+      "over500k": "أكثر من 500 ألف"
+    },
+    "rooms": {
+      "one": "1",
+      "two": "2",
+      "three": "3",
+      "four": "4",
+      "fivePlus": "5+"
+    },
+    "beds": {
+      "one": "1",
+      "two": "2",
+      "three": "3",
+      "four": "4",
+      "fivePlus": "5+"
+    }
   }
 }
