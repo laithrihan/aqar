@@ -1,6 +1,7 @@
 {
   "app": {
-    "name": "Aqar"
+    "name": "Aqar",
+    "slug": "The most beautiful exclusive properties and luxury apartments"
   },
   "nav": {
     "home": "Home",
@@ -15,5 +16,33 @@
     "label": "Language",
     "en": "English",
     "ar": "العربية"
+  },
+  "footer": {
+    "usefulLinks": "Useful Links",
+    "about": "About",
+    "partners": "Partners",
+    "contact": "Contact",
+    "help": "Help?",
+    "faq": "FAQ",
+    "terms": "Term & Condition",
+    "policy": "Policy",
+    "privacy": "Privacy",
+    "downloadApp": "Download the app",
+    "appStore": "Download on the App Store",
+    "appStoreCaption": "Available on the",
+    "appStoreName": "App Store",
+    "googlePlay": "Get it on Google Play",
+    "googlePlayCaption": "GET IT ON",
+    "googlePlayName": "Google Play",
+    "subscribePlaceholder": "Subscribe to mail feed",
+    "subscribeDone": "Done",
+    "copyright": "© Copyright 2021, Aqar.com",
+    "termsPrivacy": "Terms & Condition    |   Privacy Policy",
+    "social": {
+      "facebook": "Facebook",
+      "x": "X",
+      "telegram": "Telegram",
+      "instagram": "Instagram"
+    }
   }
 }

@@ -1,6 +1,7 @@
 {
   "app": {
-    "name": "Aqar"
+    "name": "عقار",
+    "slug": "أجمل العقارات الحصرية والشقق الفاخرة"
   },
   "nav": {
     "home": "الرئيسية",
@@ -15,5 +16,33 @@
     "label": "اللغة",
     "en": "English",
     "ar": "العربية"
+  },
+  "footer": {
+    "usefulLinks": "روابط مفيدة",
+    "about": "من نحن",
+    "partners": "الشركاء",
+    "contact": "تواصل معنا",
+    "help": "مساعدة؟",
+    "faq": "الأسئلة الشائعة",
+    "terms": "الشروط والأحكام",
+    "policy": "السياسة",
+    "privacy": "الخصوصية",
+    "downloadApp": "حمّل التطبيق",
+    "appStore": "التحميل من App Store",
+    "appStoreCaption": "متوفر على",
+    "appStoreName": "App Store",
+    "googlePlay": "التحميل من Google Play",
+    "googlePlayCaption": "حمّله من",
+    "googlePlayName": "Google Play",
+    "subscribePlaceholder": "اشترك في النشرة البريدية",
+    "subscribeDone": "تم",
+    "copyright": "© حقوق النشر 2021، Aqar.com",
+    "termsPrivacy": "الشروط والأحكام    |   سياسة الخصوصية",
+    "social": {
+      "facebook": "فيسبوك",
+      "x": "إكس",
+      "telegram": "تيليجرام",
+      "instagram": "إنستغرام"
+    }
   }
 }
