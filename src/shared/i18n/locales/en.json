@@ -1,0 +1,19 @@
+{
+  "app": {
+    "name": "Aqar"
+  },
+  "nav": {
+    "home": "Home",
+    "buy": "Buy",
+    "rent": "Rent",
+    "aboutUs": "About us",
+    "contactUs": "Contact us",
+    "login": "Log in",
+    "signUp": "Sign up"
+  },
+  "language": {
+    "label": "Language",
+    "en": "English",
+    "ar": "العربية"
+  }
+}
