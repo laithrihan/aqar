@@ -1,11 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom'
 
 import { RootLayout } from '@/app/layouts/RootLayout'
+import { HomePage } from '@/presentation/pages/HomePage'
 import {
   AboutPage,
   BuyPage,
   ContactPage,
-  HomePage,
   LoginPage,
   RentPage,
   SignUpPage,

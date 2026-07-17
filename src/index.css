@@ -24,6 +24,12 @@
   body {
     @apply bg-background font-sans text-foreground antialiased;
   }
+
+  .sr-only {
+    @apply absolute size-px overflow-hidden whitespace-nowrap;
+    clip: rect(0, 0, 0, 0);
+    border-width: 0;
+  }
 }
 
 /* ── Footer ─────────────────────────────────────────────── */
@@ -182,5 +188,92 @@
 
   .footer-social-link--telegram {
     @apply bg-white text-[#229ED9];
+  }
+}
+
+/* ── Home panorama carousel ─────────────────────────────── */
+@layer components {
+  .home-page {
+    @apply w-full;
+  }
+
+  .panorama-carousel {
+    @apply relative h-[min(78vh,720px)] w-full min-h-[320px] overflow-hidden bg-primary;
+  }
+
+  .panorama-carousel--skeleton {
+    @apply animate-pulse bg-primary/80;
+  }
+
+  .panorama-carousel--error {
+    @apply flex items-center justify-center px-6 text-center text-sm text-primary-foreground;
+  }
+
+  .panorama-carousel-track {
+    @apply absolute inset-0;
+  }
+
+  .panorama-carousel-slide {
+    @apply absolute inset-0 opacity-0 transition-opacity duration-700 ease-out;
+  }
+
+  .panorama-carousel-slide--active {
+    @apply opacity-100;
+  }
+
+  .panorama-carousel-image {
+    @apply size-full scale-105 object-cover object-center transition-transform duration-[8s] ease-out;
+  }
+
+  .panorama-carousel-slide--active .panorama-carousel-image {
+    @apply scale-100;
+  }
+
+  .panorama-carousel-overlay {
+    @apply absolute inset-0 bg-gradient-to-r from-primary/75 via-primary/35 to-transparent;
+  }
+
+  .panorama-carousel-content {
+    @apply absolute inset-y-0 start-0 z-10 flex w-[70%] md:max-w-xl flex-col justify-center px-5 text-white;
+    @apply sm:px-10 lg:px-[100px];
+  }
+
+  .panorama-carousel-eyebrow {
+    @apply mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-secondary;
+  }
+
+  .panorama-carousel-title {
+    @apply text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl;
+  }
+
+  .panorama-carousel-subtitle {
+    @apply mt-4 max-w-md text-sm leading-relaxed text-white/90 sm:text-base;
+  }
+
+  .panorama-carousel-nav {
+    @apply absolute top-1/2 z-20 flex size-11 -translate-y-1/2 items-center justify-center rounded-full;
+    @apply border border-white/30 bg-primary/50 text-white backdrop-blur-sm;
+    @apply transition-colors hover:bg-secondary hover:text-secondary-foreground;
+    @apply sm:size-12;
+  }
+
+  .panorama-carousel-nav--prev {
+    @apply start-3 sm:start-5 lg:start-8;
+  }
+
+  .panorama-carousel-nav--next {
+    @apply end-3 sm:end-5 lg:end-8;
+  }
+
+  .panorama-carousel-dots {
+    @apply absolute bottom-5 start-1/2 z-20 flex -translate-x-1/2 items-center gap-2;
+  }
+
+  .panorama-carousel-dot {
+    @apply size-2.5 rounded-full bg-white/40 transition-all hover:bg-white/70;
+  }
+
+  .panorama-carousel-dot--active {
+    @apply w-7 bg-secondary;
   }
 }

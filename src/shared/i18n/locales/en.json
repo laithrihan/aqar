@@ -44,5 +44,23 @@
       "telegram": "Telegram",
       "instagram": "Instagram"
     }
+  },
+  "home": {
+    "carousel": {
+      "label": "Featured properties panorama",
+      "prev": "Previous slide",
+      "next": "Next slide",
+      "goToSlide": "Go to slide {{number}}",
+      "loading": "Loading featured properties",
+      "error": "Could not load the featured carousel.",
+      "slide1Title": "Luxury villas with ocean views",
+      "slide1Subtitle": "Discover exclusive waterfront homes crafted for modern living.",
+      "slide2Title": "Contemporary city residences",
+      "slide2Subtitle": "Skyline apartments designed for comfort and elegance.",
+      "slide3Title": "Private estates in serene settings",
+      "slide3Subtitle": "Spacious properties surrounded by nature and light.",
+      "slide4Title": "Architectural masterpieces",
+      "slide4Subtitle": "Bold designs that turn houses into landmarks."
+    }
   }
 }
