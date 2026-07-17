@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: 13 50 61;
+  --primary-foreground: 255 255 255;
+  --secondary: 1 157 179;
+  --secondary-foreground: 13 50 61;
+  --background: 255 255 255;
+  --foreground: 13 50 61;
+  --muted: 232 240 242;
+  --muted-foreground: 80 110 118;
+  --border: 200 216 220;
+  --ring: 1 157 179;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
