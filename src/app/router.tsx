@@ -8,9 +8,9 @@ import {
   ContactPage,
   HomeDetailPage,
   LoginPage,
-  RentPage,
   SignUpPage,
 } from "@/presentation/pages/placeholders";
+import { RentPage } from "@/presentation/pages/RentPage";
 
 /** Application route tree. */
 export const router = createBrowserRouter([

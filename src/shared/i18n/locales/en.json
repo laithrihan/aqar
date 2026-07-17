@@ -87,6 +87,9 @@
       }
     }
   },
+  "rent": {
+    "title": "Rent Your Perfect Property"
+  },
   "search": {
     "modesLabel": "Listing type",
     "modes": {
@@ -96,6 +99,7 @@
     },
     "locationPlaceholder": "Location...",
     "results": "Results",
+    "submit": "Search",
     "filters": {
       "propertyType": "Property Type",
       "priceRange": "Price Range",
@@ -117,18 +121,18 @@
       "over500k": "$500k+"
     },
     "rooms": {
-      "one": "1",
-      "two": "2",
-      "three": "3",
-      "four": "4",
-      "fivePlus": "5+"
+      "one": "1 Room",
+      "two": "2 Rooms",
+      "three": "3 Rooms",
+      "four": "4 Rooms",
+      "fivePlus": "5+ Rooms"
     },
     "beds": {
-      "one": "1",
-      "two": "2",
-      "three": "3",
-      "four": "4",
-      "fivePlus": "5+"
+      "one": "1 Bed",
+      "two": "2 Beds",
+      "three": "3 Beds",
+      "four": "4 Beds",
+      "fivePlus": "5+ Beds"
     }
   }
 }

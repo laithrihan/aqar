@@ -13,10 +13,6 @@ export function BuyPage() {
   return <PlaceholderPage title="Buy" />
 }
 
-export function RentPage() {
-  return <PlaceholderPage title="Rent" />
-}
-
 export function HomeDetailPage() {
   const { propertyId } = useParams<{ propertyId: string }>()
   return <PlaceholderPage title={propertyId ? `Home: ${propertyId}` : 'Home'} />

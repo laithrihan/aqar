@@ -87,6 +87,9 @@
       }
     }
   },
+  "rent": {
+    "title": "استأجر عقارك المثالي"
+  },
   "search": {
     "modesLabel": "نوع العرض",
     "modes": {
@@ -96,6 +99,7 @@
     },
     "locationPlaceholder": "الموقع...",
     "results": "النتائج",
+    "submit": "بحث",
     "filters": {
       "propertyType": "نوع العقار",
       "priceRange": "نطاق السعر",
@@ -117,18 +121,18 @@
       "over500k": "أكثر من 500 ألف"
     },
     "rooms": {
-      "one": "1",
-      "two": "2",
-      "three": "3",
-      "four": "4",
-      "fivePlus": "5+"
+      "one": "غرفة واحدة",
+      "two": "غرفتين",
+      "three": "3 غرف",
+      "four": "4 غرف",
+      "fivePlus": "5+ غرف"
     },
     "beds": {
-      "one": "1",
-      "two": "2",
-      "three": "3",
-      "four": "4",
-      "fivePlus": "5+"
+      "one": "غرفة نوم واحدة",
+      "two": "غرفتي نوم",
+      "three": "3 غرف نوم",
+      "four": "4 غرف نوم",
+      "fivePlus": "5+ غرف نوم"
     }
   }
 }

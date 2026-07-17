@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { FaChevronDown } from 'react-icons/fa6'
 import { useTranslation } from 'react-i18next'
 
@@ -11,11 +11,12 @@ type SearchFilterSelectProps = {
   value: string
   options: SearchFilterOption[]
   placeholder: string
+  icon?: ReactNode
   onChange: (value: string) => void
 }
 
 /**
- * Custom filter dropdown 
+ * Custom filter dropdown
  */
 export function SearchFilterSelect({
   id,
@@ -23,6 +24,7 @@ export function SearchFilterSelect({
   value,
   options,
   placeholder,
+  icon,
   onChange,
 }: SearchFilterSelectProps) {
   const { t } = useTranslation()
@@ -70,7 +72,14 @@ export function SearchFilterSelect({
         aria-labelledby={`${id}-label`}
         onClick={() => setOpen((current) => !current)}
       >
-        <span className="search-filter-select-value">{displayText}</span>
+        <span className="search-filter-select-content">
+          {icon ? (
+            <span className="search-filter-select-leading-icon" aria-hidden>
+              {icon}
+            </span>
+          ) : null}
+          <span className="search-filter-select-value">{displayText}</span>
+        </span>
         <FaChevronDown
           className={cn(
             'search-filter-select-icon',
