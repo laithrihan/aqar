@@ -1,3 +1,5 @@
+import { useParams } from 'react-router-dom'
+
 /** Temporary page placeholders until real screens are built. */
 function PlaceholderPage({ title }: { title: string }) {
   return (
@@ -13,6 +15,11 @@ export function BuyPage() {
 
 export function RentPage() {
   return <PlaceholderPage title="Rent" />
+}
+
+export function HomeDetailPage() {
+  const { propertyId } = useParams<{ propertyId: string }>()
+  return <PlaceholderPage title={propertyId ? `Home: ${propertyId}` : 'Home'} />
 }
 
 export function AboutPage() {

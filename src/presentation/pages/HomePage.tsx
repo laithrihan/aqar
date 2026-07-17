@@ -1,10 +1,11 @@
 import { useTranslation } from 'react-i18next'
 
+import { ExploreHomesSection } from '@/presentation/components/home/ExploreHomesSection'
 import { PanoramaCarousel } from '@/presentation/components/home/PanoramaCarousel'
 import { PropertySearchFilter } from '@/presentation/components/home/PropertySearchFilter'
 import { useCarouselSlides } from '@/presentation/hooks/useCarouselSlides'
 
-/** Home page — hero panorama + overlapping property search card. */
+/** Home page — hero panorama, search card, then explore-homes intro. */
 export function HomePage() {
   const { t } = useTranslation()
   const { data: slides, isLoading, isError } = useCarouselSlides()
@@ -33,6 +34,8 @@ export function HomePage() {
           <PropertySearchFilter />
         </div>
       </div>
+
+      <ExploreHomesSection />
     </div>
   )
 }
