@@ -124,20 +124,6 @@
         "loading": "جاري تحميل معرض المنازل",
         "error": "تعذر تحميل معرض المنازل.",
         "viewHome": "عرض المنزل"
-      },
-      "homes": {
-        "villaDamascusMezzeh": "فيلا في المزة، دمشق",
-        "houseAleppoAziziyah": "منزل عائلي في العزيزية، حلب",
-        "villaLatakiaCorniche": "فيلا على الكورنيش، اللاذقية",
-        "apartmentDamascusAbuRummaneh": "شقة في أبو رمانة، دمشق",
-        "houseHomsInshaat": "منزل في الإنشاءات، حمص",
-        "estateTartusSeaside": "عقار بحري، طرطوس",
-        "villaDamascusYaafour": "فيلا في يعفور، دمشق",
-        "apartmentAleppoSuleimaniyeh": "شقة في السليمانية، حلب",
-        "houseDamascusQassaa": "منزل في القصاع، دمشق",
-        "villaHamaOldCity": "فيلا قرب المدينة القديمة، حماة",
-        "apartmentLatakiaProject": "شقة في منطقة المشروع، اللاذقية",
-        "houseSweidaGarden": "منزل بحديقة، السويداء"
       }
     }
   },

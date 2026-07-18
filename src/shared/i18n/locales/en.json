@@ -124,20 +124,6 @@
         "loading": "Loading homes gallery",
         "error": "Could not load the homes gallery.",
         "viewHome": "View home"
-      },
-      "homes": {
-        "villaDamascusMezzeh": "Villa in Mezzeh, Damascus",
-        "houseAleppoAziziyah": "Family house in Aziziyah, Aleppo",
-        "villaLatakiaCorniche": "Corniche villa, Latakia",
-        "apartmentDamascusAbuRummaneh": "Apartment in Abu Rummaneh, Damascus",
-        "houseHomsInshaat": "House in Inshaat, Homs",
-        "estateTartusSeaside": "Seaside estate, Tartus",
-        "villaDamascusYaafour": "Villa in Yaafour, Damascus",
-        "apartmentAleppoSuleimaniyeh": "Apartment in Suleimaniyeh, Aleppo",
-        "houseDamascusQassaa": "House in Qassaa, Damascus",
-        "villaHamaOldCity": "Villa near Old City, Hama",
-        "apartmentLatakiaProject": "Apartment in Project area, Latakia",
-        "houseSweidaGarden": "Garden house, Sweida"
       }
     }
   },

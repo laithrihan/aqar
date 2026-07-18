@@ -195,6 +195,7 @@ type BentoHomeTileProps = {
 function BentoHomeTile({ image, decorative = false }: BentoHomeTileProps) {
   const { t } = useTranslation()
   const title = t(image.titleKey)
+  const detailPath = `/homes/${image.propertyId}`
 
   return (
     <div className="bento-homes-tile">
@@ -206,15 +207,15 @@ function BentoHomeTile({ image, decorative = false }: BentoHomeTileProps) {
         draggable={false}
       />
 
-      {!decorative && (
-        <Link
-          to={`/homes/${image.propertyId}`}
-          className="bento-homes-view"
-          onPointerDown={(event) => event.stopPropagation()}
-        >
-          {t('home.explore.bento.viewHome')}
-        </Link>
-      )}
+      <Link
+        to={detailPath}
+        className="bento-homes-view"
+        tabIndex={decorative ? -1 : undefined}
+        aria-hidden={decorative || undefined}
+        onPointerDown={(event) => event.stopPropagation()}
+      >
+        {t('home.explore.bento.viewHome')}
+      </Link>
     </div>
   )
 }

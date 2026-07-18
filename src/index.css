@@ -949,8 +949,8 @@
   }
 
   .bento-homes-view {
-    @apply absolute bottom-3 left-3 z-10 rounded-[8px] bg-white px-3 py-1.5 text-xs font-semibold text-primary shadow-sm transition-opacity hover:opacity-90;
-    @apply sm:bottom-4 sm:left-4 sm:rounded-[10px] sm:px-4 sm:py-2 sm:text-sm;
+    @apply absolute bottom-3 start-3 z-10 rounded-[8px] bg-white px-3 py-1.5 text-xs font-semibold text-primary shadow-sm transition-opacity hover:opacity-90;
+    @apply sm:bottom-4 sm:start-4 sm:rounded-[10px] sm:px-4 sm:py-2 sm:text-sm;
   }
 
   .bento-homes-carousel:not(.bento-homes-carousel--dragging)
