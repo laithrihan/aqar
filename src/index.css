@@ -449,7 +449,7 @@
     @apply border-secondary shadow-[0px_4px_18px_0px_rgba(81,81,81,0.16)] ring-2 ring-secondary/40;
   }
 
-  .rent-listing-card-select {
+  .rent-listing-card-media {
     @apply block w-full overflow-hidden text-start;
   }
 
@@ -457,7 +457,7 @@
     @apply aspect-[4/3] w-full object-cover transition-transform duration-300;
   }
 
-  .rent-listing-card-select:hover .rent-listing-card-image {
+  .rent-listing-card-media:hover .rent-listing-card-image {
     @apply scale-[1.03];
   }
 

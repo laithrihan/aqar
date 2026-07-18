@@ -20,6 +20,8 @@ export function RentListingCard({
   onSelect,
 }: RentListingCardProps) {
   const { t, i18n } = useTranslation()
+  const title = t(listing.titleKey)
+  const detailPath = `/homes/${listing.id}`
 
   return (
     <article
@@ -30,12 +32,11 @@ export function RentListingCard({
       )}
       data-selected={selected || undefined}
     >
-      <button
-        type="button"
-        className="rent-listing-card-select"
+      <Link
+        to={detailPath}
+        className="rent-listing-card-media"
         onClick={() => onSelect(listing.id)}
-        aria-pressed={selected}
-        aria-label={t('rent.listings.select', { name: t(listing.titleKey) })}
+        aria-label={title}
       >
         <ImageWithFallback
           src={listing.imageUrl}
@@ -43,15 +44,15 @@ export function RentListingCard({
           className="rent-listing-card-image"
           loading="lazy"
         />
-      </button>
+      </Link>
 
       <div className="rent-listing-card-body">
         <Link
-          to={`/homes/${listing.id}`}
+          to={detailPath}
           className="rent-listing-card-title"
           onClick={() => onSelect(listing.id)}
         >
-          {t(listing.titleKey)}
+          {title}
         </Link>
 
         <p className="rent-listing-card-location">{t(listing.locationKey)}</p>
