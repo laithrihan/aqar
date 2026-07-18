@@ -458,6 +458,224 @@
   }
 }
 
+/* ── Property detail page ───────────────────────────────── */
+@layer components {
+  .property-page {
+    @apply mx-auto flex w-full max-w-7xl flex-col gap-10 px-4 py-8 sm:gap-12 sm:px-6 sm:py-10 lg:px-8;
+  }
+
+  .property-page--status {
+    @apply items-center justify-center py-20 text-muted-foreground;
+  }
+
+  .property-hero {
+    @apply grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10 lg:items-start;
+  }
+
+  .property-hero-gallery {
+    @apply w-full;
+  }
+
+  .property-hero-info {
+    @apply flex w-full flex-col gap-6;
+  }
+
+  /* Gallery: main image + 3 thumbs */
+  .property-gallery {
+    @apply flex flex-col gap-3;
+  }
+
+  .property-gallery-main {
+    @apply overflow-hidden rounded-2xl bg-muted;
+  }
+
+  .property-gallery-main-image {
+    @apply aspect-[4/3] w-full object-cover;
+  }
+
+  .property-gallery-thumbs {
+    @apply grid grid-cols-3 gap-3;
+  }
+
+  .property-gallery-thumb {
+    @apply overflow-hidden rounded-xl border-2 border-transparent transition;
+  }
+
+  .property-gallery-thumb--active {
+    @apply border-secondary;
+  }
+
+  .property-gallery-thumb:hover {
+    @apply opacity-90;
+  }
+
+  .property-gallery-thumb-image {
+    @apply aspect-[4/3] w-full object-cover;
+  }
+
+  /* Price / owner / share row */
+  .property-detail-header {
+    @apply flex flex-wrap items-center gap-3 sm:gap-4;
+  }
+
+  .property-detail-header-price-group {
+    @apply flex flex-wrap items-baseline gap-2;
+  }
+
+  .property-detail-price {
+    @apply text-2xl font-bold tracking-tight text-primary sm:text-3xl;
+  }
+
+  .property-detail-price-unit {
+    @apply text-sm text-muted-foreground sm:text-base;
+  }
+
+  .property-detail-header-divider {
+    @apply hidden h-8 w-px bg-border sm:block;
+  }
+
+  .property-detail-owner {
+    @apply flex-1 text-sm text-muted-foreground sm:text-base;
+  }
+
+  .property-detail-share {
+    @apply inline-flex items-center gap-1.5 rounded-lg border border-border bg-white px-3 py-2 text-sm font-medium text-primary transition hover:bg-muted;
+  }
+
+  /* Summary facts */
+  .property-summary {
+    @apply flex flex-col gap-1.5 text-sm leading-relaxed text-foreground sm:text-base;
+  }
+
+  .property-summary-facts {
+    @apply font-semibold text-primary;
+  }
+
+  .property-summary-address {
+    @apply text-muted-foreground;
+  }
+
+  .property-summary-status,
+  .property-summary-payment {
+    @apply text-foreground;
+  }
+
+  .property-summary-cta {
+    @apply mt-1 w-fit text-sm font-semibold text-secondary underline-offset-2 hover:underline;
+  }
+
+  /* Amenities 3×2 grid */
+  .property-amenities {
+    @apply grid grid-cols-3 gap-3 sm:gap-4;
+  }
+
+  .property-amenity {
+    @apply flex flex-col items-center gap-2 rounded-xl bg-muted/70 px-2 py-4 text-center sm:px-3;
+  }
+
+  .property-amenity--inactive {
+    @apply opacity-40;
+  }
+
+  .property-amenity-icon {
+    @apply flex size-10 items-center justify-center rounded-full bg-white text-primary shadow-sm;
+  }
+
+  .property-amenity-icon svg {
+    @apply size-5;
+  }
+
+  .property-amenity-label {
+    @apply text-xs font-medium text-primary sm:text-sm;
+  }
+
+  /* Seller actions */
+  .property-seller {
+    @apply flex flex-col gap-3;
+  }
+
+  .property-seller-actions {
+    @apply flex flex-col gap-3 sm:flex-row;
+  }
+
+  .property-seller-btn {
+    @apply inline-flex flex-1 items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold transition;
+  }
+
+  .property-seller-btn--details {
+    @apply border border-primary bg-white text-primary hover:bg-muted;
+  }
+
+  .property-seller-btn--details[aria-expanded='true'] {
+    @apply bg-muted;
+  }
+
+  .property-seller-btn--whatsapp {
+    @apply bg-[#25D366] text-white hover:brightness-95;
+  }
+
+  .property-seller-details {
+    @apply rounded-xl border border-border bg-muted/50 px-4 py-3 text-sm;
+  }
+
+  .property-seller-details-name {
+    @apply font-semibold text-primary;
+  }
+
+  .property-seller-details-phone {
+    @apply mt-1 inline-block text-muted-foreground underline-offset-2 hover:underline;
+  }
+
+  /* Nearby places */
+  .property-nearby {
+    @apply flex flex-col gap-5 sm:gap-6;
+  }
+
+  .property-nearby-header {
+    @apply flex flex-col gap-2;
+  }
+
+  .property-nearby-title {
+    @apply text-xl font-bold tracking-tight text-primary sm:text-2xl;
+  }
+
+  .property-nearby-row {
+    @apply flex flex-wrap gap-4;
+  }
+
+  .property-nearby-card {
+    @apply flex min-w-[9.5rem] flex-1 flex-col px-3 pt-3 transition hover:shadow-md;
+  }
+
+  .property-nearby-card-media {
+    @apply relative mb-2 overflow-hidden rounded-lg bg-muted;
+  }
+
+  .property-nearby-card-image {
+    @apply aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-105;
+  }
+
+  .property-nearby-card-overlay {
+    @apply pointer-events-none absolute inset-0 flex items-center justify-center bg-primary/35;
+  }
+
+  .property-nearby-card-icon {
+    @apply flex size-12 items-center justify-center rounded-full bg-white text-primary shadow-lg sm:size-14;
+  }
+
+  .property-nearby-card-icon svg {
+    @apply size-6 sm:size-7;
+  }
+
+  .property-nearby-card-body {
+    @apply p-3 sm:p-4;
+  }
+
+  .property-nearby-card-title {
+    @apply text-center text-sm font-medium text-primary sm:text-base;
+  }
+}
+
 /* ── Home panorama carousel ─────────────────────────────── */
 @layer components {
   .home-page {

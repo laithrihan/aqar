@@ -190,5 +190,46 @@
       "four": "4 Beds",
       "fivePlus": "5+ Beds"
     }
+  },
+  "property": {
+    "loading": "Loading property…",
+    "error": "Could not load this property.",
+    "notFound": "Property not found.",
+    "perMonth": "per month",
+    "ownedBy": "Owned by: {{name}}",
+    "share": "Share",
+    "areaSqft": "{{count}} sqft",
+    "areaUnknown": "-- sqft",
+    "status": {
+      "rent": "For rent",
+      "sale": "For sale"
+    },
+    "zestimate": "Zestimate®: {{value}}",
+    "estPayment": "Est. payment: {{value}}/mo",
+    "getPreQualified": "Get pre-qualified",
+    "sellerDetails": "Seller details",
+    "sellerWhatsapp": "Seller WhatsApp",
+    "gallery": {
+      "thumb": "Photo {{number}}"
+    },
+    "amenities": {
+      "baths_one": "{{count}} bath",
+      "baths_other": "{{count}} baths",
+      "windows_one": "{{count}} window",
+      "windows_other": "{{count}} windows",
+      "beds_one": "{{count}} bed",
+      "beds_other": "{{count}} beds",
+      "wifi": "Wi‑Fi",
+      "heater": "Heater",
+      "garden": "Garden"
+    },
+    "nearby": {
+      "title": "Location and near places",
+      "location": "Location",
+      "hospitals": "Nearby hospitals",
+      "restaurants": "Nearby restaurants",
+      "parks": "Nearby parks",
+      "schools": "Nearby schools"
+    }
   }
 }

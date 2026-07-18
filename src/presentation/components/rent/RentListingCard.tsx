@@ -4,20 +4,12 @@ import { useTranslation } from 'react-i18next'
 
 import type { RentListing } from '@/domain/rent/RentListing'
 import { cn } from '@/shared/lib/cn'
+import { formatPrice } from '@/shared/lib/formatPrice'
 
 type RentListingCardProps = {
   listing: RentListing
   selected: boolean
   onSelect: (id: string) => void
-}
-
-/** Formats a USD price for display on listing cards. */
-function formatPrice(price: number, locale: string): string {
-  return new Intl.NumberFormat(locale === 'ar' ? 'ar' : 'en-US', {
-    style: 'currency',
-    currency: 'USD',
-    maximumFractionDigits: 0,
-  }).format(price)
 }
 
 

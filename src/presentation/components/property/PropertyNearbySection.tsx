@@ -1,0 +1,98 @@
+import type { ComponentType } from 'react'
+import {
+  MdLocalHospital,
+  MdLocationOn,
+  MdPark,
+  MdRestaurant,
+  MdSchool,
+} from 'react-icons/md'
+import { useTranslation } from 'react-i18next'
+
+import { Card, CardContent, CardTitle } from '@/components/ui/card'
+
+const NEARBY_MAP_IMAGE = '/images/nearby-map.png'
+
+type NearbyIcon = ComponentType<{ className?: string; 'aria-hidden'?: boolean }>
+
+const NEARBY_PLACES = [
+  {
+    id: 'location',
+    titleKey: 'property.nearby.location',
+    Icon: MdLocationOn,
+  },
+  {
+    id: 'hospitals',
+    titleKey: 'property.nearby.hospitals',
+    Icon: MdLocalHospital,
+  },
+  {
+    id: 'restaurants',
+    titleKey: 'property.nearby.restaurants',
+    Icon: MdRestaurant,
+  },
+  {
+    id: 'parks',
+    titleKey: 'property.nearby.parks',
+    Icon: MdPark,
+  },
+  {
+    id: 'schools',
+    titleKey: 'property.nearby.schools',
+    Icon: MdSchool,
+  },
+] as const satisfies ReadonlyArray<{
+  id: string
+  titleKey: string
+  Icon: NearbyIcon
+}>
+
+type NearbyPlace = (typeof NEARBY_PLACES)[number]
+
+function PropertyNearbyCard({ place }: { place: NearbyPlace }) {
+  const { t } = useTranslation()
+  const title = t(place.titleKey)
+  const { Icon } = place
+
+  return (
+    <Card className="property-nearby-card group overflow-hidden">
+      <div className="property-nearby-card-media">
+        <img
+          src={NEARBY_MAP_IMAGE}
+          alt=""
+          className="property-nearby-card-image"
+          loading="lazy"
+        />
+        <div className="property-nearby-card-overlay" aria-hidden>
+          <span className="property-nearby-card-icon">
+            <Icon />
+          </span>
+        </div>
+      </div>
+
+      <CardContent className="property-nearby-card-body">
+        <CardTitle className="property-nearby-card-title">{title}</CardTitle>
+      </CardContent>
+    </Card>
+  )
+}
+
+/** Location section with nearby place map cards (search wiring later). */
+export function PropertyNearbySection() {
+  const { t } = useTranslation()
+
+  return (
+    <section className="property-nearby" aria-labelledby="property-nearby-heading">
+      <header className="property-nearby-header">
+        <h2 id="property-nearby-heading" className="property-nearby-title">
+          {t('property.nearby.title')}
+        </h2>
+      </header>
+
+      <div className="property-nearby-row">
+        {NEARBY_PLACES.map((place) => (
+          <PropertyNearbyCard key={place.id} place={place} />
+        ))}
+      </div>
+    </section>
+  )
+}

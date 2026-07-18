@@ -202,5 +202,58 @@
       "four": "4 غرف نوم",
       "fivePlus": "5+ غرف نوم"
     }
+  },
+  "property": {
+    "loading": "جاري تحميل العقار…",
+    "error": "تعذر تحميل هذا العقار.",
+    "notFound": "العقار غير موجود.",
+    "perMonth": "شهرياً",
+    "ownedBy": "المالك: {{name}}",
+    "share": "مشاركة",
+    "areaSqft": "{{count}} قدم²",
+    "areaUnknown": "-- قدم²",
+    "status": {
+      "rent": "للإيجار",
+      "sale": "للبيع"
+    },
+    "zestimate": "التقدير: {{value}}",
+    "estPayment": "القسط التقديري: {{value}}/شهر",
+    "getPreQualified": "احصل على التأهيل المسبق",
+    "sellerDetails": "تفاصيل البائع",
+    "sellerWhatsapp": "واتساب البائع",
+    "gallery": {
+      "thumb": "صورة {{number}}"
+    },
+    "amenities": {
+      "baths_zero": "لا حمامات",
+      "baths_one": "حمام واحد",
+      "baths_two": "حمامان",
+      "baths_few": "{{count}} حمامات",
+      "baths_many": "{{count}} حماماً",
+      "baths_other": "{{count}} حمام",
+      "windows_zero": "لا نوافذ",
+      "windows_one": "نافذة واحدة",
+      "windows_two": "نافذتان",
+      "windows_few": "{{count}} نوافذ",
+      "windows_many": "{{count}} نافذة",
+      "windows_other": "{{count}} نافذة",
+      "beds_zero": "لا غرف نوم",
+      "beds_one": "غرفة نوم واحدة",
+      "beds_two": "غرفتا نوم",
+      "beds_few": "{{count}} غرف نوم",
+      "beds_many": "{{count}} غرفة نوم",
+      "beds_other": "{{count}} غرفة نوم",
+      "wifi": "واي فاي",
+      "heater": "تدفئة",
+      "garden": "حديقة"
+    },
+    "nearby": {
+      "title": "الموقع والأماكن القريبة",
+      "location": "الموقع",
+      "hospitals": "مستشفيات قريبة",
+      "restaurants": "مطاعم قريبة",
+      "parks": "حدائق قريبة",
+      "schools": "مدارس قريبة"
+    }
   }
 }

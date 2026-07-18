@@ -1,0 +1,280 @@
+{
+  "listings": [
+    {
+      "id": "villa-damascus-mezzeh",
+      "galleryUrls": [
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80"
+      ],
+      "baths": 4,
+      "windows": 6,
+      "areaSqft": 2300,
+      "address": "Mezzeh, Damascus",
+      "addressAr": "المزة، دمشق",
+      "ownerName": "Ahmad Al-Saleh",
+      "ownerWhatsapp": "963910000000",
+      "status": "rent",
+      "estimatedValue": 174600,
+      "estimatedPaymentMonthly": 15000,
+      "amenities": {
+        "wifi": true,
+        "heater": true,
+        "garden": true
+      }
+    },
+    {
+      "id": "apartment-damascus-abu-rummaneh",
+      "galleryUrls": [
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
+      ],
+      "baths": 2,
+      "windows": 4,
+      "areaSqft": 1780,
+      "address": "Abu Rummaneh, Damascus",
+      "addressAr": "أبو رمانة، دمشق",
+      "ownerName": "Layla Haddad",
+      "ownerWhatsapp": "963910111111",
+      "status": "rent",
+      "estimatedValue": 40740,
+      "estimatedPaymentMonthly": 3500,
+      "amenities": {
+        "wifi": true,
+        "heater": true,
+        "garden": false
+      }
+    },
+    {
+      "id": "house-damascus-qassaa",
+      "galleryUrls": [
+        "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+      ],
+      "baths": 3,
+      "windows": 5,
+      "areaSqft": 2100,
+      "address": "Qassaa, Damascus",
+      "addressAr": "القصاع، دمشق",
+      "ownerName": "Omar Nasser",
+      "ownerWhatsapp": "963910222222",
+      "status": "rent",
+      "estimatedValue": 63050,
+      "estimatedPaymentMonthly": 5417,
+      "amenities": {
+        "wifi": true,
+        "heater": false,
+        "garden": true
+      }
+    },
+    {
+      "id": "villa-damascus-yaafour",
+      "galleryUrls": [
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+      ],
+      "baths": 5,
+      "windows": 7,
+      "areaSqft": 2700,
+      "address": "Yaafour, Damascus",
+      "addressAr": "يعفور، دمشق",
+      "ownerName": "Sara Khalil",
+      "ownerWhatsapp": "963910333333",
+      "status": "rent",
+      "estimatedValue": 310400,
+      "estimatedPaymentMonthly": 26667,
+      "amenities": {
+        "wifi": true,
+        "heater": true,
+        "garden": true
+      }
+    },
+    {
+      "id": "house-aleppo-aziziyah",
+      "galleryUrls": [
+        "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+      ],
+      "baths": 3,
+      "windows": 5,
+      "areaSqft": 2180,
+      "address": "Aziziyah, Aleppo",
+      "addressAr": "العزيزية، حلب",
+      "ownerName": "Rami Farhat",
+      "ownerWhatsapp": "963910444444",
+      "status": "rent",
+      "estimatedValue": 53350,
+      "estimatedPaymentMonthly": 4583,
+      "amenities": {
+        "wifi": false,
+        "heater": true,
+        "garden": true
+      }
+    },
+    {
+      "id": "apartment-aleppo-suleimaniyeh",
+      "galleryUrls": [
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
+      ],
+      "baths": 2,
+      "windows": 3,
+      "areaSqft": 1660,
+      "address": "Suleimaniyeh, Aleppo",
+      "addressAr": "السليمانية، حلب",
+      "ownerName": "Nour Youssef",
+      "ownerWhatsapp": "963910555555",
+      "status": "rent",
+      "estimatedValue": 27160,
+      "estimatedPaymentMonthly": 2333,
+      "amenities": {
+        "wifi": true,
+        "heater": false,
+        "garden": false
+      }
+    },
+    {
+      "id": "villa-latakia-corniche",
+      "galleryUrls": [
+        "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80"
+      ],
+      "baths": 4,
+      "windows": 6,
+      "areaSqft": 2540,
+      "address": "Corniche, Latakia",
+      "addressAr": "الكورنيش، اللاذقية",
+      "ownerName": "Karim Badr",
+      "ownerWhatsapp": "963910666666",
+      "status": "rent",
+      "estimatedValue": 203700,
+      "estimatedPaymentMonthly": 17500,
+      "amenities": {
+        "wifi": true,
+        "heater": true,
+        "garden": true
+      }
+    },
+    {
+      "id": "apartment-latakia-project",
+      "galleryUrls": [
+        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80"
+      ],
+      "baths": 2,
+      "windows": 4,
+      "areaSqft": 2020,
+      "address": "Project area, Latakia",
+      "addressAr": "منطقة المشروع، اللاذقية",
+      "ownerName": "Hiba Mansour",
+      "ownerWhatsapp": "963910777777",
+      "status": "rent",
+      "estimatedValue": 33950,
+      "estimatedPaymentMonthly": 2917,
+      "amenities": {
+        "wifi": true,
+        "heater": true,
+        "garden": false
+      }
+    },
+    {
+      "id": "house-homs-inshaat",
+      "galleryUrls": [
+        "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=800&q=80"
+      ],
+      "baths": 2,
+      "windows": 4,
+      "areaSqft": 2060,
+      "address": "Inshaat, Homs",
+      "addressAr": "الإنشاءات، حمص",
+      "ownerName": "Fadi Qassem",
+      "ownerWhatsapp": "963910888888",
+      "status": "rent",
+      "estimatedValue": 46560,
+      "estimatedPaymentMonthly": 4000,
+      "amenities": {
+        "wifi": true,
+        "heater": false,
+        "garden": true
+      }
+    },
+    {
+      "id": "estate-tartus-seaside",
+      "galleryUrls": [
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80"
+      ],
+      "baths": 5,
+      "windows": 7,
+      "areaSqft": 2940,
+      "address": "Seaside, Tartus",
+      "addressAr": "الواجهة البحرية، طرطوس",
+      "ownerName": "Maya Zeidan",
+      "ownerWhatsapp": "963910999999",
+      "status": "rent",
+      "estimatedValue": 266750,
+      "estimatedPaymentMonthly": 22917,
+      "amenities": {
+        "wifi": false,
+        "heater": true,
+        "garden": true
+      }
+    },
+    {
+      "id": "villa-hama-old-city",
+      "galleryUrls": [
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80"
+      ],
+      "baths": 3,
+      "windows": 5,
+      "areaSqft": 2420,
+      "address": "Old City, Hama",
+      "addressAr": "المدينة القديمة، حماة",
+      "ownerName": "Tarek Abboud",
+      "ownerWhatsapp": "963911111110",
+      "status": "rent",
+      "estimatedValue": 92150,
+      "estimatedPaymentMonthly": 7917,
+      "amenities": {
+        "wifi": true,
+        "heater": true,
+        "garden": true
+      }
+    },
+    {
+      "id": "office-damascus-mazzeh",
+      "galleryUrls": [
+        "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80"
+      ],
+      "baths": 3,
+      "windows": 5,
+      "areaSqft": 2080,
+      "address": "Mezzeh, Damascus",
+      "addressAr": "المزة، دمشق",
+      "ownerName": "Dima Hariri",
+      "ownerWhatsapp": "963911222221",
+      "status": "rent",
+      "estimatedValue": 69840,
+      "estimatedPaymentMonthly": 6000,
+      "amenities": {
+        "wifi": true,
+        "heater": false,
+        "garden": false
+      }
+    }
+  ]
+}

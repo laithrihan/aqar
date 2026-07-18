@@ -6,10 +6,10 @@ import {
   AboutPage,
   BuyPage,
   ContactPage,
-  HomeDetailPage,
   LoginPage,
   SignUpPage,
 } from "@/presentation/pages/placeholders";
+import { PropertyDetailPage } from "@/presentation/pages/PropertyDetailPage";
 import { RentPage } from "@/presentation/pages/RentPage";
 
 /** Application route tree. */
@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
       { index: true, element: <HomePage /> },
       { path: "buy", element: <BuyPage /> },
       { path: "rent", element: <RentPage /> },
-      { path: "homes/:propertyId", element: <HomeDetailPage /> },
+      { path: "homes/:propertyId", element: <PropertyDetailPage /> },
       { path: "about", element: <AboutPage /> },
       { path: "contact", element: <ContactPage /> },
       { path: "login", element: <LoginPage /> },
