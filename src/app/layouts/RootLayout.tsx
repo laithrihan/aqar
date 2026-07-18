@@ -5,7 +5,7 @@ import { Header } from '@/presentation/components/layout/Header'
 
 export function RootLayout() {
   const { pathname } = useLocation()
-  const hideFooter = pathname === '/rent'
+  const hideFooter = pathname === '/rent' || pathname === '/buy'
 
   return (
     <div className="flex min-h-screen flex-col">
