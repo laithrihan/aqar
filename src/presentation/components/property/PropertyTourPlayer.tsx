@@ -9,7 +9,6 @@ import {
 import { useTranslation } from 'react-i18next'
 
 import { formatMediaTime } from '@/shared/lib/formatMediaTime'
-import { PROPERTY_IMAGE_FALLBACK } from '@/shared/lib/imageFallback'
 
 type PropertyTourPlayerProps = {
   videoUrl: string
@@ -40,10 +39,10 @@ export function PropertyTourPlayer({
   }
 
   const resolvedPoster =
-    !posterUrl || hasPosterError ? PROPERTY_IMAGE_FALLBACK : posterUrl
+    !posterUrl || hasPosterError ? undefined : posterUrl
 
   useEffect(() => {
-    if (!posterUrl || posterUrl === PROPERTY_IMAGE_FALLBACK) return
+    if (!posterUrl) return
 
     let cancelled = false
     const probe = new window.Image()

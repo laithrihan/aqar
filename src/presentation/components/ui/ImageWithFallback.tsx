@@ -1,49 +1,62 @@
 import { useState, type ImgHTMLAttributes } from 'react'
 
-import { PROPERTY_IMAGE_FALLBACK } from '@/shared/lib/imageFallback'
+import { Skeleton } from '@/components/ui/skeleton'
+import { cn } from '@/shared/lib/cn'
 
 type ImageWithFallbackProps = Omit<ImgHTMLAttributes<HTMLImageElement>, 'src'> & {
   src?: string | null
-  fallbackSrc?: string
 }
 
 export function ImageWithFallback({
   src,
-  fallbackSrc = PROPERTY_IMAGE_FALLBACK,
   alt = '',
   className,
   onError,
+  onLoad,
   ...props
 }: ImageWithFallbackProps) {
-  const [hasError, setHasError] = useState(false)
+  const [hasError, setHasError] = useState(!src)
+  const [isLoaded, setIsLoaded] = useState(false)
   const [prevSrc, setPrevSrc] = useState(src)
-  const [prevFallbackSrc, setPrevFallbackSrc] = useState(fallbackSrc)
 
-  // Reset error state when the intended source changes (React "adjusting state during render").
-  if (src !== prevSrc || fallbackSrc !== prevFallbackSrc) {
+  if (src !== prevSrc) {
     setPrevSrc(src)
-    setPrevFallbackSrc(fallbackSrc)
-    setHasError(false)
+    setHasError(!src)
+    setIsLoaded(false)
   }
 
-  const currentSrc = !src || hasError ? fallbackSrc : src
+  const showSkeleton = !src || hasError || !isLoaded
 
   return (
-    <img
-      key={src ?? 'empty'}
-      {...props}
-      src={currentSrc}
-      alt={alt}
-      className={className}
-      onError={(event) => {
-        const displayedSrc = event.currentTarget.getAttribute('src')
+    <div className={cn('relative', className)}>
+      {showSkeleton ? (
+        <Skeleton
+          className="absolute inset-0 size-full rounded-none"
+          aria-hidden
+        />
+      ) : null}
 
-        if (!hasError && src && displayedSrc === src && currentSrc !== fallbackSrc) {
-          setHasError(true)
-        }
-
-        onError?.(event)
-      }}
-    />
+      {src && !hasError ? (
+        <img
+          key={src}
+          {...props}
+          src={src}
+          alt={alt}
+          className={cn(
+            'relative size-full object-cover object-center',
+            !isLoaded && 'opacity-0',
+          )}
+          onLoad={(event) => {
+            setIsLoaded(true)
+            onLoad?.(event)
+          }}
+          onError={(event) => {
+            setHasError(true)
+            setIsLoaded(false)
+            onError?.(event)
+          }}
+        />
+      ) : null}
+    </div>
   )
 }
