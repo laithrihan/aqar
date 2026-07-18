@@ -1,5 +1,7 @@
 import type { RentListing } from '@/domain/rent/RentListing'
 
+export type PropertyHeatingType = 'forcedAir' | 'central' | 'none'
+
 /** Detail fields stored separately from the base rent listing. */
 export type PropertyDetailExtension = {
   id: string
@@ -18,6 +20,10 @@ export type PropertyDetailExtension = {
     wifi: boolean
     heater: boolean
     garden: boolean
+  }
+  features: {
+    heating: PropertyHeatingType
+    garageSpaces: number
   }
 }
 

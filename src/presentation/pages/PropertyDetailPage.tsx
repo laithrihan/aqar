@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 
 import { PropertyAmenitiesGrid } from '@/presentation/components/property/PropertyAmenitiesGrid'
 import { PropertyDetailHeader } from '@/presentation/components/property/PropertyDetailHeader'
+import { PropertyFeaturesSection } from '@/presentation/components/property/PropertyFeaturesSection'
 import { PropertyGallery } from '@/presentation/components/property/PropertyGallery'
 import { PropertyNearbySection } from '@/presentation/components/property/PropertyNearbySection'
 import { PropertySellerActions } from '@/presentation/components/property/PropertySellerActions'
@@ -56,6 +57,7 @@ export function PropertyDetailPage() {
         </div>
       </section>
 
+      <PropertyFeaturesSection property={property} />
       <PropertyNearbySection />
     </div>
   )

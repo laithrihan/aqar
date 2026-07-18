@@ -21,6 +21,10 @@
         "wifi": true,
         "heater": true,
         "garden": true
+      },
+      "features": {
+        "heating": "forcedAir",
+        "garageSpaces": 2
       }
     },
     {
@@ -44,6 +48,10 @@
         "wifi": true,
         "heater": true,
         "garden": false
+      },
+      "features": {
+        "heating": "forcedAir",
+        "garageSpaces": 1
       }
     },
     {
@@ -67,6 +75,10 @@
         "wifi": true,
         "heater": false,
         "garden": true
+      },
+      "features": {
+        "heating": "central",
+        "garageSpaces": 1
       }
     },
     {
@@ -90,6 +102,10 @@
         "wifi": true,
         "heater": true,
         "garden": true
+      },
+      "features": {
+        "heating": "forcedAir",
+        "garageSpaces": 3
       }
     },
     {
@@ -113,6 +129,10 @@
         "wifi": false,
         "heater": true,
         "garden": true
+      },
+      "features": {
+        "heating": "forcedAir",
+        "garageSpaces": 1
       }
     },
     {
@@ -136,6 +156,10 @@
         "wifi": true,
         "heater": false,
         "garden": false
+      },
+      "features": {
+        "heating": "central",
+        "garageSpaces": 0
       }
     },
     {
@@ -159,6 +183,10 @@
         "wifi": true,
         "heater": true,
         "garden": true
+      },
+      "features": {
+        "heating": "forcedAir",
+        "garageSpaces": 2
       }
     },
     {
@@ -182,6 +210,10 @@
         "wifi": true,
         "heater": true,
         "garden": false
+      },
+      "features": {
+        "heating": "forcedAir",
+        "garageSpaces": 1
       }
     },
     {
@@ -205,6 +237,10 @@
         "wifi": true,
         "heater": false,
         "garden": true
+      },
+      "features": {
+        "heating": "central",
+        "garageSpaces": 1
       }
     },
     {
@@ -228,6 +264,10 @@
         "wifi": false,
         "heater": true,
         "garden": true
+      },
+      "features": {
+        "heating": "forcedAir",
+        "garageSpaces": 4
       }
     },
     {
@@ -251,6 +291,10 @@
         "wifi": true,
         "heater": true,
         "garden": true
+      },
+      "features": {
+        "heating": "forcedAir",
+        "garageSpaces": 2
       }
     },
     {
@@ -274,6 +318,10 @@
         "wifi": true,
         "heater": false,
         "garden": false
+      },
+      "features": {
+        "heating": "central",
+        "garageSpaces": 0
       }
     }
   ]

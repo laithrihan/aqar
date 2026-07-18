@@ -223,6 +223,28 @@
       "heater": "Heater",
       "garden": "Garden"
     },
+    "features": {
+      "title": "Features and services:",
+      "types": {
+        "villa": "Villa",
+        "apartment": "Apartment",
+        "house": "House",
+        "office": "Office",
+        "duplex": "Duplex"
+      },
+      "bedrooms_one": "{{count}} bedroom",
+      "bedrooms_other": "{{count}} bedrooms",
+      "bathrooms_one": "{{count}} bathroom",
+      "bathrooms_other": "{{count}} bathrooms",
+      "heating": {
+        "forcedAir": "Forced air",
+        "central": "Central heating",
+        "none": "No heating"
+      },
+      "garageSpaces_one": "{{count}} Attached garage space",
+      "garageSpaces_other": "{{count}} Attached garage spaces",
+      "noParking": "No parking"
+    },
     "nearby": {
       "title": "Location and near places",
       "location": "Location",

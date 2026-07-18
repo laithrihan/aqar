@@ -247,6 +247,40 @@
       "heater": "تدفئة",
       "garden": "حديقة"
     },
+    "features": {
+      "title": "الميزات والخدمات:",
+      "types": {
+        "villa": "فيلا",
+        "apartment": "شقة",
+        "house": "منزل",
+        "office": "مكتب",
+        "duplex": "دوبلكس"
+      },
+      "bedrooms_zero": "لا غرف نوم",
+      "bedrooms_one": "غرفة نوم واحدة",
+      "bedrooms_two": "غرفتا نوم",
+      "bedrooms_few": "{{count}} غرف نوم",
+      "bedrooms_many": "{{count}} غرفة نوم",
+      "bedrooms_other": "{{count}} غرفة نوم",
+      "bathrooms_zero": "لا حمامات",
+      "bathrooms_one": "حمام واحد",
+      "bathrooms_two": "حمامان",
+      "bathrooms_few": "{{count}} حمامات",
+      "bathrooms_many": "{{count}} حماماً",
+      "bathrooms_other": "{{count}} حمام",
+      "heating": {
+        "forcedAir": "تدفئة هواء قسري",
+        "central": "تدفئة مركزية",
+        "none": "بدون تدفئة"
+      },
+      "garageSpaces_zero": "لا موقف سيارات",
+      "garageSpaces_one": "موقف مرآب ملحق واحد",
+      "garageSpaces_two": "موقفا مرآب ملحقان",
+      "garageSpaces_few": "{{count}} مواقف مرآب ملحقة",
+      "garageSpaces_many": "{{count}} موقف مرآب ملحق",
+      "garageSpaces_other": "{{count}} موقف مرآب ملحق",
+      "noParking": "لا موقف سيارات"
+    },
     "nearby": {
       "title": "الموقع والأماكن القريبة",
       "location": "الموقع",
