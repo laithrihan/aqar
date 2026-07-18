@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import type { PropertyDetail } from '@/domain/property/PropertyDetail'
+import { ImageWithFallback } from '@/presentation/components/ui/ImageWithFallback'
 import { cn } from '@/shared/lib/cn'
 import { getPropertyGalleryThumbs } from '@/shared/lib/propertyGallery'
 
@@ -18,7 +19,7 @@ export function PropertyGallery({ property }: PropertyGalleryProps) {
   return (
     <div className="property-gallery">
       <div className="property-gallery-main">
-        <img
+        <ImageWithFallback
           src={activeUrl}
           alt={t(property.titleKey)}
           className="property-gallery-main-image"
@@ -38,7 +39,7 @@ export function PropertyGallery({ property }: PropertyGalleryProps) {
               aria-label={t('property.gallery.thumb', { number: index + 1 })}
               aria-pressed={url === activeUrl}
             >
-              <img
+              <ImageWithFallback
                 src={url}
                 alt=""
                 className="property-gallery-thumb-image"

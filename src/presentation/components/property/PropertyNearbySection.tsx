@@ -12,6 +12,7 @@ import { Card, CardContent, CardTitle } from '@/components/ui/card'
 import type { NearbyPlaceCategory } from '@/domain/property/buildNearbyGoogleMapsUrl'
 import { buildNearbyGoogleMapsUrl } from '@/domain/property/buildNearbyGoogleMapsUrl'
 import type { PropertyDetail } from '@/domain/property/PropertyDetail'
+import { ImageWithFallback } from '@/presentation/components/ui/ImageWithFallback'
 
 const NEARBY_MAP_IMAGE = '/images/nearby-map.png'
 
@@ -73,7 +74,7 @@ function PropertyNearbyCard({ place, lat, lng }: PropertyNearbyCardProps) {
         aria-label={t('property.nearby.openMap', { place: title })}
       >
         <div className="property-nearby-card-media">
-          <img
+          <ImageWithFallback
             src={NEARBY_MAP_IMAGE}
             alt=""
             className="property-nearby-card-image"

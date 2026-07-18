@@ -3,6 +3,7 @@ import { MdOutlineBed, MdOutlineMeetingRoom } from 'react-icons/md'
 import { useTranslation } from 'react-i18next'
 
 import type { RentListing } from '@/domain/rent/RentListing'
+import { ImageWithFallback } from '@/presentation/components/ui/ImageWithFallback'
 import { formatPrice } from '@/shared/lib/formatPrice'
 
 type PropertyHomeCardProps = {
@@ -16,7 +17,7 @@ export function PropertyHomeCard({ listing }: PropertyHomeCardProps) {
   return (
     <article className="property-home-card">
       <Link to={`/homes/${listing.id}`} className="property-home-card-media">
-        <img
+        <ImageWithFallback
           src={listing.imageUrl}
           alt={title}
           className="property-home-card-image"

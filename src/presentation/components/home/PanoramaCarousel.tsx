@@ -3,6 +3,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
 
 import type { CarouselSlide } from "@/domain/home/CarouselSlide";
+import { ImageWithFallback } from "@/presentation/components/ui/ImageWithFallback";
 import { cn } from "@/shared/lib/cn";
 import i18n from "@/shared/i18n";
 
@@ -59,7 +60,7 @@ export function PanoramaCarousel({ slides }: PanoramaCarouselProps) {
             )}
             aria-hidden={index !== activeIndex}
           >
-            <img
+            <ImageWithFallback
               src={slide.imageUrl}
               alt=""
               className="panorama-carousel-image"

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
 import type { BentoColumn, BentoImage } from '@/domain/home/BentoHomes'
+import { ImageWithFallback } from '@/presentation/components/ui/ImageWithFallback'
 import { cn } from '@/shared/lib/cn'
 
 type BentoHomesCarouselProps = {
@@ -197,7 +198,7 @@ function BentoHomeTile({ image, decorative = false }: BentoHomeTileProps) {
 
   return (
     <div className="bento-homes-tile">
-      <img
+      <ImageWithFallback
         src={image.imageUrl}
         alt={decorative ? '' : title}
         className="bento-homes-image"

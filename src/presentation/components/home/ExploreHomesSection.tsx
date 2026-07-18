@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 
+import { Skeleton } from '@/components/ui/skeleton'
 import { BentoHomesCarousel } from '@/presentation/components/home/BentoHomesCarousel'
 import { useBentoHomesColumns } from '@/presentation/hooks/useBentoHomesColumns'
 
@@ -23,8 +24,9 @@ export function ExploreHomesSection() {
       </div>
 
       {isLoading && (
-        <div className="bento-homes-carousel bento-homes-carousel--skeleton" aria-busy>
+        <div className="bento-homes-carousel" aria-busy>
           <span className="sr-only">{t('home.explore.bento.loading')}</span>
+          <Skeleton className="mx-4 h-[320px] w-auto rounded-[12px] sm:mx-6 sm:h-[420px]" />
         </div>
       )}
 

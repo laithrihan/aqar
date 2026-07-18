@@ -9,6 +9,7 @@ import {
 import { useTranslation } from 'react-i18next'
 
 import { formatMediaTime } from '@/shared/lib/formatMediaTime'
+import { PROPERTY_IMAGE_FALLBACK } from '@/shared/lib/imageFallback'
 
 type PropertyTourPlayerProps = {
   videoUrl: string
@@ -30,6 +31,32 @@ export function PropertyTourPlayer({
   const [isMuted, setIsMuted] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
+  const [hasPosterError, setHasPosterError] = useState(false)
+  const [prevPosterUrl, setPrevPosterUrl] = useState(posterUrl)
+
+  if (posterUrl !== prevPosterUrl) {
+    setPrevPosterUrl(posterUrl)
+    setHasPosterError(false)
+  }
+
+  const resolvedPoster =
+    !posterUrl || hasPosterError ? PROPERTY_IMAGE_FALLBACK : posterUrl
+
+  useEffect(() => {
+    if (!posterUrl || posterUrl === PROPERTY_IMAGE_FALLBACK) return
+
+    let cancelled = false
+    const probe = new window.Image()
+    probe.onerror = () => {
+      if (!cancelled) setHasPosterError(true)
+    }
+    probe.src = posterUrl
+
+    return () => {
+      cancelled = true
+      probe.onerror = null
+    }
+  }, [posterUrl])
 
   useEffect(() => {
     const video = videoRef.current
@@ -110,7 +137,7 @@ export function PropertyTourPlayer({
         ref={videoRef}
         className="property-tour-video"
         src={videoUrl}
-        poster={posterUrl}
+        poster={resolvedPoster}
         playsInline
         preload="metadata"
         onClick={() => void togglePlay()}

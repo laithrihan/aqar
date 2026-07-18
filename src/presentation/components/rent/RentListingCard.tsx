@@ -3,6 +3,7 @@ import { MdOutlineBed, MdOutlineMeetingRoom } from 'react-icons/md'
 import { useTranslation } from 'react-i18next'
 
 import type { RentListing } from '@/domain/rent/RentListing'
+import { ImageWithFallback } from '@/presentation/components/ui/ImageWithFallback'
 import { cn } from '@/shared/lib/cn'
 import { formatPrice } from '@/shared/lib/formatPrice'
 
@@ -36,7 +37,7 @@ export function RentListingCard({
         aria-pressed={selected}
         aria-label={t('rent.listings.select', { name: t(listing.titleKey) })}
       >
-        <img
+        <ImageWithFallback
           src={listing.imageUrl}
           alt=""
           className="rent-listing-card-image"

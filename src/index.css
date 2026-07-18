@@ -916,10 +916,6 @@
     @apply cursor-grabbing;
   }
 
-  .bento-homes-carousel--skeleton {
-    @apply mx-4 h-[320px] animate-pulse rounded-[12px] bg-muted sm:mx-6 sm:h-[420px];
-  }
-
   .bento-homes-carousel-error {
     @apply px-4 text-center text-sm text-muted-foreground;
   }
@@ -977,10 +973,6 @@
 
   .panorama-carousel {
     @apply relative h-[min(78vh,720px)] w-full min-h-[320px] overflow-hidden bg-primary;
-  }
-
-  .panorama-carousel--skeleton {
-    @apply animate-pulse bg-primary/80;
   }
 
   .panorama-carousel--error {

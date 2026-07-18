@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 
 import { PropertyHomeCard } from '@/presentation/components/property/PropertyHomeCard'
+import { ListingCardsSkeleton } from '@/presentation/components/ui/ListingCardSkeleton'
 import { useMoreHomes } from '@/presentation/hooks/useMoreHomes'
 
 type PropertyMoreHomesSectionProps = {
@@ -23,7 +24,16 @@ export function PropertyMoreHomesSection({
       </h2>
 
       {isPending ? (
-        <p className="property-more-homes-status">{t('property.moreHomes.loading')}</p>
+        <>
+          <span className="sr-only">{t('property.moreHomes.loading')}</span>
+          <ListingCardsSkeleton
+            count={4}
+            gridClassName="property-more-homes-grid"
+            cardClassName="property-home-card"
+            bodyClassName="property-home-card-body"
+            imageClassName="rounded-t-xl"
+          />
+        </>
       ) : null}
 
       {isError ? (

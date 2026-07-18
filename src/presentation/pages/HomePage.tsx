@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 
+import { Skeleton } from '@/components/ui/skeleton'
 import { ExploreHomesSection } from '@/presentation/components/home/ExploreHomesSection'
 import { HomeBootLoader } from '@/presentation/components/home/HomeBootLoader'
 import { PanoramaCarousel } from '@/presentation/components/home/PanoramaCarousel'
@@ -17,8 +18,9 @@ export function HomePage() {
 
       <div className="home-hero">
         {isLoading && (
-          <div className="panorama-carousel panorama-carousel--skeleton" aria-busy>
+          <div className="panorama-carousel" aria-busy>
             <span className="sr-only">{t('home.carousel.loading')}</span>
+            <Skeleton className="size-full rounded-none bg-primary/15" />
           </div>
         )}
 

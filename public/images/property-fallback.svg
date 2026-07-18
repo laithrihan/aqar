@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="Property image placeholder">
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#019DB3" stop-opacity="0.18"/>
+      <stop offset="55%" stop-color="#019DB3" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#E8F0F2"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#019DB3" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#019DB3" stop-opacity="0.22"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Soft secondary wash -->
+  <rect width="800" height="600" fill="url(#sky)"/>
+  <rect y="420" width="800" height="180" fill="url(#ground)"/>
+
+  <!-- House mark in secondary -->
+  <g transform="translate(400 290)" fill="none" stroke="#019DB3" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-120 -10 L0 -130 L120 -10 V130 H-120 Z"/>
+    <path d="M-40 130 V20 H40 V130"/>
+    <path d="M-70 -55 H70" opacity="0.55"/>
+  </g>
+
+  <!-- Accent window -->
+  <rect x="372" y="248" width="56" height="42" rx="6" fill="#019DB3" fill-opacity="0.2" stroke="#019DB3" stroke-width="6"/>
+</svg>
