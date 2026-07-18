@@ -231,7 +231,7 @@
 /* ── Rent page ───────────────────────────────────────────── */
 @layer components {
   .rent-page {
-    @apply mx-auto flex w-full flex-col gap-6 py-8 sm:gap-8 sm:py-12 lg:gap-10 lg:py-14;
+    @apply mx-auto flex w-full flex-col gap-6 pt-8 sm:gap-8 sm:pt-12 lg:gap-10 lg:pt-14;
   }
 
   .rent-page-header {
@@ -315,7 +315,7 @@
 
   /* Map + listings results */
   .rent-results {
-    @apply mx-auto w-[95%];
+    @apply mx-auto w-[95%] max-h-[85vh] overflow-y-auto;
   }
 
   .rent-results--status {
