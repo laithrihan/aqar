@@ -4,7 +4,6 @@ import { RootLayout } from "@/app/layouts/RootLayout";
 import { HomePage } from "@/presentation/pages/HomePage";
 import {
   AboutPage,
-  BuyPage,
   LoginPage,
   SignUpPage,
 } from "@/presentation/pages/placeholders";
@@ -19,7 +18,7 @@ export const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { index: true, element: <HomePage /> },
-      { path: "buy", element: <BuyPage /> },
+      { path: "buy", element: <RentPage /> },
       { path: "rent", element: <RentPage /> },
       { path: "homes/:propertyId", element: <PropertyDetailPage /> },
       { path: "about", element: <AboutPage /> },
