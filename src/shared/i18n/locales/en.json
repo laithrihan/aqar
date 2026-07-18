@@ -88,7 +88,63 @@
     }
   },
   "rent": {
-    "title": "Rent Your Perfect Property"
+    "title": "Rent Your Perfect Property",
+    "resultsLabel": "Rent listings map and results",
+    "map": {
+      "label": "Property locations map",
+      "missingKey": "Google maps need Billing to show the map but the code is working."
+    },
+    "sort": {
+      "label": "Sort listings",
+      "default": "Sort",
+      "priceAsc": "Price: Low to High",
+      "priceDesc": "Price: High to Low",
+      "roomsDesc": "Most Rooms",
+      "roomsAsc": "Fewest Rooms",
+      "bedsDesc": "Most Beds",
+      "bedsAsc": "Fewest Beds"
+    },
+    "listings": {
+      "label": "Available rentals",
+      "loading": "Loading rentals…",
+      "error": "Could not load rentals.",
+      "empty": "No rentals match your filters.",
+      "count_one": "{{count}} rental",
+      "count_other": "{{count}} rentals",
+      "perYear": "/ year",
+      "select": "Select {{name}} on the map",
+      "roomsCount_one": "{{count}} room",
+      "roomsCount_other": "{{count}} rooms",
+      "bedsCount_one": "{{count}} bed",
+      "bedsCount_other": "{{count}} beds"
+    },
+    "locations": {
+      "mezzehDamascus": "Mezzeh, Damascus",
+      "abuRummanehDamascus": "Abu Rummaneh, Damascus",
+      "qassaaDamascus": "Qassaa, Damascus",
+      "yaafourDamascus": "Yaafour, Damascus",
+      "aziziyahAleppo": "Aziziyah, Aleppo",
+      "suleimaniyehAleppo": "Suleimaniyeh, Aleppo",
+      "cornicheLatakia": "Corniche, Latakia",
+      "projectLatakia": "Project area, Latakia",
+      "inshaatHoms": "Inshaat, Homs",
+      "seasideTartus": "Seaside, Tartus",
+      "oldCityHama": "Old City, Hama"
+    },
+    "homes": {
+      "villaDamascusMezzeh": "Villa in Mezzeh, Damascus",
+      "apartmentDamascusAbuRummaneh": "Apartment in Abu Rummaneh, Damascus",
+      "houseDamascusQassaa": "House in Qassaa, Damascus",
+      "villaDamascusYaafour": "Villa in Yaafour, Damascus",
+      "houseAleppoAziziyah": "Family house in Aziziyah, Aleppo",
+      "apartmentAleppoSuleimaniyeh": "Apartment in Suleimaniyeh, Aleppo",
+      "villaLatakiaCorniche": "Corniche villa, Latakia",
+      "apartmentLatakiaProject": "Apartment in Project area, Latakia",
+      "houseHomsInshaat": "House in Inshaat, Homs",
+      "estateTartusSeaside": "Seaside estate, Tartus",
+      "villaHamaOldCity": "Villa near Old City, Hama",
+      "officeDamascusMazzeh": "Office space in Mezzeh, Damascus"
+    }
   },
   "search": {
     "modesLabel": "Listing type",

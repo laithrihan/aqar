@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 
 import { RentFilterSearch } from '@/presentation/components/rent/RentFilterSearch'
+import { RentResultsSection } from '@/presentation/components/rent/RentResultsSection'
 
 export function RentPage() {
   const { t } = useTranslation()
@@ -13,6 +14,7 @@ export function RentPage() {
       </header>
 
       <RentFilterSearch />
+      <RentResultsSection />
     </div>
   )
 }
