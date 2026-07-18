@@ -15,6 +15,22 @@
     "login": "Log in",
     "signUp": "Sign up"
   },
+  "auth": {
+    "login": {
+      "title": "Welcome back",
+      "subtitle": "Sign in to continue browsing homes on Aqar.",
+      "formLabel": "Log in form",
+      "identifier": "Email or username",
+      "identifierPlaceholder": "you@example.com or username",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "showPassword": "Show password",
+      "hidePassword": "Hide password",
+      "submit": "Log in",
+      "or": "or",
+      "google": "Continue with Google"
+    }
+  },
   "language": {
     "label": "Language",
     "en": "English",

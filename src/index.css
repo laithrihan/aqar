@@ -1516,3 +1516,132 @@
     animation: none;
   }
 }
+
+/* ── Dialog (shadcn) ─────────────────────────────────────── */
+@layer components {
+  .dialog-overlay {
+    @apply fixed inset-0 z-[60] bg-primary/50 backdrop-blur-[2px];
+    animation: dialog-fade-in 180ms ease-out both;
+  }
+
+  .dialog-content {
+    @apply fixed left-1/2 top-1/2 z-[61] grid w-[calc(100%-2rem)] max-w-md -translate-x-1/2 -translate-y-1/2 gap-4;
+    @apply rounded-2xl border border-border bg-background p-6 shadow-[0px_8px_40px_0px_rgba(13,50,61,0.18)];
+    animation: dialog-scale-in 200ms ease-out both;
+  }
+
+  .dialog-close {
+    @apply absolute end-4 top-4 rounded-md p-1 text-muted-foreground transition-colors;
+    @apply hover:bg-muted hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
+  }
+
+  .dialog-header {
+    @apply flex flex-col gap-1.5 text-center sm:text-start;
+  }
+
+  .dialog-footer {
+    @apply flex flex-col-reverse gap-2 sm:flex-row sm:justify-end;
+  }
+
+  .dialog-title {
+    @apply text-xl font-bold tracking-tight text-primary;
+  }
+
+  .dialog-description {
+    @apply text-sm text-muted-foreground;
+  }
+}
+
+/* ── Login modal ─────────────────────────────────────────── */
+@layer components {
+  .login-modal {
+    @apply gap-5 p-6 sm:gap-6 sm:p-8;
+  }
+
+  .login-modal-header {
+    @apply pe-8;
+  }
+
+  .login-modal-form {
+    @apply flex flex-col gap-4;
+  }
+
+  .login-modal-field {
+    @apply flex flex-col gap-1.5;
+  }
+
+  .login-modal-label {
+    @apply text-sm font-semibold text-primary;
+  }
+
+  .login-modal-input {
+    @apply w-full rounded-xl border border-primary/25 bg-white px-4 py-3 text-sm text-primary outline-none transition-[border-color,box-shadow];
+    @apply placeholder:text-primary/35;
+    @apply focus:border-secondary focus:ring-2 focus:ring-secondary/20;
+  }
+
+  .login-modal-password-wrap {
+    @apply relative;
+  }
+
+  .login-modal-input--password {
+    @apply pe-12;
+  }
+
+  .login-modal-password-toggle {
+    @apply absolute end-3 top-1/2 -translate-y-1/2 rounded-md p-1 text-muted-foreground transition-colors;
+    @apply hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
+  }
+
+  .login-modal-submit {
+    @apply mt-1 inline-flex h-12 w-full items-center justify-center rounded-xl bg-primary text-base font-bold text-white transition-opacity;
+    @apply hover:opacity-90;
+  }
+
+  .login-modal-divider {
+    @apply relative flex items-center justify-center;
+  }
+
+  .login-modal-divider::before {
+    content: '';
+    @apply absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-border;
+  }
+
+  .login-modal-divider span {
+    @apply relative z-10 bg-background px-3 text-xs font-medium uppercase tracking-wider text-muted-foreground;
+  }
+
+  .login-modal-google {
+    @apply inline-flex h-12 w-full items-center justify-center gap-2.5 rounded-xl border border-primary/25 bg-white text-sm font-semibold text-primary transition-colors;
+    @apply hover:border-secondary hover:bg-muted/60;
+  }
+}
+
+@keyframes dialog-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dialog-scale-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog-overlay,
+  .dialog-content {
+    animation: none;
+  }
+}

@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
+import { LoginModal } from '@/presentation/components/auth/LoginModal'
+
 import { HeaderNavLink } from './HeaderNavLink'
 import { LanguageSelect } from './LanguageSelect'
 import { Logo } from './Logo'
@@ -8,8 +10,14 @@ import { Logo } from './Logo'
 export function Header() {
   const { t } = useTranslation()
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [loginOpen, setLoginOpen] = useState(false)
 
   const closeMobile = () => setMobileOpen(false)
+
+  const openLogin = () => {
+    setLoginOpen(true)
+    setMobileOpen(false)
+  }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 drop-shadow-md backdrop-blur">
@@ -37,7 +45,11 @@ export function Header() {
         >
           <HeaderNavLink to="/about" label={t('nav.aboutUs')} />
           <HeaderNavLink to="/contact" label={t('nav.contactUs')} />
-          <HeaderNavLink to="/login" label={t('nav.login')} variant="login" />
+          <HeaderNavLink
+            label={t('nav.login')}
+            variant="login"
+            onClick={openLogin}
+          />
           <HeaderNavLink
             to="/signup"
             label={t('nav.signUp')}
@@ -85,7 +97,11 @@ export function Header() {
           <HeaderNavLink to="/about" label={t('nav.aboutUs')} />
           <HeaderNavLink to="/contact" label={t('nav.contactUs')} />
           <div className="flex flex-col gap-3 pt-2">
-            <HeaderNavLink to="/login" label={t('nav.login')} variant="login" />
+            <HeaderNavLink
+              label={t('nav.login')}
+              variant="login"
+              onClick={openLogin}
+            />
             <HeaderNavLink
               to="/signup"
               label={t('nav.signUp')}
@@ -94,6 +110,8 @@ export function Header() {
           </div>
         </nav>
       )}
+
+      <LoginModal open={loginOpen} onOpenChange={setLoginOpen} />
     </header>
   )
 }

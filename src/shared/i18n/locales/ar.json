@@ -15,6 +15,22 @@
     "login": "تسجيل الدخول",
     "signUp": "إنشاء حساب"
   },
+  "auth": {
+    "login": {
+      "title": "مرحباً بعودتك",
+      "subtitle": "سجّل الدخول لمتابعة تصفح المنازل على عقار.",
+      "formLabel": "نموذج تسجيل الدخول",
+      "identifier": "البريد الإلكتروني أو اسم المستخدم",
+      "identifierPlaceholder": "you@example.com أو اسم المستخدم",
+      "password": "كلمة المرور",
+      "passwordPlaceholder": "أدخل كلمة المرور",
+      "showPassword": "إظهار كلمة المرور",
+      "hidePassword": "إخفاء كلمة المرور",
+      "submit": "تسجيل الدخول",
+      "or": "أو",
+      "google": "المتابعة باستخدام Google"
+    }
+  },
   "language": {
     "label": "اللغة",
     "en": "English",
