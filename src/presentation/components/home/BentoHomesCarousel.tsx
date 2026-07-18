@@ -14,6 +14,7 @@ const AUTO_SCROLL_PX_PER_FRAME = 0.6
 
 export function BentoHomesCarousel({ columns }: BentoHomesCarouselProps) {
   const { t } = useTranslation()
+  const rootRef = useRef<HTMLDivElement>(null)
   const trackRef = useRef<HTMLDivElement>(null)
   const setRef = useRef<HTMLDivElement>(null)
   const offsetRef = useRef(0)
@@ -21,6 +22,7 @@ export function BentoHomesCarousel({ columns }: BentoHomesCarouselProps) {
   const lastPointerXRef = useRef(0)
   const setWidthRef = useRef(0)
   const prefersReducedMotionRef = useRef(false)
+  const isVisibleRef = useRef(true)
   const [isDragging, setIsDragging] = useState(false)
 
   useEffect(() => {
@@ -36,6 +38,9 @@ export function BentoHomesCarousel({ columns }: BentoHomesCarouselProps) {
   }, [columns])
 
   useEffect(() => {
+    const root = rootRef.current
+    if (!root) return
+
     const media = window.matchMedia('(prefers-reduced-motion: reduce)')
     prefersReducedMotionRef.current = media.matches
 
@@ -66,6 +71,12 @@ export function BentoHomesCarousel({ columns }: BentoHomesCarouselProps) {
     }
 
     const tick = () => {
+      // Stop the loop entirely while off-screen to save CPU/GPU work
+      if (!isVisibleRef.current) {
+        frameId = 0
+        return
+      }
+
       if (!draggingRef.current && !prefersReducedMotionRef.current) {
         offsetRef.current -= AUTO_SCROLL_PX_PER_FRAME
         wrapOffset()
@@ -75,10 +86,35 @@ export function BentoHomesCarousel({ columns }: BentoHomesCarouselProps) {
       frameId = requestAnimationFrame(tick)
     }
 
-    frameId = requestAnimationFrame(tick)
+    const startLoop = () => {
+      if (frameId !== 0) return
+      frameId = requestAnimationFrame(tick)
+    }
+
+    const stopLoop = () => {
+      if (frameId === 0) return
+      cancelAnimationFrame(frameId)
+      frameId = 0
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisibleRef.current = entry.isIntersecting
+        if (entry.isIntersecting) {
+          startLoop()
+        } else {
+          stopLoop()
+        }
+      },
+      { threshold: 0 },
+    )
+
+    observer.observe(root)
+    startLoop()
 
     return () => {
-      cancelAnimationFrame(frameId)
+      stopLoop()
+      observer.disconnect()
       media.removeEventListener('change', onMotionChange)
     }
   }, [])
@@ -126,6 +162,7 @@ export function BentoHomesCarousel({ columns }: BentoHomesCarouselProps) {
 
   return (
     <div
+      ref={rootRef}
       className={cn(
         'bento-homes-carousel',
         isDragging && 'bento-homes-carousel--dragging',
