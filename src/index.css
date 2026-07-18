@@ -315,7 +315,7 @@
 
   /* Map + listings results */
   .rent-results {
-    @apply mx-auto w-[95%] max-h-[85vh] overflow-y-auto;
+    @apply mx-auto w-[95%];
   }
 
   .rent-results--status {
@@ -326,18 +326,18 @@
   .rent-results-listings {
     @apply flex flex-col overflow-hidden rounded-[14px] bg-white;
     @apply shadow-[0_4px_20px_0_rgba(81,81,81,0.10)];
-    @apply lg:min-h-[min(70vh,640px)] lg:flex-row lg:items-stretch;
+    @apply lg:h-[min(70vh,640px)] lg:flex-row lg:items-stretch;
   }
 
   .rent-results-map {
-    @apply w-full shrink-0 lg:flex lg:w-1/2 lg:self-stretch;
+    @apply w-full shrink-0 lg:sticky lg:top-0 lg:flex lg:h-full lg:w-1/2 lg:self-stretch lg:overflow-hidden;
   }
 
   .rent-map,
   .rent-map-placeholder {
     @apply h-[220px] w-full overflow-hidden border-b border-primary/10 bg-white;
     @apply sm:h-[280px];
-    @apply lg:h-auto lg:min-h-full lg:flex-1 lg:border-b-0 lg:border-e;
+    @apply lg:h-full lg:min-h-0 lg:flex-1 lg:border-b-0 lg:border-e;
   }
 
   .rent-map-canvas {
@@ -390,7 +390,7 @@
 
   /* List panel: full width when stacked; half + left shadow on desktop */
   .rent-results-panel {
-    @apply flex min-h-0 min-w-0 w-full flex-1 flex-col p-3 z-10;
+    @apply flex min-h-0 min-w-0 w-full flex-1 flex-col overflow-hidden p-3 z-10;
     @apply sm:p-4;
     @apply lg:max-w-[50%] lg:border-s lg:border-primary/10 lg:p-0;
     @apply lg:shadow-[-8px_0_20px_-6px_rgba(81,81,81,0.11)];
