@@ -26,7 +26,10 @@ export function PropertySummaryFacts({ property }: PropertySummaryProps) {
   ].join(' · ')
 
   return (
-    <div className="property-summary">
+    <div
+      className="property-summary"
+      dir={isArabic ? 'rtl' : 'ltr'}
+    >
       <p className="property-summary-facts">{factsLine}</p>
       <p className="property-summary-address">{address}</p>
       <p className="property-summary-status">
