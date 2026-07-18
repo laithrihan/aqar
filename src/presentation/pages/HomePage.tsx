@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 
 import { ExploreHomesSection } from '@/presentation/components/home/ExploreHomesSection'
+import { HomeBootLoader } from '@/presentation/components/home/HomeBootLoader'
 import { PanoramaCarousel } from '@/presentation/components/home/PanoramaCarousel'
 import { PropertySearchFilter } from '@/presentation/components/home/PropertySearchFilter'
 import { useCarouselSlides } from '@/presentation/hooks/useCarouselSlides'
@@ -12,6 +13,8 @@ export function HomePage() {
 
   return (
     <div className="home-page">
+      <HomeBootLoader isBooting={isLoading} />
+
       <div className="home-hero">
         {isLoading && (
           <div className="panorama-carousel panorama-carousel--skeleton" aria-busy>

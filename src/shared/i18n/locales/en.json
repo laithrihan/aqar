@@ -3,6 +3,9 @@
     "name": "Aqar",
     "slug": "The most beautiful exclusive properties and luxury apartments"
   },
+  "common": {
+    "loading": "Loading…"
+  },
   "nav": {
     "home": "Home",
     "buy": "Buy",
