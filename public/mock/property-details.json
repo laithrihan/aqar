@@ -25,7 +25,8 @@
       "features": {
         "heating": "forcedAir",
         "garageSpaces": 2
-      }
+      },
+      "tourVideoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
     },
     {
       "id": "apartment-damascus-abu-rummaneh",
@@ -52,7 +53,8 @@
       "features": {
         "heating": "forcedAir",
         "garageSpaces": 1
-      }
+      },
+      "tourVideoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
     },
     {
       "id": "house-damascus-qassaa",
@@ -79,7 +81,8 @@
       "features": {
         "heating": "central",
         "garageSpaces": 1
-      }
+      },
+      "tourVideoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
     },
     {
       "id": "villa-damascus-yaafour",
@@ -106,7 +109,8 @@
       "features": {
         "heating": "forcedAir",
         "garageSpaces": 3
-      }
+      },
+      "tourVideoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
     },
     {
       "id": "house-aleppo-aziziyah",
@@ -133,7 +137,8 @@
       "features": {
         "heating": "forcedAir",
         "garageSpaces": 1
-      }
+      },
+      "tourVideoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
     },
     {
       "id": "apartment-aleppo-suleimaniyeh",
@@ -160,7 +165,8 @@
       "features": {
         "heating": "central",
         "garageSpaces": 0
-      }
+      },
+      "tourVideoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
     },
     {
       "id": "villa-latakia-corniche",
@@ -187,7 +193,8 @@
       "features": {
         "heating": "forcedAir",
         "garageSpaces": 2
-      }
+      },
+      "tourVideoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
     },
     {
       "id": "apartment-latakia-project",
@@ -214,7 +221,8 @@
       "features": {
         "heating": "forcedAir",
         "garageSpaces": 1
-      }
+      },
+      "tourVideoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
     },
     {
       "id": "house-homs-inshaat",
@@ -241,7 +249,8 @@
       "features": {
         "heating": "central",
         "garageSpaces": 1
-      }
+      },
+      "tourVideoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
     },
     {
       "id": "estate-tartus-seaside",
@@ -268,7 +277,8 @@
       "features": {
         "heating": "forcedAir",
         "garageSpaces": 4
-      }
+      },
+      "tourVideoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
     },
     {
       "id": "villa-hama-old-city",
@@ -295,7 +305,8 @@
       "features": {
         "heating": "forcedAir",
         "garageSpaces": 2
-      }
+      },
+      "tourVideoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
     },
     {
       "id": "office-damascus-mazzeh",
@@ -322,7 +333,8 @@
       "features": {
         "heating": "central",
         "garageSpaces": 0
-      }
+      },
+      "tourVideoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
     }
   ]
 }

@@ -252,6 +252,21 @@
       "restaurants": "Nearby restaurants",
       "parks": "Nearby parks",
       "schools": "Nearby schools"
+    },
+    "tour": {
+      "title": "Take a Tour in the house:",
+      "play": "Play tour video",
+      "pause": "Pause tour video",
+      "mute": "Mute",
+      "unmute": "Unmute",
+      "seek": "Seek tour video",
+      "fullscreen": "Fullscreen",
+      "unsupported": "Your browser does not support this video."
+    },
+    "moreHomes": {
+      "title": "More Homes for you:",
+      "loading": "Loading more homes…",
+      "error": "Could not load more homes."
     }
   }
 }

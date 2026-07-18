@@ -25,9 +25,9 @@ export type PropertyDetailExtension = {
     heating: PropertyHeatingType
     garageSpaces: number
   }
+  tourVideoUrl: string
 }
 
-/** Full property detail = rent listing + detail extension. */
 export type PropertyDetail = RentListing & Omit<PropertyDetailExtension, 'id'>
 
 export type PropertyDetailsResponse = {

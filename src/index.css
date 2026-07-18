@@ -703,6 +703,131 @@
   .property-nearby-card-title {
     @apply text-center text-sm font-medium text-primary sm:text-base;
   }
+
+  /* House tour video */
+  .property-tour {
+    @apply flex flex-col gap-4 sm:gap-5;
+  }
+
+  .property-tour-title {
+    @apply text-xl font-bold tracking-tight text-primary sm:text-2xl;
+  }
+
+  .property-tour-player {
+    @apply relative overflow-hidden rounded-2xl bg-primary shadow-lg;
+  }
+
+  .property-tour-video {
+    @apply aspect-video w-full cursor-pointer object-cover;
+  }
+
+  .property-tour-play-center {
+    @apply absolute left-1/2 top-1/2 z-10 flex size-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-primary shadow-xl transition hover:scale-105 sm:size-20;
+  }
+
+  .property-tour-play-center svg {
+    @apply size-10 sm:size-12;
+  }
+
+  .property-tour-controls {
+    @apply absolute inset-x-0 bottom-0 z-10 flex items-center gap-2 bg-gradient-to-t from-primary/90 via-primary/70 to-transparent px-3 pb-3 pt-10 sm:gap-3 sm:px-4 sm:pb-4;
+  }
+
+  .property-tour-control-btn {
+    @apply inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-white/15 text-white transition hover:bg-white/25 sm:size-10;
+  }
+
+  .property-tour-control-btn svg {
+    @apply size-5 sm:size-6;
+  }
+
+  .property-tour-time {
+    @apply shrink-0 text-xs font-medium text-white/90 tabular-nums sm:text-sm;
+  }
+
+  .property-tour-progress-label {
+    @apply flex min-w-0 flex-1 items-center;
+  }
+
+  .property-tour-progress {
+    @apply h-1.5 w-full cursor-pointer appearance-none rounded-full bg-white/25 accent-secondary;
+    background-image: linear-gradient(
+      to right,
+      rgb(var(--secondary)) 0%,
+      rgb(var(--secondary)) var(--progress, 0%),
+      rgb(255 255 255 / 0.25) var(--progress, 0%),
+      rgb(255 255 255 / 0.25) 100%
+    );
+  }
+
+  .property-tour-progress::-webkit-slider-thumb {
+    @apply size-3.5 appearance-none rounded-full bg-white shadow;
+  }
+
+  .property-tour-progress::-moz-range-thumb {
+    @apply size-3.5 rounded-full border-0 bg-white shadow;
+  }
+
+  /* More homes recommendations */
+  .property-more-homes {
+    @apply flex flex-col gap-4 sm:gap-5;
+  }
+
+  .property-more-homes-title {
+    @apply text-xl font-bold tracking-tight text-primary sm:text-2xl;
+  }
+
+  .property-more-homes-status {
+    @apply text-sm text-muted-foreground;
+  }
+
+  .property-more-homes-grid {
+    @apply grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4;
+  }
+
+  .property-home-card {
+    @apply flex h-full flex-col overflow-hidden rounded-xl border border-primary/10 bg-white shadow-[0px_2px_12px_0px_rgba(81,81,81,0.08)] transition hover:shadow-md;
+  }
+
+  .property-home-card-media {
+    @apply block overflow-hidden;
+  }
+
+  .property-home-card-image {
+    @apply aspect-[4/3] w-full object-cover transition duration-300 hover:scale-105;
+  }
+
+  .property-home-card-body {
+    @apply flex flex-1 flex-col gap-1 p-3 sm:p-3.5;
+  }
+
+  .property-home-card-title {
+    @apply text-sm font-semibold leading-snug text-primary transition-colors hover:text-secondary sm:text-base;
+  }
+
+  .property-home-card-location {
+    @apply text-xs text-primary/55 sm:text-sm;
+  }
+
+  .property-home-card-price {
+    @apply mt-1 text-sm font-bold text-primary sm:text-base;
+  }
+
+  .property-home-card-price-unit {
+    @apply ms-1 text-xs font-medium text-primary/50;
+  }
+
+  .property-home-card-meta {
+    @apply mt-auto flex flex-wrap items-center gap-2 pt-1.5 text-xs text-primary/65 sm:gap-3 sm:pt-2 sm:text-sm;
+  }
+
+  .property-home-card-meta-item {
+    @apply inline-flex items-center gap-1;
+  }
+
+  .property-home-card-meta-item svg {
+    @apply size-3.5 shrink-0 sm:size-4;
+  }
 }
 
 /* ── Home panorama carousel ─────────────────────────────── */

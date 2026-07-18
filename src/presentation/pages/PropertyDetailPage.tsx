@@ -5,9 +5,11 @@ import { PropertyAmenitiesGrid } from '@/presentation/components/property/Proper
 import { PropertyDetailHeader } from '@/presentation/components/property/PropertyDetailHeader'
 import { PropertyFeaturesSection } from '@/presentation/components/property/PropertyFeaturesSection'
 import { PropertyGallery } from '@/presentation/components/property/PropertyGallery'
+import { PropertyMoreHomesSection } from '@/presentation/components/property/PropertyMoreHomesSection'
 import { PropertyNearbySection } from '@/presentation/components/property/PropertyNearbySection'
 import { PropertySellerActions } from '@/presentation/components/property/PropertySellerActions'
 import { PropertySummaryFacts } from '@/presentation/components/property/PropertySummaryFacts'
+import { PropertyTourSection } from '@/presentation/components/property/PropertyTourSection'
 import { usePropertyDetail } from '@/presentation/hooks/usePropertyDetail'
 
 export function PropertyDetailPage() {
@@ -59,6 +61,8 @@ export function PropertyDetailPage() {
 
       <PropertyFeaturesSection property={property} />
       <PropertyNearbySection />
+      <PropertyTourSection property={property} />
+      <PropertyMoreHomesSection propertyId={property.id} />
     </div>
   )
 }
