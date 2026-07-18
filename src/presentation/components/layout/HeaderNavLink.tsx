@@ -23,6 +23,14 @@ export function HeaderNavLink({
   onClick,
 }: HeaderNavLinkProps) {
   if (variant === 'signup') {
+    if (onClick) {
+      return (
+        <button type="button" className={signupClassName} onClick={onClick}>
+          {label}
+        </button>
+      )
+    }
+
     if (!to) return null
     return (
       <NavLink to={to} className={signupClassName}>

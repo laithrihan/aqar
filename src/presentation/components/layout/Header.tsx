@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { LoginModal } from '@/presentation/components/auth/LoginModal'
+import { SignupModal } from '@/presentation/components/auth/SignupModal'
 
 import { HeaderNavLink } from './HeaderNavLink'
 import { LanguageSelect } from './LanguageSelect'
@@ -11,11 +12,17 @@ export function Header() {
   const { t } = useTranslation()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [loginOpen, setLoginOpen] = useState(false)
+  const [signupOpen, setSignupOpen] = useState(false)
 
   const closeMobile = () => setMobileOpen(false)
 
   const openLogin = () => {
     setLoginOpen(true)
+    setMobileOpen(false)
+  }
+
+  const openSignup = () => {
+    setSignupOpen(true)
     setMobileOpen(false)
   }
 
@@ -51,9 +58,9 @@ export function Header() {
             onClick={openLogin}
           />
           <HeaderNavLink
-            to="/signup"
             label={t('nav.signUp')}
             variant="signup"
+            onClick={openSignup}
           />
         </nav>
 
@@ -103,15 +110,16 @@ export function Header() {
               onClick={openLogin}
             />
             <HeaderNavLink
-              to="/signup"
               label={t('nav.signUp')}
               variant="signup"
+              onClick={openSignup}
             />
           </div>
         </nav>
       )}
 
       <LoginModal open={loginOpen} onOpenChange={setLoginOpen} />
+      <SignupModal open={signupOpen} onOpenChange={setSignupOpen} />
     </header>
   )
 }

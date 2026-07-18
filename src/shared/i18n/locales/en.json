@@ -29,6 +29,41 @@
       "submit": "Log in",
       "or": "or",
       "google": "Continue with Google"
+    },
+    "signup": {
+      "title": "Create an account",
+      "formLabel": "Sign up form",
+      "username": "Username",
+      "usernamePlaceholder": "Choose a username",
+      "email": "Email",
+      "emailPlaceholder": "you@example.com",
+      "password": "Password",
+      "passwordPlaceholder": "Create a password",
+      "confirmPassword": "Confirm password",
+      "confirmPasswordPlaceholder": "Re-enter your password",
+      "passwordMatch": "Passwords match",
+      "showPassword": "Show password",
+      "hidePassword": "Hide password",
+      "submit": "Sign up",
+      "or": "or",
+      "google": "Sign up with Google",
+      "errors": {
+        "usernameRequired": "Please enter a username.",
+        "usernameInvalid": "Use 3–30 letters, numbers, dots, hyphens, or underscores.",
+        "emailRequired": "Please enter your email.",
+        "emailInvalid": "Please enter a valid email.",
+        "passwordRequired": "Please enter a password.",
+        "passwordWeak": "Password must be at least medium strength.",
+        "confirmRequired": "Please confirm your password.",
+        "confirmMismatch": "Passwords do not match."
+      }
+    },
+    "passwordStrength": {
+      "empty": "",
+      "weak": "Weak",
+      "medium": "Medium",
+      "strong": "Strong",
+      "hint": "Use 8+ characters with upper & lower case, a number, and a symbol."
     }
   },
   "language": {

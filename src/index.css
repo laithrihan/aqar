@@ -1555,7 +1555,7 @@
 /* ── Login modal ─────────────────────────────────────────── */
 @layer components {
   .login-modal {
-    @apply gap-5 p-6 sm:gap-6 sm:p-8;
+    @apply h-auto overflow-y-auto p-6 sm:gap-6 sm:p-8;
   }
 
   .login-modal-header {
@@ -1614,6 +1614,18 @@
   .login-modal-google {
     @apply inline-flex h-12 w-full items-center justify-center gap-2.5 rounded-xl border border-primary/25 bg-white text-sm font-semibold text-primary transition-colors;
     @apply hover:border-secondary hover:bg-muted/60;
+  }
+
+  .login-modal-field-error {
+    @apply text-xs text-red-600 sm:text-sm;
+  }
+
+  .login-modal-field-success {
+    @apply text-xs font-medium text-emerald-600 sm:text-sm;
+  }
+
+  .login-modal-input[aria-invalid='true'] {
+    @apply border-red-400 focus:border-red-400 focus:ring-red-400/20;
   }
 }
 
