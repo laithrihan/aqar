@@ -60,7 +60,7 @@ export function PropertyDetailPage() {
       </section>
 
       <PropertyFeaturesSection property={property} />
-      <PropertyNearbySection />
+      <PropertyNearbySection property={property} />
       <PropertyTourSection property={property} />
       <PropertyMoreHomesSection propertyId={property.id} />
     </div>

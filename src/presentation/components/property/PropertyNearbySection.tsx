@@ -9,6 +9,9 @@ import {
 import { useTranslation } from 'react-i18next'
 
 import { Card, CardContent, CardTitle } from '@/components/ui/card'
+import type { NearbyPlaceCategory } from '@/domain/property/buildNearbyGoogleMapsUrl'
+import { buildNearbyGoogleMapsUrl } from '@/domain/property/buildNearbyGoogleMapsUrl'
+import type { PropertyDetail } from '@/domain/property/PropertyDetail'
 
 const NEARBY_MAP_IMAGE = '/images/nearby-map.png'
 
@@ -41,43 +44,62 @@ const NEARBY_PLACES = [
     Icon: MdSchool,
   },
 ] as const satisfies ReadonlyArray<{
-  id: string
+  id: NearbyPlaceCategory
   titleKey: string
   Icon: NearbyIcon
 }>
 
 type NearbyPlace = (typeof NEARBY_PLACES)[number]
 
-function PropertyNearbyCard({ place }: { place: NearbyPlace }) {
+type PropertyNearbyCardProps = {
+  place: NearbyPlace
+  lat: number
+  lng: number
+}
+
+function PropertyNearbyCard({ place, lat, lng }: PropertyNearbyCardProps) {
   const { t } = useTranslation()
   const title = t(place.titleKey)
   const { Icon } = place
+  const mapsUrl = buildNearbyGoogleMapsUrl(place.id, { lat, lng })
 
   return (
-    <Card className="property-nearby-card group overflow-hidden">
-      <div className="property-nearby-card-media">
-        <img
-          src={NEARBY_MAP_IMAGE}
-          alt=""
-          className="property-nearby-card-image"
-          loading="lazy"
-        />
-        <div className="property-nearby-card-overlay" aria-hidden>
-          <span className="property-nearby-card-icon">
-            <Icon />
-          </span>
+    <Card className="property-nearby-card group overflow-hidden p-0">
+      <a
+        href={mapsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="property-nearby-card-link"
+        aria-label={t('property.nearby.openMap', { place: title })}
+      >
+        <div className="property-nearby-card-media">
+          <img
+            src={NEARBY_MAP_IMAGE}
+            alt=""
+            className="property-nearby-card-image"
+            loading="lazy"
+          />
+          <div className="property-nearby-card-overlay" aria-hidden>
+            <span className="property-nearby-card-icon">
+              <Icon />
+            </span>
+          </div>
         </div>
-      </div>
 
-      <CardContent className="property-nearby-card-body">
-        <CardTitle className="property-nearby-card-title">{title}</CardTitle>
-      </CardContent>
+        <CardContent className="property-nearby-card-body">
+          <CardTitle className="property-nearby-card-title">{title}</CardTitle>
+        </CardContent>
+      </a>
     </Card>
   )
 }
 
-/** Location section with nearby place map cards (search wiring later). */
-export function PropertyNearbySection() {
+/** Location section — each card opens Google Maps for that place type. */
+export function PropertyNearbySection({
+  property,
+}: {
+  property: PropertyDetail
+}) {
   const { t } = useTranslation()
 
   return (
@@ -90,7 +112,12 @@ export function PropertyNearbySection() {
 
       <div className="property-nearby-row">
         {NEARBY_PLACES.map((place) => (
-          <PropertyNearbyCard key={place.id} place={place} />
+          <PropertyNearbyCard
+            key={place.id}
+            place={place}
+            lat={property.lat}
+            lng={property.lng}
+          />
         ))}
       </div>
     </section>

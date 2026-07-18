@@ -287,7 +287,8 @@
       "hospitals": "مستشفيات قريبة",
       "restaurants": "مطاعم قريبة",
       "parks": "حدائق قريبة",
-      "schools": "مدارس قريبة"
+      "schools": "مدارس قريبة",
+      "openMap": "فتح {{place}} في خرائط Google"
     },
     "tour": {
       "title": "قم بجولة داخل المنزل:",

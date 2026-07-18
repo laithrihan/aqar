@@ -251,7 +251,8 @@
       "hospitals": "Nearby hospitals",
       "restaurants": "Nearby restaurants",
       "parks": "Nearby parks",
-      "schools": "Nearby schools"
+      "schools": "Nearby schools",
+      "openMap": "Open {{place}} in Google Maps"
     },
     "tour": {
       "title": "Take a Tour in the house:",

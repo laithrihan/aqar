@@ -673,7 +673,11 @@
   }
 
   .property-nearby-card {
-    @apply flex min-w-[9.5rem] flex-1 flex-col px-3 pt-3 transition hover:shadow-md;
+    @apply flex min-w-[9.5rem] flex-1 flex-col transition hover:shadow-md;
+  }
+
+  .property-nearby-card-link {
+    @apply flex h-full cursor-pointer flex-col px-3 pt-3 outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2;
   }
 
   .property-nearby-card-media {
