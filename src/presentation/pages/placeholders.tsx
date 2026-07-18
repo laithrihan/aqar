@@ -15,10 +15,6 @@ export function AboutPage() {
   return <PlaceholderPage title="About us" />
 }
 
-export function ContactPage() {
-  return <PlaceholderPage title="Contact us" />
-}
-
 export function LoginPage() {
   return <PlaceholderPage title="Log in" />
 }

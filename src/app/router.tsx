@@ -5,10 +5,10 @@ import { HomePage } from "@/presentation/pages/HomePage";
 import {
   AboutPage,
   BuyPage,
-  ContactPage,
   LoginPage,
   SignUpPage,
 } from "@/presentation/pages/placeholders";
+import { ContactPage } from "@/presentation/pages/ContactPage";
 import { PropertyDetailPage } from "@/presentation/pages/PropertyDetailPage";
 import { RentPage } from "@/presentation/pages/RentPage";
 

@@ -206,6 +206,51 @@
       "fivePlus": "5+ غرف نوم"
     }
   },
+  "contact": {
+    "title": "تواصل معنا",
+    "subtitle": "أسئلة عن عرض، شراكة، أو دعم — نحن هنا لمساعدتك.",
+    "info": {
+      "label": "بيانات التواصل",
+      "title": "ابقَ على تواصل",
+      "description": "تواصل مع فريق عقار مباشرة، أو أرسل رسالة وسنرد عليك قريباً.",
+      "email": "البريد الإلكتروني",
+      "phone": "الهاتف",
+      "address": "المكتب",
+      "hours": "ساعات العمل",
+      "addressValue": "دمشق، سوريا",
+      "hoursValue": "الأحد – الخميس، 9:00 – 18:00",
+      "follow": "تابعنا",
+      "error": "تعذر تحميل بيانات التواصل."
+    },
+    "form": {
+      "label": "إرسال رسالة",
+      "name": "الاسم الكامل",
+      "namePlaceholder": "اسمك",
+      "email": "البريد الإلكتروني",
+      "emailPlaceholder": "you@example.com",
+      "phone": "الهاتف",
+      "phonePlaceholder": "+963 …",
+      "optional": "(اختياري)",
+      "subject": "الموضوع",
+      "subjectPlaceholder": "كيف يمكننا مساعدتك؟",
+      "message": "الرسالة",
+      "messagePlaceholder": "أخبرنا بالمزيد…",
+      "submit": "إرسال الرسالة",
+      "sending": "جاري الإرسال…",
+      "successTitle": "تم إرسال الرسالة",
+      "success": "شكراً — سنتواصل معك قريباً.",
+      "sendAnother": "إرسال رسالة أخرى",
+      "error": "حدث خطأ. يرجى المحاولة مرة أخرى.",
+      "errors": {
+        "nameRequired": "يرجى إدخال اسمك.",
+        "emailRequired": "يرجى إدخال بريدك الإلكتروني.",
+        "emailInvalid": "يرجى إدخال بريد إلكتروني صالح.",
+        "subjectRequired": "يرجى إدخال الموضوع.",
+        "messageRequired": "يرجى إدخال الرسالة.",
+        "messageShort": "يجب أن تكون الرسالة 10 أحرف على الأقل."
+      }
+    }
+  },
   "property": {
     "loading": "جاري تحميل العقار…",
     "error": "تعذر تحميل هذا العقار.",

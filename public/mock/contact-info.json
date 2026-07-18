@@ -1,0 +1,8 @@
+{
+  "info": {
+    "email": "hello@aqar.com",
+    "phone": "+963 11 123 4567",
+    "addressKey": "contact.info.addressValue",
+    "hoursKey": "contact.info.hoursValue"
+  }
+}
