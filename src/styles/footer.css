@@ -1,0 +1,157 @@
+/* ── Footer ─────────────────────────────────────────────── */
+@layer components {
+  .footer {
+    @apply relative mt-8 w-full sm:mt-10;
+  }
+
+  .footer-newsletter-wrap {
+    @apply relative z-10 mx-auto flex justify-center px-3 sm:px-4 lg:px-[100px];
+  }
+
+  .footer-panel {
+    @apply -mt-6 rounded-t-[20px] bg-primary pt-12 text-white sm:-mt-8 sm:rounded-t-[40px] sm:pt-20;
+  }
+
+  .footer-columns {
+    @apply mx-auto flex w-full flex-col gap-8 px-5 pb-8;
+    @apply sm:gap-10 sm:px-6 sm:pb-10;
+    @apply lg:min-h-[280px] lg:flex-row lg:items-start lg:justify-between lg:gap-8 lg:px-[100px] lg:pb-12;
+    @apply xl:w-[80%];
+  }
+
+  .footer-brand {
+    @apply flex flex-col items-center gap-4 text-center;
+    @apply lg:max-w-[260px] lg:items-start lg:gap-5 lg:text-left;
+  }
+
+  .footer-brand-identity {
+    @apply flex flex-col items-center lg:items-start;
+  }
+
+  .footer-brand .footer-underline {
+    @apply mx-auto lg:mx-0;
+  }
+
+  .footer-slug {
+    @apply max-w-[280px] text-sm leading-6 text-white/90 sm:leading-7 lg:max-w-none;
+  }
+
+  .footer-nav-grid {
+    @apply grid w-full grid-cols-2 gap-x-4 gap-y-0;
+    @apply sm:gap-x-8;
+    @apply lg:contents;
+  }
+
+  .footer-column {
+    @apply flex flex-col;
+  }
+
+  .footer-download {
+    @apply w-full items-center text-center lg:w-auto lg:items-start lg:text-left;
+  }
+
+  .footer-download .footer-underline {
+    @apply mx-auto lg:mx-0;
+  }
+
+  .footer-heading {
+    @apply text-base font-bold text-white sm:text-lg;
+  }
+
+  .footer-underline {
+    @apply mt-1.5 h-0.5 w-10 rounded bg-white sm:mt-2 sm:h-1 sm:w-12;
+  }
+
+  .footer-links {
+    @apply mt-3 flex flex-col;
+  }
+
+  .footer-link {
+    @apply block py-1 text-xs leading-5 text-white/90 transition-opacity hover:opacity-80 sm:py-2 sm:text-sm sm:leading-[25px];
+  }
+
+  .footer-stores {
+    @apply mx-auto mt-4 grid w-full max-w-[340px] grid-cols-2 gap-2.5;
+    @apply lg:mx-0 lg:mt-6 lg:flex lg:max-w-none lg:flex-row lg:gap-3;
+  }
+
+  .footer-store-badge {
+    @apply inline-flex h-11 w-full items-center justify-start gap-2 rounded-lg border border-black/80 bg-white px-2.5 text-black transition-opacity hover:opacity-90;
+    @apply sm:h-[45px] sm:gap-2.5 sm:px-3;
+    @apply lg:w-auto;
+  }
+
+  .footer-store-badge-icon {
+    @apply size-5 shrink-0 sm:size-6;
+  }
+
+  .footer-store-badge-text {
+    @apply flex min-w-0 flex-col leading-none;
+  }
+
+  .footer-store-badge-caption {
+    @apply truncate text-[7px] font-medium uppercase tracking-wide sm:text-[9px];
+  }
+
+  .footer-store-badge-name {
+    @apply truncate text-xs font-semibold sm:text-sm;
+  }
+
+  .footer-bar {
+    @apply flex flex-col items-center gap-1.5 border-t border-white/10 bg-secondary px-5 py-4 text-center text-[11px] leading-relaxed text-white/95;
+    @apply sm:h-[55px] sm:flex-row sm:justify-between sm:gap-4 sm:border-0 sm:px-6 sm:py-0 sm:text-left sm:text-sm;
+    @apply lg:px-[100px];
+  }
+
+  .footer-bar-legal {
+    @apply whitespace-normal text-white/80 sm:whitespace-pre sm:text-white;
+  }
+
+  .footer-newsletter {
+    @apply mx-auto flex h-14 w-full max-w-[531px] flex-row items-center gap-2 rounded-xl bg-white px-3 shadow-[0px_0px_10px_0px_rgba(0,0,0,0.12)];
+    @apply sm:h-[66px] sm:gap-3 sm:rounded-lg sm:px-5;
+  }
+
+  .footer-newsletter-icon {
+    @apply size-5 shrink-0 text-muted-foreground sm:size-6;
+  }
+
+  .footer-newsletter-input {
+    @apply min-w-0 flex-1 bg-transparent text-sm text-foreground outline-none sm:text-base;
+    @apply placeholder:text-[rgb(var(--footer-muted))];
+  }
+
+  .footer-newsletter-btn {
+    @apply inline-flex h-9 shrink-0 items-center justify-center gap-1.5 rounded-lg bg-primary px-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90;
+    @apply sm:h-[46px] sm:gap-2 sm:px-4 sm:text-xl sm:font-normal;
+  }
+
+  .footer-newsletter-arrow {
+    @apply size-3.5 shrink-0 sm:size-4;
+  }
+
+  /* Social */
+  .footer-social {
+    @apply flex flex-wrap items-center justify-center gap-3 lg:justify-start lg:gap-3.5;
+  }
+
+  .footer-social-link {
+    @apply inline-flex size-9 items-center justify-center rounded-full text-sm transition-opacity hover:opacity-80 sm:size-[35px] sm:text-base;
+  }
+
+  .footer-social-link--facebook {
+    @apply bg-white text-primary;
+  }
+
+  .footer-social-link--x {
+    @apply bg-[#1DA1F2] text-white;
+  }
+
+  .footer-social-link--instagram {
+    @apply bg-white text-primary;
+  }
+
+  .footer-social-link--telegram {
+    @apply bg-white text-[#229ED9];
+  }
+}

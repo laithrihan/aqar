@@ -1,0 +1,265 @@
+/* ── Rent page ───────────────────────────────────────────── */
+@layer components {
+  .rent-page {
+    @apply mx-auto flex w-full flex-col gap-6 pt-8 sm:gap-8 sm:pt-12 lg:gap-10 lg:pt-14;
+  }
+
+  .rent-page-header {
+    @apply flex flex-col items-center gap-3 px-4 text-center sm:gap-4 sm:px-6;
+  }
+
+  .rent-page-title {
+    @apply text-xl font-bold tracking-tight text-primary sm:text-3xl lg:text-4xl;
+  }
+
+  .rent-page-divider {
+    @apply h-0.5 w-14 rounded-full bg-secondary sm:w-40 lg:w-80;
+  }
+
+  .rent-filter {
+    @apply mx-auto max-w-[1440px] flex w-[95%] flex-col gap-3 rounded-[16px] bg-white p-4;
+    @apply shadow-[0px_4px_20px_0px_rgba(81,81,81,0.14)];
+    @apply sm:gap-4 sm:rounded-[14px] sm:px-6 sm:py-5;
+    @apply lg:flex-row lg:items-center lg:justify-between lg:gap-4 lg:px-[30px] lg:py-3;
+  }
+
+  .rent-filter-location {
+    @apply flex h-12 w-full items-center gap-3 rounded-xl border border-primary/80 bg-white px-4;
+    @apply sm:h-[52px] sm:rounded-lg sm:px-5;
+    @apply lg:h-12 lg:max-w-[240px] lg:shrink-0 xl:max-w-[280px];
+  }
+
+  .rent-filter-location-icon {
+    @apply size-5 shrink-0 text-primary;
+  }
+
+  .rent-filter-location-input {
+    @apply min-w-0 flex-1 bg-transparent text-sm text-primary outline-none placeholder:text-primary/40 sm:text-base;
+  }
+
+  .rent-filter-selects {
+    @apply grid w-full grid-cols-2 gap-2.5 sm:gap-3;
+    @apply md:grid-cols-4;
+    @apply lg:flex lg:flex-1 lg:items-center lg:gap-3;
+  }
+
+  .rent-filter-selects .search-filter-select {
+    @apply min-w-0 w-full;
+    @apply lg:min-w-[110px] lg:flex-1 lg:max-w-[170px];
+  }
+
+  .rent-filter-selects .search-filter-select-field {
+    @apply h-11 rounded-[10px] text-[11px] leading-tight sm:h-12 sm:text-xs lg:text-sm;
+  }
+
+  .rent-filter-selects .search-filter-select-field--placeholder {
+    @apply text-[11px] sm:text-xs lg:text-sm;
+  }
+
+  .rent-filter-submit {
+    @apply flex h-12 w-full items-center justify-center rounded-[10px] bg-primary text-base font-bold text-white;
+    @apply transition-opacity hover:opacity-90 active:opacity-95;
+    @apply sm:h-[52px] sm:text-lg;
+    @apply md:order-none;
+    @apply lg:h-12 lg:w-auto lg:shrink-0 lg:px-8 lg:text-base xl:px-10 lg:ml-10;
+  }
+
+  /* Tablet: location + submit share the top row */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .rent-filter {
+      @apply grid grid-cols-[1fr_auto] gap-x-3 gap-y-4;
+    }
+
+    .rent-filter-location {
+      @apply col-start-1 row-start-1;
+    }
+
+    .rent-filter-submit {
+      @apply col-start-2 row-start-1 w-auto min-w-[140px] px-8;
+    }
+
+    .rent-filter-selects {
+      @apply col-span-2 row-start-2;
+    }
+  }
+
+  /* Map + listings results */
+  .rent-results {
+    @apply mx-auto w-[95%];
+  }
+
+  .rent-results--status {
+    @apply flex items-center justify-center py-16 text-center text-primary/70;
+  }
+
+  /* Shared parent: stacked on mobile, side-by-side from lg */
+  .rent-results-listings {
+    @apply flex flex-col overflow-hidden rounded-[14px] bg-white;
+    @apply shadow-[0_4px_20px_0_rgba(81,81,81,0.10)];
+    @apply lg:h-[min(70vh,640px)] lg:flex-row lg:items-stretch;
+  }
+
+  .rent-results-map {
+    @apply w-full shrink-0 lg:sticky lg:top-0 lg:flex lg:h-full lg:w-1/2 lg:self-stretch lg:overflow-hidden;
+  }
+
+  .rent-map,
+  .rent-map-placeholder {
+    @apply h-[220px] w-full overflow-hidden border-b border-primary/10 bg-white;
+    @apply sm:h-[280px];
+    @apply lg:h-full lg:min-h-0 lg:flex-1 lg:border-b-0 lg:border-e;
+  }
+
+  .rent-map-canvas {
+    @apply size-full;
+  }
+
+  .rent-map-placeholder {
+    @apply relative bg-[linear-gradient(160deg,#e8eef2_0%,#f5f7f8_45%,#dde6ea_100%)];
+  }
+
+  .rent-map-placeholder-grid {
+    @apply pointer-events-none absolute inset-0 opacity-40;
+    background-image:
+      linear-gradient(to right, rgb(26 58 74 / 0.12) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(26 58 74 / 0.12) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  @media (min-width: 640px) {
+    .rent-map-placeholder-grid {
+      background-size: 48px 48px;
+    }
+  }
+
+  .rent-map-placeholder-pin {
+    @apply absolute z-10 -translate-x-1/2 -translate-y-full text-primary transition-transform;
+    @apply hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/50;
+  }
+
+  .rent-map-placeholder-pin svg {
+    @apply size-7 drop-shadow-[0_2px_4px_rgba(26,58,74,0.35)] sm:size-9;
+  }
+
+  .rent-map-placeholder-pin--selected {
+    @apply z-20 scale-125 text-secondary;
+  }
+
+  .rent-map-placeholder-message {
+    @apply absolute inset-x-3 bottom-3 z-20 flex items-start gap-2 rounded-[10px] bg-white/90 px-2.5 py-2 text-start shadow-[0_2px_12px_rgba(81,81,81,0.12)] backdrop-blur-sm;
+    @apply sm:inset-x-5 sm:bottom-5 sm:px-4 sm:py-3;
+  }
+
+  .rent-map-placeholder-icon {
+    @apply mt-0.5 size-4 shrink-0 text-secondary sm:size-5;
+  }
+
+  .rent-map-placeholder-message p {
+    @apply text-[11px] leading-snug text-primary/75 sm:text-sm;
+  }
+
+  /* List panel: full width when stacked; half + left shadow on desktop */
+  .rent-results-panel {
+    @apply flex min-h-0 min-w-0 w-full flex-1 flex-col overflow-hidden p-3 z-10;
+    @apply sm:p-4;
+    @apply lg:max-w-[50%] lg:border-s lg:border-primary/10 lg:p-0;
+    @apply lg:shadow-[-8px_0_20px_-6px_rgba(81,81,81,0.11)];
+  }
+
+  .rent-results-toolbar {
+    @apply mb-3 flex shrink-0 flex-nowrap items-center justify-between gap-2;
+    @apply sm:mb-4 sm:gap-3;
+    @apply lg:px-4 lg:pt-5;
+  }
+
+  .rent-results-count {
+    @apply min-w-0 shrink truncate text-sm font-medium text-primary/70 sm:text-base;
+  }
+
+  .rent-results-sort {
+    @apply w-[140px] shrink-0 sm:w-[160px] lg:w-[180px];
+  }
+
+  .rent-results-sort .search-filter-select-field {
+    @apply h-9 rounded-[10px] text-[11px] leading-tight sm:h-10 sm:text-xs lg:h-11;
+  }
+
+  .rent-results-sort .search-filter-select-field--placeholder {
+    @apply text-[11px] sm:text-xs;
+  }
+
+  .rent-results-sort .search-filter-select-option {
+    @apply px-2 py-2 text-xs sm:text-sm;
+  }
+
+  /* Scrollable listings — capped height on mobile, flex-fill on desktop */
+  .rent-listings-scroll {
+    @apply max-h-[min(55vh,420px)] overflow-y-auto overscroll-contain border border-primary/10 bg-[#fafafa] p-2.5;
+    @apply sm:max-h-[min(60vh,520px)] sm:p-4;
+    @apply lg:max-h-none lg:min-h-0 lg:flex-1 lg:border-0 lg:bg-transparent lg:p-4;
+    scrollbar-gutter: stable;
+  }
+
+  .rent-listings-grid {
+    @apply grid grid-cols-1 gap-3;
+    @apply sm:grid-cols-2 sm:gap-4;
+    @apply xl:grid-cols-3 xl:gap-5;
+  }
+
+  .rent-listings-empty {
+    @apply flex min-h-[160px] items-center justify-center rounded-[14px] border border-dashed border-primary/25 bg-white px-4 text-center text-sm text-primary/60 sm:min-h-[200px] sm:px-6 sm:text-base;
+  }
+
+  .rent-listing-card {
+    @apply flex h-full flex-col overflow-hidden rounded-[12px] border border-primary/10 bg-white transition-shadow;
+    @apply shadow-[0px_2px_12px_0px_rgba(81,81,81,0.08)];
+  }
+
+  .rent-listing-card--selected {
+    @apply border-secondary shadow-[0px_4px_18px_0px_rgba(81,81,81,0.16)] ring-2 ring-secondary/40;
+  }
+
+  .rent-listing-card-media {
+    @apply block w-full overflow-hidden text-start;
+  }
+
+  .rent-listing-card-image {
+    @apply aspect-[4/3] w-full object-cover transition-transform duration-300;
+  }
+
+  .rent-listing-card-media:hover .rent-listing-card-image {
+    @apply scale-[1.03];
+  }
+
+  .rent-listing-card-body {
+    @apply flex flex-1 flex-col gap-1 p-2.5 sm:gap-1.5 sm:p-3.5;
+  }
+
+  .rent-listing-card-title {
+    @apply text-sm font-semibold leading-snug text-primary transition-colors hover:text-secondary sm:text-base;
+  }
+
+  .rent-listing-card-location {
+    @apply text-xs text-primary/55 sm:text-sm;
+  }
+
+  .rent-listing-card-price {
+    @apply mt-1 text-sm font-bold text-primary sm:text-base;
+  }
+
+  .rent-listing-card-price-unit {
+    @apply ms-1 text-xs font-medium text-primary/50;
+  }
+
+  .rent-listing-card-meta {
+    @apply mt-auto flex flex-wrap items-center gap-2 pt-1.5 text-xs text-primary/65 sm:gap-3 sm:pt-2 sm:text-sm;
+  }
+
+  .rent-listing-card-meta-item {
+    @apply inline-flex items-center gap-1;
+  }
+
+  .rent-listing-card-meta-item svg {
+    @apply size-3.5 shrink-0 sm:size-4;
+  }
+}

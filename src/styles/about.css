@@ -1,0 +1,141 @@
+/* ── About page ──────────────────────────────────────────── */
+@layer components {
+  .about-page {
+    @apply relative mx-auto flex w-full max-w-6xl flex-col gap-12 px-4 pb-16 pt-8 sm:gap-14 sm:px-6 sm:pb-20 sm:pt-12 lg:gap-16 lg:pt-14;
+    background:
+      radial-gradient(
+        ellipse 70% 50% at 85% 0%,
+        rgb(var(--secondary) / 0.08) 0%,
+        transparent 55%
+      ),
+      radial-gradient(
+        ellipse 55% 40% at 10% 30%,
+        rgb(var(--primary) / 0.05) 0%,
+        transparent 50%
+      );
+  }
+
+  .about-page-header {
+    @apply flex flex-col items-center gap-3 text-center sm:gap-4;
+    animation: page-fade-up 500ms ease-out both;
+  }
+
+  .about-page-title {
+    @apply text-xl font-bold tracking-tight text-primary sm:text-3xl lg:text-4xl;
+  }
+
+  .about-page-divider {
+    @apply h-0.5 w-14 rounded-full bg-secondary sm:w-40 lg:w-64;
+  }
+
+  .about-page-subtitle {
+    @apply max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base;
+  }
+
+  .about-story {
+    @apply grid items-center gap-8 lg:grid-cols-2 lg:gap-12;
+    animation: page-fade-up 600ms ease-out 60ms both;
+  }
+
+  .about-story-media {
+    @apply relative overflow-hidden rounded-2xl;
+    aspect-ratio: 4 / 3;
+  }
+
+  .about-story-image {
+    @apply size-full object-cover;
+    animation: about-image-reveal 700ms ease-out both;
+  }
+
+  .about-story-copy {
+    @apply flex flex-col gap-4;
+  }
+
+  .about-story-title {
+    @apply text-2xl font-bold tracking-tight text-primary sm:text-3xl;
+  }
+
+  .about-story-text {
+    @apply text-sm leading-relaxed text-muted-foreground sm:text-base;
+  }
+
+  .about-values {
+    @apply flex flex-col gap-8 sm:gap-10;
+    animation: page-fade-up 600ms ease-out 120ms both;
+  }
+
+  .about-values-intro {
+    @apply flex flex-col items-center gap-2 text-center;
+  }
+
+  .about-values-title {
+    @apply text-xl font-bold tracking-tight text-primary sm:text-2xl;
+  }
+
+  .about-values-subtitle {
+    @apply max-w-lg text-sm text-muted-foreground sm:text-base;
+  }
+
+  .about-values-list {
+    @apply grid gap-8 sm:grid-cols-3 sm:gap-6 lg:gap-10;
+  }
+
+  .about-values-item {
+    @apply flex flex-col items-center gap-3 text-center;
+  }
+
+  .about-values-icon {
+    @apply inline-flex size-12 items-center justify-center rounded-full bg-secondary/15 text-xl text-secondary;
+  }
+
+  .about-values-item-title {
+    @apply text-base font-bold text-primary sm:text-lg;
+  }
+
+  .about-values-item-text {
+    @apply max-w-xs text-sm leading-relaxed text-muted-foreground;
+  }
+
+  .about-cta {
+    @apply flex flex-col items-center gap-5 rounded-2xl bg-primary px-6 py-10 text-center text-primary-foreground sm:gap-6 sm:px-10 sm:py-12;
+    animation: page-fade-up 600ms ease-out 180ms both;
+  }
+
+  .about-cta-copy {
+    @apply flex max-w-xl flex-col gap-2;
+  }
+
+  .about-cta-title {
+    @apply text-xl font-bold tracking-tight sm:text-2xl;
+  }
+
+  .about-cta-text {
+    @apply text-sm text-white/75 sm:text-base;
+  }
+
+  .about-cta-link {
+    @apply inline-flex h-12 items-center justify-center rounded-xl bg-secondary px-8 text-base font-bold text-primary transition-opacity hover:opacity-90;
+  }
+}
+
+@keyframes about-image-reveal {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-page-header,
+  .about-story,
+  .about-values,
+  .about-cta,
+  .about-story-image {
+    animation: none;
+  }
+}

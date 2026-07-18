@@ -1,0 +1,63 @@
+/* ── Dialog (shadcn) ─────────────────────────────────────── */
+@layer components {
+  .dialog-overlay {
+    @apply fixed inset-0 z-[60] bg-primary/50 backdrop-blur-[2px];
+    animation: dialog-fade-in 180ms ease-out both;
+  }
+
+  .dialog-content {
+    @apply fixed left-1/2 top-1/2 z-[61] grid w-[calc(100%-2rem)] max-w-md -translate-x-1/2 -translate-y-1/2 gap-4;
+    @apply rounded-2xl border border-border bg-background p-6 shadow-[0px_8px_40px_0px_rgba(13,50,61,0.18)];
+    animation: dialog-scale-in 200ms ease-out both;
+  }
+
+  .dialog-close {
+    @apply absolute end-4 top-4 rounded-md p-1 text-muted-foreground transition-colors;
+    @apply hover:bg-muted hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
+  }
+
+  .dialog-header {
+    @apply flex flex-col gap-1.5 text-center sm:text-start;
+  }
+
+  .dialog-footer {
+    @apply flex flex-col-reverse gap-2 sm:flex-row sm:justify-end;
+  }
+
+  .dialog-title {
+    @apply text-xl font-bold tracking-tight text-primary;
+  }
+
+  .dialog-description {
+    @apply text-sm text-muted-foreground;
+  }
+}
+
+@keyframes dialog-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dialog-scale-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog-overlay,
+  .dialog-content {
+    animation: none;
+  }
+}
