@@ -11,10 +11,6 @@ export function BuyPage() {
   return <PlaceholderPage title="Buy" />
 }
 
-export function AboutPage() {
-  return <PlaceholderPage title="About us" />
-}
-
 export function LoginPage() {
   return <PlaceholderPage title="Log in" />
 }

@@ -3,10 +3,10 @@ import { createBrowserRouter } from "react-router-dom";
 import { RootLayout } from "@/app/layouts/RootLayout";
 import { HomePage } from "@/presentation/pages/HomePage";
 import {
-  AboutPage,
   LoginPage,
   SignUpPage,
 } from "@/presentation/pages/placeholders";
+import { AboutPage } from "@/presentation/pages/AboutPage";
 import { ContactPage } from "@/presentation/pages/ContactPage";
 import { PropertyDetailPage } from "@/presentation/pages/PropertyDetailPage";
 import { RentPage } from "@/presentation/pages/RentPage";

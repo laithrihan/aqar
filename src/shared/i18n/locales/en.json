@@ -194,6 +194,37 @@
       "fivePlus": "5+ Beds"
     }
   },
+  "about": {
+    "title": "About us",
+    "subtitle": "Aqar brings exclusive homes and clear guidance to buyers and renters across Syria.",
+    "story": {
+      "title": "Homes worth discovering",
+      "body": "We built Aqar for people who want more than a long list of listings. Every property we highlight is chosen for its location, design, and everyday livability.",
+      "bodySecondary": "From city apartments to quiet villas, our team helps you explore with confidence — and find a place that feels like yours.",
+      "imageAlt": "Modern villa with warm interior light"
+    },
+    "values": {
+      "title": "What guides us",
+      "subtitle": "A simple standard for how we present homes and support every search.",
+      "curated": {
+        "title": "Curated listings",
+        "description": "We focus on quality properties with clear photos and honest details."
+      },
+      "trust": {
+        "title": "Trusted guidance",
+        "description": "Straightforward information so you can compare options without the noise."
+      },
+      "local": {
+        "title": "Local insight",
+        "description": "Neighborhood context that helps you understand how a home fits your life."
+      }
+    },
+    "cta": {
+      "title": "Want to talk with us?",
+      "description": "Tell us what you are looking for — we are happy to help.",
+      "action": "Contact us"
+    }
+  },
   "contact": {
     "title": "Contact us",
     "subtitle": "Questions about a listing, partnership, or support — we are here to help.",
