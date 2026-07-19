@@ -1,4 +1,4 @@
-import { Outlet, useLocation } from 'react-router-dom'
+import { Outlet, ScrollRestoration, useLocation } from 'react-router-dom'
 
 import { Footer } from '@/presentation/components/layout/Footer'
 import { Header } from '@/presentation/components/layout/Header'
@@ -14,6 +14,7 @@ export function RootLayout() {
         <Outlet />
       </main>
       {hideFooter ? null : <Footer />}
+      <ScrollRestoration />
     </div>
   )
 }
