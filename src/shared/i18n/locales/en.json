@@ -127,6 +127,65 @@
       }
     }
   },
+  "buy": {
+    "title": "Buy Your Perfect Property",
+    "resultsLabel": "Buy listings map and results",
+    "map": {
+      "label": "Property locations map",
+      "missingKey": "Google maps need Billing to show the map but the code is working."
+    },
+    "sort": {
+      "label": "Sort listings",
+      "default": "Sort",
+      "priceAsc": "Price: Low to High",
+      "priceDesc": "Price: High to Low",
+      "roomsDesc": "Most Rooms",
+      "roomsAsc": "Fewest Rooms",
+      "bedsDesc": "Most Beds",
+      "bedsAsc": "Fewest Beds"
+    },
+    "listings": {
+      "label": "Homes for sale",
+      "loading": "Loading homes for sale…",
+      "error": "Could not load homes for sale.",
+      "empty": "No homes match your filters.",
+      "count_one": "{{count}} home",
+      "count_other": "{{count}} homes",
+      "select": "Select {{name}} on the map",
+      "roomsCount_one": "{{count}} room",
+      "roomsCount_other": "{{count}} rooms",
+      "bedsCount_one": "{{count}} bed",
+      "bedsCount_other": "{{count}} beds"
+    },
+    "locations": {
+      "mezzehDamascus": "Mezzeh, Damascus",
+      "abuRummanehDamascus": "Abu Rummaneh, Damascus",
+      "qassaaDamascus": "Qassaa, Damascus",
+      "yaafourDamascus": "Yaafour, Damascus",
+      "aziziyahAleppo": "Aziziyah, Aleppo",
+      "suleimaniyehAleppo": "Suleimaniyeh, Aleppo",
+      "cornicheLatakia": "Corniche, Latakia",
+      "projectLatakia": "Project area, Latakia",
+      "inshaatHoms": "Inshaat, Homs",
+      "seasideTartus": "Seaside, Tartus",
+      "oldCityHama": "Old City, Hama",
+      "kafarSousaDamascus": "Kafar Sousa, Damascus"
+    },
+    "homes": {
+      "villaDamascusMezzeh": "Villa for sale in Mezzeh, Damascus",
+      "apartmentDamascusAbuRummaneh": "Apartment for sale in Abu Rummaneh, Damascus",
+      "houseDamascusQassaa": "House for sale in Qassaa, Damascus",
+      "villaDamascusYaafour": "Villa for sale in Yaafour, Damascus",
+      "houseAleppoAziziyah": "Family house for sale in Aziziyah, Aleppo",
+      "apartmentAleppoSuleimaniyeh": "Apartment for sale in Suleimaniyeh, Aleppo",
+      "villaLatakiaCorniche": "Corniche villa for sale, Latakia",
+      "apartmentLatakiaProject": "Apartment for sale in Project area, Latakia",
+      "houseHomsInshaat": "House for sale in Inshaat, Homs",
+      "estateTartusSeaside": "Seaside estate for sale, Tartus",
+      "villaHamaOldCity": "Villa for sale near Old City, Hama",
+      "landDamascusKafarSousa": "Land for sale in Kafar Sousa, Damascus"
+    }
+  },
   "rent": {
     "title": "Rent Your Perfect Property",
     "resultsLabel": "Rent listings map and results",

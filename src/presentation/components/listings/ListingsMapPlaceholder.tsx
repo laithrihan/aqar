@@ -1,11 +1,13 @@
 import { useTranslation } from 'react-i18next'
 import { MdLocationOn } from 'react-icons/md'
 
-import type { RentListing } from '@/domain/rent/RentListing'
+import type { Listing } from '@/domain/listing/Listing'
+import type { ListingFeatureConfig } from '@/presentation/features/listings/listingFeature'
 import { cn } from '@/shared/lib/cn'
 
-type RentMapPlaceholderProps = {
-  listings: RentListing[]
+type ListingsMapPlaceholderProps = {
+  config: ListingFeatureConfig
+  listings: Listing[]
   selectedId: string | null
   onSelect: (id: string) => void
 }
@@ -14,11 +16,12 @@ type RentMapPlaceholderProps = {
  * Visual map stand-in used when Google Maps is unavailable (missing key / billing).
  * Pins are positioned from listing lat/lng so selection still syncs with the grid.
  */
-export function RentMapPlaceholder({
+export function ListingsMapPlaceholder({
+  config,
   listings,
   selectedId,
   onSelect,
-}: RentMapPlaceholderProps) {
+}: ListingsMapPlaceholderProps) {
   const { t } = useTranslation()
   const pins = positionPins(listings)
 
@@ -26,7 +29,7 @@ export function RentMapPlaceholder({
     <div
       className="rent-map-placeholder"
       role="region"
-      aria-label={t('rent.map.label')}
+      aria-label={t(`${config.namespace}.map.label`)}
     >
       <div className="rent-map-placeholder-grid" aria-hidden />
 
@@ -42,7 +45,9 @@ export function RentMapPlaceholder({
               selected && 'rent-map-placeholder-pin--selected',
             )}
             style={{ left: `${pin.x}%`, top: `${pin.y}%` }}
-            aria-label={t('rent.listings.select', { name: t(pin.titleKey) })}
+            aria-label={t(`${config.namespace}.listings.select`, {
+              name: t(pin.titleKey),
+            })}
             aria-pressed={selected}
             onClick={() => onSelect(pin.id)}
           >
@@ -53,16 +58,16 @@ export function RentMapPlaceholder({
 
       <div className="rent-map-placeholder-message" role="status">
         <MdLocationOn className="rent-map-placeholder-icon" aria-hidden />
-        <p>{t('rent.map.missingKey')}</p>
+        <p>{t(`${config.namespace}.map.missingKey`)}</p>
       </div>
     </div>
   )
 }
 
-type PinPosition = RentListing & { x: number; y: number }
+type PinPosition = Listing & { x: number; y: number }
 
 /** Maps listing coordinates into padded percentage positions inside the placeholder. */
-function positionPins(listings: RentListing[]): PinPosition[] {
+function positionPins(listings: Listing[]): PinPosition[] {
   if (listings.length === 0) return []
 
   const lats = listings.map((item) => item.lat)

@@ -7,7 +7,8 @@ import {
 } from '@vis.gl/react-google-maps'
 import { useTranslation } from 'react-i18next'
 
-import type { RentListing } from '@/domain/rent/RentListing'
+import type { Listing } from '@/domain/listing/Listing'
+import type { ListingFeatureConfig } from '@/presentation/features/listings/listingFeature'
 
 /** Default center when no listings are visible (Damascus). */
 const DAMASCUS_CENTER = { lat: 33.5138, lng: 36.2765 }
@@ -15,14 +16,15 @@ const DAMASCUS_CENTER = { lat: 33.5138, lng: 36.2765 }
 const MAP_ID =
   import.meta.env.VITE_GOOGLE_MAPS_MAP_ID?.trim() || 'DEMO_MAP_ID'
 
-type RentMapProps = {
-  listings: RentListing[]
+type ListingsMapProps = {
+  config: ListingFeatureConfig
+  listings: Listing[]
   selectedId: string | null
   onSelect: (id: string) => void
 }
 
 /** Fits the map camera to the current filtered markers. */
-function MapBoundsController({ listings }: { listings: RentListing[] }) {
+function MapBoundsController({ listings }: { listings: Listing[] }) {
   const map = useMap()
 
   useEffect(() => {
@@ -55,7 +57,7 @@ function MapSelectionController({
   listings,
   selectedId,
 }: {
-  listings: RentListing[]
+  listings: Listing[]
   selectedId: string | null
 }) {
   const map = useMap()
@@ -71,13 +73,22 @@ function MapSelectionController({
 }
 
 /**
- * Google Map with AdvancedMarkers for filtered rent listings.
+ * Google Map with AdvancedMarkers for the currently filtered listings.
  */
-export function RentMap({ listings, selectedId, onSelect }: RentMapProps) {
+export function ListingsMap({
+  config,
+  listings,
+  selectedId,
+  onSelect,
+}: ListingsMapProps) {
   const { t } = useTranslation()
 
   return (
-    <div className="rent-map" role="region" aria-label={t('rent.map.label')}>
+    <div
+      className="rent-map"
+      role="region"
+      aria-label={t(`${config.namespace}.map.label`)}
+    >
       <Map
         defaultCenter={DAMASCUS_CENTER}
         defaultZoom={11}

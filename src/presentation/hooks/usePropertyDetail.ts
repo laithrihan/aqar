@@ -3,13 +3,14 @@ import { useQuery } from '@tanstack/react-query'
 import type { PropertyDetail } from '@/domain/property/PropertyDetail'
 import { mergePropertyDetail } from '@/domain/property/mergePropertyDetail'
 import { fetchPropertyDetailExtension } from '@/infrastructure/property/propertyDetailRepository'
-import { useRentListings } from '@/presentation/hooks/useRentListings'
+import { rentListingFeature } from '@/presentation/features/listings/listingFeature'
+import { useListings } from '@/presentation/hooks/useListings'
 
 export const propertyDetailQueryKey = (propertyId: string) =>
   ['property', 'detail', propertyId] as const
 
 export function usePropertyDetail(propertyId: string | undefined) {
-  const listingsQuery = useRentListings()
+  const listingsQuery = useListings(rentListingFeature)
 
   const extensionQuery = useQuery({
     queryKey: propertyDetailQueryKey(propertyId ?? ''),

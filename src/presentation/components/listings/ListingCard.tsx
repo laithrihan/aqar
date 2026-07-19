@@ -2,30 +2,32 @@ import { Link } from 'react-router-dom'
 import { MdOutlineBed, MdOutlineMeetingRoom } from 'react-icons/md'
 import { useTranslation } from 'react-i18next'
 
-import type { RentListing } from '@/domain/rent/RentListing'
+import type { Listing } from '@/domain/listing/Listing'
+import type { ListingFeatureConfig } from '@/presentation/features/listings/listingFeature'
 import { ImageWithFallback } from '@/presentation/components/ui/ImageWithFallback'
 import { cn } from '@/shared/lib/cn'
 import { formatPrice } from '@/shared/lib/formatPrice'
 
-type RentListingCardProps = {
-  listing: RentListing
+type ListingCardProps = {
+  config: ListingFeatureConfig
+  listing: Listing
   selected: boolean
   onSelect: (id: string) => void
 }
 
-
-export function RentListingCard({
+export function ListingCard({
+  config,
   listing,
   selected,
   onSelect,
-}: RentListingCardProps) {
+}: ListingCardProps) {
   const { t, i18n } = useTranslation()
   const title = t(listing.titleKey)
   const detailPath = `/homes/${listing.id}`
 
   return (
     <article
-      id={`rent-listing-${listing.id}`}
+      id={`${config.idPrefix}-listing-${listing.id}`}
       className={cn(
         'rent-listing-card',
         selected && 'rent-listing-card--selected',
@@ -59,20 +61,28 @@ export function RentListingCard({
 
         <p className="rent-listing-card-price">
           {formatPrice(listing.price, i18n.language)}
-          <span className="rent-listing-card-price-unit">
-            {t('rent.listings.perYear')}
-          </span>
+          {config.priceUnitKey ? (
+            <span className="rent-listing-card-price-unit">
+              {t(config.priceUnitKey)}
+            </span>
+          ) : null}
         </p>
 
         <div className="rent-listing-card-meta">
-          <span className="rent-listing-card-meta-item">
-            <MdOutlineMeetingRoom aria-hidden />
-            {t('rent.listings.roomsCount', { count: listing.rooms })}
-          </span>
+          {listing.rooms > 0 ? (
+            <span className="rent-listing-card-meta-item">
+              <MdOutlineMeetingRoom aria-hidden />
+              {t(`${config.namespace}.listings.roomsCount`, {
+                count: listing.rooms,
+              })}
+            </span>
+          ) : null}
           {listing.beds > 0 ? (
             <span className="rent-listing-card-meta-item">
               <MdOutlineBed aria-hidden />
-              {t('rent.listings.bedsCount', { count: listing.beds })}
+              {t(`${config.namespace}.listings.bedsCount`, {
+                count: listing.beds,
+              })}
             </span>
           ) : null}
         </div>

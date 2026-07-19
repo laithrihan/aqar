@@ -1,8 +1,8 @@
-import type { RentListing } from '@/domain/rent/RentListing'
+import type { Listing } from '@/domain/listing/Listing'
 
 export type PropertyHeatingType = 'forcedAir' | 'central' | 'none'
 
-/** Detail fields stored separately from the base rent listing. */
+/** Detail fields stored separately from the base listing. */
 export type PropertyDetailExtension = {
   id: string
   galleryUrls: string[]
@@ -28,7 +28,7 @@ export type PropertyDetailExtension = {
   tourVideoUrl: string
 }
 
-export type PropertyDetail = RentListing & Omit<PropertyDetailExtension, 'id'>
+export type PropertyDetail = Listing & Omit<PropertyDetailExtension, 'id'>
 
 export type PropertyDetailsResponse = {
   listings: PropertyDetailExtension[]

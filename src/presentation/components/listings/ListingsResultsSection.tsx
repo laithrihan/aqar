@@ -6,25 +6,27 @@ import { useTranslation } from 'react-i18next'
 import { Skeleton } from '@/components/ui/skeleton'
 import type { PropertySearchFilters } from '@/domain/home/PropertySearch'
 import {
-  filterRentListings,
-  sortRentListings,
-  type RentSortOption,
-} from '@/domain/rent/RentListing'
-import { RentListingsGrid } from '@/presentation/components/rent/RentListingsGrid'
+  filterListings,
+  sortListings,
+  type ListingSortOption,
+} from '@/domain/listing/Listing'
+import type { ListingFeatureConfig } from '@/presentation/features/listings/listingFeature'
+import { ListingsGrid } from '@/presentation/components/listings/ListingsGrid'
 import { ListingCardsSkeleton } from '@/presentation/components/ui/ListingCardSkeleton'
-import { RentMap } from '@/presentation/components/rent/RentMap'
-import { RentMapPlaceholder } from '@/presentation/components/rent/RentMapPlaceholder'
-import { RentSortSelect } from '@/presentation/components/rent/RentSortSelect'
-import { useRentListings } from '@/presentation/hooks/useRentListings'
+import { ListingsMap } from '@/presentation/components/listings/ListingsMap'
+import { ListingsMapPlaceholder } from '@/presentation/components/listings/ListingsMapPlaceholder'
+import { ListingSortSelect } from '@/presentation/components/listings/ListingSortSelect'
+import { useListings } from '@/presentation/hooks/useListings'
 import { usePropertySearchStore } from '@/presentation/stores/propertySearchStore'
 
 const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY?.trim() ?? ''
 
 function resolveFilters(
+  config: ListingFeatureConfig,
   applied: PropertySearchFilters | null,
   params: URLSearchParams,
 ): PropertySearchFilters | null {
-  if (applied?.mode === 'rent') return applied
+  if (applied?.mode === config.mode) return applied
 
   const hasUrlFilters =
     params.has('location') ||
@@ -36,7 +38,7 @@ function resolveFilters(
   if (!hasUrlFilters && !applied) return null
 
   return {
-    mode: 'rent',
+    mode: config.mode,
     location: applied?.location ?? params.get('location') ?? '',
     propertyType: applied?.propertyType ?? params.get('propertyType') ?? '',
     priceRange: applied?.priceRange ?? params.get('priceRange') ?? '',
@@ -45,17 +47,23 @@ function resolveFilters(
   }
 }
 
-export function RentResultsSection() {
+type ListingsResultsSectionProps = {
+  config: ListingFeatureConfig
+}
+
+export function ListingsResultsSection({
+  config,
+}: ListingsResultsSectionProps) {
   const { t } = useTranslation()
   const [searchParams] = useSearchParams()
   const appliedFilters = usePropertySearchStore((s) => s.appliedFilters)
-  const { data: listings = [], isLoading, isError } = useRentListings()
+  const { data: listings = [], isLoading, isError } = useListings(config)
   const [selectedId, setSelectedId] = useState<string | null>(null)
-  const [sortBy, setSortBy] = useState<RentSortOption>('')
+  const [sortBy, setSortBy] = useState<ListingSortOption>('')
 
-  const filters = resolveFilters(appliedFilters, searchParams)
-  const filtered = filterRentListings(listings, filters)
-  const sorted = sortRentListings(filtered, sortBy)
+  const filters = resolveFilters(config, appliedFilters, searchParams)
+  const filtered = filterListings(listings, filters)
+  const sorted = sortListings(filtered, sortBy)
 
   const activeSelectedId =
     selectedId && sorted.some((item) => item.id === selectedId)
@@ -65,7 +73,7 @@ export function RentResultsSection() {
   if (isError) {
     return (
       <div className="rent-results rent-results--status" role="alert">
-        <p>{t('rent.listings.error')}</p>
+        <p>{t(`${config.namespace}.listings.error`)}</p>
       </div>
     )
   }
@@ -75,9 +83,11 @@ export function RentResultsSection() {
       <section
         className="rent-results"
         aria-busy
-        aria-label={t('rent.resultsLabel')}
+        aria-label={t(`${config.namespace}.resultsLabel`)}
       >
-        <span className="sr-only">{t('rent.listings.loading')}</span>
+        <span className="sr-only">
+          {t(`${config.namespace}.listings.loading`)}
+        </span>
         <div className="rent-results-listings">
           <div className="rent-results-map">
             <Skeleton className="size-full min-h-[220px] rounded-[14px]" />
@@ -105,19 +115,24 @@ export function RentResultsSection() {
   }
 
   return (
-    <section className="rent-results" aria-label={t('rent.resultsLabel')}>
+    <section
+      className="rent-results"
+      aria-label={t(`${config.namespace}.resultsLabel`)}
+    >
       <div className="rent-results-listings">
         <div className="rent-results-map">
           {GOOGLE_MAPS_API_KEY ? (
             <APIProvider apiKey={GOOGLE_MAPS_API_KEY}>
-              <RentMap
+              <ListingsMap
+                config={config}
                 listings={sorted}
                 selectedId={activeSelectedId}
                 onSelect={setSelectedId}
               />
             </APIProvider>
           ) : (
-            <RentMapPlaceholder
+            <ListingsMapPlaceholder
+              config={config}
               listings={sorted}
               selectedId={activeSelectedId}
               onSelect={setSelectedId}
@@ -128,13 +143,20 @@ export function RentResultsSection() {
         <div className="rent-results-panel">
           <div className="rent-results-toolbar">
             <p className="rent-results-count">
-              {t('rent.listings.count', { count: sorted.length })}
+              {t(`${config.namespace}.listings.count`, {
+                count: sorted.length,
+              })}
             </p>
-            <RentSortSelect value={sortBy} onChange={setSortBy} />
+            <ListingSortSelect
+              config={config}
+              value={sortBy}
+              onChange={setSortBy}
+            />
           </div>
 
           <div className="rent-listings-scroll">
-            <RentListingsGrid
+            <ListingsGrid
+              config={config}
               listings={sorted}
               selectedId={activeSelectedId}
               onSelect={setSelectedId}

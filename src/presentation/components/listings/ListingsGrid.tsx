@@ -1,35 +1,39 @@
 import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import type { RentListing } from '@/domain/rent/RentListing'
-import { RentListingCard } from '@/presentation/components/rent/RentListingCard'
+import type { Listing } from '@/domain/listing/Listing'
+import type { ListingFeatureConfig } from '@/presentation/features/listings/listingFeature'
+import { ListingCard } from '@/presentation/components/listings/ListingCard'
 
-type RentListingsGridProps = {
-  listings: RentListing[]
+type ListingsGridProps = {
+  config: ListingFeatureConfig
+  listings: Listing[]
   selectedId: string | null
   onSelect: (id: string) => void
 }
 
-export function RentListingsGrid({
+export function ListingsGrid({
+  config,
   listings,
   selectedId,
   onSelect,
-}: RentListingsGridProps) {
+}: ListingsGridProps) {
   const { t } = useTranslation()
   const gridRef = useRef<HTMLDivElement>(null)
 
+  // Scroll the selected card into view when selection comes from the map.
   useEffect(() => {
     if (!selectedId || !gridRef.current) return
     const card = gridRef.current.querySelector(
-      `#rent-listing-${CSS.escape(selectedId)}`,
+      `#${config.idPrefix}-listing-${CSS.escape(selectedId)}`,
     )
     card?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
-  }, [selectedId])
+  }, [config.idPrefix, selectedId])
 
   if (listings.length === 0) {
     return (
       <div className="rent-listings-empty" role="status">
-        <p>{t('rent.listings.empty')}</p>
+        <p>{t(`${config.namespace}.listings.empty`)}</p>
       </div>
     )
   }
@@ -39,11 +43,12 @@ export function RentListingsGrid({
       ref={gridRef}
       className="rent-listings-grid"
       role="list"
-      aria-label={t('rent.listings.label')}
+      aria-label={t(`${config.namespace}.listings.label`)}
     >
       {listings.map((listing) => (
         <div key={listing.id} role="listitem">
-          <RentListingCard
+          <ListingCard
+            config={config}
             listing={listing}
             selected={selectedId === listing.id}
             onSelect={onSelect}

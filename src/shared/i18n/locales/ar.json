@@ -127,6 +127,77 @@
       }
     }
   },
+  "buy": {
+    "title": "اشترِ عقارك المثالي",
+    "resultsLabel": "خريطة ونتائج عقارات البيع",
+    "map": {
+      "label": "خريطة مواقع العقارات",
+      "missingKey": "خريطة الإنترنت تحتاج إلى فوترة لعرض الخريطة ولكن الكود يعمل."
+    },
+    "listings": {
+      "label": "عقارات معروضة للبيع",
+      "loading": "جاري تحميل العقارات…",
+      "error": "تعذر تحميل العقارات.",
+      "empty": "لا توجد عقارات تطابق عوامل التصفية.",
+      "count_zero": "لا عقارات",
+      "count_one": "عقار واحد",
+      "count_two": "عقاران",
+      "count_few": "{{count}} عقارات",
+      "count_many": "{{count}} عقاراً",
+      "count_other": "{{count}} عقار",
+      "select": "تحديد {{name}} على الخريطة",
+      "roomsCount_zero": "لا غرف",
+      "roomsCount_one": "غرفة واحدة",
+      "roomsCount_two": "غرفتان",
+      "roomsCount_few": "{{count}} غرف",
+      "roomsCount_many": "{{count}} غرفة",
+      "roomsCount_other": "{{count}} غرفة",
+      "bedsCount_zero": "لا غرف نوم",
+      "bedsCount_one": "غرفة نوم واحدة",
+      "bedsCount_two": "غرفتا نوم",
+      "bedsCount_few": "{{count}} غرف نوم",
+      "bedsCount_many": "{{count}} غرفة نوم",
+      "bedsCount_other": "{{count}} غرفة نوم"
+    },
+    "sort": {
+      "label": "ترتيب العقارات",
+      "default": "ترتيب",
+      "priceAsc": "السعر: من الأقل إلى الأعلى",
+      "priceDesc": "السعر: من الأعلى إلى الأقل",
+      "roomsDesc": "الأكثر غرفاً",
+      "roomsAsc": "الأقل غرفاً",
+      "bedsDesc": "الأكثر غرف نوم",
+      "bedsAsc": "الأقل غرف نوم"
+    },
+    "locations": {
+      "mezzehDamascus": "المزة، دمشق",
+      "abuRummanehDamascus": "أبو رمانة، دمشق",
+      "qassaaDamascus": "القصاع، دمشق",
+      "yaafourDamascus": "يعفور، دمشق",
+      "aziziyahAleppo": "العزيزية، حلب",
+      "suleimaniyehAleppo": "السليمانية، حلب",
+      "cornicheLatakia": "الكورنيش، اللاذقية",
+      "projectLatakia": "منطقة المشروع، اللاذقية",
+      "inshaatHoms": "الإنشاءات، حمص",
+      "seasideTartus": "الواجهة البحرية، طرطوس",
+      "oldCityHama": "المدينة القديمة، حماة",
+      "kafarSousaDamascus": "كفر سوسة، دمشق"
+    },
+    "homes": {
+      "villaDamascusMezzeh": "فيلا للبيع في المزة، دمشق",
+      "apartmentDamascusAbuRummaneh": "شقة للبيع في أبو رمانة، دمشق",
+      "houseDamascusQassaa": "منزل للبيع في القصاع، دمشق",
+      "villaDamascusYaafour": "فيلا للبيع في يعفور، دمشق",
+      "houseAleppoAziziyah": "منزل عائلي للبيع في العزيزية، حلب",
+      "apartmentAleppoSuleimaniyeh": "شقة للبيع في السليمانية، حلب",
+      "villaLatakiaCorniche": "فيلا للبيع على الكورنيش، اللاذقية",
+      "apartmentLatakiaProject": "شقة للبيع في منطقة المشروع، اللاذقية",
+      "houseHomsInshaat": "منزل للبيع في الإنشاءات، حمص",
+      "estateTartusSeaside": "عقار بحري للبيع، طرطوس",
+      "villaHamaOldCity": "فيلا للبيع قرب المدينة القديمة، حماة",
+      "landDamascusKafarSousa": "أرض للبيع في كفر سوسة، دمشق"
+    }
+  },
   "rent": {
     "title": "استأجر عقارك المثالي",
     "resultsLabel": "خريطة ونتائج عقارات الإيجار",

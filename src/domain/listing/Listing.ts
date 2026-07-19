@@ -3,7 +3,7 @@ import type {
   SearchFilterOption,
 } from '@/domain/home/PropertySearch'
 
-export type RentListing = {
+export type Listing = {
   id: string
   titleKey: string
   locationKey: string
@@ -18,11 +18,11 @@ export type RentListing = {
   lng: number
 }
 
-export type RentListingsResponse = {
-  listings: RentListing[]
+export type ListingsResponse = {
+  listings: Listing[]
 }
 
-export type RentSortOption =
+export type ListingSortOption =
   | ''
   | 'price_asc'
   | 'price_desc'
@@ -31,14 +31,19 @@ export type RentSortOption =
   | 'beds_desc'
   | 'beds_asc'
 
-export const RENT_SORT_OPTIONS: SearchFilterOption[] = [
-  { value: 'price_asc', labelKey: 'rent.sort.priceAsc' },
-  { value: 'price_desc', labelKey: 'rent.sort.priceDesc' },
-  { value: 'rooms_desc', labelKey: 'rent.sort.roomsDesc' },
-  { value: 'rooms_asc', labelKey: 'rent.sort.roomsAsc' },
-  { value: 'beds_desc', labelKey: 'rent.sort.bedsDesc' },
-  { value: 'beds_asc', labelKey: 'rent.sort.bedsAsc' },
-]
+
+export function buildListingSortOptions(
+  namespace: string,
+): SearchFilterOption[] {
+  return [
+    { value: 'price_asc', labelKey: `${namespace}.sort.priceAsc` },
+    { value: 'price_desc', labelKey: `${namespace}.sort.priceDesc` },
+    { value: 'rooms_desc', labelKey: `${namespace}.sort.roomsDesc` },
+    { value: 'rooms_asc', labelKey: `${namespace}.sort.roomsAsc` },
+    { value: 'beds_desc', labelKey: `${namespace}.sort.bedsDesc` },
+    { value: 'beds_asc', labelKey: `${namespace}.sort.bedsAsc` },
+  ]
+}
 
 function matchesPriceRange(price: number, priceRange: string): boolean {
   if (!priceRange) return true
@@ -63,10 +68,11 @@ function matchesCount(value: number, filter: string): boolean {
   return !Number.isNaN(parsed) && value === parsed
 }
 
-export function filterRentListings(
-  listings: RentListing[],
+/** Applies the property search filters to a set of listings. */
+export function filterListings(
+  listings: Listing[],
   filters: PropertySearchFilters | null,
-): RentListing[] {
+): Listing[] {
   if (!filters) return listings
 
   const locationQuery = filters.location.trim().toLowerCase()
@@ -99,10 +105,11 @@ export function filterRentListings(
   })
 }
 
-export function sortRentListings(
-  listings: RentListing[],
-  sortBy: RentSortOption,
-): RentListing[] {
+/** Returns a sorted copy of the listings for the selected sort option. */
+export function sortListings(
+  listings: Listing[],
+  sortBy: ListingSortOption,
+): Listing[] {
   if (!sortBy) return listings
 
   const sorted = [...listings]

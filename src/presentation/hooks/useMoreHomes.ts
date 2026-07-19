@@ -1,8 +1,9 @@
 import { selectMoreHomes } from '@/domain/property/selectMoreHomes'
-import { useRentListings } from '@/presentation/hooks/useRentListings'
+import { rentListingFeature } from '@/presentation/features/listings/listingFeature'
+import { useListings } from '@/presentation/hooks/useListings'
 
 export function useMoreHomes(propertyId: string | undefined, limit = 4) {
-  const listingsQuery = useRentListings()
+  const listingsQuery = useListings(rentListingFeature)
 
   const homes =
     propertyId && listingsQuery.data

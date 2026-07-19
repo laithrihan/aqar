@@ -1,14 +1,14 @@
 import { useQuery } from '@tanstack/react-query'
 
 import { buildBentoColumnsFromListings } from '@/domain/home/buildBentoColumnsFromListings'
-import { fetchRentListings } from '@/infrastructure/rent/rentListingsRepository'
-import { rentListingsQueryKey } from '@/presentation/hooks/useRentListings'
+import { fetchListings } from '@/infrastructure/listing/listingsRepository'
+import { rentListingFeature } from '@/presentation/features/listings/listingFeature'
 
 /** Loads bento columns from the same rent listings used across the app. */
 export function useBentoHomesColumns() {
   return useQuery({
-    queryKey: rentListingsQueryKey,
-    queryFn: fetchRentListings,
+    queryKey: rentListingFeature.queryKey,
+    queryFn: () => fetchListings(rentListingFeature.dataUrl),
     select: buildBentoColumnsFromListings,
   })
 }

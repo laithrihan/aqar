@@ -2,12 +2,12 @@ import { Link } from 'react-router-dom'
 import { MdOutlineBed, MdOutlineMeetingRoom } from 'react-icons/md'
 import { useTranslation } from 'react-i18next'
 
-import type { RentListing } from '@/domain/rent/RentListing'
+import type { Listing } from '@/domain/listing/Listing'
 import { ImageWithFallback } from '@/presentation/components/ui/ImageWithFallback'
 import { formatPrice } from '@/shared/lib/formatPrice'
 
 type PropertyHomeCardProps = {
-  listing: RentListing
+  listing: Listing
 }
 
 export function PropertyHomeCard({ listing }: PropertyHomeCardProps) {

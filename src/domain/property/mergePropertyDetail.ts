@@ -2,11 +2,11 @@ import type {
   PropertyDetail,
   PropertyDetailExtension,
 } from '@/domain/property/PropertyDetail'
-import type { RentListing } from '@/domain/rent/RentListing'
+import type { Listing } from '@/domain/listing/Listing'
 
-/** Merges a rent listing with its detail-only extension fields. */
+/** Merges a listing with its detail-only extension fields. */
 export function mergePropertyDetail(
-  listing: RentListing,
+  listing: Listing,
   extension: PropertyDetailExtension,
 ): PropertyDetail {
   const { id: _id, ...detailFields } = extension

@@ -1,9 +1,9 @@
 import type { BentoColumn, BentoImage } from '@/domain/home/BentoHomes'
-import type { RentListing } from '@/domain/rent/RentListing'
+import type { Listing } from '@/domain/listing/Listing'
 
 const BENTO_PROPERTY_TYPES = new Set(['villa', 'house', 'apartment'])
 
-function toBentoImage(listing: RentListing, suffix: string): BentoImage {
+function toBentoImage(listing: Listing, suffix: string): BentoImage {
   return {
     id: `${listing.id}-${suffix}`,
     propertyId: listing.id,
@@ -13,7 +13,7 @@ function toBentoImage(listing: RentListing, suffix: string): BentoImage {
 }
 
 export function buildBentoColumnsFromListings(
-  listings: RentListing[],
+  listings: Listing[],
 ): BentoColumn[] {
   const homes = listings.filter((listing) =>
     BENTO_PROPERTY_TYPES.has(listing.propertyType),

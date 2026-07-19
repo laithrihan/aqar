@@ -10,16 +10,18 @@ import { useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
 import type { PropertySearchFilters } from '@/domain/home/PropertySearch'
+import type { ListingFeatureConfig } from '@/presentation/features/listings/listingFeature'
 import { SearchFilterSelect } from '@/presentation/components/home/SearchFilterSelect'
 import { usePropertySearchFilterOptions } from '@/presentation/hooks/usePropertySearchFilterOptions'
 import { usePropertySearchStore } from '@/presentation/stores/propertySearchStore'
 
 function getDefaultValues(
+  config: ListingFeatureConfig,
   applied: PropertySearchFilters | null,
   params: URLSearchParams,
 ): PropertySearchFilters {
   return {
-    mode: 'rent',
+    mode: config.mode,
     location: applied?.location ?? params.get('location') ?? '',
     propertyType: applied?.propertyType ?? params.get('propertyType') ?? '',
     priceRange: applied?.priceRange ?? params.get('priceRange') ?? '',
@@ -28,10 +30,12 @@ function getDefaultValues(
   }
 }
 
-/**
- * Rent page filter bar — location search, type/price/rooms/beds selects, Search.
- */
-export function RentFilterSearch() {
+type ListingFilterSearchProps = {
+  config: ListingFeatureConfig
+}
+
+
+export function ListingFilterSearch({ config }: ListingFilterSearchProps) {
   const { t } = useTranslation()
   const [searchParams, setSearchParams] = useSearchParams()
   const { data: options } = usePropertySearchFilterOptions()
@@ -40,7 +44,7 @@ export function RentFilterSearch() {
 
   const { register, handleSubmit, watch, setValue } =
     useForm<PropertySearchFilters>({
-      defaultValues: getDefaultValues(appliedFilters, searchParams),
+      defaultValues: getDefaultValues(config, appliedFilters, searchParams),
     })
 
   const propertyType = watch('propertyType')
@@ -51,7 +55,7 @@ export function RentFilterSearch() {
   const onSubmit = (values: PropertySearchFilters) => {
     const filters: PropertySearchFilters = {
       ...values,
-      mode: 'rent',
+      mode: config.mode,
       location: values.location.trim(),
     }
 
@@ -70,10 +74,13 @@ export function RentFilterSearch() {
   return (
     <form className="rent-filter" onSubmit={handleSubmit(onSubmit)}>
       {/* Location search */}
-      <label className="rent-filter-location" htmlFor="rent-location">
+      <label
+        className="rent-filter-location"
+        htmlFor={`${config.idPrefix}-location`}
+      >
         <HiOutlineSearch className="rent-filter-location-icon" aria-hidden />
         <input
-          id="rent-location"
+          id={`${config.idPrefix}-location`}
           type="search"
           placeholder={t('search.locationPlaceholder')}
           className="rent-filter-location-input"
@@ -85,7 +92,7 @@ export function RentFilterSearch() {
       {/* Filter dropdowns */}
       <div className="rent-filter-selects">
         <SearchFilterSelect
-          id="rent-property-type"
+          id={`${config.idPrefix}-property-type`}
           label={t('search.filters.propertyType')}
           placeholder={t('search.filters.propertyType')}
           icon={<MdOutlineHome />}
@@ -96,7 +103,7 @@ export function RentFilterSearch() {
           }
         />
         <SearchFilterSelect
-          id="rent-price-range"
+          id={`${config.idPrefix}-price-range`}
           label={t('search.filters.priceRange')}
           placeholder={t('search.filters.priceRange')}
           icon={<MdOutlineAttachMoney />}
@@ -107,7 +114,7 @@ export function RentFilterSearch() {
           }
         />
         <SearchFilterSelect
-          id="rent-rooms"
+          id={`${config.idPrefix}-rooms`}
           label={t('search.filters.rooms')}
           placeholder={t('search.filters.rooms')}
           icon={<MdOutlineMeetingRoom />}
@@ -116,7 +123,7 @@ export function RentFilterSearch() {
           onChange={(next) => setValue('rooms', next, { shouldDirty: true })}
         />
         <SearchFilterSelect
-          id="rent-beds"
+          id={`${config.idPrefix}-beds`}
           label={t('search.filters.beds')}
           placeholder={t('search.filters.beds')}
           icon={<MdOutlineBed />}

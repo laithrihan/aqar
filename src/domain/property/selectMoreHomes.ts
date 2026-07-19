@@ -1,11 +1,11 @@
-import type { RentListing } from '@/domain/rent/RentListing'
+import type { Listing } from '@/domain/listing/Listing'
 
 /** Picks recommendation cards, excluding the property currently being viewed. */
 export function selectMoreHomes(
-  listings: RentListing[],
+  listings: Listing[],
   excludePropertyId: string,
   limit = 4,
-): RentListing[] {
+): Listing[] {
   return listings
     .filter((listing) => listing.id !== excludePropertyId)
     .slice(0, limit)

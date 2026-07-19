@@ -1,17 +1,14 @@
 import { describe, expect, it } from 'vitest'
 
 import type { PropertySearchFilters } from '@/domain/home/PropertySearch'
-import {
-  filterRentListings,
-  type RentListing,
-} from '@/domain/rent/RentListing'
+import { filterListings, type Listing } from '@/domain/listing/Listing'
 
 function listing(
-  overrides: Partial<RentListing> & Pick<RentListing, 'id'>,
-): RentListing {
+  overrides: Partial<Listing> & Pick<Listing, 'id'>,
+): Listing {
   return {
-    titleKey: 'rent.listing.title',
-    locationKey: 'rent.listing.location',
+    titleKey: 'listing.title',
+    locationKey: 'listing.location',
     location: 'Riyadh',
     locationAr: 'الرياض',
     imageUrl: '/img.jpg',
@@ -39,7 +36,7 @@ function filters(
   }
 }
 
-const sampleListings: RentListing[] = [
+const sampleListings: Listing[] = [
   listing({
     id: '1',
     location: 'Riyadh Al Olaya',
@@ -69,19 +66,17 @@ const sampleListings: RentListing[] = [
   }),
 ]
 
-describe('filterRentListings', () => {
+describe('filterListings', () => {
   it('returns all listings when filters are null', () => {
-    expect(filterRentListings(sampleListings, null)).toEqual(sampleListings)
+    expect(filterListings(sampleListings, null)).toEqual(sampleListings)
   })
 
   it('returns all listings when filters are empty', () => {
-    expect(filterRentListings(sampleListings, filters())).toEqual(
-      sampleListings,
-    )
+    expect(filterListings(sampleListings, filters())).toEqual(sampleListings)
   })
 
   it('filters by English location (case-insensitive substring)', () => {
-    const result = filterRentListings(
+    const result = filterListings(
       sampleListings,
       filters({ location: 'riyadh' }),
     )
@@ -90,16 +85,13 @@ describe('filterRentListings', () => {
   })
 
   it('filters by Arabic location substring', () => {
-    const result = filterRentListings(
-      sampleListings,
-      filters({ location: 'جدة' }),
-    )
+    const result = filterListings(sampleListings, filters({ location: 'جدة' }))
 
     expect(result.map((item) => item.id)).toEqual(['2'])
   })
 
   it('filters by property type', () => {
-    const result = filterRentListings(
+    const result = filterListings(
       sampleListings,
       filters({ propertyType: 'villa' }),
     )
@@ -108,7 +100,7 @@ describe('filterRentListings', () => {
   })
 
   it('filters by inclusive price range', () => {
-    const result = filterRentListings(
+    const result = filterListings(
       sampleListings,
       filters({ priceRange: '4000-8000' }),
     )
@@ -117,7 +109,7 @@ describe('filterRentListings', () => {
   })
 
   it('filters by open-ended price range (min+)', () => {
-    const result = filterRentListings(
+    const result = filterListings(
       sampleListings,
       filters({ priceRange: '10000+' }),
     )
@@ -126,31 +118,25 @@ describe('filterRentListings', () => {
   })
 
   it('filters by exact room count', () => {
-    const result = filterRentListings(
-      sampleListings,
-      filters({ rooms: '4' }),
-    )
+    const result = filterListings(sampleListings, filters({ rooms: '4' }))
 
     expect(result.map((item) => item.id)).toEqual(['3'])
   })
 
   it('filters by 5+ room count', () => {
-    const result = filterRentListings(
-      sampleListings,
-      filters({ rooms: '5+' }),
-    )
+    const result = filterListings(sampleListings, filters({ rooms: '5+' }))
 
     expect(result.map((item) => item.id)).toEqual(['2'])
   })
 
   it('filters by exact bed count', () => {
-    const result = filterRentListings(sampleListings, filters({ beds: '1' }))
+    const result = filterListings(sampleListings, filters({ beds: '1' }))
 
     expect(result.map((item) => item.id)).toEqual(['1'])
   })
 
   it('applies multiple filters together (AND)', () => {
-    const result = filterRentListings(
+    const result = filterListings(
       sampleListings,
       filters({
         location: 'Riyadh',
@@ -165,7 +151,7 @@ describe('filterRentListings', () => {
   })
 
   it('returns an empty array when nothing matches', () => {
-    const result = filterRentListings(
+    const result = filterListings(
       sampleListings,
       filters({ propertyType: 'studio' }),
     )

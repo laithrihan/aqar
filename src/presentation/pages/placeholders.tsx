@@ -7,10 +7,6 @@ function PlaceholderPage({ title }: { title: string }) {
   )
 }
 
-export function BuyPage() {
-  return <PlaceholderPage title="Buy" />
-}
-
 export function LoginPage() {
   return <PlaceholderPage title="Log in" />
 }

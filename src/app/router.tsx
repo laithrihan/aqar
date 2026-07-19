@@ -8,6 +8,7 @@ import {
 } from "@/presentation/pages/placeholders";
 import { AboutPage } from "@/presentation/pages/AboutPage";
 import { ContactPage } from "@/presentation/pages/ContactPage";
+import { BuyPage } from "@/presentation/pages/BuyPage";
 import { PropertyDetailPage } from "@/presentation/pages/PropertyDetailPage";
 import { RentPage } from "@/presentation/pages/RentPage";
 
@@ -18,7 +19,7 @@ export const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { index: true, element: <HomePage /> },
-      { path: "buy", element: <RentPage /> },
+      { path: "buy", element: <BuyPage /> },
       { path: "rent", element: <RentPage /> },
       { path: "homes/:propertyId", element: <PropertyDetailPage /> },
       { path: "about", element: <AboutPage /> },
