@@ -7,8 +7,9 @@ function listing(
   overrides: Partial<Listing> & Pick<Listing, 'id'>,
 ): Listing {
   return {
-    titleKey: 'listing.title',
-    locationKey: 'listing.location',
+    purpose: 'rent',
+    title: 'Listing',
+    titleAr: 'عقار',
     location: 'Riyadh',
     locationAr: 'الرياض',
     imageUrl: '/img.jpg',

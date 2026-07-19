@@ -2,14 +2,15 @@ import { useTranslation } from 'react-i18next'
 
 import type { PropertyDetail } from '@/domain/property/PropertyDetail'
 import { PropertyTourPlayer } from '@/presentation/components/property/PropertyTourPlayer'
+import { localizedText } from '@/shared/lib/localizedText'
 
 type PropertyTourSectionProps = {
   property: PropertyDetail
 }
 
 export function PropertyTourSection({ property }: PropertyTourSectionProps) {
-  const { t } = useTranslation()
-  const title = t(property.titleKey)
+  const { t, i18n } = useTranslation()
+  const title = localizedText(i18n.language, property.title, property.titleAr)
 
   return (
     <section className="property-tour" aria-labelledby="property-tour-heading">

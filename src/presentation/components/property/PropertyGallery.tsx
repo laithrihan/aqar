@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import type { PropertyDetail } from '@/domain/property/PropertyDetail'
 import { ImageWithFallback } from '@/presentation/components/ui/ImageWithFallback'
 import { cn } from '@/shared/lib/cn'
+import { localizedText } from '@/shared/lib/localizedText'
 import { getPropertyGalleryThumbs } from '@/shared/lib/propertyGallery'
 
 type PropertyGalleryProps = {
@@ -12,7 +13,8 @@ type PropertyGalleryProps = {
 
 /** Main image preview with up to three selectable thumbnails. */
 export function PropertyGallery({ property }: PropertyGalleryProps) {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const title = localizedText(i18n.language, property.title, property.titleAr)
   const thumbs = getPropertyGalleryThumbs(property.imageUrl, property.galleryUrls)
   const [activeUrl, setActiveUrl] = useState(thumbs[0] ?? property.imageUrl)
 
@@ -21,7 +23,7 @@ export function PropertyGallery({ property }: PropertyGalleryProps) {
       <div className="property-gallery-main">
         <ImageWithFallback
           src={activeUrl}
-          alt={t(property.titleKey)}
+          alt={title}
           className="property-gallery-main-image"
         />
       </div>

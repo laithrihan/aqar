@@ -11,10 +11,11 @@ import { PropertySellerActions } from '@/presentation/components/property/Proper
 import { PropertySummaryFacts } from '@/presentation/components/property/PropertySummaryFacts'
 import { PropertyTourSection } from '@/presentation/components/property/PropertyTourSection'
 import { usePropertyDetail } from '@/presentation/hooks/usePropertyDetail'
+import { localizedText } from '@/shared/lib/localizedText'
 
 export function PropertyDetailPage() {
   const { propertyId } = useParams<{ propertyId: string }>()
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { data: property, isPending, isError } = usePropertyDetail(propertyId)
 
   if (isPending) {
@@ -45,7 +46,7 @@ export function PropertyDetailPage() {
     <div className="property-page">
       <section
         className="property-hero"
-        aria-label={t(property.titleKey)}
+        aria-label={localizedText(i18n.language, property.title, property.titleAr)}
       >
         <div className="property-hero-gallery">
           <PropertyGallery key={property.id} property={property} />

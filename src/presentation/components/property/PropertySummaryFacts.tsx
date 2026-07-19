@@ -33,7 +33,7 @@ export function PropertySummaryFacts({ property }: PropertySummaryProps) {
       <p className="property-summary-facts">{factsLine}</p>
       <p className="property-summary-address">{address}</p>
       <p className="property-summary-status">
-        {t(`property.status.${property.status}`)}{' '}
+        {t(`property.status.${property.purpose}`)}{' '}
         {t('property.zestimate', {
           value: formatPrice(property.estimatedValue, i18n.language),
         })}

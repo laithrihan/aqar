@@ -173,34 +173,6 @@
       "roomsAsc": "الأقل غرفاً",
       "bedsDesc": "الأكثر غرف نوم",
       "bedsAsc": "الأقل غرف نوم"
-    },
-    "locations": {
-      "mezzehDamascus": "المزة، دمشق",
-      "abuRummanehDamascus": "أبو رمانة، دمشق",
-      "qassaaDamascus": "القصاع، دمشق",
-      "yaafourDamascus": "يعفور، دمشق",
-      "aziziyahAleppo": "العزيزية، حلب",
-      "suleimaniyehAleppo": "السليمانية، حلب",
-      "cornicheLatakia": "الكورنيش، اللاذقية",
-      "projectLatakia": "منطقة المشروع، اللاذقية",
-      "inshaatHoms": "الإنشاءات، حمص",
-      "seasideTartus": "الواجهة البحرية، طرطوس",
-      "oldCityHama": "المدينة القديمة، حماة",
-      "kafarSousaDamascus": "كفر سوسة، دمشق"
-    },
-    "homes": {
-      "villaDamascusMezzeh": "فيلا للبيع في المزة، دمشق",
-      "apartmentDamascusAbuRummaneh": "شقة للبيع في أبو رمانة، دمشق",
-      "houseDamascusQassaa": "منزل للبيع في القصاع، دمشق",
-      "villaDamascusYaafour": "فيلا للبيع في يعفور، دمشق",
-      "houseAleppoAziziyah": "منزل عائلي للبيع في العزيزية، حلب",
-      "apartmentAleppoSuleimaniyeh": "شقة للبيع في السليمانية، حلب",
-      "villaLatakiaCorniche": "فيلا للبيع على الكورنيش، اللاذقية",
-      "apartmentLatakiaProject": "شقة للبيع في منطقة المشروع، اللاذقية",
-      "houseHomsInshaat": "منزل للبيع في الإنشاءات، حمص",
-      "estateTartusSeaside": "عقار بحري للبيع، طرطوس",
-      "villaHamaOldCity": "فيلا للبيع قرب المدينة القديمة، حماة",
-      "landDamascusKafarSousa": "أرض للبيع في كفر سوسة، دمشق"
     }
   },
   "rent": {
@@ -250,33 +222,6 @@
       "roomsAsc": "الأقل غرفاً",
       "bedsDesc": "الأكثر غرف نوم",
       "bedsAsc": "الأقل غرف نوم"
-    },
-    "locations": {
-      "mezzehDamascus": "المزة، دمشق",
-      "abuRummanehDamascus": "أبو رمانة، دمشق",
-      "qassaaDamascus": "القصاع، دمشق",
-      "yaafourDamascus": "يعفور، دمشق",
-      "aziziyahAleppo": "العزيزية، حلب",
-      "suleimaniyehAleppo": "السليمانية، حلب",
-      "cornicheLatakia": "الكورنيش، اللاذقية",
-      "projectLatakia": "منطقة المشروع، اللاذقية",
-      "inshaatHoms": "الإنشاءات، حمص",
-      "seasideTartus": "الواجهة البحرية، طرطوس",
-      "oldCityHama": "المدينة القديمة، حماة"
-    },
-    "homes": {
-      "villaDamascusMezzeh": "فيلا في المزة، دمشق",
-      "apartmentDamascusAbuRummaneh": "شقة في أبو رمانة، دمشق",
-      "houseDamascusQassaa": "منزل في القصاع، دمشق",
-      "villaDamascusYaafour": "فيلا في يعفور، دمشق",
-      "houseAleppoAziziyah": "منزل عائلي في العزيزية، حلب",
-      "apartmentAleppoSuleimaniyeh": "شقة في السليمانية، حلب",
-      "villaLatakiaCorniche": "فيلا على الكورنيش، اللاذقية",
-      "apartmentLatakiaProject": "شقة في منطقة المشروع، اللاذقية",
-      "houseHomsInshaat": "منزل في الإنشاءات، حمص",
-      "estateTartusSeaside": "عقار بحري، طرطوس",
-      "villaHamaOldCity": "فيلا قرب المدينة القديمة، حماة",
-      "officeDamascusMazzeh": "مكتب في المزة، دمشق"
     }
   },
   "search": {

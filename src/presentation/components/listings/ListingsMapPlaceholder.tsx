@@ -4,6 +4,7 @@ import { MdLocationOn } from 'react-icons/md'
 import type { Listing } from '@/domain/listing/Listing'
 import type { ListingFeatureConfig } from '@/presentation/features/listings/listingFeature'
 import { cn } from '@/shared/lib/cn'
+import { localizedText } from '@/shared/lib/localizedText'
 
 type ListingsMapPlaceholderProps = {
   config: ListingFeatureConfig
@@ -22,7 +23,7 @@ export function ListingsMapPlaceholder({
   selectedId,
   onSelect,
 }: ListingsMapPlaceholderProps) {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const pins = positionPins(listings)
 
   return (
@@ -46,7 +47,7 @@ export function ListingsMapPlaceholder({
             )}
             style={{ left: `${pin.x}%`, top: `${pin.y}%` }}
             aria-label={t(`${config.namespace}.listings.select`, {
-              name: t(pin.titleKey),
+              name: localizedText(i18n.language, pin.title, pin.titleAr),
             })}
             aria-pressed={selected}
             onClick={() => onSelect(pin.id)}

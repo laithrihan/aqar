@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import type { BentoColumn, BentoImage } from '@/domain/home/BentoHomes'
 import { ImageWithFallback } from '@/presentation/components/ui/ImageWithFallback'
 import { cn } from '@/shared/lib/cn'
+import { localizedText } from '@/shared/lib/localizedText'
 
 type BentoHomesCarouselProps = {
   columns: BentoColumn[]
@@ -230,8 +231,8 @@ type BentoHomeTileProps = {
 }
 
 function BentoHomeTile({ image, decorative = false }: BentoHomeTileProps) {
-  const { t } = useTranslation()
-  const title = t(image.titleKey)
+  const { t, i18n } = useTranslation()
+  const title = localizedText(i18n.language, image.title, image.titleAr)
   const detailPath = `/homes/${image.propertyId}`
 
   return (

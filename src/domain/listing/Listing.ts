@@ -3,10 +3,18 @@ import type {
   SearchFilterOption,
 } from '@/domain/home/PropertySearch'
 
+/** Whether a listing is offered for rent or for sale. */
+export type ListingPurpose = 'rent' | 'sale'
+
+/**
+ * Card-level shape of a listing.
+ * Title/location text lives on the record (comes from the backend), not i18n.
+ */
 export type Listing = {
   id: string
-  titleKey: string
-  locationKey: string
+  purpose: ListingPurpose
+  title: string
+  titleAr: string
   location: string
   locationAr: string
   imageUrl: string
@@ -16,10 +24,6 @@ export type Listing = {
   beds: number
   lat: number
   lng: number
-}
-
-export type ListingsResponse = {
-  listings: Listing[]
 }
 
 export type ListingSortOption =

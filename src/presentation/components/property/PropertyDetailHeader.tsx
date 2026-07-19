@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 
 import type { PropertyDetail } from '@/domain/property/PropertyDetail'
 import { formatPrice } from '@/shared/lib/formatPrice'
+import { localizedText } from '@/shared/lib/localizedText'
 
 type PropertyDetailHeaderProps = {
   property: PropertyDetail
@@ -14,7 +15,7 @@ export function PropertyDetailHeader({ property }: PropertyDetailHeaderProps) {
 
   async function handleShare() {
     const url = window.location.href
-    const title = t(property.titleKey)
+    const title = localizedText(i18n.language, property.title, property.titleAr)
 
     try {
       if (navigator.share) {

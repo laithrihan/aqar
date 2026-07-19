@@ -9,6 +9,7 @@ import { useTranslation } from 'react-i18next'
 
 import type { Listing } from '@/domain/listing/Listing'
 import type { ListingFeatureConfig } from '@/presentation/features/listings/listingFeature'
+import { localizedText } from '@/shared/lib/localizedText'
 
 /** Default center when no listings are visible (Damascus). */
 const DAMASCUS_CENTER = { lat: 33.5138, lng: 36.2765 }
@@ -81,7 +82,7 @@ export function ListingsMap({
   selectedId,
   onSelect,
 }: ListingsMapProps) {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
 
   return (
     <div
@@ -107,7 +108,7 @@ export function ListingsMap({
             <AdvancedMarker
               key={listing.id}
               position={{ lat: listing.lat, lng: listing.lng }}
-              title={t(listing.titleKey)}
+              title={localizedText(i18n.language, listing.title, listing.titleAr)}
               onClick={() => onSelect(listing.id)}
               zIndex={selected ? 10 : 1}
             >

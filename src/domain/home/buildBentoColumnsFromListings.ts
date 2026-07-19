@@ -8,7 +8,8 @@ function toBentoImage(listing: Listing, suffix: string): BentoImage {
     id: `${listing.id}-${suffix}`,
     propertyId: listing.id,
     imageUrl: listing.imageUrl,
-    titleKey: listing.titleKey,
+    title: listing.title,
+    titleAr: listing.titleAr,
   }
 }
 

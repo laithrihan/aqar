@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import type { Listing } from '@/domain/listing/Listing'
 import { ImageWithFallback } from '@/presentation/components/ui/ImageWithFallback'
 import { formatPrice } from '@/shared/lib/formatPrice'
+import { localizedText } from '@/shared/lib/localizedText'
 
 type PropertyHomeCardProps = {
   listing: Listing
@@ -12,7 +13,12 @@ type PropertyHomeCardProps = {
 
 export function PropertyHomeCard({ listing }: PropertyHomeCardProps) {
   const { t, i18n } = useTranslation()
-  const title = t(listing.titleKey)
+  const title = localizedText(i18n.language, listing.title, listing.titleAr)
+  const location = localizedText(
+    i18n.language,
+    listing.location,
+    listing.locationAr,
+  )
 
   return (
     <article className="property-home-card">
@@ -30,7 +36,7 @@ export function PropertyHomeCard({ listing }: PropertyHomeCardProps) {
           {title}
         </Link>
 
-        <p className="property-home-card-location">{t(listing.locationKey)}</p>
+        <p className="property-home-card-location">{location}</p>
 
         <p className="property-home-card-price">
           {formatPrice(listing.price, i18n.language)}

@@ -7,6 +7,7 @@ import type { ListingFeatureConfig } from '@/presentation/features/listings/list
 import { ImageWithFallback } from '@/presentation/components/ui/ImageWithFallback'
 import { cn } from '@/shared/lib/cn'
 import { formatPrice } from '@/shared/lib/formatPrice'
+import { localizedText } from '@/shared/lib/localizedText'
 
 type ListingCardProps = {
   config: ListingFeatureConfig
@@ -22,7 +23,12 @@ export function ListingCard({
   onSelect,
 }: ListingCardProps) {
   const { t, i18n } = useTranslation()
-  const title = t(listing.titleKey)
+  const title = localizedText(i18n.language, listing.title, listing.titleAr)
+  const location = localizedText(
+    i18n.language,
+    listing.location,
+    listing.locationAr,
+  )
   const detailPath = `/homes/${listing.id}`
 
   return (
@@ -57,7 +63,7 @@ export function ListingCard({
           {title}
         </Link>
 
-        <p className="rent-listing-card-location">{t(listing.locationKey)}</p>
+        <p className="rent-listing-card-location">{location}</p>
 
         <p className="rent-listing-card-price">
           {formatPrice(listing.price, i18n.language)}

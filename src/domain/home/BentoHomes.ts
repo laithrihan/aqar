@@ -2,7 +2,8 @@ export type BentoImage = {
   id: string
   propertyId: string
   imageUrl: string
-  titleKey: string
+  title: string
+  titleAr: string
 }
 
 export type BentoColumn = {
