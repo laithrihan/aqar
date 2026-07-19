@@ -75,10 +75,7 @@ export function PanoramaCarousel({ slides }: PanoramaCarouselProps) {
 
       {/* Slide copy */}
       <div
-        className={cn(
-          "panorama-carousel-content mx-20",
-          i18n.language === "ar" && ": text-left",
-        )}
+        className="panorama-carousel-content"
         dir={i18n.language === "ar" ? "rtl" : "ltr"}
       >
         <p className="panorama-carousel-eyebrow">{t("app.name")}</p>
