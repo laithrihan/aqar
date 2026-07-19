@@ -2,6 +2,7 @@ import { MdOutlineShare } from 'react-icons/md'
 import { useTranslation } from 'react-i18next'
 
 import type { PropertyDetail } from '@/domain/property/PropertyDetail'
+import { SaveListingButton } from '@/presentation/components/saved/SaveListingButton'
 import { formatPrice } from '@/shared/lib/formatPrice'
 import { localizedText } from '@/shared/lib/localizedText'
 
@@ -9,7 +10,7 @@ type PropertyDetailHeaderProps = {
   property: PropertyDetail
 }
 
-/** Price row with owner label and share action. */
+/** Price row with owner label, save, and share actions. */
 export function PropertyDetailHeader({ property }: PropertyDetailHeaderProps) {
   const { t, i18n } = useTranslation()
 
@@ -48,14 +49,17 @@ export function PropertyDetailHeader({ property }: PropertyDetailHeaderProps) {
         {t('property.ownedBy', { name: property.ownerName })}
       </p>
 
-      <button
-        type="button"
-        className="property-detail-share"
-        onClick={() => void handleShare()}
-      >
-        <MdOutlineShare aria-hidden className="size-4" />
-        {t('property.share')}
-      </button>
+      <div className="property-detail-header-actions">
+        <SaveListingButton listingId={property.id} variant="detail" />
+        <button
+          type="button"
+          className="property-detail-share"
+          onClick={() => void handleShare()}
+        >
+          <MdOutlineShare aria-hidden className="size-4" />
+          {t('property.share')}
+        </button>
+      </div>
     </div>
   )
 }

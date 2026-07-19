@@ -11,6 +11,7 @@
     "home": "Home",
     "buy": "Buy",
     "rent": "Rent",
+    "saved": "Saved",
     "aboutUs": "About us",
     "contactUs": "Contact us",
     "login": "Log in",
@@ -427,6 +428,32 @@
       "title": "More Homes for you:",
       "loading": "Loading more homes…",
       "error": "Could not load more homes."
+    }
+  },
+  "saved": {
+    "title": "Saved houses",
+    "subtitle": "Homes you bookmarked while browsing rent and buy listings.",
+    "save": "Save",
+    "unsave": "Remove",
+    "view": "View",
+    "loading": "Loading saved houses…",
+    "empty": "You have not saved any houses yet.",
+    "signInPrompt": "Sign in to view and manage your saved houses.",
+    "purpose": {
+      "rent": "Rent",
+      "sale": "Buy"
+    },
+    "table": {
+      "property": "Property",
+      "location": "Location",
+      "price": "Price",
+      "type": "Type",
+      "details": "Details",
+      "actions": "Actions"
+    },
+    "errors": {
+      "loadFailed": "Could not load saved houses.",
+      "signInRequired": "Please sign in to save houses."
     }
   }
 }

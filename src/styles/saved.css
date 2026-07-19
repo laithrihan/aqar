@@ -1,0 +1,130 @@
+/* ── Saved houses page + save toggle ─────────────────────── */
+@layer components {
+  .saved-houses-page {
+    @apply mx-auto flex w-full max-w-[1200px] flex-col gap-6 px-4 py-8 sm:gap-8 sm:px-6 sm:py-12;
+  }
+
+  .saved-houses-header {
+    @apply flex flex-col items-center gap-3 text-center;
+  }
+
+  .saved-houses-title {
+    @apply text-lg font-bold tracking-tight text-primary xs:text-xl sm:text-3xl;
+  }
+
+  .saved-houses-divider {
+    @apply h-0.5 w-12 rounded-full bg-secondary xs:w-14 sm:w-40;
+  }
+
+  .saved-houses-subtitle {
+    @apply max-w-xl text-sm text-muted-foreground sm:text-base;
+  }
+
+  .saved-houses-status {
+    @apply py-16 text-center text-primary/70;
+  }
+
+  .saved-houses-empty {
+    @apply flex flex-col items-center gap-4 rounded-xl border border-primary/10 bg-white px-6 py-16 text-center text-primary/80 shadow-[0_2px_12px_0_rgba(81,81,81,0.08)];
+  }
+
+  .saved-houses-empty-actions {
+    @apply flex flex-wrap items-center justify-center gap-3;
+  }
+
+  .saved-houses-sign-in,
+  .saved-houses-browse-link {
+    @apply inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white transition hover:opacity-90;
+  }
+
+  .saved-houses-browse-link {
+    @apply bg-secondary;
+  }
+
+  .saved-houses-table-wrap {
+    @apply overflow-x-auto rounded-xl border border-primary/10 bg-white shadow-[0_2px_12px_0_rgba(81,81,81,0.08)];
+  }
+
+  .saved-houses-table {
+    @apply w-full min-w-[720px] border-collapse text-start text-sm text-primary;
+  }
+
+  .saved-houses-table th {
+    @apply border-b border-primary/10 bg-muted/40 px-4 py-3 text-xs font-semibold uppercase tracking-wide text-primary/70;
+  }
+
+  .saved-houses-table td {
+    @apply border-b border-primary/5 px-4 py-3 align-middle;
+  }
+
+  .saved-houses-table tbody tr:last-child td {
+    @apply border-b-0;
+  }
+
+  .saved-houses-property {
+    @apply inline-flex max-w-[16rem] items-center gap-3 text-primary transition hover:text-secondary;
+  }
+
+  .saved-houses-thumb {
+    @apply size-14 shrink-0 rounded-lg object-cover;
+  }
+
+  .saved-houses-property-title {
+    @apply line-clamp-2 font-semibold leading-snug;
+  }
+
+  .saved-houses-price {
+    @apply whitespace-nowrap font-semibold;
+  }
+
+  .saved-houses-meta {
+    @apply flex flex-wrap items-center gap-2 text-primary/65;
+  }
+
+  .saved-houses-meta-item {
+    @apply inline-flex items-center gap-1;
+  }
+
+  .saved-houses-meta-item svg {
+    @apply size-4 shrink-0;
+  }
+
+  .saved-houses-actions {
+    @apply flex flex-wrap items-center justify-end gap-2;
+  }
+
+  .saved-houses-view {
+    @apply inline-flex items-center rounded-lg border border-border bg-white px-3 py-1.5 text-sm font-medium text-primary transition hover:bg-muted;
+  }
+
+  .saved-houses-remove {
+    @apply inline-flex items-center rounded-lg border border-primary/20 bg-white px-3 py-1.5 text-sm font-medium text-primary/70 transition hover:border-primary/40 hover:bg-muted disabled:opacity-60;
+  }
+
+  /* Overlay heart on listing / home cards */
+  .rent-listing-card-media-wrap,
+  .property-home-card-media-wrap {
+    @apply relative block w-full overflow-hidden;
+  }
+
+  .save-listing-btn {
+    @apply absolute end-2 top-2 z-10 inline-flex size-9 items-center justify-center rounded-full bg-white/90 text-primary shadow-sm backdrop-blur-sm transition;
+    @apply hover:bg-white hover:text-secondary disabled:opacity-60;
+  }
+
+  .save-listing-btn--saved {
+    @apply text-secondary;
+  }
+
+  .save-listing-btn-detail {
+    @apply inline-flex items-center gap-1.5 rounded-lg border border-border bg-white px-3 py-2 text-sm font-medium text-primary transition hover:bg-muted disabled:opacity-60;
+  }
+
+  .save-listing-btn-detail.save-listing-btn--saved {
+    @apply border-secondary/40 text-secondary;
+  }
+
+  .property-detail-header-actions {
+    @apply flex shrink-0 flex-wrap items-center gap-2;
+  }
+}

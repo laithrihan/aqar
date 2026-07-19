@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 
 import type { Listing } from '@/domain/listing/Listing'
 import type { ListingFeatureConfig } from '@/presentation/features/listings/listingFeature'
+import { SaveListingButton } from '@/presentation/components/saved/SaveListingButton'
 import { ImageWithFallback } from '@/presentation/components/ui/ImageWithFallback'
 import { cn } from '@/shared/lib/cn'
 import { formatPrice } from '@/shared/lib/formatPrice'
@@ -40,19 +41,22 @@ export function ListingCard({
       )}
       data-selected={selected || undefined}
     >
-      <Link
-        to={detailPath}
-        className="rent-listing-card-media"
-        onClick={() => onSelect(listing.id)}
-        aria-label={title}
-      >
-        <ImageWithFallback
-          src={listing.imageUrl}
-          alt=""
-          className="rent-listing-card-image"
-          loading="lazy"
-        />
-      </Link>
+      <div className="rent-listing-card-media-wrap">
+        <Link
+          to={detailPath}
+          className="rent-listing-card-media"
+          onClick={() => onSelect(listing.id)}
+          aria-label={title}
+        >
+          <ImageWithFallback
+            src={listing.imageUrl}
+            alt=""
+            className="rent-listing-card-image"
+            loading="lazy"
+          />
+        </Link>
+        <SaveListingButton listingId={listing.id} variant="overlay" />
+      </div>
 
       <div className="rent-listing-card-body">
         <Link

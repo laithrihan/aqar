@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { LoginModal } from '@/presentation/components/auth/LoginModal'
 import { SignupModal } from '@/presentation/components/auth/SignupModal'
 import { useAuthStore } from '@/presentation/stores/authStore'
+import { useAuthUiStore } from '@/presentation/stores/authUiStore'
 import { cn } from '@/shared/lib/cn'
 
 import { HeaderNavLink } from './HeaderNavLink'
@@ -18,19 +19,23 @@ export function Header() {
   const authNotice = useAuthStore((s) => s.authNotice)
   const clearSession = useAuthStore((s) => s.clearSession)
   const setAuthNotice = useAuthStore((s) => s.setAuthNotice)
+  const loginOpen = useAuthUiStore((s) => s.loginOpen)
+  const signupOpen = useAuthUiStore((s) => s.signupOpen)
+  const openLoginModal = useAuthUiStore((s) => s.openLogin)
+  const openSignupModal = useAuthUiStore((s) => s.openSignup)
+  const setLoginOpen = useAuthUiStore((s) => s.setLoginOpen)
+  const setSignupOpen = useAuthUiStore((s) => s.setSignupOpen)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [loginOpen, setLoginOpen] = useState(false)
-  const [signupOpen, setSignupOpen] = useState(false)
 
   const closeMobile = () => setMobileOpen(false)
 
   const openLogin = () => {
-    setLoginOpen(true)
+    openLoginModal()
     setMobileOpen(false)
   }
 
   const openSignup = () => {
-    setSignupOpen(true)
+    openSignupModal()
     setMobileOpen(false)
   }
 
@@ -77,6 +82,9 @@ export function Header() {
             <HeaderNavLink to="/" label={t('nav.home')} />
             <HeaderNavLink to="/buy" label={t('nav.buy')} />
             <HeaderNavLink to="/rent" label={t('nav.rent')} />
+            {hydrated && session ? (
+              <HeaderNavLink to="/saved" label={t('nav.saved')} />
+            ) : null}
           </nav>
         </div>
 
@@ -211,6 +219,9 @@ export function Header() {
               <HeaderNavLink to="/" label={t('nav.home')} />
               <HeaderNavLink to="/buy" label={t('nav.buy')} />
               <HeaderNavLink to="/rent" label={t('nav.rent')} />
+              {session ? (
+                <HeaderNavLink to="/saved" label={t('nav.saved')} />
+              ) : null}
               <HeaderNavLink to="/about" label={t('nav.aboutUs')} />
               <HeaderNavLink to="/contact" label={t('nav.contactUs')} />
             </div>

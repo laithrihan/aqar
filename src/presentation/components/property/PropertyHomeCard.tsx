@@ -3,6 +3,7 @@ import { MdOutlineBed, MdOutlineMeetingRoom } from 'react-icons/md'
 import { useTranslation } from 'react-i18next'
 
 import type { Listing } from '@/domain/listing/Listing'
+import { SaveListingButton } from '@/presentation/components/saved/SaveListingButton'
 import { ImageWithFallback } from '@/presentation/components/ui/ImageWithFallback'
 import { formatPrice } from '@/shared/lib/formatPrice'
 import { localizedText } from '@/shared/lib/localizedText'
@@ -22,14 +23,17 @@ export function PropertyHomeCard({ listing }: PropertyHomeCardProps) {
 
   return (
     <article className="property-home-card">
-      <Link to={`/homes/${listing.id}`} className="property-home-card-media">
-        <ImageWithFallback
-          src={listing.imageUrl}
-          alt={title}
-          className="property-home-card-image"
-          loading="lazy"
-        />
-      </Link>
+      <div className="property-home-card-media-wrap">
+        <Link to={`/homes/${listing.id}`} className="property-home-card-media">
+          <ImageWithFallback
+            src={listing.imageUrl}
+            alt={title}
+            className="property-home-card-image"
+            loading="lazy"
+          />
+        </Link>
+        <SaveListingButton listingId={listing.id} variant="overlay" />
+      </div>
 
       <div className="property-home-card-body">
         <Link to={`/homes/${listing.id}`} className="property-home-card-title">

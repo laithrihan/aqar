@@ -1,0 +1,4 @@
+{
+  "_readme": "Seed saved listings by user id. Runtime saves are stored in localStorage (aqar-saved-listings) and overlay this file — same pattern as registered users.",
+  "saved": []
+}
