@@ -9,10 +9,18 @@ export type AuthUser = {
   picture?: string
   accountType?: SignupAccountType
   provider: AuthProvider
+  providers: AuthProvider[]
 }
 
 export type AuthSession = {
   user: AuthUser
   accessToken: string
-  expiresAt?: number
+  expiresAt: number
+}
+
+export function isAuthSessionExpired(
+  session: Pick<AuthSession, 'expiresAt'>,
+  nowMs = Date.now(),
+): boolean {
+  return session.expiresAt <= nowMs
 }

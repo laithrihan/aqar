@@ -4,7 +4,8 @@
     "slug": "أجمل العقارات الحصرية والشقق الفاخرة"
   },
   "common": {
-    "loading": "جاري التحميل…"
+    "loading": "جاري التحميل…",
+    "dismiss": "إغلاق"
   },
   "nav": {
     "home": "الرئيسية",
@@ -21,7 +22,14 @@
       "generic": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
       "googleFailed": "فشل تسجيل الدخول عبر Google. يرجى المحاولة مرة أخرى.",
       "googleCancelled": "تم إلغاء تسجيل الدخول عبر Google.",
-      "googleClientIdMissing": "تسجيل الدخول عبر Google غير مُعد. عيّن VITE_GOOGLE_CLIENT_ID."
+      "googleClientIdMissing": "تسجيل الدخول عبر Google غير مُعد. عيّن VITE_GOOGLE_CLIENT_ID.",
+      "invalidCredentials": "البريد الإلكتروني/اسم المستخدم أو كلمة المرور غير صحيحة.",
+      "accountNotFound": "لا يوجد حساب لهذا البريد عبر Google. يرجى إنشاء حساب أولاً.",
+      "emailAlreadyRegistered": "يوجد حساب بهذا البريد الإلكتروني بالفعل. يرجى تسجيل الدخول.",
+      "emailRegisteredWithGoogle": "هذا البريد مسجّل عبر Google. يرجى المتابعة باستخدام Google.",
+      "emailRegisteredWithPassword": "هذا البريد مسجّل بكلمة مرور. سجّل الدخول بكلمة المرور، أو سجّل الدخول عبر Google لربط الحساب.",
+      "usernameAlreadyTaken": "اسم المستخدم هذا مستخدم بالفعل.",
+      "sessionExpired": "انتهت صلاحية جلستك. يرجى تسجيل الدخول مرة أخرى."
     },
     "login": {
       "title": "مرحباً بعودتك",

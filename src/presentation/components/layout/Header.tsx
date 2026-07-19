@@ -14,7 +14,10 @@ import { Logo } from './Logo'
 export function Header() {
   const { t } = useTranslation()
   const session = useAuthStore((s) => s.session)
+  const hydrated = useAuthStore((s) => s.hydrated)
+  const authNotice = useAuthStore((s) => s.authNotice)
   const clearSession = useAuthStore((s) => s.clearSession)
+  const setAuthNotice = useAuthStore((s) => s.setAuthNotice)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [loginOpen, setLoginOpen] = useState(false)
   const [signupOpen, setSignupOpen] = useState(false)
@@ -35,6 +38,8 @@ export function Header() {
     clearSession()
     setMobileOpen(false)
   }
+
+  const dismissNotice = () => setAuthNotice(null)
 
   // Lock body scroll and enable Escape-to-close while the drawer is open.
   useEffect(() => {
@@ -82,7 +87,7 @@ export function Header() {
         >
           <HeaderNavLink to="/about" label={t('nav.aboutUs')} />
           <HeaderNavLink to="/contact" label={t('nav.contactUs')} />
-          {session ? (
+          {!hydrated ? null : session ? (
             <>
               <span
                 className="max-w-[10rem] truncate text-sm font-semibold text-primary"
@@ -137,6 +142,22 @@ export function Header() {
           </svg>
         </button>
       </div>
+
+      {authNotice ? (
+        <div
+          className="flex items-center justify-between gap-3 border-b border-border bg-muted/80 px-4 py-2 text-sm text-foreground lg:px-[100px]"
+          role="status"
+        >
+          <p>{t(authNotice)}</p>
+          <button
+            type="button"
+            className="shrink-0 text-sm font-medium text-primary underline-offset-2 hover:underline"
+            onClick={dismissNotice}
+          >
+            {t('common.dismiss')}
+          </button>
+        </div>
+      ) : null}
 
       {createPortal(
         <>
@@ -196,7 +217,7 @@ export function Header() {
 
             {/* Drawer auth actions */}
             <div className="flex shrink-0 flex-col gap-3 border-t border-border px-5 py-5">
-              {session ? (
+              {!hydrated ? null : session ? (
                 <>
                   <p className="truncate text-sm font-semibold text-primary">
                     {displayName}
