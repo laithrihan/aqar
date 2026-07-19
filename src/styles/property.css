@@ -53,13 +53,16 @@
     @apply aspect-[4/3] w-full object-cover;
   }
 
-  /* Price / owner / share row */
   .property-detail-header {
-    @apply flex flex-wrap items-center gap-3 sm:gap-4;
+    @apply flex flex-wrap items-center gap-3 sm:gap-4 ;
+    direction: ltr;
+  }
+  [lang="ar"] .property-detail-header {
+    flex-direction: row-reverse;
   }
 
   .property-detail-header-price-group {
-    @apply flex flex-wrap items-baseline gap-2;
+    @apply flex ml-auto flex-wrap items-baseline gap-2 sm:flex-initial ;
   }
 
   .property-detail-price {
@@ -74,8 +77,12 @@
     @apply hidden h-8 w-px bg-border sm:block;
   }
 
+
   .property-detail-owner {
-    @apply flex-1 text-sm text-muted-foreground sm:text-base;
+    @apply order-last w-full text-sm text-muted-foreground sm:order-none sm:w-auto sm:flex-1 sm:text-base;
+  }
+  [lang="ar"] .property-detail-owner {
+    direction: rtl;
   }
 
   .property-detail-share {
