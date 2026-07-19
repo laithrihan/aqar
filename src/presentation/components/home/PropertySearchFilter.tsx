@@ -1,7 +1,7 @@
-import { useForm } from 'react-hook-form'
-import { HiOutlineSearch } from 'react-icons/hi'
-import { useNavigate } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
+import { useForm } from "react-hook-form";
+import {HiOutlineLockClosed, HiOutlineSearch } from "react-icons/hi";
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import type {
   PropertySearchFilters,
@@ -12,7 +12,9 @@ import { usePropertySearchFilterOptions } from '@/presentation/hooks/useProperty
 import { usePropertySearchStore } from '@/presentation/stores/propertySearchStore'
 import { cn } from '@/shared/lib/cn'
 
-const LISTING_MODES: SearchListingMode[] = ['sale', 'rent', 'invest']
+const LISTING_MODES: SearchListingMode[] = ["sale", "rent", "invest"];
+
+const DISABLED_MODES: ReadonlySet<SearchListingMode> = new Set(["invest"]);
 
 const DEFAULT_VALUES: PropertySearchFilters = {
   mode: 'sale',
@@ -70,31 +72,58 @@ export function PropertySearchFilter() {
       <div
         className="property-search-tabs"
         role="tablist"
-        aria-label={t('search.modesLabel')}
+        aria-label={t("search.modesLabel")}
       >
         {/* Hidden field so `mode` is part of the RHF form values */}
-        <input type="hidden" {...register('mode')} />
+        <input type="hidden" {...register("mode")} />
 
-        {LISTING_MODES.map((listingMode) => (
-          <button
-            key={listingMode}
-            type="button"
-            role="tab"
-            aria-selected={mode === listingMode}
-            className={cn(
-              'property-search-tab',
-              mode === listingMode && 'property-search-tab--active',
-            )}
-            onClick={() => setValue('mode', listingMode, { shouldDirty: true })}
-          >
-            {t(`search.modes.${listingMode}`)}
-          </button>
-        ))}
+        {LISTING_MODES.map((listingMode) => {
+          const isDisabled = DISABLED_MODES.has(listingMode);
+
+          return (
+            <button
+              key={listingMode}
+              type="button"
+              role="tab"
+              aria-selected={mode === listingMode}
+              aria-disabled={isDisabled}
+              disabled={isDisabled}
+              title={
+                isDisabled
+                  ? t(`search.modes.${listingMode}Locked`)
+                  : undefined
+              }
+              className={cn(
+                "property-search-tab",
+                mode === listingMode && "property-search-tab--active",
+                isDisabled && "property-search-tab--locked",
+              )}
+              onClick={() => {
+                if (isDisabled) return;
+                setValue("mode", listingMode, { shouldDirty: true });
+              }}
+            >
+              <span className="property-search-tab-label">
+                {t(`search.modes.${listingMode}`)}
+              </span>
+
+              {/* Lock overlay — invest is coming soon */}
+              {isDisabled ? (
+                <span className="property-search-tab-lock" aria-hidden>
+                  <HiOutlineLockClosed className="property-search-tab-lock-icon" />
+                </span>
+              ) : null}
+            </button>
+          );
+        })}
       </div>
 
       {/* Location search */}
       <label className="property-search-location" htmlFor="property-location">
-        <HiOutlineSearch className="property-search-location-icon" aria-hidden />
+        <HiOutlineSearch
+          className="property-search-location-icon"
+          aria-hidden
+        />
         <input
           id="property-location"
           type="search"

@@ -18,6 +18,27 @@
     @apply z-10 bg-primary font-bold text-white;
   }
 
+  /* Disabled / coming-soon tab (e.g. invest) */
+  .property-search-tab--locked {
+    @apply cursor-not-allowed;
+  }
+
+  .property-search-tab--locked:disabled {
+    @apply opacity-100;
+  }
+
+  .property-search-tab-label {
+    @apply relative z-0;
+  }
+
+  .property-search-tab-lock {
+    @apply absolute inset-0 z-20 flex items-center justify-center rounded-[9px] bg-primary/45 text-white;
+  }
+
+  .property-search-tab-lock-icon {
+    @apply size-4 sm:size-5;
+  }
+
   /* Caret under the active tab — must not be clipped by overflow */
   .property-search-tab--active::after {
     content: "";

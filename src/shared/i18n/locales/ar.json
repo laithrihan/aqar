@@ -229,7 +229,8 @@
     "modes": {
       "sale": "للبيع",
       "rent": "للإيجار",
-      "invest": "للاستثمار"
+      "invest": "للاستثمار",
+      "investLocked": "البحث الاستثماري قريباً"
     },
     "locationPlaceholder": "الموقع...",
     "results": "النتائج",

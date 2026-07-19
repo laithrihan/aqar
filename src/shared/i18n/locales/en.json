@@ -205,7 +205,8 @@
     "modes": {
       "sale": "For Sale",
       "rent": "For Rent",
-      "invest": "For Invest"
+      "invest": "For Invest",
+      "investLocked": "Investment search is coming soon"
     },
     "locationPlaceholder": "Location...",
     "results": "Results",

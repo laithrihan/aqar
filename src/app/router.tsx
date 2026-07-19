@@ -2,10 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 
 import { RootLayout } from "@/app/layouts/RootLayout";
 import { HomePage } from "@/presentation/pages/HomePage";
-import {
-  LoginPage,
-  SignUpPage,
-} from "@/presentation/pages/placeholders";
 import { AboutPage } from "@/presentation/pages/AboutPage";
 import { ContactPage } from "@/presentation/pages/ContactPage";
 import { BuyPage } from "@/presentation/pages/BuyPage";
@@ -24,8 +20,6 @@ export const router = createBrowserRouter([
       { path: "homes/:propertyId", element: <PropertyDetailPage /> },
       { path: "about", element: <AboutPage /> },
       { path: "contact", element: <ContactPage /> },
-      { path: "login", element: <LoginPage /> },
-      { path: "signup", element: <SignUpPage /> },
     ],
   },
 ]);
