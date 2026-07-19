@@ -1,8 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { useTranslation } from 'react-i18next'
 
 import { LoginModal } from '@/presentation/components/auth/LoginModal'
 import { SignupModal } from '@/presentation/components/auth/SignupModal'
+import { cn } from '@/shared/lib/cn'
 
 import { HeaderNavLink } from './HeaderNavLink'
 import { LanguageSelect } from './LanguageSelect'
@@ -25,6 +27,24 @@ export function Header() {
     setSignupOpen(true)
     setMobileOpen(false)
   }
+
+  // Lock body scroll and enable Escape-to-close while the drawer is open.
+  useEffect(() => {
+    if (!mobileOpen) return
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMobileOpen(false)
+    }
+    window.addEventListener('keydown', onKeyDown)
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', onKeyDown)
+    }
+  }, [mobileOpen])
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 drop-shadow-md backdrop-blur">
@@ -90,32 +110,79 @@ export function Header() {
         </button>
       </div>
 
-      {/* Mobile nav panel */}
-      {mobileOpen && (
-        <nav
-          id="mobile-nav"
-          className="flex flex-col gap-4 border-t border-border px-4 py-4 md:hidden"
-          aria-label="Mobile"
-          onClick={closeMobile}
-        >
-          <HeaderNavLink to="/" label={t('nav.home')} />
-          <HeaderNavLink to="/buy" label={t('nav.buy')} />
-          <HeaderNavLink to="/rent" label={t('nav.rent')} />
-          <HeaderNavLink to="/about" label={t('nav.aboutUs')} />
-          <HeaderNavLink to="/contact" label={t('nav.contactUs')} />
-          <div className="flex flex-col gap-3 pt-2">
-            <HeaderNavLink
-              label={t('nav.login')}
-              variant="login"
-              onClick={openLogin}
-            />
-            <HeaderNavLink
-              label={t('nav.signUp')}
-              variant="signup"
-              onClick={openSignup}
-            />
-          </div>
-        </nav>
+
+      {createPortal(
+        <>
+          {/* Backdrop */}
+          <div
+            className={cn(
+              'fixed inset-0 z-[55] bg-black/40 backdrop-blur-sm transition-opacity duration-300 md:hidden',
+              mobileOpen ? 'opacity-100' : 'pointer-events-none opacity-0',
+            )}
+            aria-hidden
+            onClick={closeMobile}
+          />
+
+          {/* Side drawer */}
+          <nav
+            id="mobile-nav"
+            aria-label="Mobile"
+            aria-hidden={!mobileOpen}
+            className={cn(
+              'fixed inset-y-0 end-0 z-[60] flex w-[82%] max-w-[320px] flex-col bg-background shadow-2xl transition-transform duration-300 ease-out md:hidden',
+              mobileOpen ? 'translate-x-0' : 'translate-x-full',
+            )}
+          >
+            {/* Drawer header */}
+            <div className="flex h-16 shrink-0 items-center justify-between border-b border-border px-5">
+              <Logo />
+              <button
+                type="button"
+                className="inline-flex items-center justify-center rounded-md p-2 text-primary"
+                aria-label="Close menu"
+                onClick={closeMobile}
+              >
+                <svg
+                  className="size-6"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  aria-hidden
+                >
+                  <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Drawer links */}
+            <div
+              className="flex flex-1 flex-col gap-4 overflow-y-auto px-5 py-6"
+              onClick={closeMobile}
+            >
+              <HeaderNavLink to="/" label={t('nav.home')} />
+              <HeaderNavLink to="/buy" label={t('nav.buy')} />
+              <HeaderNavLink to="/rent" label={t('nav.rent')} />
+              <HeaderNavLink to="/about" label={t('nav.aboutUs')} />
+              <HeaderNavLink to="/contact" label={t('nav.contactUs')} />
+            </div>
+
+            {/* Drawer auth actions */}
+            <div className="flex shrink-0 flex-col gap-3 border-t border-border px-5 py-5">
+              <HeaderNavLink
+                label={t('nav.login')}
+                variant="login"
+                onClick={openLogin}
+              />
+              <HeaderNavLink
+                label={t('nav.signUp')}
+                variant="signup"
+                onClick={openSignup}
+              />
+            </div>
+          </nav>
+        </>,
+        document.body,
       )}
 
       <LoginModal open={loginOpen} onOpenChange={setLoginOpen} />
