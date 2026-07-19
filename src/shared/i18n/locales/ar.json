@@ -16,6 +16,13 @@
     "signUp": "إنشاء حساب"
   },
   "auth": {
+    "logout": "تسجيل الخروج",
+    "errors": {
+      "generic": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+      "googleFailed": "فشل تسجيل الدخول عبر Google. يرجى المحاولة مرة أخرى.",
+      "googleCancelled": "تم إلغاء تسجيل الدخول عبر Google.",
+      "googleClientIdMissing": "تسجيل الدخول عبر Google غير مُعد. عيّن VITE_GOOGLE_CLIENT_ID."
+    },
     "login": {
       "title": "مرحباً بعودتك",
       "subtitle": "سجّل الدخول لمتابعة تصفح المنازل على عقار.",
@@ -28,7 +35,11 @@
       "hidePassword": "إخفاء كلمة المرور",
       "submit": "تسجيل الدخول",
       "or": "أو",
-      "google": "المتابعة باستخدام Google"
+      "google": "المتابعة باستخدام Google",
+      "errors": {
+        "identifierRequired": "يرجى إدخال بريدك الإلكتروني أو اسم المستخدم.",
+        "passwordRequired": "يرجى إدخال كلمة المرور."
+      }
     },
     "signup": {
       "title": "إنشاء حساب",

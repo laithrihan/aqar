@@ -10,6 +10,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
+import type { SignupAccountType } from '@/domain/auth/SignupCredentials'
 import type { SignupCredentials } from '@/domain/auth/SignupCredentials'
 import {
   SIGNUP_ACCOUNT_TYPES,
@@ -17,7 +18,10 @@ import {
   validateSignupAccountType,
   validateSignupCredentials,
 } from '@/domain/auth/SignupCredentials'
+import { GoogleAuthActionButton } from '@/presentation/components/auth/GoogleAuthActionButton'
 import { PasswordStrengthMeter } from '@/presentation/components/auth/PasswordStrengthMeter'
+import { useGoogleSignUp } from '@/presentation/hooks/useGoogleAuth'
+import { usePasswordSignup } from '@/presentation/hooks/usePasswordAuth'
 
 type SignupModalProps = {
   open: boolean
@@ -39,6 +43,10 @@ export function SignupModal({ open, onOpenChange }: SignupModalProps) {
   const [fieldErrors, setFieldErrors] = useState<
     Partial<Record<keyof SignupCredentials, string>>
   >({})
+  const [authError, setAuthError] = useState<string | null>(null)
+
+  const passwordSignup = usePasswordSignup()
+  const googleSignUp = useGoogleSignUp()
 
   const { register, handleSubmit, reset, control, setValue, getValues } =
     useForm<SignupCredentials>({
@@ -61,7 +69,9 @@ export function SignupModal({ open, onOpenChange }: SignupModalProps) {
     confirmPasswordValue ?? '',
   )
 
-  const selectAccountType = (type: (typeof SIGNUP_ACCOUNT_TYPES)[number]) => {
+  const busy = passwordSignup.isPending || googleSignUp.isPending
+
+  const selectAccountType = (type: SignupAccountType) => {
     setValue('accountType', type, { shouldDirty: true, shouldValidate: false })
     if (fieldErrors.accountType) {
       setFieldErrors((prev) => {
@@ -76,28 +86,75 @@ export function SignupModal({ open, onOpenChange }: SignupModalProps) {
     matchStatus === 'mismatch' ||
     (matchStatus === 'idle' && Boolean(fieldErrors.confirmPassword))
 
-  const onSubmit = (values: SignupCredentials) => {
+  const closeAndReset = () => {
+    reset(EMPTY_FORM)
+    setFieldErrors({})
+    setAuthError(null)
+    setShowPassword(false)
+    setShowConfirmPassword(false)
+    onOpenChange(false)
+  }
+
+  const onSubmit = async (values: SignupCredentials) => {
+    setAuthError(null)
     const { valid, errors } = validateSignupCredentials(values)
     setFieldErrors(errors)
     if (!valid) return
+
+    try {
+      await passwordSignup.mutateAsync(values)
+      closeAndReset()
+    } catch (error) {
+      const key =
+        error instanceof Error && error.message.startsWith('auth.')
+          ? error.message
+          : 'auth.errors.generic'
+      setAuthError(key)
+    }
   }
 
-  /** Google OAuth still requires an account type before continuing. */
-  const onGoogleSignup = () => {
+  /** Google OAuth requires an account type before continuing. */
+  const onGoogleAccessToken = async (accessToken: string) => {
+    setAuthError(null)
+    const accountType = getValues('accountType')
+    const accountTypeError = validateSignupAccountType(accountType)
+    if (accountTypeError || !accountType) {
+      setFieldErrors((prev) => ({
+        ...prev,
+        accountType:
+          accountTypeError ?? 'auth.signup.errors.accountTypeRequired',
+      }))
+      return
+    }
+
+    try {
+      await googleSignUp.mutateAsync({ accessToken, accountType })
+      closeAndReset()
+    } catch (error) {
+      const key =
+        error instanceof Error && error.message.startsWith('auth.')
+          ? error.message
+          : 'auth.errors.googleFailed'
+      setAuthError(key)
+    }
+  }
+
+  const ensureAccountTypeSelected = (): boolean => {
     const accountTypeError = validateSignupAccountType(
       getValues('accountType'),
     )
     if (accountTypeError) {
       setFieldErrors((prev) => ({ ...prev, accountType: accountTypeError }))
-      return
+      return false
     }
-    // TODO: start Google OAuth with selected accountType
+    return true
   }
 
   const handleOpenChange = (next: boolean) => {
     if (!next) {
       reset(EMPTY_FORM)
       setFieldErrors({})
+      setAuthError(null)
       setShowPassword(false)
       setShowConfirmPassword(false)
     }
@@ -131,6 +188,7 @@ export function SignupModal({ open, onOpenChange }: SignupModalProps) {
                   type="button"
                   role="radio"
                   aria-checked={selected}
+                  disabled={busy}
                   className={
                     selected
                       ? 'login-modal-account-type-option login-modal-account-type-option--selected'
@@ -170,6 +228,7 @@ export function SignupModal({ open, onOpenChange }: SignupModalProps) {
               className="login-modal-input"
               placeholder={t('auth.signup.usernamePlaceholder')}
               aria-invalid={Boolean(fieldErrors.username)}
+              disabled={busy}
               {...register('username')}
             />
             {fieldErrors.username ? (
@@ -190,6 +249,7 @@ export function SignupModal({ open, onOpenChange }: SignupModalProps) {
               className="login-modal-input"
               placeholder={t('auth.signup.emailPlaceholder')}
               aria-invalid={Boolean(fieldErrors.email)}
+              disabled={busy}
               {...register('email')}
             />
             {fieldErrors.email ? (
@@ -211,6 +271,7 @@ export function SignupModal({ open, onOpenChange }: SignupModalProps) {
                 className="login-modal-input login-modal-input--password"
                 placeholder={t('auth.signup.passwordPlaceholder')}
                 aria-invalid={Boolean(fieldErrors.password)}
+                disabled={busy}
                 {...register('password')}
               />
               <button
@@ -253,6 +314,7 @@ export function SignupModal({ open, onOpenChange }: SignupModalProps) {
                 className="login-modal-input login-modal-input--password"
                 placeholder={t('auth.signup.confirmPasswordPlaceholder')}
                 aria-invalid={confirmInvalid}
+                disabled={busy}
                 {...register('confirmPassword', {
                   onChange: () => {
                     if (fieldErrors.confirmPassword) {
@@ -298,7 +360,17 @@ export function SignupModal({ open, onOpenChange }: SignupModalProps) {
             ) : null}
           </div>
 
-          <button type="submit" className="login-modal-submit">
+          {authError ? (
+            <p className="login-modal-field-error" role="alert">
+              {t(authError)}
+            </p>
+          ) : null}
+
+          <button
+            type="submit"
+            className="login-modal-submit"
+            disabled={busy}
+          >
             {t('auth.signup.submit')}
           </button>
         </form>
@@ -307,14 +379,16 @@ export function SignupModal({ open, onOpenChange }: SignupModalProps) {
           <span>{t('auth.signup.or')}</span>
         </div>
 
-        <button
-          type="button"
+        <GoogleAuthActionButton
           className="login-modal-google"
-          onClick={onGoogleSignup}
+          disabled={busy}
+          onBeforeStart={ensureAccountTypeSelected}
+          onAccessToken={onGoogleAccessToken}
+          onError={setAuthError}
         >
           <FcGoogle className="size-5 shrink-0" aria-hidden />
           {t('auth.signup.google')}
-        </button>
+        </GoogleAuthActionButton>
       </DialogContent>
     </Dialog>
   )

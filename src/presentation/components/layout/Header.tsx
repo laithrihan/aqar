@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 
 import { LoginModal } from '@/presentation/components/auth/LoginModal'
 import { SignupModal } from '@/presentation/components/auth/SignupModal'
+import { useAuthStore } from '@/presentation/stores/authStore'
 import { cn } from '@/shared/lib/cn'
 
 import { HeaderNavLink } from './HeaderNavLink'
@@ -12,6 +13,8 @@ import { Logo } from './Logo'
 
 export function Header() {
   const { t } = useTranslation()
+  const session = useAuthStore((s) => s.session)
+  const clearSession = useAuthStore((s) => s.clearSession)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [loginOpen, setLoginOpen] = useState(false)
   const [signupOpen, setSignupOpen] = useState(false)
@@ -25,6 +28,11 @@ export function Header() {
 
   const openSignup = () => {
     setSignupOpen(true)
+    setMobileOpen(false)
+  }
+
+  const logout = () => {
+    clearSession()
     setMobileOpen(false)
   }
 
@@ -45,6 +53,8 @@ export function Header() {
       window.removeEventListener('keydown', onKeyDown)
     }
   }, [mobileOpen])
+
+  const displayName = session?.user.name || session?.user.email
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 drop-shadow-md backdrop-blur">
@@ -72,16 +82,34 @@ export function Header() {
         >
           <HeaderNavLink to="/about" label={t('nav.aboutUs')} />
           <HeaderNavLink to="/contact" label={t('nav.contactUs')} />
-          <HeaderNavLink
-            label={t('nav.login')}
-            variant="login"
-            onClick={openLogin}
-          />
-          <HeaderNavLink
-            label={t('nav.signUp')}
-            variant="signup"
-            onClick={openSignup}
-          />
+          {session ? (
+            <>
+              <span
+                className="max-w-[10rem] truncate text-sm font-semibold text-primary"
+                title={displayName}
+              >
+                {displayName}
+              </span>
+              <HeaderNavLink
+                label={t('auth.logout')}
+                variant="login"
+                onClick={logout}
+              />
+            </>
+          ) : (
+            <>
+              <HeaderNavLink
+                label={t('nav.login')}
+                variant="login"
+                onClick={openLogin}
+              />
+              <HeaderNavLink
+                label={t('nav.signUp')}
+                variant="signup"
+                onClick={openSignup}
+              />
+            </>
+          )}
         </nav>
 
         {/* Mobile menu toggle */}
@@ -109,7 +137,6 @@ export function Header() {
           </svg>
         </button>
       </div>
-
 
       {createPortal(
         <>
@@ -169,16 +196,31 @@ export function Header() {
 
             {/* Drawer auth actions */}
             <div className="flex shrink-0 flex-col gap-3 border-t border-border px-5 py-5">
-              <HeaderNavLink
-                label={t('nav.login')}
-                variant="login"
-                onClick={openLogin}
-              />
-              <HeaderNavLink
-                label={t('nav.signUp')}
-                variant="signup"
-                onClick={openSignup}
-              />
+              {session ? (
+                <>
+                  <p className="truncate text-sm font-semibold text-primary">
+                    {displayName}
+                  </p>
+                  <HeaderNavLink
+                    label={t('auth.logout')}
+                    variant="login"
+                    onClick={logout}
+                  />
+                </>
+              ) : (
+                <>
+                  <HeaderNavLink
+                    label={t('nav.login')}
+                    variant="login"
+                    onClick={openLogin}
+                  />
+                  <HeaderNavLink
+                    label={t('nav.signUp')}
+                    variant="signup"
+                    onClick={openSignup}
+                  />
+                </>
+              )}
             </div>
           </nav>
         </>,
