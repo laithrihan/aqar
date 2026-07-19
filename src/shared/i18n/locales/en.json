@@ -33,6 +33,12 @@
     "signup": {
       "title": "Create an account",
       "formLabel": "Sign up form",
+      "accountType": "Account type",
+      "accountTypePlaceholder": "Select account type",
+      "accountTypes": {
+        "owner": "Owner",
+        "user": "User"
+      },
       "username": "Username",
       "usernamePlaceholder": "Choose a username",
       "email": "Email",
@@ -48,6 +54,7 @@
       "or": "or",
       "google": "Sign up with Google",
       "errors": {
+        "accountTypeRequired": "Please select an account type.",
         "usernameRequired": "Please enter a username.",
         "usernameInvalid": "Use 3–30 letters, numbers, dots, hyphens, or underscores.",
         "emailRequired": "Please enter your email.",

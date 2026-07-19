@@ -1,6 +1,11 @@
 import { meetsMinPasswordStrength } from './PasswordStrength'
 
+export const SIGNUP_ACCOUNT_TYPES = ['owner', 'user'] as const
+
+export type SignupAccountType = (typeof SIGNUP_ACCOUNT_TYPES)[number]
+
 export type SignupCredentials = {
+  accountType: SignupAccountType | ''
   username: string
   email: string
   password: string
@@ -9,13 +14,30 @@ export type SignupCredentials = {
 
 export type PasswordMatchStatus = 'idle' | 'match' | 'mismatch'
 
+const ACCOUNT_TYPE_REQUIRED_ERROR = 'auth.signup.errors.accountTypeRequired'
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const USERNAME_PATTERN = /^[a-zA-Z0-9._-]{3,30}$/
+
+export function isSignupAccountType(
+  value: string,
+): value is SignupAccountType {
+  return (SIGNUP_ACCOUNT_TYPES as readonly string[]).includes(value)
+}
+
+export function validateSignupAccountType(
+  accountType: string,
+): string | null {
+  if (!accountType || !isSignupAccountType(accountType)) {
+    return ACCOUNT_TYPE_REQUIRED_ERROR
+  }
+  return null
+}
 
 export function normalizeSignupCredentials(
   values: SignupCredentials,
 ): SignupCredentials {
   return {
+    accountType: values.accountType,
     username: values.username.trim(),
     email: values.email.trim().toLowerCase(),
     password: values.password,
@@ -38,6 +60,11 @@ export function validateSignupCredentials(values: SignupCredentials): {
 } {
   const normalized = normalizeSignupCredentials(values)
   const errors: Partial<Record<keyof SignupCredentials, string>> = {}
+
+  const accountTypeError = validateSignupAccountType(normalized.accountType)
+  if (accountTypeError) {
+    errors.accountType = accountTypeError
+  }
 
   if (!normalized.username) {
     errors.username = 'auth.signup.errors.usernameRequired'

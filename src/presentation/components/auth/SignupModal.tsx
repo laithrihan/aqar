@@ -12,7 +12,9 @@ import {
 } from '@/components/ui/dialog'
 import type { SignupCredentials } from '@/domain/auth/SignupCredentials'
 import {
+  SIGNUP_ACCOUNT_TYPES,
   getPasswordMatchStatus,
+  validateSignupAccountType,
   validateSignupCredentials,
 } from '@/domain/auth/SignupCredentials'
 import { PasswordStrengthMeter } from '@/presentation/components/auth/PasswordStrengthMeter'
@@ -23,6 +25,7 @@ type SignupModalProps = {
 }
 
 const EMPTY_FORM: SignupCredentials = {
+  accountType: '',
   username: '',
   email: '',
   password: '',
@@ -37,10 +40,16 @@ export function SignupModal({ open, onOpenChange }: SignupModalProps) {
     Partial<Record<keyof SignupCredentials, string>>
   >({})
 
-  const { register, handleSubmit, reset, control } = useForm<SignupCredentials>({
-    defaultValues: EMPTY_FORM,
-  })
+  const { register, handleSubmit, reset, control, setValue, getValues } =
+    useForm<SignupCredentials>({
+      defaultValues: EMPTY_FORM,
+    })
 
+  const accountTypeValue = useWatch({
+    control,
+    name: 'accountType',
+    defaultValue: '',
+  })
   const passwordValue = useWatch({ control, name: 'password', defaultValue: '' })
   const confirmPasswordValue = useWatch({
     control,
@@ -52,6 +61,16 @@ export function SignupModal({ open, onOpenChange }: SignupModalProps) {
     confirmPasswordValue ?? '',
   )
 
+  const selectAccountType = (type: (typeof SIGNUP_ACCOUNT_TYPES)[number]) => {
+    setValue('accountType', type, { shouldDirty: true, shouldValidate: false })
+    if (fieldErrors.accountType) {
+      setFieldErrors((prev) => {
+        const next = { ...prev }
+        delete next.accountType
+        return next
+      })
+    }
+  }
 
   const confirmInvalid =
     matchStatus === 'mismatch' ||
@@ -63,7 +82,16 @@ export function SignupModal({ open, onOpenChange }: SignupModalProps) {
     if (!valid) return
   }
 
+  /** Google OAuth still requires an account type before continuing. */
   const onGoogleSignup = () => {
+    const accountTypeError = validateSignupAccountType(
+      getValues('accountType'),
+    )
+    if (accountTypeError) {
+      setFieldErrors((prev) => ({ ...prev, accountType: accountTypeError }))
+      return
+    }
+    // TODO: start Google OAuth with selected accountType
   }
 
   const handleOpenChange = (next: boolean) => {
@@ -83,12 +111,54 @@ export function SignupModal({ open, onOpenChange }: SignupModalProps) {
           <DialogTitle>{t('auth.signup.title')}</DialogTitle>
         </DialogHeader>
 
+        {/* Shared by email signup and Google OAuth */}
+        <fieldset className="login-modal-field">
+          <legend className="login-modal-label">
+            {t('auth.signup.accountType')}
+          </legend>
+          <div
+            className="login-modal-account-type"
+            role="radiogroup"
+            aria-invalid={Boolean(fieldErrors.accountType)}
+            aria-required
+            aria-label={t('auth.signup.accountType')}
+          >
+            {SIGNUP_ACCOUNT_TYPES.map((type) => {
+              const selected = accountTypeValue === type
+              return (
+                <button
+                  key={type}
+                  type="button"
+                  role="radio"
+                  aria-checked={selected}
+                  className={
+                    selected
+                      ? 'login-modal-account-type-option login-modal-account-type-option--selected'
+                      : 'login-modal-account-type-option'
+                  }
+                  onClick={() => selectAccountType(type)}
+                >
+                  {t(`auth.signup.accountTypes.${type}`)}
+                </button>
+              )
+            })}
+          </div>
+          {fieldErrors.accountType ? (
+            <p className="login-modal-field-error" role="alert">
+              {t(fieldErrors.accountType)}
+            </p>
+          ) : null}
+        </fieldset>
+
         <form
           className="login-modal-form"
           onSubmit={handleSubmit(onSubmit)}
           noValidate
           aria-label={t('auth.signup.formLabel')}
         >
+          {/* Keep accountType in form state for email signup validation */}
+          <input type="hidden" {...register('accountType')} />
+
           <div className="login-modal-field">
             <label htmlFor="signup-username" className="login-modal-label">
               {t('auth.signup.username')}
@@ -187,8 +257,9 @@ export function SignupModal({ open, onOpenChange }: SignupModalProps) {
                   onChange: () => {
                     if (fieldErrors.confirmPassword) {
                       setFieldErrors((prev) => {
-                        const { confirmPassword: _, ...rest } = prev
-                        return rest
+                        const next = { ...prev }
+                        delete next.confirmPassword
+                        return next
                       })
                     }
                   },

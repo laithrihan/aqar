@@ -26,6 +26,24 @@
     @apply focus:border-secondary focus:ring-2 focus:ring-secondary/20;
   }
 
+  .login-modal-account-type {
+    @apply grid grid-cols-2 gap-3;
+  }
+
+  .login-modal-account-type-option {
+    @apply inline-flex min-h-14 w-full items-center justify-center rounded-xl border border-primary/25 bg-white px-4 py-4 text-center text-sm font-semibold text-primary transition-[border-color,background-color,box-shadow,color];
+    @apply hover:border-secondary hover:bg-muted/40;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/30;
+  }
+
+  .login-modal-account-type-option--selected {
+    @apply border-secondary bg-secondary/10 text-secondary shadow-[inset_0_0_0_1px] shadow-secondary;
+  }
+
+  .login-modal-account-type[aria-invalid="true"] .login-modal-account-type-option {
+    @apply border-red-400;
+  }
+
   .login-modal-password-wrap {
     @apply relative;
   }

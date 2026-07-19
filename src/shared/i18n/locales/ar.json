@@ -33,6 +33,12 @@
     "signup": {
       "title": "إنشاء حساب",
       "formLabel": "نموذج إنشاء الحساب",
+      "accountType": "نوع الحساب",
+      "accountTypePlaceholder": "اختر نوع الحساب",
+      "accountTypes": {
+        "owner": "مالك",
+        "user": "مستخدم"
+      },
       "username": "اسم المستخدم",
       "usernamePlaceholder": "اختر اسم مستخدم",
       "email": "البريد الإلكتروني",
@@ -48,6 +54,7 @@
       "or": "أو",
       "google": "التسجيل باستخدام Google",
       "errors": {
+        "accountTypeRequired": "يرجى اختيار نوع الحساب.",
         "usernameRequired": "يرجى إدخال اسم المستخدم.",
         "usernameInvalid": "استخدم 3–30 حرفاً أو أرقاماً أو نقاطاً أو شرطات.",
         "emailRequired": "يرجى إدخال بريدك الإلكتروني.",
