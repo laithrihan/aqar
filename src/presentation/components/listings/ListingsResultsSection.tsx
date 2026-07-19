@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState, type PointerEvent as ReactPointerEvent } from 'react'
 import { APIProvider } from '@vis.gl/react-google-maps'
 import { useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
@@ -60,6 +60,61 @@ export function ListingsResultsSection({
   const { data: listings = [], isLoading, isError } = useListings(config)
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [sortBy, setSortBy] = useState<ListingSortOption>('')
+  // Phone-only: the list overlays the map as a bottom drawer that can be
+ const [drawerExpanded, setDrawerExpanded] = useState(false)
+  const [dragOffset, setDragOffset] = useState<number | null>(null)
+
+  const panelRef = useRef<HTMLDivElement>(null)
+  const dragRef = useRef<{
+    startY: number
+    peek: number
+    base: number
+    current: number
+    moved: boolean
+  } | null>(null)
+
+  const PEEK_RATIO = 0.56
+  const TAP_THRESHOLD = 5
+
+  const onHandlePointerDown = (event: ReactPointerEvent<HTMLButtonElement>) => {
+    const panel = panelRef.current
+    // Drag only applies to the phone drawer layout.
+    if (!panel || window.innerWidth >= 768) return
+
+    const peek = panel.offsetHeight * PEEK_RATIO
+    const base = drawerExpanded ? 0 : peek
+    dragRef.current = { startY: event.clientY, peek, base, current: base, moved: false }
+    event.currentTarget.setPointerCapture(event.pointerId)
+  }
+
+  const onHandlePointerMove = (event: ReactPointerEvent<HTMLButtonElement>) => {
+    const drag = dragRef.current
+    if (!drag) return
+
+    const delta = event.clientY - drag.startY
+    if (Math.abs(delta) > TAP_THRESHOLD) drag.moved = true
+
+    const next = Math.min(Math.max(drag.base + delta, 0), drag.peek)
+    drag.current = next
+    setDragOffset(next)
+  }
+
+  const onHandlePointerUp = (event: ReactPointerEvent<HTMLButtonElement>) => {
+    const drag = dragRef.current
+    if (!drag) return
+
+    event.currentTarget.releasePointerCapture(event.pointerId)
+
+    if (!drag.moved) {
+      setDrawerExpanded((open) => !open)
+    } else {
+      // Snap to whichever state the drawer is closest to.
+      setDrawerExpanded(drag.current < drag.peek / 2)
+    }
+
+    dragRef.current = null
+    setDragOffset(null)
+  }
 
   const filters = resolveFilters(config, appliedFilters, searchParams)
   const filtered = filterListings(listings, filters)
@@ -69,6 +124,13 @@ export function ListingsResultsSection({
     selectedId && sorted.some((item) => item.id === selectedId)
       ? selectedId
       : null
+
+  // Selecting from the map expands the drawer so the card is visible;
+  // the grid then scrolls the focused card into view (see ListingsGrid).
+  const handleMapSelect = (id: string) => {
+    setSelectedId(id)
+    setDrawerExpanded(true)
+  }
 
   if (isError) {
     return (
@@ -127,7 +189,7 @@ export function ListingsResultsSection({
                 config={config}
                 listings={sorted}
                 selectedId={activeSelectedId}
-                onSelect={setSelectedId}
+                onSelect={handleMapSelect}
               />
             </APIProvider>
           ) : (
@@ -135,12 +197,34 @@ export function ListingsResultsSection({
               config={config}
               listings={sorted}
               selectedId={activeSelectedId}
-              onSelect={setSelectedId}
+              onSelect={handleMapSelect}
             />
           )}
         </div>
 
-        <div className="rent-results-panel">
+        <div
+          ref={panelRef}
+          className="rent-results-panel"
+          data-expanded={drawerExpanded}
+          style={
+            dragOffset !== null
+              ? { transform: `translateY(${dragOffset}px)`, transition: 'none' }
+              : undefined
+          }
+        >
+          <button
+            type="button"
+            className="rent-drawer-handle"
+            aria-expanded={drawerExpanded}
+            aria-label={t(`${config.namespace}.listings.view.label`)}
+            onPointerDown={onHandlePointerDown}
+            onPointerMove={onHandlePointerMove}
+            onPointerUp={onHandlePointerUp}
+            onPointerCancel={onHandlePointerUp}
+          >
+            <span className="rent-drawer-handle-bar" aria-hidden />
+          </button>
+
           <div className="rent-results-toolbar">
             <p className="rent-results-count">
               {t(`${config.namespace}.listings.count`, {

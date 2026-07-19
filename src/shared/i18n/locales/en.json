@@ -146,6 +146,11 @@
     },
     "listings": {
       "label": "Homes for sale",
+      "view": {
+        "list": "List",
+        "map": "Map",
+        "label": "Switch between list and map"
+      },
       "loading": "Loading homes for sale…",
       "error": "Could not load homes for sale.",
       "empty": "No homes match your filters.",
@@ -205,6 +210,11 @@
     },
     "listings": {
       "label": "Available rentals",
+      "view": {
+        "list": "List",
+        "map": "Map",
+        "label": "Switch between list and map"
+      },
       "loading": "Loading rentals…",
       "error": "Could not load rentals.",
       "empty": "No rentals match your filters.",
@@ -255,6 +265,7 @@
     "locationPlaceholder": "Location...",
     "results": "Results",
     "submit": "Search",
+    "filtersToggle": "Filters",
     "filters": {
       "propertyType": "Property Type",
       "priceRange": "Price Range",

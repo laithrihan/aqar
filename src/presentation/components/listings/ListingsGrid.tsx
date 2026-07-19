@@ -23,11 +23,16 @@ export function ListingsGrid({
 
   // Scroll the selected card into view when selection comes from the map.
   useEffect(() => {
-    if (!selectedId || !gridRef.current) return
-    const card = gridRef.current.querySelector(
-      `#${config.idPrefix}-listing-${CSS.escape(selectedId)}`,
-    )
-    card?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+    if (!selectedId) return
+
+    const frame = requestAnimationFrame(() => {
+      const card = gridRef.current?.querySelector(
+        `#${config.idPrefix}-listing-${CSS.escape(selectedId)}`,
+      )
+      card?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+    })
+
+    return () => cancelAnimationFrame(frame)
   }, [config.idPrefix, selectedId])
 
   if (listings.length === 0) {

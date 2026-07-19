@@ -1,10 +1,13 @@
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { FaChevronDown } from 'react-icons/fa6'
 import { HiOutlineSearch } from 'react-icons/hi'
 import {
   MdOutlineAttachMoney,
   MdOutlineBed,
   MdOutlineHome,
   MdOutlineMeetingRoom,
+  MdTune,
 } from 'react-icons/md'
 import { useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
@@ -14,6 +17,7 @@ import type { ListingFeatureConfig } from '@/presentation/features/listings/list
 import { SearchFilterSelect } from '@/presentation/components/home/SearchFilterSelect'
 import { usePropertySearchFilterOptions } from '@/presentation/hooks/usePropertySearchFilterOptions'
 import { usePropertySearchStore } from '@/presentation/stores/propertySearchStore'
+import { cn } from '@/shared/lib/cn'
 
 function getDefaultValues(
   config: ListingFeatureConfig,
@@ -52,6 +56,12 @@ export function ListingFilterSearch({ config }: ListingFilterSearchProps) {
   const rooms = watch('rooms')
   const beds = watch('beds')
 
+  const activeCount = [propertyType, priceRange, rooms, beds].filter(
+    Boolean,
+  ).length
+
+ const [filtersOpen, setFiltersOpen] = useState(activeCount > 0)
+
   const onSubmit = (values: PropertySearchFilters) => {
     const filters: PropertySearchFilters = {
       ...values,
@@ -89,8 +99,36 @@ export function ListingFilterSearch({ config }: ListingFilterSearchProps) {
         />
       </label>
 
+      {/* Mobile-only toggle that reveals the filter dropdowns */}
+      <button
+        type="button"
+        className="rent-filter-toggle"
+        aria-expanded={filtersOpen}
+        aria-controls={`${config.idPrefix}-filter-selects`}
+        onClick={() => setFiltersOpen((open) => !open)}
+      >
+        <span className="rent-filter-toggle-label">
+          <MdTune aria-hidden />
+          {t('search.filtersToggle')}
+          {activeCount > 0 ? (
+            <span className="rent-filter-toggle-badge">{activeCount}</span>
+          ) : null}
+        </span>
+        <FaChevronDown
+          className={cn(
+            'rent-filter-toggle-chevron',
+            filtersOpen && 'rent-filter-toggle-chevron--open',
+          )}
+          aria-hidden
+        />
+      </button>
+
       {/* Filter dropdowns */}
-      <div className="rent-filter-selects">
+      <div
+        id={`${config.idPrefix}-filter-selects`}
+        className="rent-filter-selects"
+        data-open={filtersOpen}
+      >
         <SearchFilterSelect
           id={`${config.idPrefix}-property-type`}
           label={t('search.filters.propertyType')}

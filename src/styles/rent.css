@@ -1,7 +1,7 @@
 /* ── Rent page ───────────────────────────────────────────── */
 @layer components {
   .rent-page {
-    @apply mx-auto flex w-full flex-col gap-6 pt-8 sm:gap-8 sm:pt-12 lg:gap-10 lg:pt-14;
+    @apply mx-auto flex w-full flex-col gap-5 pt-6 xs:gap-6 xs:pt-8 sm:gap-8 sm:pt-12 lg:gap-10 lg:pt-14;
   }
 
   .rent-page-header {
@@ -9,22 +9,24 @@
   }
 
   .rent-page-title {
-    @apply text-xl font-bold tracking-tight text-primary sm:text-3xl lg:text-4xl;
+    @apply text-lg font-bold tracking-tight text-primary xs:text-xl sm:text-3xl lg:text-4xl;
   }
 
   .rent-page-divider {
-    @apply h-0.5 w-14 rounded-full bg-secondary sm:w-40 lg:w-80;
+    @apply h-0.5 w-12 rounded-full bg-secondary xs:w-14 sm:w-40 lg:w-80;
   }
 
   .rent-filter {
-    @apply mx-auto max-w-[1440px] flex w-[95%] flex-col gap-3 rounded-[16px] bg-white p-4;
+    @apply mx-auto max-w-[1440px] flex w-[95%] flex-col gap-3 rounded-[14px] bg-white p-3;
     @apply shadow-[0px_4px_20px_0px_rgba(81,81,81,0.14)];
+    @apply xs:rounded-[16px] xs:p-4;
     @apply sm:gap-4 sm:rounded-[14px] sm:px-6 sm:py-5;
     @apply lg:flex-row lg:items-center lg:justify-between lg:gap-4 lg:px-[30px] lg:py-3;
   }
 
   .rent-filter-location {
-    @apply flex h-12 w-full items-center gap-3 rounded-xl border border-primary/80 bg-white px-4;
+    @apply flex h-11 w-full items-center gap-2.5 rounded-xl border border-primary/80 bg-white px-3.5;
+    @apply xs:h-12 xs:gap-3 xs:px-4;
     @apply sm:h-[52px] sm:rounded-lg sm:px-5;
     @apply lg:h-12 lg:max-w-[240px] lg:shrink-0 xl:max-w-[280px];
   }
@@ -57,8 +59,9 @@
   }
 
   .rent-filter-submit {
-    @apply flex h-12 w-full items-center justify-center rounded-[10px] bg-primary text-base font-bold text-white;
+    @apply flex h-11 w-full items-center justify-center rounded-[10px] bg-primary text-sm font-bold text-white;
     @apply transition-opacity hover:opacity-90 active:opacity-95;
+    @apply xs:h-12 xs:text-base;
     @apply sm:h-[52px] sm:text-lg;
     @apply md:order-none;
     @apply lg:h-12 lg:w-auto lg:shrink-0 lg:px-8 lg:text-base xl:px-10 lg:ml-10;
@@ -105,8 +108,8 @@
 
   .rent-map,
   .rent-map-placeholder {
-    @apply h-[220px] w-full overflow-hidden border-b border-primary/10 bg-white;
-    @apply sm:h-[280px];
+    @apply h-[190px] w-full overflow-hidden border-b border-primary/10 bg-white;
+    @apply xs:h-[220px] sm:h-[280px];
     @apply lg:h-full lg:min-h-0 lg:flex-1 lg:border-b-0 lg:border-e;
   }
 
@@ -173,11 +176,11 @@
   }
 
   .rent-results-count {
-    @apply min-w-0 shrink truncate text-sm font-medium text-primary/70 sm:text-base;
+    @apply min-w-0 shrink truncate text-xs font-medium text-primary/70 xs:text-sm sm:text-base;
   }
 
   .rent-results-sort {
-    @apply w-[140px] shrink-0 sm:w-[160px] lg:w-[180px];
+    @apply w-[116px] shrink-0 xs:w-[140px] sm:w-[160px] lg:w-[180px];
   }
 
   .rent-results-sort .search-filter-select-field {
@@ -198,11 +201,35 @@
     @apply sm:max-h-[min(60vh,520px)] sm:p-4;
     @apply lg:max-h-none lg:min-h-0 lg:flex-1 lg:border-0 lg:bg-transparent lg:p-4;
     scrollbar-gutter: stable;
+    /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: rgb(var(--primary) / 0.3) transparent;
+  }
+
+  /* WebKit / Chromium custom scrollbar */
+  .rent-listings-scroll::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .rent-listings-scroll::-webkit-scrollbar-track {
+    @apply my-1 bg-transparent;
+  }
+
+  .rent-listings-scroll::-webkit-scrollbar-thumb {
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+    background-color: rgb(var(--primary) / 0.28);
+    transition: background-color 150ms ease;
+  }
+
+  .rent-listings-scroll::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(var(--primary) / 0.5);
   }
 
   .rent-listings-grid {
-    @apply grid grid-cols-1 gap-3;
-    @apply sm:grid-cols-2 sm:gap-4;
+    @apply grid grid-cols-2 gap-2.5;
+    @apply xs:gap-3 sm:gap-4;
     @apply xl:grid-cols-3 xl:gap-5;
   }
 
@@ -232,7 +259,7 @@
   }
 
   .rent-listing-card-body {
-    @apply flex flex-1 flex-col gap-1 p-2.5 sm:gap-1.5 sm:p-3.5;
+    @apply flex flex-1 flex-col gap-1 p-2 xs:p-2.5 sm:gap-1.5 sm:p-3.5;
   }
 
   .rent-listing-card-title {
@@ -261,5 +288,108 @@
 
   .rent-listing-card-meta-item svg {
     @apply size-3.5 shrink-0 sm:size-4;
+  }
+
+  /* ── Mobile filters toggle ───────────────────────────────── */
+  .rent-filter-toggle {
+    @apply flex h-11 w-full items-center justify-between rounded-[10px] border border-primary/60 bg-white px-4 text-sm font-semibold text-primary transition-colors;
+    @apply hover:bg-primary/[0.04] xs:h-12;
+    @apply md:hidden;
+  }
+
+  .rent-filter-toggle-label {
+    @apply flex items-center gap-2;
+  }
+
+  .rent-filter-toggle-label svg {
+    @apply size-[18px] text-primary;
+  }
+
+  .rent-filter-toggle-badge {
+    @apply inline-flex h-5 min-w-[20px] items-center justify-center rounded-full bg-secondary px-1.5 text-xs font-bold text-secondary-foreground;
+  }
+
+  .rent-filter-toggle-chevron {
+    @apply size-3.5 shrink-0 text-primary transition-transform;
+  }
+
+  .rent-filter-toggle-chevron--open {
+    @apply rotate-180;
+  }
+
+  /* Phones: collapse the filter dropdowns behind the toggle */
+  @media (max-width: 767px) {
+    .rent-filter-selects {
+      @apply hidden;
+    }
+
+    .rent-filter-selects[data-open="true"] {
+      @apply grid;
+    }
+  }
+
+  /* ── Mobile: list as an overlay drawer above the map ─────── */
+  .rent-drawer-handle {
+    @apply hidden;
+  }
+
+  @media (max-width: 767px) {
+    /* Map becomes the full-bleed base layer */
+    .rent-results-listings {
+      @apply relative block overflow-hidden;
+      height: min(82vh, 760px);
+    }
+
+    .rent-results-map {
+      @apply absolute inset-0 z-0 w-full;
+    }
+
+    .rent-map,
+    .rent-map-placeholder {
+      @apply h-full border-0;
+    }
+
+    /* List panel slides up from the bottom as a drawer over the map */
+    .rent-results-panel {
+      @apply absolute inset-x-0 bottom-0 z-20 flex max-w-none flex-col rounded-t-[20px] border-0 bg-white p-0;
+      height: 90%;
+      box-shadow: 0 -10px 30px -8px rgba(81, 81, 81, 0.28);
+      transform: translateY(56%);
+      transition: transform 340ms cubic-bezier(0.32, 0.72, 0, 1);
+      will-change: transform;
+    }
+
+    .rent-results-panel[data-expanded="true"] {
+      transform: translateY(0);
+    }
+
+    /* Grab handle — drag to resize, tap to toggle peek / expanded */
+    .rent-drawer-handle {
+      @apply flex w-full shrink-0 cursor-grab items-center justify-center py-3;
+      touch-action: none;
+    }
+
+    .rent-drawer-handle:active {
+      @apply cursor-grabbing;
+    }
+
+    .rent-drawer-handle-bar {
+      @apply h-1.5 w-10 rounded-full bg-primary/25;
+    }
+
+    .rent-results-toolbar {
+      @apply mb-0 shrink-0 px-4 pb-3 pt-0;
+    }
+
+    .rent-listings-scroll {
+      @apply min-h-0 flex-1 border-0 bg-transparent p-3;
+      max-height: none;
+    }
+  }
+
+  @media (max-width: 767px) and (prefers-reduced-motion: reduce) {
+    .rent-results-panel {
+      transition: none;
+    }
   }
 }
