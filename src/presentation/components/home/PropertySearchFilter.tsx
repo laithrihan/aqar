@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import {HiOutlineLockClosed, HiOutlineSearch } from "react-icons/hi";
+import { HiOutlineLockClosed } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
@@ -7,6 +7,7 @@ import type {
   PropertySearchFilters,
   SearchListingMode,
 } from '@/domain/home/PropertySearch'
+import { LocationSearchInput } from '@/presentation/components/home/LocationSearchInput'
 import { SearchFilterSelect } from '@/presentation/components/home/SearchFilterSelect'
 import { usePropertySearchFilterOptions } from '@/presentation/hooks/usePropertySearchFilterOptions'
 import { usePropertySearchStore } from '@/presentation/stores/propertySearchStore'
@@ -41,6 +42,7 @@ export function PropertySearchFilter() {
     })
 
   const mode = watch('mode')
+  const location = watch('location')
   const propertyType = watch('propertyType')
   const priceRange = watch('priceRange')
   const rooms = watch('rooms')
@@ -118,21 +120,16 @@ export function PropertySearchFilter() {
         })}
       </div>
 
-      {/* Location search */}
-      <label className="property-search-location" htmlFor="property-location">
-        <HiOutlineSearch
-          className="property-search-location-icon"
-          aria-hidden
-        />
-        <input
-          id="property-location"
-          type="search"
-          placeholder={t('search.locationPlaceholder')}
-          className="property-search-location-input"
-          autoComplete="off"
-          {...register('location')}
-        />
-      </label>
+      <LocationSearchInput
+        id="property-location"
+        value={location}
+        onChange={(next) =>
+          setValue('location', next, { shouldDirty: true })
+        }
+        className="property-search-location"
+        iconClassName="property-search-location-icon"
+        inputClassName="property-search-location-input"
+      />
 
       {/* Filter dropdowns */}
       <div className="property-search-filters">

@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { FaChevronDown } from 'react-icons/fa6'
-import { HiOutlineSearch } from 'react-icons/hi'
 import {
   MdOutlineAttachMoney,
   MdOutlineBed,
@@ -14,6 +13,7 @@ import { useTranslation } from 'react-i18next'
 
 import type { PropertySearchFilters } from '@/domain/home/PropertySearch'
 import type { ListingFeatureConfig } from '@/presentation/features/listings/listingFeature'
+import { LocationSearchInput } from '@/presentation/components/home/LocationSearchInput'
 import { SearchFilterSelect } from '@/presentation/components/home/SearchFilterSelect'
 import { usePropertySearchFilterOptions } from '@/presentation/hooks/usePropertySearchFilterOptions'
 import { usePropertySearchStore } from '@/presentation/stores/propertySearchStore'
@@ -46,11 +46,12 @@ export function ListingFilterSearch({ config }: ListingFilterSearchProps) {
   const appliedFilters = usePropertySearchStore((s) => s.appliedFilters)
   const applyFilters = usePropertySearchStore((s) => s.applyFilters)
 
-  const { register, handleSubmit, watch, setValue } =
+  const { handleSubmit, watch, setValue } =
     useForm<PropertySearchFilters>({
       defaultValues: getDefaultValues(config, appliedFilters, searchParams),
     })
 
+  const location = watch('location')
   const propertyType = watch('propertyType')
   const priceRange = watch('priceRange')
   const rooms = watch('rooms')
@@ -60,7 +61,7 @@ export function ListingFilterSearch({ config }: ListingFilterSearchProps) {
     Boolean,
   ).length
 
- const [filtersOpen, setFiltersOpen] = useState(activeCount > 0)
+  const [filtersOpen, setFiltersOpen] = useState(activeCount > 0)
 
   const onSubmit = (values: PropertySearchFilters) => {
     const filters: PropertySearchFilters = {
@@ -83,21 +84,16 @@ export function ListingFilterSearch({ config }: ListingFilterSearchProps) {
 
   return (
     <form className="rent-filter" onSubmit={handleSubmit(onSubmit)}>
-      {/* Location search */}
-      <label
+      <LocationSearchInput
+        id={`${config.idPrefix}-location`}
+        value={location}
+        onChange={(next) =>
+          setValue('location', next, { shouldDirty: true })
+        }
         className="rent-filter-location"
-        htmlFor={`${config.idPrefix}-location`}
-      >
-        <HiOutlineSearch className="rent-filter-location-icon" aria-hidden />
-        <input
-          id={`${config.idPrefix}-location`}
-          type="search"
-          placeholder={t('search.locationPlaceholder')}
-          className="rent-filter-location-input"
-          autoComplete="off"
-          {...register('location')}
-        />
-      </label>
+        iconClassName="rent-filter-location-icon"
+        inputClassName="rent-filter-location-input"
+      />
 
       {/* Mobile-only toggle that reveals the filter dropdowns */}
       <button

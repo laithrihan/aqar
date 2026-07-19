@@ -12,6 +12,12 @@ export type PropertySearchFilterOptions = {
   beds: SearchFilterOption[]
 }
 
+export type LocationSuggestion = {
+  value: string
+  label: string
+  labelAr: string
+}
+
 export type PropertySearchFilters = {
   mode: SearchListingMode
   location: string

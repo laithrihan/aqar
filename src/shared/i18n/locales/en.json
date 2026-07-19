@@ -209,6 +209,7 @@
       "investLocked": "Investment search is coming soon"
     },
     "locationPlaceholder": "Location...",
+    "locationSuggestions": "Location suggestions",
     "results": "Results",
     "submit": "Search",
     "filtersToggle": "Filters",

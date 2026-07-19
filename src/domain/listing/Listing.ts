@@ -2,6 +2,7 @@ import type {
   PropertySearchFilters,
   SearchFilterOption,
 } from '@/domain/home/PropertySearch'
+import { includesIgnoreCase } from '@/shared/lib/includesIgnoreCase'
 
 /** Whether a listing is offered for rent or for sale. */
 export type ListingPurpose = 'rent' | 'sale'
@@ -79,12 +80,12 @@ export function filterListings(
 ): Listing[] {
   if (!filters) return listings
 
-  const locationQuery = filters.location.trim().toLowerCase()
+  const locationQuery = filters.location.trim()
 
   return listings.filter((listing) => {
     if (locationQuery) {
-      const matchesEn = listing.location.toLowerCase().includes(locationQuery)
-      const matchesAr = listing.locationAr.includes(filters.location.trim())
+      const matchesEn = includesIgnoreCase(listing.location, locationQuery)
+      const matchesAr = includesIgnoreCase(listing.locationAr, locationQuery)
       if (!matchesEn && !matchesAr) return false
     }
 

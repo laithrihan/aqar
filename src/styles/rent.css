@@ -17,7 +17,7 @@
   }
 
   .rent-filter {
-    @apply mx-auto max-w-[1440px] flex w-[95%] flex-col gap-3 rounded-[14px] bg-white p-3;
+    @apply mx-auto max-w-[1440px] flex w-[95%] flex-col gap-3 overflow-visible rounded-[14px] bg-white p-3;
     @apply shadow-[0px_4px_20px_0px_rgba(81,81,81,0.14)];
     @apply xs:rounded-[16px] xs:p-4;
     @apply sm:gap-4 sm:rounded-[14px] sm:px-6 sm:py-5;
@@ -25,7 +25,7 @@
   }
 
   .rent-filter-location {
-    @apply flex h-11 w-full items-center gap-2.5 rounded-xl border border-primary/80 bg-white px-3.5;
+    @apply relative flex h-11 w-full items-center gap-2.5 overflow-visible rounded-xl border border-primary/80 bg-white px-3.5;
     @apply xs:h-12 xs:gap-3 xs:px-4;
     @apply sm:h-[52px] sm:rounded-lg sm:px-5;
     @apply lg:h-12 lg:max-w-[240px] lg:shrink-0 xl:max-w-[280px];
