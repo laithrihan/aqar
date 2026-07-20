@@ -2,6 +2,7 @@ import type {
   OwnerProperty,
   UpsertOwnerPropertyInput,
 } from '@/domain/owner/OwnerProperty'
+import { apiFetch } from '@/infrastructure/api/apiClient'
 
 type OwnerPropertyRow = {
   id: string
@@ -33,20 +34,13 @@ type OwnerPropertyRow = {
   has_garden: boolean
   heating_type: 'forced_air' | 'central' | 'none'
   garage_spaces: number
-  tour_video_url: string
+  tour_video_url: string | null
   updated_at: string
 }
 
 type OwnerPropertiesResponse = {
   properties: OwnerPropertyRow[]
 }
-
-const OWNER_PROPERTIES_URL = '/mock/owner-properties.json'
-const OWNER_PROPERTIES_KEY = 'aqar-owner-properties'
-
-let seedRows: OwnerPropertyRow[] | null = null
-let overlayRows: OwnerPropertyRow[] | null = null
-let loadPromise: Promise<void> | null = null
 
 function mapRow(row: OwnerPropertyRow): OwnerProperty {
   return {
@@ -84,154 +78,109 @@ function mapRow(row: OwnerPropertyRow): OwnerProperty {
   }
 }
 
-function toRow(
-  ownerUserId: string,
-  id: string,
-  input: UpsertOwnerPropertyInput,
-): OwnerPropertyRow {
+function toApiBody(input: UpsertOwnerPropertyInput) {
   return {
-    id,
-    owner_user_id: ownerUserId,
     purpose: input.purpose,
     title: input.title.trim(),
-    title_ar: input.titleAr.trim(),
+    titleAr: input.titleAr.trim(),
     location: input.location.trim(),
-    location_ar: input.locationAr.trim(),
-    property_type: input.propertyType.trim(),
+    locationAr: input.locationAr.trim(),
+    propertyType: input.propertyType.trim(),
     price: input.price,
     rooms: input.rooms,
     beds: input.beds,
     baths: input.baths,
     windows: input.windows,
-    area_sqft: input.areaSqft,
+    areaSqft: input.areaSqft,
     lat: input.lat,
     lng: input.lng,
-    image_url: input.imageUrl.trim(),
-    gallery_urls: input.galleryUrls,
+    imageUrl: input.imageUrl.trim(),
+    galleryUrls: input.galleryUrls,
     address: input.address.trim(),
-    address_ar: input.addressAr.trim(),
-    owner_name: input.ownerName.trim(),
-    owner_whatsapp: input.ownerWhatsapp.trim(),
-    estimated_value: input.estimatedValue,
-    estimated_payment_monthly: input.estimatedPaymentMonthly,
-    has_wifi: input.hasWifi,
-    has_heater: input.hasHeater,
-    has_garden: input.hasGarden,
-    heating_type: input.heatingType,
-    garage_spaces: input.garageSpaces,
-    tour_video_url: input.tourVideoUrl.trim(),
-    updated_at: new Date().toISOString(),
+    addressAr: input.addressAr.trim(),
+    ownerName: input.ownerName.trim(),
+    ownerWhatsapp: input.ownerWhatsapp.trim(),
+    estimatedValue: input.estimatedValue,
+    estimatedPaymentMonthly: input.estimatedPaymentMonthly,
+    hasWifi: input.hasWifi,
+    hasHeater: input.hasHeater,
+    hasGarden: input.hasGarden,
+    heatingType: input.heatingType,
+    garageSpaces: input.garageSpaces,
+    tourVideoUrl: input.tourVideoUrl.trim(),
   }
 }
 
-function readOverlayRows(): OwnerPropertyRow[] {
-  try {
-    const raw = localStorage.getItem(OWNER_PROPERTIES_KEY)
-    if (!raw) return []
-    const parsed = JSON.parse(raw) as OwnerPropertyRow[]
-    return Array.isArray(parsed) ? parsed : []
-  } catch {
-    return []
-  }
+function mapProperties(data: OwnerPropertiesResponse): OwnerProperty[] {
+  return (data.properties ?? []).map(mapRow)
 }
 
-function writeOverlayRows(rows: OwnerPropertyRow[]): void {
-  localStorage.setItem(OWNER_PROPERTIES_KEY, JSON.stringify(rows))
-}
-
-function buildMergedRows(): OwnerPropertyRow[] {
-  const byId = new Map<string, OwnerPropertyRow>()
-
-  for (const row of seedRows ?? []) {
-    byId.set(row.id, row)
-  }
-  for (const row of overlayRows ?? []) {
-    byId.set(row.id, row)
-  }
-
-  return Array.from(byId.values())
-}
-
-async function ensureLoaded(): Promise<void> {
-  if (seedRows && overlayRows) return
-  if (loadPromise) return loadPromise
-
-  loadPromise = (async () => {
-    const response = await fetch(OWNER_PROPERTIES_URL)
-    if (!response.ok) {
-      throw new Error('owner.errors.loadFailed')
-    }
-    const payload = (await response.json()) as OwnerPropertiesResponse
-    seedRows = Array.isArray(payload.properties) ? payload.properties : []
-    overlayRows = readOverlayRows()
-  })()
-
-  try {
-    await loadPromise
-  } finally {
-    loadPromise = null
-  }
-}
-
-function randomId(): string {
-  return `owner-${Math.random().toString(36).slice(2, 10)}`
-}
-
+/** Loads properties owned by the authenticated owner account. */
 export async function fetchOwnerProperties(
-  ownerUserId: string,
+  _ownerUserId?: string,
 ): Promise<OwnerProperty[]> {
-  await ensureLoaded()
-  return buildMergedRows()
-    .filter((row) => row.owner_user_id === ownerUserId)
-    .map(mapRow)
-    .sort((a, b) => (a.updatedAt < b.updatedAt ? 1 : -1))
+  const data = await apiFetch<OwnerPropertiesResponse>('/owner/properties', {
+    auth: true,
+    errorFallback: 'owner.errors.loadFailed',
+  })
+  return mapProperties(data)
 }
 
 export async function createOwnerProperty(
-  ownerUserId: string,
+  _ownerUserId: string,
   input: UpsertOwnerPropertyInput,
 ): Promise<OwnerProperty[]> {
-  await ensureLoaded()
-  const next = [...(overlayRows ?? [])]
-  next.push(toRow(ownerUserId, randomId(), input))
-  overlayRows = next
-  writeOverlayRows(next)
-  return fetchOwnerProperties(ownerUserId)
+  const data = await apiFetch<OwnerPropertiesResponse>('/owner/properties', {
+    method: 'POST',
+    auth: true,
+    body: JSON.stringify(toApiBody(input)),
+    errorFallback: 'owner.errors.loadFailed',
+  })
+  return mapProperties(data)
 }
 
 export async function updateOwnerProperty(
-  ownerUserId: string,
+  _ownerUserId: string,
   propertyId: string,
   input: UpsertOwnerPropertyInput,
 ): Promise<OwnerProperty[]> {
-  await ensureLoaded()
-  const current = buildMergedRows().find((row) => row.id === propertyId)
-  if (!current || current.owner_user_id !== ownerUserId) {
-    throw new Error('owner.errors.notFound')
+  try {
+    const data = await apiFetch<OwnerPropertiesResponse>(
+      `/owner/properties/${encodeURIComponent(propertyId)}`,
+      {
+        method: 'PUT',
+        auth: true,
+        body: JSON.stringify(toApiBody(input)),
+        errorFallback: 'owner.errors.notFound',
+      },
+    )
+    return mapProperties(data)
+  } catch (error) {
+    if (error instanceof Error && error.message === 'owner.errors.notFound') {
+      throw error
+    }
+    throw new Error('owner.errors.loadFailed')
   }
-
-  const rest = (overlayRows ?? []).filter((row) => row.id !== propertyId)
-  overlayRows = [...rest, toRow(ownerUserId, propertyId, input)]
-  writeOverlayRows(overlayRows)
-
-  return fetchOwnerProperties(ownerUserId)
 }
 
 export async function deleteOwnerProperty(
-  ownerUserId: string,
+  _ownerUserId: string,
   propertyId: string,
 ): Promise<OwnerProperty[]> {
-  await ensureLoaded()
-  const snapshot = buildMergedRows().find((row) => row.id === propertyId)
-  if (!snapshot || snapshot.owner_user_id !== ownerUserId) {
-    throw new Error('owner.errors.notFound')
+  try {
+    const data = await apiFetch<OwnerPropertiesResponse>(
+      `/owner/properties/${encodeURIComponent(propertyId)}`,
+      {
+        method: 'DELETE',
+        auth: true,
+        errorFallback: 'owner.errors.notFound',
+      },
+    )
+    return mapProperties(data)
+  } catch (error) {
+    if (error instanceof Error && error.message === 'owner.errors.notFound') {
+      throw error
+    }
+    throw new Error('owner.errors.loadFailed')
   }
-
-  // Mark deletion in overlay by writing all visible rows except this one.
-  const visibleWithoutDeleted = buildMergedRows().filter((row) => row.id !== propertyId)
-  overlayRows = visibleWithoutDeleted
-  writeOverlayRows(visibleWithoutDeleted)
-
-  return fetchOwnerProperties(ownerUserId)
 }
-

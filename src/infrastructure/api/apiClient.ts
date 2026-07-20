@@ -1,3 +1,5 @@
+import { useAuthStore } from '@/presentation/stores/authStore'
+
 export type ApiErrorBody = {
   message?: string
   code?: string
@@ -12,6 +14,8 @@ const API_ERROR_KEYS: Record<string, string> = {
   emailRegisteredWithGoogle: 'auth.errors.emailRegisteredWithGoogle',
   emailRegisteredWithPassword: 'auth.errors.emailRegisteredWithPassword',
   unauthenticated: 'auth.errors.sessionExpired',
+  notFound: 'auth.errors.generic',
+  forbidden: 'owner.errors.signInRequired',
 }
 
 const GOOGLE_ERROR_FIELDS = new Set([
@@ -29,7 +33,15 @@ export function getApiBaseUrl(): string {
   return base
 }
 
-function mapApiErrorCode(code?: string, errors?: Record<string, string[]>): string {
+export function getAccessToken(): string | null {
+  return useAuthStore.getState().session?.accessToken ?? null
+}
+
+function mapApiErrorCode(
+  code?: string,
+  errors?: Record<string, string[]>,
+  fallback = 'auth.errors.generic',
+): string {
   if (code === 'validationError' && errors) {
     const hasGoogleFieldError = Object.keys(errors).some((field) =>
       GOOGLE_ERROR_FIELDS.has(field),
@@ -39,23 +51,34 @@ function mapApiErrorCode(code?: string, errors?: Record<string, string[]>): stri
     }
   }
 
-  if (!code) return 'auth.errors.generic'
-  return API_ERROR_KEYS[code] ?? 'auth.errors.generic'
+  if (!code) return fallback
+  return API_ERROR_KEYS[code] ?? fallback
+}
+
+type ApiFetchOptions = RequestInit & {
+  token?: string | null
+  /** When true, attach the current session JWT (required for protected routes). */
+  auth?: boolean
+  errorFallback?: string
 }
 
 export async function apiFetch<T>(
   path: string,
-  options: RequestInit & { token?: string } = {},
+  options: ApiFetchOptions = {},
 ): Promise<T> {
-  const { token, ...init } = options
+  const { token, auth, errorFallback = 'auth.errors.generic', ...init } = options
   const headers = new Headers(init.headers)
 
   if (init.body && !headers.has('Content-Type')) {
     headers.set('Content-Type', 'application/json')
   }
 
-  if (token) {
-    headers.set('Authorization', `Bearer ${token}`)
+  const bearer = token ?? (auth ? getAccessToken() : null)
+  if (auth && !bearer) {
+    throw new Error('auth.errors.sessionExpired')
+  }
+  if (bearer) {
+    headers.set('Authorization', `Bearer ${bearer}`)
   }
 
   let response: Response
@@ -66,7 +89,7 @@ export async function apiFetch<T>(
       headers,
     })
   } catch {
-    throw new Error('auth.errors.generic')
+    throw new Error(errorFallback)
   }
 
   if (!response.ok) {
@@ -76,7 +99,12 @@ export async function apiFetch<T>(
     } catch {
       // ignore non-JSON error bodies
     }
-    throw new Error(mapApiErrorCode(body.code, body.errors))
+
+    if (body.code === 'notFound' && errorFallback !== 'auth.errors.generic') {
+      throw new Error(errorFallback)
+    }
+
+    throw new Error(mapApiErrorCode(body.code, body.errors, errorFallback))
   }
 
   if (response.status === 204) {

@@ -2,18 +2,19 @@
 
 A bilingual real-estate web app for browsing, buying, and renting homes. Built with React, Clean Architecture, and Domain-Driven Design.
 
-> **Backend:** The app currently uses mock JSON. A real **Laravel** API will be wired in soon; only the infrastructure layer needs to change.
+Pairs with the **[aqar-backend](../aqar-backend)** Laravel API (`/api/v1`).
 
 ## Features
 
 - **Home** — panorama hero, property search filters, and featured homes
 - **Buy / Rent** — listing grid with sorting, filters, and Google Maps
 - **Property detail** — gallery, amenities, tour player, nearby map, and related homes
+- **Saved** — favorites for signed-in users
+- **Manage** — owner property CRUD (`accountType=owner`)
 - **About** — brand story, values, and CTA
 - **Contact** — contact info and message form
+- **Auth** — password + Google OAuth (JWT from Laravel)
 - **i18n** — English and Arabic (`en` / `ar`)
-
-Auth pages (`/login`, `/signup`) are placeholders for now.
 
 ## Tech stack
 
@@ -25,35 +26,30 @@ Auth pages (`/login`, `/signup`) are placeholders for now.
 | Client state | Zustand |
 | Forms | React Hook Form |
 | Maps | Google Maps (`@vis.gl/react-google-maps`) |
+| Auth | JWT Bearer (`VITE_API_BASE_URL`) + Google Identity |
 | i18n | i18next / react-i18next |
 | Build | Vite 8, TypeScript |
 | Deploy | Vercel (SPA rewrites) |
-| Backend (soon) | Laravel API |
+| Backend | Laravel API (`aqar-backend`) |
 
 ## Architecture
-
-The codebase follows Clean Architecture and DDD-style layering:
 
 ```
 src/
 ├── app/               # Router, layouts, providers
 ├── domain/            # Entities, types, pure domain logic
-├── infrastructure/    # Data access (mock JSON now → Laravel API soon)
+├── infrastructure/    # API repositories (Laravel `/api/v1`)
 ├── presentation/      # Pages, components, hooks, stores
 ├── shared/            # i18n, utilities
 └── components/ui/     # Shared UI primitives (shadcn)
 ```
-
-- **Domain** — business types and rules with no UI or HTTP details
-- **Infrastructure** — repositories that fetch data (mock JSON today; will call the Laravel API soon)
-- **Presentation** — React UI wired with TanStack Query hooks and Zustand stores
 
 ## Getting started
 
 ### Prerequisites
 
 - Node.js **20+**
-- npm
+- Running **aqar-backend** (`php artisan serve` → `http://localhost:8000`)
 
 ### Install
 
@@ -63,25 +59,33 @@ npm install
 
 ### Environment
 
-Copy the example env file and add a Google Maps API key (required for map views):
-
 ```bash
-cp .env.example .env.local
+cp .env.example .env
 ```
 
 ```env
-VITE_GOOGLE_MAPS_API_KEY=your_key_here
-# Optional — Advanced Markers map ID
-# VITE_GOOGLE_MAPS_MAP_ID=
+VITE_API_BASE_URL=http://localhost:8000/api/v1
+VITE_GOOGLE_MAPS_API_KEY=your_maps_key
+VITE_GOOGLE_CLIENT_ID=your_oauth_web_client_id
 ```
 
-Enable the **Maps JavaScript API** in Google Cloud Console for your key.
+- Enable **Maps JavaScript API** for the Maps key.
+- Add `http://localhost:5173` as an Authorized JavaScript origin for the OAuth client.
+- Use the same Client ID in `aqar-backend` `GOOGLE_CLIENT_ID`.
 
 ### Run
 
 ```bash
+# Terminal 1 — Laravel API
+cd ../aqar-backend
+php artisan migrate:fresh --seed
+php artisan serve
+
+# Terminal 2 — React app
 npm run dev
 ```
+
+Demo login (seeded): username `demo` / password `Demo123!`
 
 ### Other scripts
 
@@ -89,22 +93,24 @@ npm run dev
 npm run build    # Typecheck + production build
 npm run preview  # Preview the production build
 npm run lint     # ESLint
+npm run test     # Vitest
 ```
 
-## Mock API → Laravel backend
+## API wiring
 
-Backend endpoints are not available yet. Repositories load temporary JSON from `public/mock/` as a stand-in until the **Laravel** backend is ready:
+Repositories under `src/infrastructure/` call Laravel:
 
-| File | Used for |
-|------|----------|
-| `carousel-slides.json` | Home panorama |
-| `bento-homes.json` | Featured homes |
-| `property-search-filters.json` | Search filter options |
-| `rent-listings.json` | Buy / rent listings |
-| `property-details.json` | Property detail pages |
-| `contact-info.json` | Contact page info |
+| Repository | Endpoints |
+|------------|-----------|
+| Auth | `/auth/login`, `/register`, `/google/*`, `/me`, `/logout` |
+| Listings | `GET /listings`, `GET /listings/{id}` |
+| Search | `GET /search/filters`, `GET /search/locations` |
+| Carousel | `GET /carousel/slides` |
+| Contact | `GET /contact/info`, `POST /contact/messages` |
+| Saved | `/me/saved-listings/*` (Bearer) |
+| Owner | `/owner/properties` (Bearer, owner account) |
 
-When the Laravel API is connected, update the corresponding repositories under `src/infrastructure/` — domain and presentation layers stay the same.
+Authenticated requests send `Authorization: Bearer <accessToken>` from the Zustand session.
 
 ## Routes
 
@@ -114,14 +120,14 @@ When the Laravel API is connected, update the corresponding repositories under `
 | `/buy` | Buy listings |
 | `/rent` | Rent listings |
 | `/homes/:propertyId` | Property detail |
+| `/saved` | Saved houses |
+| `/manage` | Owner property management |
 | `/about` | About |
 | `/contact` | Contact |
-| `/login` | Login (placeholder) |
-| `/signup` | Sign up (placeholder) |
+
+Auth uses modals in the header (not dedicated routes).
 
 ## Path alias
-
-Imports use the `@/` alias mapped to `src/`:
 
 ```ts
 import { HomePage } from '@/presentation/pages/HomePage'

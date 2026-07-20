@@ -34,6 +34,7 @@ function useOwnerCacheWriter() {
   const writeCache = (rows: OwnerProperty[]) => {
     if (!ownerUserId) return
     queryClient.setQueryData(ownerPropertiesQueryKey(ownerUserId), rows)
+    void queryClient.invalidateQueries({ queryKey: ['listings'] })
   }
 
   return { ownerUserId, writeCache }

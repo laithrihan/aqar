@@ -3,13 +3,11 @@ import type {
   PropertyDetail,
   PropertyHeatingType,
 } from '@/domain/property/PropertyDetail'
-
-/** Temporary mock endpoint. Swap for the real API URL later. */
-const LISTINGS_URL = '/mock/listings.json'
+import { apiFetch } from '@/infrastructure/api/apiClient'
 
 /**
- * Raw listing row as returned by the mock (and, later, the backend API).
- * Columns are snake_case to mirror the Laravel `listings` table / seed.
+ * Raw listing row as returned by the Laravel API.
+ * Columns are snake_case to mirror the `listings` table.
  */
 type ListingRow = {
   id: string
@@ -40,21 +38,19 @@ type ListingRow = {
   has_garden: boolean
   heating_type: string
   garage_spaces: number
-  tour_video_url: string
+  tour_video_url: string | null
 }
 
 type ListingsResponse = {
   listings: ListingRow[]
 }
 
-/** Maps the DB enum value to the app heating type. */
 const HEATING_MAP: Record<string, PropertyHeatingType> = {
   forced_air: 'forcedAir',
   central: 'central',
   none: 'none',
 }
 
-/** Maps a snake_case backend row into the camelCase domain property detail. */
 function mapListingRow(row: ListingRow): PropertyDetail {
   return {
     id: row.id,
@@ -70,7 +66,7 @@ function mapListingRow(row: ListingRow): PropertyDetail {
     beds: row.beds,
     lat: row.lat,
     lng: row.lng,
-    galleryUrls: row.gallery_urls,
+    galleryUrls: row.gallery_urls ?? [],
     baths: row.baths,
     windows: row.windows,
     areaSqft: row.area_sqft,
@@ -89,31 +85,28 @@ function mapListingRow(row: ListingRow): PropertyDetail {
       heating: HEATING_MAP[row.heating_type] ?? 'none',
       garageSpaces: row.garage_spaces,
     },
-    tourVideoUrl: row.tour_video_url,
+    tourVideoUrl: row.tour_video_url ?? '',
   }
 }
 
-/** Loads and maps every listing row from the data source. */
-async function loadListings(): Promise<PropertyDetail[]> {
-  const response = await fetch(LISTINGS_URL)
-
-  if (!response.ok) {
-    throw new Error('Failed to load listings')
-  }
-
-  const data = (await response.json()) as ListingsResponse
-  return data.listings.map(mapListingRow)
-}
-
-/** Loads all listings (card-level shape). */
+/** Loads all published listings (card-level / detail shape). */
 export async function fetchAllListings(): Promise<Listing[]> {
-  return loadListings()
+  const data = await apiFetch<ListingsResponse>('/listings', {
+    errorFallback: 'Failed to load listings',
+  })
+  return (data.listings ?? []).map(mapListingRow)
 }
 
-/** Loads a single full property detail by id, or null when not found. */
+/** Loads a single published listing by id, or null when not found. */
 export async function fetchListingById(
   id: string,
 ): Promise<PropertyDetail | null> {
-  const listings = await loadListings()
-  return listings.find((listing) => listing.id === id) ?? null
+  try {
+    const row = await apiFetch<ListingRow>(`/listings/${encodeURIComponent(id)}`, {
+      errorFallback: 'Failed to load listing',
+    })
+    return mapListingRow(row)
+  } catch {
+    return null
+  }
 }

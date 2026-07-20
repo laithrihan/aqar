@@ -5,36 +5,29 @@ import type {
   ContactSubmitResponse,
 } from '@/domain/contact/ContactMessage'
 import { normalizeContactMessage } from '@/domain/contact/ContactMessage'
+import { apiFetch } from '@/infrastructure/api/apiClient'
 
-/**
- * Fetches public contact details from the temporary mock JSON.
- * Swap this for a real API endpoint later.
- */
+/** Fetches public contact details from the API. */
 export async function fetchContactInfo(): Promise<ContactInfo> {
-  const response = await fetch('/mock/contact-info.json')
-
-  if (!response.ok) {
-    throw new Error('Failed to load contact info')
-  }
-
-  const data = (await response.json()) as ContactInfoResponse
+  const data = await apiFetch<ContactInfoResponse>('/contact/info', {
+    errorFallback: 'Failed to load contact info',
+  })
   return data.info
 }
 
-/**
- * Simulates sending a contact message.
- * Replace with a real POST when the API is ready.
- */
+/** Submits a contact message to the API. */
 export async function submitContactMessage(
   message: ContactMessage,
 ): Promise<ContactSubmitResponse> {
   const payload = normalizeContactMessage(message)
 
-  await new Promise((resolve) => setTimeout(resolve, 700))
-
   if (!payload.email || !payload.message) {
     throw new Error('Failed to send contact message')
   }
 
-  return { success: true }
+  return apiFetch<ContactSubmitResponse>('/contact/messages', {
+    method: 'POST',
+    body: JSON.stringify(payload),
+    errorFallback: 'Failed to send contact message',
+  })
 }

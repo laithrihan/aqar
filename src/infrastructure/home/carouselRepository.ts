@@ -1,19 +1,13 @@
 import type {
   CarouselSlide,
   CarouselSlidesResponse,
-} from "@/domain/home/CarouselSlide";
+} from '@/domain/home/CarouselSlide'
+import { apiFetch } from '@/infrastructure/api/apiClient'
 
-/**
- * Fetches panorama carousel slides from the temporary mock JSON.
- * Swap this for a real API endpoint later.
- */
+/** Fetches panorama carousel slides from the API. */
 export async function fetchCarouselSlides(): Promise<CarouselSlide[]> {
-  const response = await fetch("/mock/carousel-slides.json");
-
-  if (!response.ok) {
-    throw new Error("Failed to load carousel slides");
-  }
-
-  const data = (await response.json()) as CarouselSlidesResponse;
-  return data.slides;
+  const data = await apiFetch<CarouselSlidesResponse>('/carousel/slides', {
+    errorFallback: 'Failed to load carousel slides',
+  })
+  return data.slides ?? []
 }

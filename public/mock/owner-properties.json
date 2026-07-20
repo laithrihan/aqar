@@ -1,4 +1,0 @@
-{
-  "_readme": "Seed owner properties by ownerUserId. Runtime writes are stored in localStorage (aqar-owner-properties) and overlay this file.",
-  "properties": []
-}

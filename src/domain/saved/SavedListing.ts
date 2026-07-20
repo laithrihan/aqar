@@ -1,16 +1,11 @@
 /**
  * Per-user saved listing ids.
- * Persisted in the mock layer until a real favorites API exists.
  */
 
 export type SavedListingsRecord = {
   userId: string
   listingIds: string[]
   updatedAt: string
-}
-
-export type SavedListingsMockResponse = {
-  saved: SavedListingsRecord[]
 }
 
 /** Whether a listing id is already in the user's saved set. */
