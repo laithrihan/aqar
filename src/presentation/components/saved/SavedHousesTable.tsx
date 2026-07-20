@@ -86,52 +86,64 @@ export function SavedHousesTable() {
   }
 
   return (
-    <div className="saved-houses-table-wrap">
-      <table className="saved-houses-table">
-        <thead>
-          <tr>
-            <th scope="col">{t('saved.table.property')}</th>
-            <th scope="col">{t('saved.table.location')}</th>
-            <th scope="col">{t('saved.table.price')}</th>
-            <th scope="col">{t('saved.table.type')}</th>
-            <th scope="col">{t('saved.table.details')}</th>
-            <th scope="col">
-              <span className="sr-only">{t('saved.table.actions')}</span>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {savedListings.map((listing) => (
-            <SavedHouseRow
-              key={listing.id}
-              listing={listing}
-              language={i18n.language}
-              removing={
-                removeSaved.isPending &&
-                removeSaved.variables === listing.id
-              }
-              onRemove={() => removeSaved.mutate(listing.id)}
-            />
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <>
+      <ul className="saved-houses-cards">
+        {savedListings.map((listing) => (
+          <SavedHouseCard
+            key={listing.id}
+            listing={listing}
+            language={i18n.language}
+            removing={
+              removeSaved.isPending && removeSaved.variables === listing.id
+            }
+            onRemove={() => removeSaved.mutate(listing.id)}
+          />
+        ))}
+      </ul>
+
+      {/* Desktop: data table */}
+      <div className="saved-houses-table-wrap">
+        <table className="saved-houses-table">
+          <thead>
+            <tr>
+              <th scope="col">{t('saved.table.property')}</th>
+              <th scope="col">{t('saved.table.location')}</th>
+              <th scope="col">{t('saved.table.price')}</th>
+              <th scope="col">{t('saved.table.type')}</th>
+              <th scope="col">{t('saved.table.details')}</th>
+              <th scope="col">
+                <span className="sr-only">{t('saved.table.actions')}</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {savedListings.map((listing) => (
+              <SavedHouseRow
+                key={listing.id}
+                listing={listing}
+                language={i18n.language}
+                removing={
+                  removeSaved.isPending &&
+                  removeSaved.variables === listing.id
+                }
+                onRemove={() => removeSaved.mutate(listing.id)}
+              />
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
   )
 }
 
-type SavedHouseRowProps = {
+type SavedHouseItemProps = {
   listing: Listing
   language: string
   removing: boolean
   onRemove: () => void
 }
 
-function SavedHouseRow({
-  listing,
-  language,
-  removing,
-  onRemove,
-}: SavedHouseRowProps) {
+function useSavedHouseLabels(listing: Listing, language: string) {
   const { t } = useTranslation()
   const title = localizedText(language, listing.title, listing.titleAr)
   const location = localizedText(
@@ -141,6 +153,109 @@ function SavedHouseRow({
   )
   const purposeKey =
     listing.purpose === 'rent' ? 'saved.purpose.rent' : 'saved.purpose.sale'
+
+  return {
+    title,
+    location,
+    purpose: t(purposeKey),
+    price: formatPrice(listing.price, language),
+  }
+}
+
+function SavedHouseMeta({ listing }: { listing: Listing }) {
+  return (
+    <div className="saved-houses-meta">
+      {listing.rooms > 0 ? (
+        <span className="saved-houses-meta-item">
+          <MdOutlineMeetingRoom aria-hidden />
+          {listing.rooms}
+        </span>
+      ) : null}
+      {listing.beds > 0 ? (
+        <span className="saved-houses-meta-item">
+          <MdOutlineBed aria-hidden />
+          {listing.beds}
+        </span>
+      ) : null}
+    </div>
+  )
+}
+
+function SavedHouseActions({
+  listingId,
+  removing,
+  onRemove,
+}: {
+  listingId: string
+  removing: boolean
+  onRemove: () => void
+}) {
+  const { t } = useTranslation()
+
+  return (
+    <div className="saved-houses-actions">
+      <Link to={`/homes/${listingId}`} className="saved-houses-view">
+        {t('saved.view')}
+      </Link>
+      <button
+        type="button"
+        className="saved-houses-remove"
+        disabled={removing}
+        onClick={onRemove}
+      >
+        {t('saved.unsave')}
+      </button>
+    </div>
+  )
+}
+
+function SavedHouseCard({
+  listing,
+  language,
+  removing,
+  onRemove,
+}: SavedHouseItemProps) {
+  const labels = useSavedHouseLabels(listing, language)
+
+  return (
+    <li className="saved-houses-card">
+      <Link to={`/homes/${listing.id}`} className="saved-houses-card-media">
+        <ImageWithFallback
+          src={listing.imageUrl}
+          alt=""
+          className="saved-houses-card-image"
+          loading="lazy"
+        />
+      </Link>
+
+      <div className="saved-houses-card-body">
+        <div className="saved-houses-card-top">
+          <Link to={`/homes/${listing.id}`} className="saved-houses-card-title">
+            {labels.title}
+          </Link>
+          <span className="saved-houses-card-purpose">{labels.purpose}</span>
+        </div>
+
+        <p className="saved-houses-card-location">{labels.location}</p>
+        <p className="saved-houses-price">{labels.price}</p>
+        <SavedHouseMeta listing={listing} />
+        <SavedHouseActions
+          listingId={listing.id}
+          removing={removing}
+          onRemove={onRemove}
+        />
+      </div>
+    </li>
+  )
+}
+
+function SavedHouseRow({
+  listing,
+  language,
+  removing,
+  onRemove,
+}: SavedHouseItemProps) {
+  const labels = useSavedHouseLabels(listing, language)
 
   return (
     <tr>
@@ -152,44 +267,21 @@ function SavedHouseRow({
             className="saved-houses-thumb"
             loading="lazy"
           />
-          <span className="saved-houses-property-title">{title}</span>
+          <span className="saved-houses-property-title">{labels.title}</span>
         </Link>
       </td>
-      <td>{location}</td>
-      <td className="saved-houses-price">
-        {formatPrice(listing.price, language)}
-      </td>
-      <td>{t(purposeKey)}</td>
+      <td>{labels.location}</td>
+      <td className="saved-houses-price">{labels.price}</td>
+      <td>{labels.purpose}</td>
       <td>
-        <div className="saved-houses-meta">
-          {listing.rooms > 0 ? (
-            <span className="saved-houses-meta-item">
-              <MdOutlineMeetingRoom aria-hidden />
-              {listing.rooms}
-            </span>
-          ) : null}
-          {listing.beds > 0 ? (
-            <span className="saved-houses-meta-item">
-              <MdOutlineBed aria-hidden />
-              {listing.beds}
-            </span>
-          ) : null}
-        </div>
+        <SavedHouseMeta listing={listing} />
       </td>
       <td>
-        <div className="saved-houses-actions">
-          <Link to={`/homes/${listing.id}`} className="saved-houses-view">
-            {t('saved.view')}
-          </Link>
-          <button
-            type="button"
-            className="saved-houses-remove"
-            disabled={removing}
-            onClick={onRemove}
-          >
-            {t('saved.unsave')}
-          </button>
-        </div>
+        <SavedHouseActions
+          listingId={listing.id}
+          removing={removing}
+          onRemove={onRemove}
+        />
       </td>
     </tr>
   )
