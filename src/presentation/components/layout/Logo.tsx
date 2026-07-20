@@ -21,14 +21,14 @@ export function Logo({ variant = 'default' }: LogoProps) {
     >
       <LogoMark
         className={cn(
-          'size-8 shrink-0',
+          'size-7 shrink-0 sm:size-8',
           onPrimary ? 'text-secondary' : 'text-secondary',
         )}
       />
 
       <span
         className={cn(
-          'text-xl font-semibold tracking-tight',
+          'truncate text-lg font-semibold tracking-tight sm:text-xl',
           onPrimary ? 'text-primary-foreground' : 'text-primary',
         )}
       >

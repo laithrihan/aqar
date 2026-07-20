@@ -2,16 +2,12 @@ import { NavLink } from 'react-router-dom'
 
 import { cn } from '@/shared/lib/cn'
 
-const loginClassName =
-  'inline-flex items-center justify-center rounded-md border border-primary px-5 py-3 text-base font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground'
-
-const signupClassName =
-  'inline-flex items-center justify-center rounded-md bg-primary px-5 py-3 text-base font-semibold text-primary-foreground transition-colors hover:bg-secondary/90'
-
 type HeaderNavLinkProps = {
   to?: string
   label: string
   variant?: 'default' | 'login' | 'signup'
+  /** Stacked drawer links vs inline desktop links. */
+  layout?: 'desktop' | 'mobile'
   /** When set (e.g. login opens a modal), renders a button instead of a link. */
   onClick?: () => void
 }
@@ -20,12 +16,18 @@ export function HeaderNavLink({
   to,
   label,
   variant = 'default',
+  layout = 'desktop',
   onClick,
 }: HeaderNavLinkProps) {
+  const isMobile = layout === 'mobile'
+  const blockClass = isMobile ? 'header-nav-login--block' : undefined
+
   if (variant === 'signup') {
+    const className = cn('header-nav-signup', isMobile && 'header-nav-signup--block')
+
     if (onClick) {
       return (
-        <button type="button" className={signupClassName} onClick={onClick}>
+        <button type="button" className={className} onClick={onClick}>
           {label}
         </button>
       )
@@ -33,16 +35,18 @@ export function HeaderNavLink({
 
     if (!to) return null
     return (
-      <NavLink to={to} className={signupClassName}>
+      <NavLink to={to} className={className}>
         {label}
       </NavLink>
     )
   }
 
   if (variant === 'login') {
+    const className = cn('header-nav-login', blockClass)
+
     if (onClick) {
       return (
-        <button type="button" className={loginClassName} onClick={onClick}>
+        <button type="button" className={className} onClick={onClick}>
           {label}
         </button>
       )
@@ -50,7 +54,7 @@ export function HeaderNavLink({
 
     if (!to) return null
     return (
-      <NavLink to={to} className={loginClassName}>
+      <NavLink to={to} className={className}>
         {label}
       </NavLink>
     )
@@ -63,8 +67,8 @@ export function HeaderNavLink({
       to={to}
       className={({ isActive }) =>
         cn(
-          `md:border-r-2 md:border-gray-400 pe-6 text-lg font-normal text-foreground/80 transition-colors hover:text-secondary ${label === 'About us' ? 'border-r-0' : ''}`,
-          isActive && 'text-secondary',
+          isMobile ? 'header-nav-link--mobile' : 'header-nav-link',
+          isActive && 'header-nav-link--active',
         )
       }
     >

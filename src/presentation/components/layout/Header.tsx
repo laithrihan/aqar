@@ -64,47 +64,54 @@ export function Header() {
     }
   }, [mobileOpen])
 
+  // Close the drawer if the viewport grows into the desktop nav range.
+  useEffect(() => {
+    const media = window.matchMedia('(min-width: 1024px)')
+    const onChange = (event: MediaQueryListEvent) => {
+      if (event.matches) setMobileOpen(false)
+    }
+
+    media.addEventListener('change', onChange)
+    return () => media.removeEventListener('change', onChange)
+  }, [])
+
   const displayName = session?.user.name || session?.user.email
   const isOwner = session?.user.accountType === 'owner'
+  const showSaved = hydrated && Boolean(session)
+  const showOwner = showSaved && isOwner
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 drop-shadow-md backdrop-blur">
+    <header className="site-header">
       {/* Top utility bar */}
-      <div className="flex h-10 w-full items-center justify-start gap-6 bg-primary px-4 lg:px-[100px]">
+      <div className="site-header-utility">
         <LanguageSelect />
       </div>
 
-      <div className="flex h-20 w-full items-center justify-between gap-6 px-4 lg:px-[100px]">
-        {/* Start: logo, app name, main browsing links */}
-        <div className="flex items-center gap-8">
+      <div className="site-header-bar">
+        {/* Start: logo + main browsing links */}
+        <div className="site-header-brand">
           <Logo />
 
-          <nav className="hidden items-center gap-6 md:flex" aria-label="Main">
+          <nav className="site-header-nav-primary" aria-label="Main">
             <HeaderNavLink to="/" label={t('nav.home')} />
             <HeaderNavLink to="/buy" label={t('nav.buy')} />
             <HeaderNavLink to="/rent" label={t('nav.rent')} />
-            {hydrated && session ? (
+            {showSaved ? (
               <HeaderNavLink to="/saved" label={t('nav.saved')} />
             ) : null}
-            {hydrated && session && isOwner ? (
+            {showOwner ? (
               <HeaderNavLink to="/manage" label={t('nav.owner')} />
             ) : null}
           </nav>
         </div>
 
         {/* End: about / contact + auth actions */}
-        <nav
-          className="hidden items-center gap-5 md:flex"
-          aria-label="Secondary"
-        >
+        <nav className="site-header-nav-secondary" aria-label="Secondary">
           <HeaderNavLink to="/about" label={t('nav.aboutUs')} />
           <HeaderNavLink to="/contact" label={t('nav.contactUs')} />
           {!hydrated ? null : session ? (
             <>
-              <span
-                className="max-w-[10rem] truncate text-sm font-semibold text-primary"
-                title={displayName}
-              >
+              <span className="site-header-user" title={displayName}>
                 {displayName}
               </span>
               <HeaderNavLink
@@ -129,10 +136,10 @@ export function Header() {
           )}
         </nav>
 
-        {/* Mobile menu toggle */}
+        {/* Mobile / tablet menu toggle */}
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-md p-2 text-primary md:hidden"
+          className="site-header-menu-btn"
           aria-expanded={mobileOpen}
           aria-controls="mobile-nav"
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
@@ -156,14 +163,11 @@ export function Header() {
       </div>
 
       {authNotice ? (
-        <div
-          className="flex items-center justify-between gap-3 border-b border-border bg-muted/80 px-4 py-2 text-sm text-foreground lg:px-[100px]"
-          role="status"
-        >
-          <p>{t(authNotice)}</p>
+        <div className="site-header-notice" role="status">
+          <p className="min-w-0 break-words">{t(authNotice)}</p>
           <button
             type="button"
-            className="shrink-0 text-sm font-medium text-primary underline-offset-2 hover:underline"
+            className="site-header-notice-dismiss"
             onClick={dismissNotice}
           >
             {t('common.dismiss')}
@@ -176,7 +180,7 @@ export function Header() {
           {/* Backdrop */}
           <div
             className={cn(
-              'fixed inset-0 z-[55] bg-black/40 backdrop-blur-sm transition-opacity duration-300 md:hidden',
+              'site-header-backdrop',
               mobileOpen ? 'opacity-100' : 'pointer-events-none opacity-0',
             )}
             aria-hidden
@@ -189,16 +193,15 @@ export function Header() {
             aria-label="Mobile"
             aria-hidden={!mobileOpen}
             className={cn(
-              'fixed inset-y-0 end-0 z-[60] flex w-[82%] max-w-[320px] flex-col bg-background shadow-2xl transition-transform duration-300 ease-out md:hidden',
+              'site-header-drawer',
               mobileOpen ? 'translate-x-0' : 'translate-x-full',
             )}
           >
-            {/* Drawer header */}
-            <div className="flex h-16 shrink-0 items-center justify-between border-b border-border px-5">
+            <div className="site-header-drawer-header">
               <Logo />
               <button
                 type="button"
-                className="inline-flex items-center justify-center rounded-md p-2 text-primary"
+                className="site-header-menu-btn"
                 aria-label="Close menu"
                 onClick={closeMobile}
               >
@@ -215,34 +218,56 @@ export function Header() {
               </button>
             </div>
 
-            {/* Drawer links */}
-            <div
-              className="flex flex-1 flex-col gap-4 overflow-y-auto px-5 py-6"
-              onClick={closeMobile}
-            >
-              <HeaderNavLink to="/" label={t('nav.home')} />
-              <HeaderNavLink to="/buy" label={t('nav.buy')} />
-              <HeaderNavLink to="/rent" label={t('nav.rent')} />
-              {session ? (
-                <HeaderNavLink to="/saved" label={t('nav.saved')} />
+            <div className="site-header-drawer-links" onClick={closeMobile}>
+              <HeaderNavLink
+                to="/"
+                label={t('nav.home')}
+                layout="mobile"
+              />
+              <HeaderNavLink
+                to="/buy"
+                label={t('nav.buy')}
+                layout="mobile"
+              />
+              <HeaderNavLink
+                to="/rent"
+                label={t('nav.rent')}
+                layout="mobile"
+              />
+              {showSaved ? (
+                <HeaderNavLink
+                  to="/saved"
+                  label={t('nav.saved')}
+                  layout="mobile"
+                />
               ) : null}
-              {session && isOwner ? (
-                <HeaderNavLink to="/manage" label={t('nav.owner')} />
+              {showOwner ? (
+                <HeaderNavLink
+                  to="/manage"
+                  label={t('nav.owner')}
+                  layout="mobile"
+                />
               ) : null}
-              <HeaderNavLink to="/about" label={t('nav.aboutUs')} />
-              <HeaderNavLink to="/contact" label={t('nav.contactUs')} />
+              <HeaderNavLink
+                to="/about"
+                label={t('nav.aboutUs')}
+                layout="mobile"
+              />
+              <HeaderNavLink
+                to="/contact"
+                label={t('nav.contactUs')}
+                layout="mobile"
+              />
             </div>
 
-            {/* Drawer auth actions */}
-            <div className="flex shrink-0 flex-col gap-3 border-t border-border px-5 py-5">
+            <div className="site-header-drawer-auth">
               {!hydrated ? null : session ? (
                 <>
-                  <p className="truncate text-sm font-semibold text-primary">
-                    {displayName}
-                  </p>
+                  <p className="site-header-drawer-user">{displayName}</p>
                   <HeaderNavLink
                     label={t('auth.logout')}
                     variant="login"
+                    layout="mobile"
                     onClick={logout}
                   />
                 </>
@@ -251,11 +276,13 @@ export function Header() {
                   <HeaderNavLink
                     label={t('nav.login')}
                     variant="login"
+                    layout="mobile"
                     onClick={openLogin}
                   />
                   <HeaderNavLink
                     label={t('nav.signUp')}
                     variant="signup"
+                    layout="mobile"
                     onClick={openSignup}
                   />
                 </>
