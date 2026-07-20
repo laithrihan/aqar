@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useForm, useWatch } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { FcGoogle } from 'react-icons/fc'
 import { HiOutlineEye, HiOutlineEyeSlash } from 'react-icons/hi2'
 
 import {
@@ -111,13 +110,15 @@ export function SignupModal({ open, onOpenChange }: SignupModalProps) {
           : 'auth.errors.generic'
       setAuthError(key)
     }
-  }
+  };
 
-  /** Google OAuth requires an account type before continuing. */
-  const onGoogleAccessToken = async (accessToken: string) => {
-    setAuthError(null)
-    const accountType = getValues('accountType')
-    const accountTypeError = validateSignupAccountType(accountType)
+  const onGoogleCredential = async (credential: {
+    idToken?: string;
+    accessToken?: string;
+  }) => {
+    setAuthError(null);
+    const accountType = getValues("accountType");
+    const accountTypeError = validateSignupAccountType(accountType);
     if (accountTypeError || !accountType) {
       setFieldErrors((prev) => ({
         ...prev,
@@ -128,8 +129,8 @@ export function SignupModal({ open, onOpenChange }: SignupModalProps) {
     }
 
     try {
-      await googleSignUp.mutateAsync({ accessToken, accountType })
-      closeAndReset()
+      await googleSignUp.mutateAsync({ ...credential, accountType });
+      closeAndReset();
     } catch (error) {
       const key =
         error instanceof Error && error.message.startsWith('auth.')
@@ -137,18 +138,7 @@ export function SignupModal({ open, onOpenChange }: SignupModalProps) {
           : 'auth.errors.googleFailed'
       setAuthError(key)
     }
-  }
-
-  const ensureAccountTypeSelected = (): boolean => {
-    const accountTypeError = validateSignupAccountType(
-      getValues('accountType'),
-    )
-    if (accountTypeError) {
-      setFieldErrors((prev) => ({ ...prev, accountType: accountTypeError }))
-      return false
-    }
-    return true
-  }
+  };
 
   const handleOpenChange = (next: boolean) => {
     if (!next) {
@@ -380,15 +370,11 @@ export function SignupModal({ open, onOpenChange }: SignupModalProps) {
         </div>
 
         <GoogleAuthActionButton
-          className="login-modal-google"
-          disabled={busy}
-          onBeforeStart={ensureAccountTypeSelected}
-          onAccessToken={onGoogleAccessToken}
+          disabled={busy || !accountTypeValue}
+          mode="signup"
+          onGoogleCredential={onGoogleCredential}
           onError={setAuthError}
-        >
-          <FcGoogle className="size-5 shrink-0" aria-hidden />
-          {t('auth.signup.google')}
-        </GoogleAuthActionButton>
+        />
       </DialogContent>
     </Dialog>
   )

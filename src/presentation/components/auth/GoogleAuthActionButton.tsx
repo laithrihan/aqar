@@ -1,68 +1,78 @@
-import { useGoogleLogin } from '@react-oauth/google'
-import { useState, type ReactNode } from 'react'
+import { useGoogleLogin, useGoogleOAuth } from "@react-oauth/google";
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { FcGoogle } from "react-icons/fc";
 
-import { hasGoogleClientId } from '@/shared/lib/googleClientId'
+import type { GoogleAuthRequest } from "@/domain/auth/GoogleAuthRequest";
+import { cn } from "@/shared/lib/cn";
+import { hasGoogleClientId } from "@/shared/lib/googleClientId";
 
 type GoogleAuthActionButtonProps = {
-  className?: string
-  children: ReactNode
-  disabled?: boolean
-  onBeforeStart?: () => boolean
-  onAccessToken: (accessToken: string) => void | Promise<void>
-  onError: (errorKey: string) => void
-  onPendingChange?: (pending: boolean) => void
-}
-
+  className?: string;
+  disabled?: boolean;
+  mode?: "signin" | "signup";
+  onGoogleCredential: (
+    credential: Pick<GoogleAuthRequest, "idToken" | "accessToken">,
+  ) => void | Promise<void>;
+  onError: (errorKey: string) => void;
+  onPendingChange?: (pending: boolean) => void;
+};
 
 export function GoogleAuthActionButton({
   className,
-  children,
   disabled,
-  onBeforeStart,
-  onAccessToken,
+  mode = "signin",
+  onGoogleCredential,
   onError,
   onPendingChange,
 }: GoogleAuthActionButtonProps) {
+  const { t } = useTranslation();
+  const label =
+    mode === "signup" ? t("auth.signup.google") : t("auth.login.google");
+
   if (!hasGoogleClientId()) {
     return (
       <button
         type="button"
-        className={className}
+        className={cn("google-auth-button", className)}
         disabled={disabled}
-        onClick={() => {
-          if (onBeforeStart && !onBeforeStart()) return
-          onError('auth.errors.googleClientIdMissing')
-        }}
+        onClick={() => onError("auth.errors.googleClientIdMissing")}
       >
-        {children}
+        <FcGoogle className="google-auth-button__icon" aria-hidden />
+        <span>{label}</span>
       </button>
-    )
+    );
   }
 
   return (
     <GoogleAuthActionButtonConnected
       className={className}
       disabled={disabled}
-      onBeforeStart={onBeforeStart}
-      onAccessToken={onAccessToken}
+      label={label}
+      onGoogleCredential={onGoogleCredential}
       onError={onError}
       onPendingChange={onPendingChange}
-    >
-      {children}
-    </GoogleAuthActionButtonConnected>
-  )
+    />
+  );
 }
+
+type GoogleAuthActionButtonConnectedProps = Omit<
+  GoogleAuthActionButtonProps,
+  "mode"
+> & {
+  label: string;
+};
 
 function GoogleAuthActionButtonConnected({
   className,
-  children,
   disabled,
-  onBeforeStart,
-  onAccessToken,
+  label,
+  onGoogleCredential,
   onError,
   onPendingChange,
-}: GoogleAuthActionButtonProps) {
-  const [pending, setPending] = useState(false)
+}: GoogleAuthActionButtonConnectedProps) {
+  const [pending, setPending] = useState(false);
+  const { scriptLoadedSuccessfully } = useGoogleOAuth();
 
   const setBusy = (next: boolean) => {
     setPending(next)
@@ -70,38 +80,50 @@ function GoogleAuthActionButtonConnected({
   }
 
   const googleLogin = useGoogleLogin({
-    onSuccess: async (tokenResponse) => {
-      setBusy(true)
+    onSuccess: async (response) => {
       try {
-        await onAccessToken(tokenResponse.access_token)
-      } catch {
-        onError('auth.errors.googleFailed')
+        await onGoogleCredential({ accessToken: response.access_token });
+      } catch (error) {
+        const key =
+          error instanceof Error && error.message.startsWith("auth.")
+            ? error.message
+            : "auth.errors.googleFailed";
+        onError(key);
       } finally {
-        setBusy(false)
+        setBusy(false);
       }
     },
     onError: () => {
-      setBusy(false)
-      onError('auth.errors.googleFailed')
+      onError("auth.errors.googleFailed");
+      setBusy(false);
     },
-    onNonOAuthError: () => {
-      setBusy(false)
-      onError('auth.errors.googleCancelled')
+    onNonOAuthError: (error) => {
+      if (error.type === "popup_closed") {
+        onError("auth.errors.googleCancelled");
+      } else {
+        onError("auth.errors.googleFailed");
+      }
+      setBusy(false);
     },
-  })
+  });
+
+  const isDisabled = disabled || pending || !scriptLoadedSuccessfully;
+
+  const handleClick = () => {
+    if (isDisabled) return;
+    setBusy(true);
+    googleLogin();
+  };
 
   return (
     <button
       type="button"
-      className={className}
-      disabled={disabled || pending}
-      onClick={() => {
-        if (onBeforeStart && !onBeforeStart()) return
-        setBusy(true)
-        googleLogin()
-      }}
+      className={cn("google-auth-button", className)}
+      disabled={isDisabled}
+      onClick={handleClick}
     >
-      {children}
+      <FcGoogle className="google-auth-button__icon" aria-hidden />
+      <span>{label}</span>
     </button>
   )
 }

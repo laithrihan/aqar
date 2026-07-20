@@ -11,7 +11,7 @@ export function useGoogleSignIn() {
   const setSession = useAuthStore((s) => s.setSession)
 
   return useMutation({
-    mutationFn: (request: Pick<GoogleAuthRequest, 'accessToken'>) =>
+    mutationFn: (request: Pick<GoogleAuthRequest, 'idToken' | 'accessToken'>) =>
       signInWithGoogle(request),
     onSuccess: (session) => setSession(session),
   })

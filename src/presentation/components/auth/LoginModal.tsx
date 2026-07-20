@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
-import { FcGoogle } from 'react-icons/fc'
 import { HiOutlineEye, HiOutlineEyeSlash } from 'react-icons/hi2'
 
 import {
@@ -68,13 +67,16 @@ export function LoginModal({ open, onOpenChange }: LoginModalProps) {
           : 'auth.errors.generic'
       setAuthError(key)
     }
-  }
+  };
 
-  const onGoogleAccessToken = async (accessToken: string) => {
-    setAuthError(null)
+  const onGoogleCredential = async (credential: {
+    idToken?: string;
+    accessToken?: string;
+  }) => {
+    setAuthError(null);
     try {
-      await googleSignIn.mutateAsync({ accessToken })
-      closeAndReset()
+      await googleSignIn.mutateAsync(credential);
+      closeAndReset();
     } catch (error) {
       const key =
         error instanceof Error && error.message.startsWith('auth.')
@@ -188,14 +190,10 @@ export function LoginModal({ open, onOpenChange }: LoginModalProps) {
         </div>
 
         <GoogleAuthActionButton
-          className="login-modal-google"
           disabled={busy}
-          onAccessToken={onGoogleAccessToken}
+          onGoogleCredential={onGoogleCredential}
           onError={setAuthError}
-        >
-          <FcGoogle className="size-5 shrink-0" aria-hidden />
-          {t('auth.login.google')}
-        </GoogleAuthActionButton>
+        />
       </DialogContent>
     </Dialog>
   )

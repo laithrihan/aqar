@@ -14,6 +14,13 @@ const API_ERROR_KEYS: Record<string, string> = {
   unauthenticated: 'auth.errors.sessionExpired',
 }
 
+const GOOGLE_ERROR_FIELDS = new Set([
+  'access_token',
+  'accessToken',
+  'id_token',
+  'idToken',
+])
+
 export function getApiBaseUrl(): string {
   const base = import.meta.env.VITE_API_BASE_URL?.trim().replace(/\/$/, '') ?? ''
   if (!base) {
@@ -22,7 +29,16 @@ export function getApiBaseUrl(): string {
   return base
 }
 
-function mapApiErrorCode(code?: string): string {
+function mapApiErrorCode(code?: string, errors?: Record<string, string[]>): string {
+  if (code === 'validationError' && errors) {
+    const hasGoogleFieldError = Object.keys(errors).some((field) =>
+      GOOGLE_ERROR_FIELDS.has(field),
+    )
+    if (hasGoogleFieldError) {
+      return 'auth.errors.googleFailed'
+    }
+  }
+
   if (!code) return 'auth.errors.generic'
   return API_ERROR_KEYS[code] ?? 'auth.errors.generic'
 }
@@ -60,7 +76,7 @@ export async function apiFetch<T>(
     } catch {
       // ignore non-JSON error bodies
     }
-    throw new Error(mapApiErrorCode(body.code))
+    throw new Error(mapApiErrorCode(body.code, body.errors))
   }
 
   if (response.status === 204) {

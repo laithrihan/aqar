@@ -1,5 +1,6 @@
 import type { AuthSession } from '@/domain/auth/AuthSession'
 import type { GoogleAuthRequest } from '@/domain/auth/GoogleAuthRequest'
+import { buildGoogleAuthBody } from '@/domain/auth/GoogleAuthRequest'
 import type { LoginCredentials } from '@/domain/auth/LoginCredentials'
 import { normalizeLoginCredentials } from '@/domain/auth/LoginCredentials'
 import type { SignupCredentials } from '@/domain/auth/SignupCredentials'
@@ -8,6 +9,12 @@ import {
   validateSignupAccountType,
 } from '@/domain/auth/SignupCredentials'
 import { apiFetch } from '@/infrastructure/api/apiClient'
+
+function assertGoogleToken(request: Pick<GoogleAuthRequest, 'idToken' | 'accessToken'>): void {
+  if (!request.idToken && !request.accessToken) {
+    throw new Error('auth.errors.googleFailed')
+  }
+}
 
 export async function loginWithPassword(
   credentials: LoginCredentials,
@@ -54,24 +61,20 @@ export async function signupWithPassword(
 }
 
 export async function signInWithGoogle(
-  request: Pick<GoogleAuthRequest, 'accessToken'>,
+  request: Pick<GoogleAuthRequest, 'idToken' | 'accessToken'>,
 ): Promise<AuthSession> {
-  if (!request.accessToken) {
-    throw new Error('auth.errors.googleFailed')
-  }
+  assertGoogleToken(request)
 
   return apiFetch<AuthSession>('/auth/google/signin', {
     method: 'POST',
-    body: JSON.stringify({ accessToken: request.accessToken }),
+    body: JSON.stringify(buildGoogleAuthBody(request)),
   })
 }
 
 export async function signUpWithGoogle(
   request: GoogleAuthRequest,
 ): Promise<AuthSession> {
-  if (!request.accessToken) {
-    throw new Error('auth.errors.googleFailed')
-  }
+  assertGoogleToken(request)
 
   const accountTypeError = validateSignupAccountType(request.accountType ?? '')
   if (accountTypeError || !request.accountType) {
@@ -80,10 +83,7 @@ export async function signUpWithGoogle(
 
   return apiFetch<AuthSession>('/auth/google/signup', {
     method: 'POST',
-    body: JSON.stringify({
-      accessToken: request.accessToken,
-      accountType: request.accountType,
-    }),
+    body: JSON.stringify(buildGoogleAuthBody(request)),
   })
 }
 
