@@ -5,8 +5,8 @@ import { restoreSessionFromToken } from '@/infrastructure/auth/authRepository'
 import { useAuthStore } from '@/presentation/stores/authStore'
 
 /**
- * Re-validates the persisted JWT against the mock user registry after Zustand
- * finishes reading localStorage, and clears the session when it expires at runtime.
+ * Re-validates the persisted JWT with the backend after Zustand finishes
+ * reading localStorage, and clears the session when it expires at runtime.
  */
 export function AuthSessionProvider({ children }: { children: ReactNode }) {
   const session = useAuthStore((s) => s.session)

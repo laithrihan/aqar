@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { useTranslation } from 'react-i18next'
 
+import { logoutFromApi } from '@/infrastructure/auth/authRepository'
 import { LoginModal } from '@/presentation/components/auth/LoginModal'
 import { SignupModal } from '@/presentation/components/auth/SignupModal'
 import { useAuthStore } from '@/presentation/stores/authStore'
@@ -40,6 +41,8 @@ export function Header() {
   }
 
   const logout = () => {
+    const token = useAuthStore.getState().session?.accessToken
+    if (token) void logoutFromApi(token)
     clearSession()
     setMobileOpen(false)
   }
