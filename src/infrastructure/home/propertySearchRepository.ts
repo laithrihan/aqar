@@ -1,24 +1,9 @@
-import type {
-  LocationSuggestion,
-  PropertySearchFilterOptions,
-} from '@/domain/home/PropertySearch'
-import { apiFetch } from '@/infrastructure/api/apiClient'
+import { isMockApiEnabled } from '@/infrastructure/mock/isMockApiEnabled'
+import * as api from '@/infrastructure/home/propertySearchApiRepository'
+import * as mock from '@/infrastructure/home/propertySearchMockRepository'
 
-type LocationSuggestionsResponse = {
-  locations: LocationSuggestion[]
-}
+const impl = isMockApiEnabled() ? mock : api
 
-/** Fetches property search filter options from the API. */
-export async function fetchPropertySearchFilterOptions(): Promise<PropertySearchFilterOptions> {
-  return apiFetch<PropertySearchFilterOptions>('/search/filters', {
-    errorFallback: 'Failed to load search filter options',
-  })
-}
-
-/** Fetches location typeahead suggestions from the API. */
-export async function fetchLocationSuggestions(): Promise<LocationSuggestion[]> {
-  const data = await apiFetch<LocationSuggestionsResponse>('/search/locations', {
-    errorFallback: 'Failed to load location suggestions',
-  })
-  return data.locations ?? []
-}
+export const fetchPropertySearchFilterOptions =
+  impl.fetchPropertySearchFilterOptions
+export const fetchLocationSuggestions = impl.fetchLocationSuggestions
