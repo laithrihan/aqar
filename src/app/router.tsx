@@ -8,6 +8,7 @@ import { BuyPage } from "@/presentation/pages/BuyPage";
 import { PropertyDetailPage } from "@/presentation/pages/PropertyDetailPage";
 import { RentPage } from "@/presentation/pages/RentPage";
 import { SavedHousesPage } from "@/presentation/pages/SavedHousesPage";
+import { OwnerPropertiesPage } from "@/presentation/pages/OwnerPropertiesPage";
 
 /** Application route tree. */
 export const router = createBrowserRouter([
@@ -20,6 +21,7 @@ export const router = createBrowserRouter([
       { path: "rent", element: <RentPage /> },
       { path: "homes/:propertyId", element: <PropertyDetailPage /> },
       { path: "saved", element: <SavedHousesPage /> },
+      { path: "manage", element: <OwnerPropertiesPage /> },
       { path: "about", element: <AboutPage /> },
       { path: "contact", element: <ContactPage /> },
     ],

@@ -23,6 +23,8 @@ type LocationSearchInputProps = {
   id: string
   value: string
   onChange: (value: string) => void
+  onSuggestionSelect?: (location: LocationSuggestion) => void
+  placeholder?: string
   className?: string
   inputClassName?: string
   iconClassName?: string
@@ -33,6 +35,8 @@ export function LocationSearchInput({
   id,
   value,
   onChange,
+  onSuggestionSelect,
+  placeholder,
   className,
   inputClassName,
   iconClassName,
@@ -83,8 +87,12 @@ export function LocationSearchInput({
   }
 
   const selectSuggestion = (location: LocationSuggestion) => {
-    // Persist the stable English key for URLs / listing filters.
-    onChange(location.value)
+    if (onSuggestionSelect) {
+      onSuggestionSelect(location)
+    } else {
+      // Persist the stable English key for URLs / listing filters.
+      onChange(location.value)
+    }
     closeList()
   }
 
@@ -149,7 +157,7 @@ export function LocationSearchInput({
               ? `${listboxId}-option-${activeIndex}`
               : undefined
           }
-          placeholder={t('search.locationPlaceholder')}
+          placeholder={placeholder ?? t('search.locationPlaceholder')}
           className={cn('location-search-input', inputClassName)}
           autoComplete="off"
           value={inputText}

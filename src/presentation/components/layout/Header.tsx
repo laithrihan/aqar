@@ -65,6 +65,7 @@ export function Header() {
   }, [mobileOpen])
 
   const displayName = session?.user.name || session?.user.email
+  const isOwner = session?.user.accountType === 'owner'
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 drop-shadow-md backdrop-blur">
@@ -84,6 +85,9 @@ export function Header() {
             <HeaderNavLink to="/rent" label={t('nav.rent')} />
             {hydrated && session ? (
               <HeaderNavLink to="/saved" label={t('nav.saved')} />
+            ) : null}
+            {hydrated && session && isOwner ? (
+              <HeaderNavLink to="/manage" label={t('nav.owner')} />
             ) : null}
           </nav>
         </div>
@@ -221,6 +225,9 @@ export function Header() {
               <HeaderNavLink to="/rent" label={t('nav.rent')} />
               {session ? (
                 <HeaderNavLink to="/saved" label={t('nav.saved')} />
+              ) : null}
+              {session && isOwner ? (
+                <HeaderNavLink to="/manage" label={t('nav.owner')} />
               ) : null}
               <HeaderNavLink to="/about" label={t('nav.aboutUs')} />
               <HeaderNavLink to="/contact" label={t('nav.contactUs')} />

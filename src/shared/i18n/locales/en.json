@@ -1,459 +1,564 @@
-{
-  "app": {
-    "name": "Aqar",
-    "slug": "The most beautiful exclusive properties and luxury apartments"
-  },
-  "common": {
-    "loading": "Loading…",
-    "dismiss": "Dismiss"
-  },
-  "nav": {
-    "home": "Home",
-    "buy": "Buy",
-    "rent": "Rent",
-    "saved": "Saved",
-    "aboutUs": "About us",
-    "contactUs": "Contact us",
-    "login": "Log in",
-    "signUp": "Sign up"
-  },
-  "auth": {
-    "logout": "Log out",
-    "errors": {
-      "generic": "Something went wrong. Please try again.",
-      "googleFailed": "Google sign-in failed. Please try again.",
-      "googleCancelled": "Google sign-in was cancelled.",
-      "googleClientIdMissing": "Google sign-in is not configured. Set VITE_GOOGLE_CLIENT_ID.",
-      "invalidCredentials": "Incorrect email/username or password.",
-      "accountNotFound": "No account found for this Google email. Please sign up first.",
-      "emailAlreadyRegistered": "An account with this email already exists. Please log in.",
-      "emailRegisteredWithGoogle": "This email is already registered with Google. Please continue with Google.",
-      "emailRegisteredWithPassword": "This email is already registered with a password. Log in with your password, or sign in with Google to link that account.",
-      "usernameAlreadyTaken": "This username is already taken.",
-      "sessionExpired": "Your session has expired. Please log in again."
-    },
-    "login": {
-      "title": "Welcome back",
-      "subtitle": "Sign in to continue browsing homes on Aqar.",
-      "formLabel": "Log in form",
-      "identifier": "Email or username",
-      "identifierPlaceholder": "you@example.com or username",
-      "password": "Password",
-      "passwordPlaceholder": "Enter your password",
-      "showPassword": "Show password",
-      "hidePassword": "Hide password",
-      "submit": "Log in",
-      "or": "or",
-      "google": "Continue with Google",
-      "errors": {
-        "identifierRequired": "Please enter your email or username.",
-        "passwordRequired": "Please enter your password."
-      }
-    },
-    "signup": {
-      "title": "Create an account",
-      "formLabel": "Sign up form",
-      "accountType": "Account type",
-      "accountTypePlaceholder": "Select account type",
-      "accountTypes": {
-        "owner": "Owner",
-        "user": "User"
-      },
-      "username": "Username",
-      "usernamePlaceholder": "Choose a username",
-      "email": "Email",
-      "emailPlaceholder": "you@example.com",
-      "password": "Password",
-      "passwordPlaceholder": "Create a password",
-      "confirmPassword": "Confirm password",
-      "confirmPasswordPlaceholder": "Re-enter your password",
-      "passwordMatch": "Passwords match",
-      "showPassword": "Show password",
-      "hidePassword": "Hide password",
-      "submit": "Sign up",
-      "or": "or",
-      "google": "Sign up with Google",
-      "errors": {
-        "accountTypeRequired": "Please select an account type.",
-        "usernameRequired": "Please enter a username.",
-        "usernameInvalid": "Use 3–30 letters, numbers, dots, hyphens, or underscores.",
-        "emailRequired": "Please enter your email.",
-        "emailInvalid": "Please enter a valid email.",
-        "passwordRequired": "Please enter a password.",
-        "passwordWeak": "Password must be at least medium strength.",
-        "confirmRequired": "Please confirm your password.",
-        "confirmMismatch": "Passwords do not match."
-      }
-    },
-    "passwordStrength": {
-      "empty": "",
-      "weak": "Weak",
-      "medium": "Medium",
-      "strong": "Strong",
-      "hint": "Use 8+ characters with upper & lower case, a number, and a symbol."
-    }
-  },
-  "language": {
-    "label": "Language",
-    "en": "English",
-    "ar": "العربية"
-  },
-  "footer": {
-    "usefulLinks": "Useful Links",
-    "about": "About",
-    "partners": "Partners",
-    "contact": "Contact",
-    "help": "Help?",
-    "faq": "FAQ",
-    "terms": "Term & Condition",
-    "policy": "Policy",
-    "privacy": "Privacy",
-    "downloadApp": "Download the app",
-    "appStore": "Download on the App Store",
-    "appStoreCaption": "Available on the",
-    "appStoreName": "App Store",
-    "googlePlay": "Get it on Google Play",
-    "googlePlayCaption": "GET IT ON",
-    "googlePlayName": "Google Play",
-    "subscribePlaceholder": "Subscribe to mail feed",
-    "subscribeDone": "Done",
-    "copyright": "© Copyright 2021, Aqar.com",
-    "termsPrivacy": "Terms & Condition    |   Privacy Policy",
-    "social": {
-      "facebook": "Facebook",
-      "x": "X",
-      "telegram": "Telegram",
-      "instagram": "Instagram"
-    }
-  },
-  "home": {
-    "carousel": {
-      "label": "Featured properties panorama",
-      "prev": "Previous slide",
-      "next": "Next slide",
-      "goToSlide": "Go to slide {{number}}",
-      "loading": "Loading featured properties",
-      "error": "Could not load the featured carousel.",
-      "slide1Title": "Luxury villas with ocean views",
-      "slide1Subtitle": "Discover exclusive waterfront homes crafted for modern living.",
-      "slide2Title": "Contemporary city residences",
-      "slide2Subtitle": "Skyline apartments designed for comfort and elegance.",
-      "slide3Title": "Private estates in serene settings",
-      "slide3Subtitle": "Spacious properties surrounded by nature and light.",
-      "slide4Title": "Architectural masterpieces",
-      "slide4Subtitle": "Bold designs that turn houses into landmarks."
-    },
-    "explore": {
-      "title": "Explore homes In Syria",
-      "description": "Take a deep dive and browse homes for sale, original neighborhood photos, resident reviews and local insights to find what is right for you.",
-      "bento": {
-        "label": "Homes gallery",
-        "loading": "Loading homes gallery",
-        "error": "Could not load the homes gallery.",
-        "viewHome": "View home"
-      }
-    }
-  },
-  "buy": {
-    "title": "Buy Your Perfect Property",
-    "resultsLabel": "Buy listings map and results",
-    "map": {
-      "label": "Property locations map",
-      "missingKey": "Google maps need Billing to show the map but the code is working."
-    },
-    "sort": {
-      "label": "Sort listings",
-      "default": "Sort",
-      "priceAsc": "Price: Low to High",
-      "priceDesc": "Price: High to Low",
-      "roomsDesc": "Most Rooms",
-      "roomsAsc": "Fewest Rooms",
-      "bedsDesc": "Most Beds",
-      "bedsAsc": "Fewest Beds"
-    },
-    "listings": {
-      "label": "Homes for sale",
-      "view": {
-        "list": "List",
-        "map": "Map",
-        "label": "Switch between list and map"
-      },
-      "loading": "Loading homes for sale…",
-      "error": "Could not load homes for sale.",
-      "empty": "No homes match your filters.",
-      "count_one": "{{count}} home",
-      "count_other": "{{count}} homes",
-      "select": "Select {{name}} on the map",
-      "roomsCount_one": "{{count}} room",
-      "roomsCount_other": "{{count}} rooms",
-      "bedsCount_one": "{{count}} bed",
-      "bedsCount_other": "{{count}} beds"
-    }
-  },
-  "rent": {
-    "title": "Rent Your Perfect Property",
-    "resultsLabel": "Rent listings map and results",
-    "map": {
-      "label": "Property locations map",
-      "missingKey": "Google maps need Billing to show the map but the code is working."
-    },
-    "sort": {
-      "label": "Sort listings",
-      "default": "Sort",
-      "priceAsc": "Price: Low to High",
-      "priceDesc": "Price: High to Low",
-      "roomsDesc": "Most Rooms",
-      "roomsAsc": "Fewest Rooms",
-      "bedsDesc": "Most Beds",
-      "bedsAsc": "Fewest Beds"
-    },
-    "listings": {
-      "label": "Available rentals",
-      "view": {
-        "list": "List",
-        "map": "Map",
-        "label": "Switch between list and map"
-      },
-      "loading": "Loading rentals…",
-      "error": "Could not load rentals.",
-      "empty": "No rentals match your filters.",
-      "count_one": "{{count}} rental",
-      "count_other": "{{count}} rentals",
-      "perYear": "/ year",
-      "select": "Select {{name}} on the map",
-      "roomsCount_one": "{{count}} room",
-      "roomsCount_other": "{{count}} rooms",
-      "bedsCount_one": "{{count}} bed",
-      "bedsCount_other": "{{count}} beds"
-    }
-  },
-  "search": {
-    "modesLabel": "Listing type",
-    "modes": {
-      "sale": "For Sale",
-      "rent": "For Rent",
-      "invest": "For Invest",
-      "investLocked": "Investment search is coming soon"
-    },
-    "locationPlaceholder": "Location...",
-    "locationSuggestions": "Location suggestions",
-    "results": "Results",
-    "submit": "Search",
-    "filtersToggle": "Filters",
-    "filters": {
-      "propertyType": "Property Type",
-      "priceRange": "Price Range",
-      "rooms": "Rooms",
-      "beds": "Beds"
-    },
-    "propertyTypes": {
-      "apartment": "Apartment",
-      "villa": "Villa",
-      "house": "House",
-      "land": "Land",
-      "office": "Office"
-    },
-    "priceRanges": {
-      "under50k": "Under $50k",
-      "50to100k": "$50k – $100k",
-      "100to250k": "$100k – $250k",
-      "250to500k": "$250k – $500k",
-      "over500k": "$500k+"
-    },
-    "rooms": {
-      "one": "1 Room",
-      "two": "2 Rooms",
-      "three": "3 Rooms",
-      "four": "4 Rooms",
-      "fivePlus": "5+ Rooms"
-    },
-    "beds": {
-      "one": "1 Bed",
-      "two": "2 Beds",
-      "three": "3 Beds",
-      "four": "4 Beds",
-      "fivePlus": "5+ Beds"
-    }
-  },
-  "about": {
-    "title": "About us",
-    "subtitle": "Aqar brings exclusive homes and clear guidance to buyers and renters across Syria.",
-    "story": {
-      "title": "Homes worth discovering",
-      "body": "We built Aqar for people who want more than a long list of listings. Every property we highlight is chosen for its location, design, and everyday livability.",
-      "bodySecondary": "From city apartments to quiet villas, our team helps you explore with confidence — and find a place that feels like yours.",
-      "imageAlt": "Modern villa with warm interior light"
-    },
-    "values": {
-      "title": "What guides us",
-      "subtitle": "A simple standard for how we present homes and support every search.",
-      "curated": {
-        "title": "Curated listings",
-        "description": "We focus on quality properties with clear photos and honest details."
-      },
-      "trust": {
-        "title": "Trusted guidance",
-        "description": "Straightforward information so you can compare options without the noise."
-      },
-      "local": {
-        "title": "Local insight",
-        "description": "Neighborhood context that helps you understand how a home fits your life."
-      }
-    },
-    "cta": {
-      "title": "Want to talk with us?",
-      "description": "Tell us what you are looking for — we are happy to help.",
-      "action": "Contact us"
-    }
-  },
-  "contact": {
-    "title": "Contact us",
-    "subtitle": "Questions about a listing, partnership, or support — we are here to help.",
-    "info": {
-      "label": "Contact details",
-      "title": "Get in touch",
-      "description": "Reach the Aqar team directly, or send a message and we will reply soon.",
-      "email": "Email",
-      "phone": "Phone",
-      "address": "Office",
-      "hours": "Hours",
-      "addressValue": "Damascus, Syria",
-      "hoursValue": "Sun – Thu, 9:00 – 18:00",
-      "follow": "Follow us",
-      "error": "Could not load contact details."
-    },
-    "form": {
-      "label": "Send a message",
-      "name": "Full name",
-      "namePlaceholder": "Your name",
-      "email": "Email",
-      "emailPlaceholder": "you@example.com",
-      "phone": "Phone",
-      "phonePlaceholder": "+963 …",
-      "optional": "(optional)",
-      "subject": "Subject",
-      "subjectPlaceholder": "How can we help?",
-      "message": "Message",
-      "messagePlaceholder": "Tell us a little more…",
-      "submit": "Send message",
-      "sending": "Sending…",
-      "successTitle": "Message sent",
-      "success": "Thanks — we will get back to you soon.",
-      "sendAnother": "Send another message",
-      "error": "Something went wrong. Please try again.",
-      "errors": {
-        "nameRequired": "Please enter your name.",
-        "emailRequired": "Please enter your email.",
-        "emailInvalid": "Please enter a valid email.",
-        "subjectRequired": "Please enter a subject.",
-        "messageRequired": "Please enter a message.",
-        "messageShort": "Message should be at least 10 characters."
-      }
-    }
-  },
-  "property": {
-    "loading": "Loading property…",
-    "error": "Could not load this property.",
-    "notFound": "Property not found.",
-    "perMonth": "per month",
-    "ownedBy": "Owned by: {{name}}",
-    "share": "Share",
-    "areaSqft": "{{count}} sqft",
-    "areaUnknown": "-- sqft",
-    "status": {
-      "rent": "For rent",
-      "sale": "For sale"
-    },
-    "zestimate": "Zestimate®: {{value}}",
-    "estPayment": "Est. payment: {{value}}/mo",
-    "getPreQualified": "Get pre-qualified",
-    "sellerDetails": "Seller details",
-    "sellerWhatsapp": "Seller WhatsApp",
-    "gallery": {
-      "thumb": "Photo {{number}}"
-    },
-    "amenities": {
-      "baths_one": "{{count}} bath",
-      "baths_other": "{{count}} baths",
-      "windows_one": "{{count}} window",
-      "windows_other": "{{count}} windows",
-      "beds_one": "{{count}} bed",
-      "beds_other": "{{count}} beds",
-      "wifi": "Wi‑Fi",
-      "heater": "Heater",
-      "garden": "Garden"
-    },
-    "features": {
-      "title": "Features and services:",
-      "types": {
-        "villa": "Villa",
-        "apartment": "Apartment",
-        "house": "House",
-        "office": "Office",
-        "duplex": "Duplex"
-      },
-      "bedrooms_one": "{{count}} bedroom",
-      "bedrooms_other": "{{count}} bedrooms",
-      "bathrooms_one": "{{count}} bathroom",
-      "bathrooms_other": "{{count}} bathrooms",
-      "heating": {
-        "forcedAir": "Forced air",
-        "central": "Central heating",
-        "none": "No heating"
-      },
-      "garageSpaces_one": "{{count}} Attached garage space",
-      "garageSpaces_other": "{{count}} Attached garage spaces",
-      "noParking": "No parking"
-    },
-    "nearby": {
-      "title": "Location and near places",
-      "location": "Location",
-      "hospitals": "Nearby hospitals",
-      "restaurants": "Nearby restaurants",
-      "parks": "Nearby parks",
-      "schools": "Nearby schools",
-      "openMap": "Open {{place}} in Google Maps"
-    },
-    "tour": {
-      "title": "Take a Tour in the house:",
-      "play": "Play tour video",
-      "pause": "Pause tour video",
-      "mute": "Mute",
-      "unmute": "Unmute",
-      "seek": "Seek tour video",
-      "fullscreen": "Fullscreen",
-      "unsupported": "Your browser does not support this video."
-    },
-    "moreHomes": {
-      "title": "More Homes for you:",
-      "loading": "Loading more homes…",
-      "error": "Could not load more homes."
-    }
-  },
-  "saved": {
-    "title": "Saved houses",
-    "subtitle": "Homes you bookmarked while browsing rent and buy listings.",
-    "save": "Save",
-    "unsave": "Remove",
-    "view": "View",
-    "loading": "Loading saved houses…",
-    "empty": "You have not saved any houses yet.",
-    "signInPrompt": "Sign in to view and manage your saved houses.",
-    "purpose": {
-      "rent": "Rent",
-      "sale": "Buy"
-    },
-    "table": {
-      "property": "Property",
-      "location": "Location",
-      "price": "Price",
-      "type": "Type",
-      "details": "Details",
-      "actions": "Actions"
-    },
-    "errors": {
-      "loadFailed": "Could not load saved houses.",
-      "signInRequired": "Please sign in to save houses."
-    }
-  }
+﻿{
+    "app":  {
+                "name":  "Aqar",
+                "slug":  "The most beautiful exclusive properties and luxury apartments"
+            },
+    "common":  {
+                   "loading":  "Loadingâ€¦",
+                   "dismiss":  "Dismiss"
+               },
+    "nav":  {
+                "home":  "Home",
+                "buy":  "Buy",
+                "rent":  "Rent",
+                "saved":  "Saved",
+                "owner":  "Manage",
+                "aboutUs":  "About us",
+                "contactUs":  "Contact us",
+                "login":  "Log in",
+                "signUp":  "Sign up"
+            },
+    "auth":  {
+                 "logout":  "Log out",
+                 "errors":  {
+                                "generic":  "Something went wrong. Please try again.",
+                                "googleFailed":  "Google sign-in failed. Please try again.",
+                                "googleCancelled":  "Google sign-in was cancelled.",
+                                "googleClientIdMissing":  "Google sign-in is not configured. Set VITE_GOOGLE_CLIENT_ID.",
+                                "invalidCredentials":  "Incorrect email/username or password.",
+                                "accountNotFound":  "No account found for this Google email. Please sign up first.",
+                                "emailAlreadyRegistered":  "An account with this email already exists. Please log in.",
+                                "emailRegisteredWithGoogle":  "This email is already registered with Google. Please continue with Google.",
+                                "emailRegisteredWithPassword":  "This email is already registered with a password. Log in with your password, or sign in with Google to link that account.",
+                                "usernameAlreadyTaken":  "This username is already taken.",
+                                "sessionExpired":  "Your session has expired. Please log in again."
+                            },
+                 "login":  {
+                               "title":  "Welcome back",
+                               "subtitle":  "Sign in to continue browsing homes on Aqar.",
+                               "formLabel":  "Log in form",
+                               "identifier":  "Email or username",
+                               "identifierPlaceholder":  "you@example.com or username",
+                               "password":  "Password",
+                               "passwordPlaceholder":  "Enter your password",
+                               "showPassword":  "Show password",
+                               "hidePassword":  "Hide password",
+                               "submit":  "Log in",
+                               "or":  "or",
+                               "google":  "Continue with Google",
+                               "errors":  {
+                                              "identifierRequired":  "Please enter your email or username.",
+                                              "passwordRequired":  "Please enter your password."
+                                          }
+                           },
+                 "signup":  {
+                                "title":  "Create an account",
+                                "formLabel":  "Sign up form",
+                                "accountType":  "Account type",
+                                "accountTypePlaceholder":  "Select account type",
+                                "accountTypes":  {
+                                                     "owner":  "Owner",
+                                                     "user":  "User"
+                                                 },
+                                "username":  "Username",
+                                "usernamePlaceholder":  "Choose a username",
+                                "email":  "Email",
+                                "emailPlaceholder":  "you@example.com",
+                                "password":  "Password",
+                                "passwordPlaceholder":  "Create a password",
+                                "confirmPassword":  "Confirm password",
+                                "confirmPasswordPlaceholder":  "Re-enter your password",
+                                "passwordMatch":  "Passwords match",
+                                "showPassword":  "Show password",
+                                "hidePassword":  "Hide password",
+                                "submit":  "Sign up",
+                                "or":  "or",
+                                "google":  "Sign up with Google",
+                                "errors":  {
+                                               "accountTypeRequired":  "Please select an account type.",
+                                               "usernameRequired":  "Please enter a username.",
+                                               "usernameInvalid":  "Use 3â€“30 letters, numbers, dots, hyphens, or underscores.",
+                                               "emailRequired":  "Please enter your email.",
+                                               "emailInvalid":  "Please enter a valid email.",
+                                               "passwordRequired":  "Please enter a password.",
+                                               "passwordWeak":  "Password must be at least medium strength.",
+                                               "confirmRequired":  "Please confirm your password.",
+                                               "confirmMismatch":  "Passwords do not match."
+                                           }
+                            },
+                 "passwordStrength":  {
+                                          "empty":  "",
+                                          "weak":  "Weak",
+                                          "medium":  "Medium",
+                                          "strong":  "Strong",
+                                          "hint":  "Use 8+ characters with upper \u0026 lower case, a number, and a symbol."
+                                      }
+             },
+    "language":  {
+                     "label":  "Language",
+                     "en":  "English",
+                     "ar":  "Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©"
+                 },
+    "footer":  {
+                   "usefulLinks":  "Useful Links",
+                   "about":  "About",
+                   "partners":  "Partners",
+                   "contact":  "Contact",
+                   "help":  "Help?",
+                   "faq":  "FAQ",
+                   "terms":  "Term \u0026 Condition",
+                   "policy":  "Policy",
+                   "privacy":  "Privacy",
+                   "downloadApp":  "Download the app",
+                   "appStore":  "Download on the App Store",
+                   "appStoreCaption":  "Available on the",
+                   "appStoreName":  "App Store",
+                   "googlePlay":  "Get it on Google Play",
+                   "googlePlayCaption":  "GET IT ON",
+                   "googlePlayName":  "Google Play",
+                   "subscribePlaceholder":  "Subscribe to mail feed",
+                   "subscribeDone":  "Done",
+                   "copyright":  "Â© Copyright 2021, Aqar.com",
+                   "termsPrivacy":  "Terms \u0026 Condition    |   Privacy Policy",
+                   "social":  {
+                                  "facebook":  "Facebook",
+                                  "x":  "X",
+                                  "telegram":  "Telegram",
+                                  "instagram":  "Instagram"
+                              }
+               },
+    "home":  {
+                 "carousel":  {
+                                  "label":  "Featured properties panorama",
+                                  "prev":  "Previous slide",
+                                  "next":  "Next slide",
+                                  "goToSlide":  "Go to slide {{number}}",
+                                  "loading":  "Loading featured properties",
+                                  "error":  "Could not load the featured carousel.",
+                                  "slide1Title":  "Luxury villas with ocean views",
+                                  "slide1Subtitle":  "Discover exclusive waterfront homes crafted for modern living.",
+                                  "slide2Title":  "Contemporary city residences",
+                                  "slide2Subtitle":  "Skyline apartments designed for comfort and elegance.",
+                                  "slide3Title":  "Private estates in serene settings",
+                                  "slide3Subtitle":  "Spacious properties surrounded by nature and light.",
+                                  "slide4Title":  "Architectural masterpieces",
+                                  "slide4Subtitle":  "Bold designs that turn houses into landmarks."
+                              },
+                 "explore":  {
+                                 "title":  "Explore homes In Syria",
+                                 "description":  "Take a deep dive and browse homes for sale, original neighborhood photos, resident reviews and local insights to find what is right for you.",
+                                 "bento":  {
+                                               "label":  "Homes gallery",
+                                               "loading":  "Loading homes gallery",
+                                               "error":  "Could not load the homes gallery.",
+                                               "viewHome":  "View home"
+                                           }
+                             }
+             },
+    "buy":  {
+                "title":  "Buy Your Perfect Property",
+                "resultsLabel":  "Buy listings map and results",
+                "map":  {
+                            "label":  "Property locations map",
+                            "missingKey":  "Google maps need Billing to show the map but the code is working."
+                        },
+                "sort":  {
+                             "label":  "Sort listings",
+                             "default":  "Sort",
+                             "priceAsc":  "Price: Low to High",
+                             "priceDesc":  "Price: High to Low",
+                             "roomsDesc":  "Most Rooms",
+                             "roomsAsc":  "Fewest Rooms",
+                             "bedsDesc":  "Most Beds",
+                             "bedsAsc":  "Fewest Beds"
+                         },
+                "listings":  {
+                                 "label":  "Homes for sale",
+                                 "view":  {
+                                              "list":  "List",
+                                              "map":  "Map",
+                                              "label":  "Switch between list and map"
+                                          },
+                                 "loading":  "Loading homes for saleâ€¦",
+                                 "error":  "Could not load homes for sale.",
+                                 "empty":  "No homes match your filters.",
+                                 "count_one":  "{{count}} home",
+                                 "count_other":  "{{count}} homes",
+                                 "select":  "Select {{name}} on the map",
+                                 "roomsCount_one":  "{{count}} room",
+                                 "roomsCount_other":  "{{count}} rooms",
+                                 "bedsCount_one":  "{{count}} bed",
+                                 "bedsCount_other":  "{{count}} beds"
+                             }
+            },
+    "rent":  {
+                 "title":  "Rent Your Perfect Property",
+                 "resultsLabel":  "Rent listings map and results",
+                 "map":  {
+                             "label":  "Property locations map",
+                             "missingKey":  "Google maps need Billing to show the map but the code is working."
+                         },
+                 "sort":  {
+                              "label":  "Sort listings",
+                              "default":  "Sort",
+                              "priceAsc":  "Price: Low to High",
+                              "priceDesc":  "Price: High to Low",
+                              "roomsDesc":  "Most Rooms",
+                              "roomsAsc":  "Fewest Rooms",
+                              "bedsDesc":  "Most Beds",
+                              "bedsAsc":  "Fewest Beds"
+                          },
+                 "listings":  {
+                                  "label":  "Available rentals",
+                                  "view":  {
+                                               "list":  "List",
+                                               "map":  "Map",
+                                               "label":  "Switch between list and map"
+                                           },
+                                  "loading":  "Loading rentalsâ€¦",
+                                  "error":  "Could not load rentals.",
+                                  "empty":  "No rentals match your filters.",
+                                  "count_one":  "{{count}} rental",
+                                  "count_other":  "{{count}} rentals",
+                                  "perYear":  "/ year",
+                                  "select":  "Select {{name}} on the map",
+                                  "roomsCount_one":  "{{count}} room",
+                                  "roomsCount_other":  "{{count}} rooms",
+                                  "bedsCount_one":  "{{count}} bed",
+                                  "bedsCount_other":  "{{count}} beds"
+                              }
+             },
+    "search":  {
+                   "modesLabel":  "Listing type",
+                   "modes":  {
+                                 "sale":  "For Sale",
+                                 "rent":  "For Rent",
+                                 "invest":  "For Invest",
+                                 "investLocked":  "Investment search is coming soon"
+                             },
+                   "locationPlaceholder":  "Location...",
+                   "locationSuggestions":  "Location suggestions",
+                   "results":  "Results",
+                   "submit":  "Search",
+                   "filtersToggle":  "Filters",
+                   "filters":  {
+                                   "propertyType":  "Property Type",
+                                   "priceRange":  "Price Range",
+                                   "rooms":  "Rooms",
+                                   "beds":  "Beds"
+                               },
+                   "propertyTypes":  {
+                                         "apartment":  "Apartment",
+                                         "villa":  "Villa",
+                                         "house":  "House",
+                                         "land":  "Land",
+                                         "office":  "Office"
+                                     },
+                   "priceRanges":  {
+                                       "under50k":  "Under $50k",
+                                       "50to100k":  "$50k â€“ $100k",
+                                       "100to250k":  "$100k â€“ $250k",
+                                       "250to500k":  "$250k â€“ $500k",
+                                       "over500k":  "$500k+"
+                                   },
+                   "rooms":  {
+                                 "one":  "1 Room",
+                                 "two":  "2 Rooms",
+                                 "three":  "3 Rooms",
+                                 "four":  "4 Rooms",
+                                 "fivePlus":  "5+ Rooms"
+                             },
+                   "beds":  {
+                                "one":  "1 Bed",
+                                "two":  "2 Beds",
+                                "three":  "3 Beds",
+                                "four":  "4 Beds",
+                                "fivePlus":  "5+ Beds"
+                            }
+               },
+    "about":  {
+                  "title":  "About us",
+                  "subtitle":  "Aqar brings exclusive homes and clear guidance to buyers and renters across Syria.",
+                  "story":  {
+                                "title":  "Homes worth discovering",
+                                "body":  "We built Aqar for people who want more than a long list of listings. Every property we highlight is chosen for its location, design, and everyday livability.",
+                                "bodySecondary":  "From city apartments to quiet villas, our team helps you explore with confidence â€” and find a place that feels like yours.",
+                                "imageAlt":  "Modern villa with warm interior light"
+                            },
+                  "values":  {
+                                 "title":  "What guides us",
+                                 "subtitle":  "A simple standard for how we present homes and support every search.",
+                                 "curated":  {
+                                                 "title":  "Curated listings",
+                                                 "description":  "We focus on quality properties with clear photos and honest details."
+                                             },
+                                 "trust":  {
+                                               "title":  "Trusted guidance",
+                                               "description":  "Straightforward information so you can compare options without the noise."
+                                           },
+                                 "local":  {
+                                               "title":  "Local insight",
+                                               "description":  "Neighborhood context that helps you understand how a home fits your life."
+                                           }
+                             },
+                  "cta":  {
+                              "title":  "Want to talk with us?",
+                              "description":  "Tell us what you are looking for â€” we are happy to help.",
+                              "action":  "Contact us"
+                          }
+              },
+    "contact":  {
+                    "title":  "Contact us",
+                    "subtitle":  "Questions about a listing, partnership, or support â€” we are here to help.",
+                    "info":  {
+                                 "label":  "Contact details",
+                                 "title":  "Get in touch",
+                                 "description":  "Reach the Aqar team directly, or send a message and we will reply soon.",
+                                 "email":  "Email",
+                                 "phone":  "Phone",
+                                 "address":  "Office",
+                                 "hours":  "Hours",
+                                 "addressValue":  "Damascus, Syria",
+                                 "hoursValue":  "Sun â€“ Thu, 9:00 â€“ 18:00",
+                                 "follow":  "Follow us",
+                                 "error":  "Could not load contact details."
+                             },
+                    "form":  {
+                                 "label":  "Send a message",
+                                 "name":  "Full name",
+                                 "namePlaceholder":  "Your name",
+                                 "email":  "Email",
+                                 "emailPlaceholder":  "you@example.com",
+                                 "phone":  "Phone",
+                                 "phonePlaceholder":  "+963 â€¦",
+                                 "optional":  "(optional)",
+                                 "subject":  "Subject",
+                                 "subjectPlaceholder":  "How can we help?",
+                                 "message":  "Message",
+                                 "messagePlaceholder":  "Tell us a little moreâ€¦",
+                                 "submit":  "Send message",
+                                 "sending":  "Sendingâ€¦",
+                                 "successTitle":  "Message sent",
+                                 "success":  "Thanks â€” we will get back to you soon.",
+                                 "sendAnother":  "Send another message",
+                                 "error":  "Something went wrong. Please try again.",
+                                 "errors":  {
+                                                "nameRequired":  "Please enter your name.",
+                                                "emailRequired":  "Please enter your email.",
+                                                "emailInvalid":  "Please enter a valid email.",
+                                                "subjectRequired":  "Please enter a subject.",
+                                                "messageRequired":  "Please enter a message.",
+                                                "messageShort":  "Message should be at least 10 characters."
+                                            }
+                             }
+                },
+    "property":  {
+                     "loading":  "Loading propertyâ€¦",
+                     "error":  "Could not load this property.",
+                     "notFound":  "Property not found.",
+                     "perMonth":  "per month",
+                     "ownedBy":  "Owned by: {{name}}",
+                     "share":  "Share",
+                     "areaSqft":  "{{count}} sqft",
+                     "areaUnknown":  "-- sqft",
+                     "status":  {
+                                    "rent":  "For rent",
+                                    "sale":  "For sale"
+                                },
+                     "zestimate":  "ZestimateÂ®: {{value}}",
+                     "estPayment":  "Est. payment: {{value}}/mo",
+                     "getPreQualified":  "Get pre-qualified",
+                     "sellerDetails":  "Seller details",
+                     "sellerWhatsapp":  "Seller WhatsApp",
+                     "gallery":  {
+                                     "thumb":  "Photo {{number}}"
+                                 },
+                     "amenities":  {
+                                       "baths_one":  "{{count}} bath",
+                                       "baths_other":  "{{count}} baths",
+                                       "windows_one":  "{{count}} window",
+                                       "windows_other":  "{{count}} windows",
+                                       "beds_one":  "{{count}} bed",
+                                       "beds_other":  "{{count}} beds",
+                                       "wifi":  "Wiâ€‘Fi",
+                                       "heater":  "Heater",
+                                       "garden":  "Garden"
+                                   },
+                     "features":  {
+                                      "title":  "Features and services:",
+                                      "types":  {
+                                                    "villa":  "Villa",
+                                                    "apartment":  "Apartment",
+                                                    "house":  "House",
+                                                    "office":  "Office",
+                                                    "duplex":  "Duplex"
+                                                },
+                                      "bedrooms_one":  "{{count}} bedroom",
+                                      "bedrooms_other":  "{{count}} bedrooms",
+                                      "bathrooms_one":  "{{count}} bathroom",
+                                      "bathrooms_other":  "{{count}} bathrooms",
+                                      "heating":  {
+                                                      "forcedAir":  "Forced air",
+                                                      "central":  "Central heating",
+                                                      "none":  "No heating"
+                                                  },
+                                      "garageSpaces_one":  "{{count}} Attached garage space",
+                                      "garageSpaces_other":  "{{count}} Attached garage spaces",
+                                      "noParking":  "No parking"
+                                  },
+                     "nearby":  {
+                                    "title":  "Location and near places",
+                                    "location":  "Location",
+                                    "hospitals":  "Nearby hospitals",
+                                    "restaurants":  "Nearby restaurants",
+                                    "parks":  "Nearby parks",
+                                    "schools":  "Nearby schools",
+                                    "openMap":  "Open {{place}} in Google Maps"
+                                },
+                     "tour":  {
+                                  "title":  "Take a Tour in the house:",
+                                  "play":  "Play tour video",
+                                  "pause":  "Pause tour video",
+                                  "mute":  "Mute",
+                                  "unmute":  "Unmute",
+                                  "seek":  "Seek tour video",
+                                  "fullscreen":  "Fullscreen",
+                                  "unsupported":  "Your browser does not support this video."
+                              },
+                     "moreHomes":  {
+                                       "title":  "More Homes for you:",
+                                       "loading":  "Loading more homesâ€¦",
+                                       "error":  "Could not load more homes."
+                                   }
+                 },
+    "saved":  {
+                  "title":  "Saved houses",
+                  "subtitle":  "Homes you bookmarked while browsing rent and buy listings.",
+                  "save":  "Save",
+                  "unsave":  "Remove",
+                  "view":  "View",
+                  "loading":  "Loading saved housesâ€¦",
+                  "empty":  "You have not saved any houses yet.",
+                  "signInPrompt":  "Sign in to view and manage your saved houses.",
+                  "purpose":  {
+                                  "rent":  "Rent",
+                                  "sale":  "Buy"
+                              },
+                  "table":  {
+                                "property":  "Property",
+                                "location":  "Location",
+                                "price":  "Price",
+                                "type":  "Type",
+                                "details":  "Details",
+                                "actions":  "Actions"
+                            },
+                  "errors":  {
+                                 "loadFailed":  "Could not load saved houses.",
+                                 "signInRequired":  "Please sign in to save houses."
+                             }
+              },
+    "owner":  {
+                  "title":  "Manage",
+                  "subtitle":  "Create and manage your rent and sale listings.",
+                  "signInTitle":  "Sign in to manage properties",
+                  "signInSubtitle":  "Owner accounts can create and edit their listings from this page.",
+                  "onlyOwnerTitle":  "Owner account required",
+                  "onlyOwnerSubtitle":  "This page is available for owner accounts only. Sign up as an owner to manage your properties.",
+                  "count_one":  "{{count}} property",
+                  "count_other":  "{{count}} properties",
+                  "empty":  "You have not added any properties yet.",
+                  "table":  {
+                                "purpose":  "Purpose",
+                                "type":  "Type",
+                                "price":  "Price",
+                                "roomsBeds":  "Rooms / Beds",
+                                "location":  "Location",
+                                "baths":  "Baths",
+                                "areaSqft":  "Area sqft"
+                            },
+                  "actions":  {
+                                  "create":  "Add property",
+                                  "edit":  "Edit",
+                                  "delete":  "Delete",
+                                  "cancel":  "Cancel",
+                                  "saveChanges":  "Save changes"
+                              },
+                  "form":  {
+                               "createTitle":  "Add property",
+                               "editTitle":  "Edit property",
+                               "description":  "Fill in the listing details in English and Arabic.",
+                               "purpose":  "Purpose",
+                               "type":  "Property type",
+                               "title":  "Title (English)",
+                               "titleAr":  "Title (Arabic)",
+                               "location":  "Location (English)",
+                               "locationAr":  "Location (Arabic)",
+                               "price":  "Price (USD)",
+                               "rooms":  "Rooms",
+                               "beds":  "Beds",
+                               "errors":  {
+                                              "titleRequired":  "Please enter an English title.",
+                                              "titleArRequired":  "Please enter an Arabic title.",
+                                              "locationRequired":  "Please enter an English location.",
+                                              "locationArRequired":  "Please enter an Arabic location.",
+                                              "propertyTypeRequired":  "Please select a property type.",
+                                              "priceInvalid":  "Price must be greater than zero.",
+                                              "roomsInvalid":  "Rooms must be at least 1.",
+                                              "bedsInvalid":  "Beds must be at least 1.",
+                                              "bathsInvalid":  "Baths must be at least 1.",
+                                              "windowsInvalid":  "Windows must be at least 1.",
+                                              "areaSqftInvalid":  "Area must be greater than zero.",
+                                              "latInvalid":  "Please enter a valid latitude.",
+                                              "lngInvalid":  "Please enter a valid longitude.",
+                                              "imageUrlRequired":  "Please enter a cover image URL.",
+                                              "addressRequired":  "Please enter an English address.",
+                                              "addressArRequired":  "Please enter an Arabic address.",
+                                              "ownerNameRequired":  "Please enter owner name.",
+                                              "ownerWhatsappRequired":  "Please enter owner WhatsApp.",
+                                              "estimatedValueInvalid":  "Estimated value must be greater than zero.",
+                                              "estimatedPaymentInvalid":  "Estimated monthly payment must be greater than zero.",
+                                              "garageSpacesInvalid":  "Garage spaces cannot be negative."
+                                          },
+                               "sections":  {
+                                                "basic":  "Basic details",
+                                                "location":  "Location",
+                                                "pricing":  "Pricing",
+                                                "details":  "Property details",
+                                                "media":  "Media",
+                                                "owner":  "Owner contact"
+                                            },
+                               "address":  "Address (English)",
+                               "addressAr":  "Address (Arabic)",
+                               "latitude":  "Latitude",
+                               "longitude":  "Longitude",
+                               "baths":  "Baths",
+                               "windows":  "Windows",
+                               "areaSqft":  "Area (sqft)",
+                               "garageSpaces":  "Garage spaces",
+                               "heatingType":  "Heating type",
+                               "imageUrl":  "Cover image URL",
+                               "galleryUrls":  "Gallery image URLs",
+                               "galleryHint":  "One image URL per line",
+                               "mapHint":  "Click the map or drag the pin to set the property location.",
+                               "mapLabel":  "Property location map",
+                               "mapUnavailable":  "Google Maps is not configured. Enter coordinates manually.",
+                               "coordinates":  "Selected coordinates: {{lat}}, {{lng}}",
+                               "tourVideoUrl":  "Tour video URL",
+                               "estimatedValue":  "Estimated value (USD)",
+                               "estimatedPaymentMonthly":  "Estimated monthly payment (USD)",
+                               "ownerName":  "Owner name",
+                               "ownerWhatsapp":  "Owner WhatsApp",
+                               "heating":  {
+                                               "forced_air":  "Forced air",
+                                               "central":  "Central heating",
+                                               "none":  "No heating"
+                                           }
+                           },
+                  "errors":  {
+                                 "loadFailed":  "Could not load your properties.",
+                                 "signInRequired":  "Please sign in to manage properties.",
+                                 "notFound":  "Property not found."
+                             }
+              }
 }
+

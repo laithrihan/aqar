@@ -8,7 +8,14 @@
   --muted: 232 240 242;
   --muted-foreground: 80 110 118;
   --border: 200 216 220;
+  --input: 200 216 220;
   --ring: 1 157 179;
+  --popover: 255 255 255;
+  --popover-foreground: 13 50 61;
+  --accent: 232 240 242;
+  --accent-foreground: 13 50 61;
+  --destructive: 220 38 38;
+  --destructive-foreground: 255 255 255;
   --footer-muted: 180 180 180;
 }
 
@@ -25,5 +32,19 @@
     @apply absolute size-px overflow-hidden whitespace-nowrap;
     clip: rect(0, 0, 0, 0);
     border-width: 0;
+  }
+}
+
+@layer components {
+  .owner-form-location-search {
+    @apply flex h-9 w-full items-center gap-2 overflow-visible rounded-md border border-input bg-transparent px-3 shadow-sm;
+  }
+
+  .owner-form-location-search-icon {
+    @apply size-4 shrink-0 text-muted-foreground;
+  }
+
+  .owner-form-location-search-input {
+    @apply min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground focus-visible:ring-0;
   }
 }

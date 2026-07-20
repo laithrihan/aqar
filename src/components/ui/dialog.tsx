@@ -53,7 +53,7 @@ const DialogFooter = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn('dialog-footer', className)} {...props} />
+  <div className={cn('dialog-footer justify-between', className)} {...props} />
 )
 DialogFooter.displayName = 'DialogFooter'
 
