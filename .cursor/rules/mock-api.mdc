@@ -2,4 +2,13 @@
 alwaysApply: true
 ---
 
-we dont have the api endpoints at the moment so we will prepare the code and pass a temporary json file and fetch it
+# Mock API mode
+
+The app can run fully frontend-only via `VITE_USE_MOCK_API=true`.
+
+- Real Laravel repositories live in `*ApiRepository.ts` (do not delete).
+- Mock implementations live in `*MockRepository.ts` and read `/public/mocks/*.json`.
+- Barrel files (`*Repository.ts`) switch between mock and API using `isMockApiEnabled()`.
+- Auth / saved / owner mutations persist in `localStorage` while mocking.
+
+To rewire Laravel later: set `VITE_USE_MOCK_API=false` and point `VITE_API_BASE_URL` at the backend.

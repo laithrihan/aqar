@@ -1,0 +1,1654 @@
+{
+    "locations": [
+        {
+            "value": "Damascus",
+            "label": "Damascus",
+            "labelAr": "دمشق"
+        },
+        {
+            "value": "Aleppo",
+            "label": "Aleppo",
+            "labelAr": "حلب"
+        },
+        {
+            "value": "Latakia",
+            "label": "Latakia",
+            "labelAr": "اللاذقية"
+        },
+        {
+            "value": "Homs",
+            "label": "Homs",
+            "labelAr": "حمص"
+        },
+        {
+            "value": "Tartus",
+            "label": "Tartus",
+            "labelAr": "طرطوس"
+        },
+        {
+            "value": "Hama",
+            "label": "Hama",
+            "labelAr": "حماة"
+        },
+        {
+            "value": "Rural Damascus",
+            "label": "Rural Damascus",
+            "labelAr": "ريف دمشق"
+        },
+        {
+            "value": "Idlib",
+            "label": "Idlib",
+            "labelAr": "إدلب"
+        },
+        {
+            "value": "Daraa",
+            "label": "Daraa",
+            "labelAr": "درعا"
+        },
+        {
+            "value": "As-Suwayda",
+            "label": "As-Suwayda",
+            "labelAr": "السويداء"
+        },
+        {
+            "value": "Quneitra",
+            "label": "Quneitra",
+            "labelAr": "القنيطرة"
+        },
+        {
+            "value": "Raqqa",
+            "label": "Raqqa",
+            "labelAr": "الرقة"
+        },
+        {
+            "value": "Deir ez-Zor",
+            "label": "Deir ez-Zor",
+            "labelAr": "دير الزور"
+        },
+        {
+            "value": "Al-Hasakah",
+            "label": "Al-Hasakah",
+            "labelAr": "الحسكة"
+        },
+        {
+            "value": "A'zaz, Aleppo",
+            "label": "A'zaz, Aleppo",
+            "labelAr": "اعزاز، حلب"
+        },
+        {
+            "value": "Abu Kamal, Deir ez-Zor",
+            "label": "Abu Kamal, Deir ez-Zor",
+            "labelAr": "البوكمال، دير الزور"
+        },
+        {
+            "value": "Afrin, Aleppo",
+            "label": "Afrin, Aleppo",
+            "labelAr": "عفرين، حلب"
+        },
+        {
+            "value": "Ain Al Arab, Aleppo",
+            "label": "Ain Al Arab, Aleppo",
+            "labelAr": "عين العرب، حلب"
+        },
+        {
+            "value": "Al Bab, Aleppo",
+            "label": "Al Bab, Aleppo",
+            "labelAr": "الباب، حلب"
+        },
+        {
+            "value": "Al Fiq, Quneitra",
+            "label": "Al Fiq, Quneitra",
+            "labelAr": "فيق، القنيطرة"
+        },
+        {
+            "value": "Al Ma'ra, Idlib",
+            "label": "Al Ma'ra, Idlib",
+            "labelAr": "معرة النعمان، إدلب"
+        },
+        {
+            "value": "Al Makhrim, Homs",
+            "label": "Al Makhrim, Homs",
+            "labelAr": "المخرم، حمص"
+        },
+        {
+            "value": "Al Mayadin, Deir ez-Zor",
+            "label": "Al Mayadin, Deir ez-Zor",
+            "labelAr": "الميادين، دير الزور"
+        },
+        {
+            "value": "Al Qutayfah, Rural Damascus",
+            "label": "Al Qutayfah, Rural Damascus",
+            "labelAr": "القطيفة، ريف دمشق"
+        },
+        {
+            "value": "Al-Haffa, Latakia",
+            "label": "Al-Haffa, Latakia",
+            "labelAr": "الحفة، اللاذقية"
+        },
+        {
+            "value": "Al-Malikeyyeh, Al-Hasakah",
+            "label": "Al-Malikeyyeh, Al-Hasakah",
+            "labelAr": "المالكية، الحسكة"
+        },
+        {
+            "value": "Al-Qardaha, Latakia",
+            "label": "Al-Qardaha, Latakia",
+            "labelAr": "القرداحة، اللاذقية"
+        },
+        {
+            "value": "Al-Qusayr, Homs",
+            "label": "Al-Qusayr, Homs",
+            "labelAr": "القصير، حمص"
+        },
+        {
+            "value": "An Nabk, Rural Damascus",
+            "label": "An Nabk, Rural Damascus",
+            "labelAr": "النبك، ريف دمشق"
+        },
+        {
+            "value": "Ar-Rastan, Homs",
+            "label": "Ar-Rastan, Homs",
+            "labelAr": "الرستن، حمص"
+        },
+        {
+            "value": "Ariha, Idlib",
+            "label": "Ariha, Idlib",
+            "labelAr": "أريحا، إدلب"
+        },
+        {
+            "value": "As-Safira, Aleppo",
+            "label": "As-Safira, Aleppo",
+            "labelAr": "السفيرة، حلب"
+        },
+        {
+            "value": "As-Salamiyeh, Hama",
+            "label": "As-Salamiyeh, Hama",
+            "labelAr": "السلمية، حماة"
+        },
+        {
+            "value": "As-Sanamayn, Daraa",
+            "label": "As-Sanamayn, Daraa",
+            "labelAr": "الصنمين، درعا"
+        },
+        {
+            "value": "As-Suqaylabiyah, Hama",
+            "label": "As-Suqaylabiyah, Hama",
+            "labelAr": "السقيلبية، حماة"
+        },
+        {
+            "value": "At Tall, Rural Damascus",
+            "label": "At Tall, Rural Damascus",
+            "labelAr": "التل، ريف دمشق"
+        },
+        {
+            "value": "Ath-Thawrah, Raqqa",
+            "label": "Ath-Thawrah, Raqqa",
+            "labelAr": "الثورة، الرقة"
+        },
+        {
+            "value": "Az-Zabdani, Rural Damascus",
+            "label": "Az-Zabdani, Rural Damascus",
+            "labelAr": "الزبداني، ريف دمشق"
+        },
+        {
+            "value": "Banyas, Tartus",
+            "label": "Banyas, Tartus",
+            "labelAr": "بانياس، طرطوس"
+        },
+        {
+            "value": "Darayya, Rural Damascus",
+            "label": "Darayya, Rural Damascus",
+            "labelAr": "داريا، ريف دمشق"
+        },
+        {
+            "value": "Dreikish, Tartus",
+            "label": "Dreikish, Tartus",
+            "labelAr": "دريكيش، طرطوس"
+        },
+        {
+            "value": "Duma, Rural Damascus",
+            "label": "Duma, Rural Damascus",
+            "labelAr": "دوما، ريف دمشق"
+        },
+        {
+            "value": "Harim, Idlib",
+            "label": "Harim, Idlib",
+            "labelAr": "حارم، إدلب"
+        },
+        {
+            "value": "Izra', Daraa",
+            "label": "Izra', Daraa",
+            "labelAr": "ازرع، درعا"
+        },
+        {
+            "value": "Jablah, Latakia",
+            "label": "Jablah, Latakia",
+            "labelAr": "جبلة، اللاذقية"
+        },
+        {
+            "value": "Jarablus, Aleppo",
+            "label": "Jarablus, Aleppo",
+            "labelAr": "جرابلس، حلب"
+        },
+        {
+            "value": "Jebel Saman, Aleppo",
+            "label": "Jebel Saman, Aleppo",
+            "labelAr": "جبل سمعان، حلب"
+        },
+        {
+            "value": "Jisr-Ash-Shugur, Idlib",
+            "label": "Jisr-Ash-Shugur, Idlib",
+            "labelAr": "جسر الشغور، إدلب"
+        },
+        {
+            "value": "Masyaf, Hama",
+            "label": "Masyaf, Hama",
+            "labelAr": "مصياف، حماة"
+        },
+        {
+            "value": "Menbij, Aleppo",
+            "label": "Menbij, Aleppo",
+            "labelAr": "منبج، حلب"
+        },
+        {
+            "value": "Muhradah, Hama",
+            "label": "Muhradah, Hama",
+            "labelAr": "محردة، حماة"
+        },
+        {
+            "value": "Qadmous, Tartus",
+            "label": "Qadmous, Tartus",
+            "labelAr": "القدموس، طرطوس"
+        },
+        {
+            "value": "Qatana, Rural Damascus",
+            "label": "Qatana, Rural Damascus",
+            "labelAr": "قطنا، ريف دمشق"
+        },
+        {
+            "value": "Quamishli, Al-Hasakah",
+            "label": "Quamishli, Al-Hasakah",
+            "labelAr": "القامشلي، الحسكة"
+        },
+        {
+            "value": "Ras Al Ain, Al-Hasakah",
+            "label": "Ras Al Ain, Al-Hasakah",
+            "labelAr": "رأس العين، الحسكة"
+        },
+        {
+            "value": "Safita, Tartus",
+            "label": "Safita, Tartus",
+            "labelAr": "صافيتا، طرطوس"
+        },
+        {
+            "value": "Salkhad, As-Suwayda",
+            "label": "Salkhad, As-Suwayda",
+            "labelAr": "صلخد، السويداء"
+        },
+        {
+            "value": "Shahba, As-Suwayda",
+            "label": "Shahba, As-Suwayda",
+            "labelAr": "شهبا، السويداء"
+        },
+        {
+            "value": "Sheikh Badr, Tartus",
+            "label": "Sheikh Badr, Tartus",
+            "labelAr": "الشيخ بدر، طرطوس"
+        },
+        {
+            "value": "Tadmor, Homs",
+            "label": "Tadmor, Homs",
+            "labelAr": "تدمر، حمص"
+        },
+        {
+            "value": "Tall Kalakh, Homs",
+            "label": "Tall Kalakh, Homs",
+            "labelAr": "تلكلخ، حمص"
+        },
+        {
+            "value": "Tell Abiad, Raqqa",
+            "label": "Tell Abiad, Raqqa",
+            "labelAr": "تل أبيض، الرقة"
+        },
+        {
+            "value": "Yabroud, Rural Damascus",
+            "label": "Yabroud, Rural Damascus",
+            "labelAr": "يبرود، ريف دمشق"
+        },
+        {
+            "value": "A'rima, Aleppo",
+            "label": "A'rima, Aleppo",
+            "labelAr": "عريمة، حلب"
+        },
+        {
+            "value": "Abu Qalqal, Aleppo",
+            "label": "Abu Qalqal, Aleppo",
+            "labelAr": "أبو قلقل، حلب"
+        },
+        {
+            "value": "Abul Thohur, Idlib",
+            "label": "Abul Thohur, Idlib",
+            "labelAr": "أبو الظهور، إدلب"
+        },
+        {
+            "value": "Aghtrin, Aleppo",
+            "label": "Aghtrin, Aleppo",
+            "labelAr": "اخترين، حلب"
+        },
+        {
+            "value": "Al-Butayhah, Quneitra",
+            "label": "Al-Butayhah, Quneitra",
+            "labelAr": "البطيحة، القنيطرة"
+        },
+        {
+            "value": "Al-Khafsa, Aleppo",
+            "label": "Al-Khafsa, Aleppo",
+            "labelAr": "الخفسة، حلب"
+        },
+        {
+            "value": "Al-Khashniyyeh, Quneitra",
+            "label": "Al-Khashniyyeh, Quneitra",
+            "labelAr": "الخشنية، القنيطرة"
+        },
+        {
+            "value": "Al-Thawrah, Raqqa",
+            "label": "Al-Thawrah, Raqqa",
+            "labelAr": "مركز الثورة، الرقة"
+        },
+        {
+            "value": "Amuda, Al-Hasakah",
+            "label": "Amuda, Al-Hasakah",
+            "labelAr": "عامودا، الحسكة"
+        },
+        {
+            "value": "Anaza, Tartus",
+            "label": "Anaza, Tartus",
+            "labelAr": "العنازة، طرطوس"
+        },
+        {
+            "value": "Ar-Ra'ee, Aleppo",
+            "label": "Ar-Ra'ee, Aleppo",
+            "labelAr": "الراعي، حلب"
+        },
+        {
+            "value": "Arbin, Rural Damascus",
+            "label": "Arbin, Rural Damascus",
+            "labelAr": "عربين، ريف دمشق"
+        },
+        {
+            "value": "Areesheh, Al-Hasakah",
+            "label": "Areesheh, Al-Hasakah",
+            "labelAr": "العريشة، الحسكة"
+        },
+        {
+            "value": "Ariqa, As-Suwayda",
+            "label": "Ariqa, As-Suwayda",
+            "labelAr": "العريقة، السويداء"
+        },
+        {
+            "value": "Armanaz, Idlib",
+            "label": "Armanaz, Idlib",
+            "labelAr": "أرمناز، إدلب"
+        },
+        {
+            "value": "Arwad, Tartus",
+            "label": "Arwad, Tartus",
+            "labelAr": "أرواد، طرطوس"
+        },
+        {
+            "value": "As-Saan, Hama",
+            "label": "As-Saan, Hama",
+            "labelAr": "السعن، حماة"
+        },
+        {
+            "value": "Ash-Shajara, Daraa",
+            "label": "Ash-Shajara, Daraa",
+            "labelAr": "الشجرة، درعا"
+        },
+        {
+            "value": "Ashara, Deir ez-Zor",
+            "label": "Ashara, Deir ez-Zor",
+            "labelAr": "عشارة، دير الزور"
+        },
+        {
+            "value": "Atareb, Aleppo",
+            "label": "Atareb, Aleppo",
+            "labelAr": "أتارب، حلب"
+        },
+        {
+            "value": "Babella, Rural Damascus",
+            "label": "Babella, Rural Damascus",
+            "labelAr": "ببيلا، ريف دمشق"
+        },
+        {
+            "value": "Badama, Idlib",
+            "label": "Badama, Idlib",
+            "labelAr": "بداما، إدلب"
+        },
+        {
+            "value": "Bahlolieh, Latakia",
+            "label": "Bahlolieh, Latakia",
+            "labelAr": "البهلولية، اللاذقية"
+        },
+        {
+            "value": "Bait Jan, Rural Damascus",
+            "label": "Bait Jan, Rural Damascus",
+            "labelAr": "بيت جن، ريف دمشق"
+        },
+        {
+            "value": "Banan, Aleppo",
+            "label": "Banan, Aleppo",
+            "labelAr": "بنان، حلب"
+        },
+        {
+            "value": "Baramanet Elmashayekh, Tartus",
+            "label": "Baramanet Elmashayekh, Tartus",
+            "labelAr": "برمانة المشايخ، طرطوس"
+        },
+        {
+            "value": "Bariqiyeh, Tartus",
+            "label": "Bariqiyeh, Tartus",
+            "labelAr": "البارقية، طرطوس"
+        },
+        {
+            "value": "Basira, Deir ez-Zor",
+            "label": "Basira, Deir ez-Zor",
+            "labelAr": "بصيرة، دير الزور"
+        },
+        {
+            "value": "Be'r Al-Hulo Al-Wardeyyeh, Al-Hasakah",
+            "label": "Be'r Al-Hulo Al-Wardeyyeh, Al-Hasakah",
+            "labelAr": "بئر الحلو الوردية، الحسكة"
+        },
+        {
+            "value": "Beit Yashout, Latakia",
+            "label": "Beit Yashout, Latakia",
+            "labelAr": "بيت ياشوط، اللاذقية"
+        },
+        {
+            "value": "Bennsh, Idlib",
+            "label": "Bennsh, Idlib",
+            "labelAr": "بنش، إدلب"
+        },
+        {
+            "value": "Bulbul, Aleppo",
+            "label": "Bulbul, Aleppo",
+            "labelAr": "بلبل، حلب"
+        },
+        {
+            "value": "Busra Esh-Sham, Daraa",
+            "label": "Busra Esh-Sham, Daraa",
+            "labelAr": "بصرى الشام، درعا"
+        },
+        {
+            "value": "Da'el, Daraa",
+            "label": "Da'el, Daraa",
+            "labelAr": "داعل، درعا"
+        },
+        {
+            "value": "Dalyeh, Latakia",
+            "label": "Dalyeh, Latakia",
+            "labelAr": "دالية، اللاذقية"
+        },
+        {
+            "value": "Dana, Idlib",
+            "label": "Dana, Idlib",
+            "labelAr": "دانا، إدلب"
+        },
+        {
+            "value": "Darbasiyah, Al-Hasakah",
+            "label": "Darbasiyah, Al-Hasakah",
+            "labelAr": "درباسية، الحسكة"
+        },
+        {
+            "value": "Daret Azza, Aleppo",
+            "label": "Daret Azza, Aleppo",
+            "labelAr": "دارة عزة، حلب"
+        },
+        {
+            "value": "Darkosh, Idlib",
+            "label": "Darkosh, Idlib",
+            "labelAr": "دركوش، إدلب"
+        },
+        {
+            "value": "Dayr Hafir, Aleppo",
+            "label": "Dayr Hafir, Aleppo",
+            "labelAr": "دير حافر، حلب"
+        },
+        {
+            "value": "Deir Attiyeh, Rural Damascus",
+            "label": "Deir Attiyeh, Rural Damascus",
+            "labelAr": "دير عطية، ريف دمشق"
+        },
+        {
+            "value": "Dhameer, Rural Damascus",
+            "label": "Dhameer, Rural Damascus",
+            "labelAr": "الضمير، ريف دمشق"
+        },
+        {
+            "value": "Dimas, Rural Damascus",
+            "label": "Dimas, Rural Damascus",
+            "labelAr": "الديماس، ريف دمشق"
+        },
+        {
+            "value": "Dweir Raslan, Tartus",
+            "label": "Dweir Raslan, Tartus",
+            "labelAr": "دوير رسلان، طرطوس"
+        },
+        {
+            "value": "Eastern Bari, Hama",
+            "label": "Eastern Bari, Hama",
+            "labelAr": "بري شرقي، حماة"
+        },
+        {
+            "value": "Eastern Kwaires, Aleppo",
+            "label": "Eastern Kwaires, Aleppo",
+            "labelAr": "كويرس شرقي، حلب"
+        },
+        {
+            "value": "Ehsem, Idlib",
+            "label": "Ehsem, Idlib",
+            "labelAr": "احسم، إدلب"
+        },
+        {
+            "value": "Ein El-Bayda, Latakia",
+            "label": "Ein El-Bayda, Latakia",
+            "labelAr": "عين البيضا، اللاذقية"
+        },
+        {
+            "value": "Ein Elfijeh, Rural Damascus",
+            "label": "Ein Elfijeh, Rural Damascus",
+            "labelAr": "عين الفيجة، ريف دمشق"
+        },
+        {
+            "value": "Ein Elniser, Homs",
+            "label": "Ein Elniser, Homs",
+            "labelAr": "عين النسر، حمص"
+        },
+        {
+            "value": "Ein Elsharqiyeh, Latakia",
+            "label": "Ein Elsharqiyeh, Latakia",
+            "labelAr": "عين الشرقية، اللاذقية"
+        },
+        {
+            "value": "Ein Et-teeneh, Latakia",
+            "label": "Ein Et-teeneh, Latakia",
+            "labelAr": "عين التينة، اللاذقية"
+        },
+        {
+            "value": "Ein Halaqim, Hama",
+            "label": "Ein Halaqim, Hama",
+            "labelAr": "عين حلاقيم، حماة"
+        },
+        {
+            "value": "Ein Issa, Raqqa",
+            "label": "Ein Issa, Raqqa",
+            "labelAr": "عين عيسى، الرقة"
+        },
+        {
+            "value": "Ein Shaqaq, Latakia",
+            "label": "Ein Shaqaq, Latakia",
+            "labelAr": "عين شقاق، اللاذقية"
+        },
+        {
+            "value": "Esal El-Ward, Rural Damascus",
+            "label": "Esal El-Ward, Rural Damascus",
+            "labelAr": "عسال الورد، ريف دمشق"
+        },
+        {
+            "value": "Fakhura, Latakia",
+            "label": "Fakhura, Latakia",
+            "labelAr": "الفاخورة، اللاذقية"
+        },
+        {
+            "value": "Farqalas, Homs",
+            "label": "Farqalas, Homs",
+            "labelAr": "الفرقلس، حمص"
+        },
+        {
+            "value": "Fiq, Quneitra",
+            "label": "Fiq, Quneitra",
+            "labelAr": "مركز فيق، القنيطرة"
+        },
+        {
+            "value": "Ghabagheb, Daraa",
+            "label": "Ghabagheb, Daraa",
+            "labelAr": "غباغب، درعا"
+        },
+        {
+            "value": "Ghandorah, Aleppo",
+            "label": "Ghandorah, Aleppo",
+            "labelAr": "غندورة، حلب"
+        },
+        {
+            "value": "Gharyeh, As-Suwayda",
+            "label": "Gharyeh, As-Suwayda",
+            "labelAr": "الغارية، السويداء"
+        },
+        {
+            "value": "Ghizlaniyyeh, Rural Damascus",
+            "label": "Ghizlaniyyeh, Rural Damascus",
+            "labelAr": "الغزلانية، ريف دمشق"
+        },
+        {
+            "value": "Hadher, Aleppo",
+            "label": "Hadher, Aleppo",
+            "labelAr": "الحاضر، حلب"
+        },
+        {
+            "value": "Hadideh, Homs",
+            "label": "Hadideh, Homs",
+            "labelAr": "حديدة، حمص"
+        },
+        {
+            "value": "Hajar Aswad, Rural Damascus",
+            "label": "Hajar Aswad, Rural Damascus",
+            "labelAr": "الحجر الأسود، ريف دمشق"
+        },
+        {
+            "value": "Hajeb, Aleppo",
+            "label": "Hajeb, Aleppo",
+            "labelAr": "الحاجب، حلب"
+        },
+        {
+            "value": "Hajin, Deir ez-Zor",
+            "label": "Hajin, Deir ez-Zor",
+            "labelAr": "هجين، دير الزور"
+        },
+        {
+            "value": "Hamam Wasil, Tartus",
+            "label": "Hamam Wasil, Tartus",
+            "labelAr": "حمام واصل، طرطوس"
+        },
+        {
+            "value": "Hameidiyyeh, Tartus",
+            "label": "Hameidiyyeh, Tartus",
+            "labelAr": "الحميدية، طرطوس"
+        },
+        {
+            "value": "Hamin, Tartus",
+            "label": "Hamin, Tartus",
+            "labelAr": "حمين، طرطوس"
+        },
+        {
+            "value": "Hamra, Hama",
+            "label": "Hamra, Hama",
+            "labelAr": "الحمراء، حماة"
+        },
+        {
+            "value": "Hanadi, Latakia",
+            "label": "Hanadi, Latakia",
+            "labelAr": "هنادي، اللاذقية"
+        },
+        {
+            "value": "Haran Al'awameed, Rural Damascus",
+            "label": "Haran Al'awameed, Rural Damascus",
+            "labelAr": "حران العواميد، ريف دمشق"
+        },
+        {
+            "value": "Harasta, Rural Damascus",
+            "label": "Harasta, Rural Damascus",
+            "labelAr": "حرستا، ريف دمشق"
+        },
+        {
+            "value": "Harbanifse, Hama",
+            "label": "Harbanifse, Hama",
+            "labelAr": "حربنفسه، حماة"
+        },
+        {
+            "value": "Harf Elmseitra, Latakia",
+            "label": "Harf Elmseitra, Latakia",
+            "labelAr": "حرف المسيترة، اللاذقية"
+        },
+        {
+            "value": "Haritan, Aleppo",
+            "label": "Haritan, Aleppo",
+            "labelAr": "حريتان، حلب"
+        },
+        {
+            "value": "Hasyaa, Homs",
+            "label": "Hasyaa, Homs",
+            "labelAr": "حسياء، حمص"
+        },
+        {
+            "value": "Hawash, Homs",
+            "label": "Hawash, Homs",
+            "labelAr": "الحواش، حمص"
+        },
+        {
+            "value": "Heish, Idlib",
+            "label": "Heish, Idlib",
+            "labelAr": "حيش، إدلب"
+        },
+        {
+            "value": "Hole, Al-Hasakah",
+            "label": "Hole, Al-Hasakah",
+            "labelAr": "الهول، الحسكة"
+        },
+        {
+            "value": "Hrak, Daraa",
+            "label": "Hrak, Daraa",
+            "labelAr": "الحراك، درعا"
+        },
+        {
+            "value": "Jalaa, Deir ez-Zor",
+            "label": "Jalaa, Deir ez-Zor",
+            "labelAr": "الجلاء، دير الزور"
+        },
+        {
+            "value": "Jandairis, Aleppo",
+            "label": "Jandairis, Aleppo",
+            "labelAr": "جنديرس، حلب"
+        },
+        {
+            "value": "Janudiyeh, Idlib",
+            "label": "Janudiyeh, Idlib",
+            "labelAr": "الجانودية، إدلب"
+        },
+        {
+            "value": "Jaramana, Rural Damascus",
+            "label": "Jaramana, Rural Damascus",
+            "labelAr": "جرمانا، ريف دمشق"
+        },
+        {
+            "value": "Jasim, Daraa",
+            "label": "Jasim, Daraa",
+            "labelAr": "جاسم، درعا"
+        },
+        {
+            "value": "Jawadiyah, Al-Hasakah",
+            "label": "Jawadiyah, Al-Hasakah",
+            "labelAr": "جوادية، الحسكة"
+        },
+        {
+            "value": "Jeb Ej-Jarrah, Homs",
+            "label": "Jeb Ej-Jarrah, Homs",
+            "labelAr": "جب الجراح، حمص"
+        },
+        {
+            "value": "Jeb Ramleh, Hama",
+            "label": "Jeb Ramleh, Hama",
+            "labelAr": "جب رملة، حماة"
+        },
+        {
+            "value": "Jirud, Rural Damascus",
+            "label": "Jirud, Rural Damascus",
+            "labelAr": "جيرود، ريف دمشق"
+        },
+        {
+            "value": "Jizeh, Daraa",
+            "label": "Jizeh, Daraa",
+            "labelAr": "الجيزة، درعا"
+        },
+        {
+            "value": "Jneinet Raslan, Tartus",
+            "label": "Jneinet Raslan, Tartus",
+            "labelAr": "جنينة رسلان، طرطوس"
+        },
+        {
+            "value": "Jobet Berghal, Latakia",
+            "label": "Jobet Berghal, Latakia",
+            "labelAr": "جوبة برغال، اللاذقية"
+        },
+        {
+            "value": "Jurneyyeh, Raqqa",
+            "label": "Jurneyyeh, Raqqa",
+            "labelAr": "الجرنية، الرقة"
+        },
+        {
+            "value": "Kafr Batna, Rural Damascus",
+            "label": "Kafr Batna, Rural Damascus",
+            "labelAr": "كفر بطنا، ريف دمشق"
+        },
+        {
+            "value": "Kafr Nobol, Idlib",
+            "label": "Kafr Nobol, Idlib",
+            "labelAr": "كفر نبل، إدلب"
+        },
+        {
+            "value": "Kafr Takharim, Idlib",
+            "label": "Kafr Takharim, Idlib",
+            "labelAr": "كفر تخاريم، إدلب"
+        },
+        {
+            "value": "Kafr Zeita, Hama",
+            "label": "Kafr Zeita, Hama",
+            "labelAr": "كفرزيتا، حماة"
+        },
+        {
+            "value": "Kansaba, Latakia",
+            "label": "Kansaba, Latakia",
+            "labelAr": "كنسبا، اللاذقية"
+        },
+        {
+            "value": "Karama, Raqqa",
+            "label": "Karama, Raqqa",
+            "labelAr": "الكرامة، الرقة"
+        },
+        {
+            "value": "Kareemeh, Tartus",
+            "label": "Kareemeh, Tartus",
+            "labelAr": "كريمة، طرطوس"
+        },
+        {
+            "value": "Karnaz, Hama",
+            "label": "Karnaz, Hama",
+            "labelAr": "كرناز، حماة"
+        },
+        {
+            "value": "Kasab, Latakia",
+            "label": "Kasab, Latakia",
+            "labelAr": "كسب، اللاذقية"
+        },
+        {
+            "value": "Khan Arnaba, Quneitra",
+            "label": "Khan Arnaba, Quneitra",
+            "labelAr": "خان أرنبة، القنيطرة"
+        },
+        {
+            "value": "Khan Shaykun, Idlib",
+            "label": "Khan Shaykun, Idlib",
+            "labelAr": "خان شيخون، إدلب"
+        },
+        {
+            "value": "Khanaser, Aleppo",
+            "label": "Khanaser, Aleppo",
+            "labelAr": "خناصر، حلب"
+        },
+        {
+            "value": "Khasham, Deir ez-Zor",
+            "label": "Khasham, Deir ez-Zor",
+            "labelAr": "خشام، دير الزور"
+        },
+        {
+            "value": "Kherbet Elma'aza, Tartus",
+            "label": "Kherbet Elma'aza, Tartus",
+            "labelAr": "خربة المعزة، طرطوس"
+        },
+        {
+            "value": "Kherbet Ghazala, Daraa",
+            "label": "Kherbet Ghazala, Daraa",
+            "labelAr": "خربة غزالة، درعا"
+        },
+        {
+            "value": "Kherbet Tin Noor, Homs",
+            "label": "Kherbet Tin Noor, Homs",
+            "labelAr": "خربة تين نور، حمص"
+        },
+        {
+            "value": "Kisreh, Deir ez-Zor",
+            "label": "Kisreh, Deir ez-Zor",
+            "labelAr": "كسرة، دير الزور"
+        },
+        {
+            "value": "Kisweh, Rural Damascus",
+            "label": "Kisweh, Rural Damascus",
+            "labelAr": "الكسوة، ريف دمشق"
+        },
+        {
+            "value": "Little Sura, As-Suwayda",
+            "label": "Little Sura, As-Suwayda",
+            "labelAr": "الصورة الصغيرة، السويداء"
+        },
+        {
+            "value": "Lower Shyookh, Aleppo",
+            "label": "Lower Shyookh, Aleppo",
+            "labelAr": "شيوخ تحتاني، حلب"
+        },
+        {
+            "value": "Ma'arrat An Nu'man, Idlib",
+            "label": "Ma'arrat An Nu'man, Idlib",
+            "labelAr": "مركز معرة النعمان، إدلب"
+        },
+        {
+            "value": "Ma'btali, Aleppo",
+            "label": "Ma'btali, Aleppo",
+            "labelAr": "معبطلي، حلب"
+        },
+        {
+            "value": "Ma'loula, Rural Damascus",
+            "label": "Ma'loula, Rural Damascus",
+            "labelAr": "معلولا، ريف دمشق"
+        },
+        {
+            "value": "Maadan, Raqqa",
+            "label": "Maadan, Raqqa",
+            "labelAr": "معدان، الرقة"
+        },
+        {
+            "value": "Maaret Tamsrin, Idlib",
+            "label": "Maaret Tamsrin, Idlib",
+            "labelAr": "معرة تمصرين، إدلب"
+        },
+        {
+            "value": "Madaya, Rural Damascus",
+            "label": "Madaya, Rural Damascus",
+            "labelAr": "مضايا، ريف دمشق"
+        },
+        {
+            "value": "Madiq Castle, Hama",
+            "label": "Madiq Castle, Hama",
+            "labelAr": "قلعة المضيق، حماة"
+        },
+        {
+            "value": "Mahin, Homs",
+            "label": "Mahin, Homs",
+            "labelAr": "مهين، حمص"
+        },
+        {
+            "value": "Maliha, Rural Damascus",
+            "label": "Maliha, Rural Damascus",
+            "labelAr": "المليحة، ريف دمشق"
+        },
+        {
+            "value": "Mansura, Raqqa",
+            "label": "Mansura, Raqqa",
+            "labelAr": "المنصورة، الرقة"
+        },
+        {
+            "value": "Mare', Aleppo",
+            "label": "Mare', Aleppo",
+            "labelAr": "مارع، حلب"
+        },
+        {
+            "value": "Markada, Al-Hasakah",
+            "label": "Markada, Al-Hasakah",
+            "labelAr": "مركدة، الحسكة"
+        },
+        {
+            "value": "Markaz Darayya, Rural Damascus",
+            "label": "Markaz Darayya, Rural Damascus",
+            "labelAr": "مركز داريا، ريف دمشق"
+        },
+        {
+            "value": "Masaada, Quneitra",
+            "label": "Masaada, Quneitra",
+            "labelAr": "مسعدة، القنيطرة"
+        },
+        {
+            "value": "Mashnaf, As-Suwayda",
+            "label": "Mashnaf, As-Suwayda",
+            "labelAr": "المشنف، السويداء"
+        },
+        {
+            "value": "Mashta Elhiu, Tartus",
+            "label": "Mashta Elhiu, Tartus",
+            "labelAr": "مشتى الحلو، طرطوس"
+        },
+        {
+            "value": "Maskana, Aleppo",
+            "label": "Maskana, Aleppo",
+            "labelAr": "مسكنة، حلب"
+        },
+        {
+            "value": "Masmiyyeh, Daraa",
+            "label": "Masmiyyeh, Daraa",
+            "labelAr": "المسمية، درعا"
+        },
+        {
+            "value": "Mazra'a, As-Suwayda",
+            "label": "Mazra'a, As-Suwayda",
+            "labelAr": "المزرعة، السويداء"
+        },
+        {
+            "value": "Mhambal, Idlib",
+            "label": "Mhambal, Idlib",
+            "labelAr": "محمبل، إدلب"
+        },
+        {
+            "value": "Milh, As-Suwayda",
+            "label": "Milh, As-Suwayda",
+            "labelAr": "ملح، السويداء"
+        },
+        {
+            "value": "Mseifra, Daraa",
+            "label": "Mseifra, Daraa",
+            "labelAr": "المسيفرة، درعا"
+        },
+        {
+            "value": "Muhasan, Deir ez-Zor",
+            "label": "Muhasan, Deir ez-Zor",
+            "labelAr": "موحسن، دير الزور"
+        },
+        {
+            "value": "Mzair'a, Latakia",
+            "label": "Mzair'a, Latakia",
+            "labelAr": "مزيرعة، اللاذقية"
+        },
+        {
+            "value": "Mzeireb, Daraa",
+            "label": "Mzeireb, Daraa",
+            "labelAr": "مزيريب، درعا"
+        },
+        {
+            "value": "Nabul, Aleppo",
+            "label": "Nabul, Aleppo",
+            "labelAr": "نبل، حلب"
+        },
+        {
+            "value": "Nashabiyeh, Rural Damascus",
+            "label": "Nashabiyeh, Rural Damascus",
+            "labelAr": "النشابية، ريف دمشق"
+        },
+        {
+            "value": "Nasra, Homs",
+            "label": "Nasra, Homs",
+            "labelAr": "الناصرة، حمص"
+        },
+        {
+            "value": "Nawa, Daraa",
+            "label": "Nawa, Daraa",
+            "labelAr": "نوى، درعا"
+        },
+        {
+            "value": "Oj, Hama",
+            "label": "Oj, Hama",
+            "labelAr": "عوج، حماة"
+        },
+        {
+            "value": "Oqeirbat, Hama",
+            "label": "Oqeirbat, Hama",
+            "labelAr": "عقيربات، حماة"
+        },
+        {
+            "value": "Qabu, Homs",
+            "label": "Qabu, Homs",
+            "labelAr": "القبو، حمص"
+        },
+        {
+            "value": "Qahtaniyyeh, Al-Hasakah",
+            "label": "Qahtaniyyeh, Al-Hasakah",
+            "labelAr": "قحطانية، الحسكة"
+        },
+        {
+            "value": "Qarayya, As-Suwayda",
+            "label": "Qarayya, As-Suwayda",
+            "labelAr": "القريا، السويداء"
+        },
+        {
+            "value": "Qaryatein, Homs",
+            "label": "Qaryatein, Homs",
+            "labelAr": "القريتين، حمص"
+        },
+        {
+            "value": "Qastal Maaf, Latakia",
+            "label": "Qastal Maaf, Latakia",
+            "labelAr": "قسطل معاف، اللاذقية"
+        },
+        {
+            "value": "Qourqeena, Idlib",
+            "label": "Qourqeena, Idlib",
+            "labelAr": "قورقينا، إدلب"
+        },
+        {
+            "value": "Qteilbiyyeh, Latakia",
+            "label": "Qteilbiyyeh, Latakia",
+            "labelAr": "القطيلبية، اللاذقية"
+        },
+        {
+            "value": "Qudsiya, Rural Damascus",
+            "label": "Qudsiya, Rural Damascus",
+            "labelAr": "قدسيا، ريف دمشق"
+        },
+        {
+            "value": "Qumseyyeh, Tartus",
+            "label": "Qumseyyeh, Tartus",
+            "labelAr": "قمصية، طرطوس"
+        },
+        {
+            "value": "Rabee'a, Latakia",
+            "label": "Rabee'a, Latakia",
+            "labelAr": "ربيعة، اللاذقية"
+        },
+        {
+            "value": "Raheiba, Rural Damascus",
+            "label": "Raheiba, Rural Damascus",
+            "labelAr": "الرحيبة، ريف دمشق"
+        },
+        {
+            "value": "Raju, Aleppo",
+            "label": "Raju, Aleppo",
+            "labelAr": "راجو، حلب"
+        },
+        {
+            "value": "Rankus, Rural Damascus",
+            "label": "Rankus, Rural Damascus",
+            "labelAr": "رنكوس، ريف دمشق"
+        },
+        {
+            "value": "Raqama, Homs",
+            "label": "Raqama, Homs",
+            "labelAr": "الرقاما، حمص"
+        },
+        {
+            "value": "Ras El-Khashufeh, Tartus",
+            "label": "Ras El-Khashufeh, Tartus",
+            "labelAr": "رأس الخشوفة، طرطوس"
+        },
+        {
+            "value": "Rasm Haram El-Imam, Aleppo",
+            "label": "Rasm Haram El-Imam, Aleppo",
+            "labelAr": "رسم حرمل الامام، حلب"
+        },
+        {
+            "value": "Rawda, Tartus",
+            "label": "Rawda, Tartus",
+            "labelAr": "الروضة، طرطوس"
+        },
+        {
+            "value": "Sa'sa', Rural Damascus",
+            "label": "Sa'sa', Rural Damascus",
+            "labelAr": "سعسع، ريف دمشق"
+        },
+        {
+            "value": "Sabe Byar, Rural Damascus",
+            "label": "Sabe Byar, Rural Damascus",
+            "labelAr": "السبع بيار، ريف دمشق"
+        },
+        {
+            "value": "Sabka, Raqqa",
+            "label": "Sabka, Raqqa",
+            "labelAr": "السبخة، الرقة"
+        },
+        {
+            "value": "Saboura, Hama",
+            "label": "Saboura, Hama",
+            "labelAr": "صبورة، حماة"
+        },
+        {
+            "value": "Sadad, Homs",
+            "label": "Sadad, Homs",
+            "labelAr": "صدد، حمص"
+        },
+        {
+            "value": "Safsafa, Tartus",
+            "label": "Safsafa, Tartus",
+            "labelAr": "صفصافة، طرطوس"
+        },
+        {
+            "value": "Sahnaya, Rural Damascus",
+            "label": "Sahnaya, Rural Damascus",
+            "labelAr": "صحنايا، ريف دمشق"
+        },
+        {
+            "value": "Salanfa, Latakia",
+            "label": "Salanfa, Latakia",
+            "labelAr": "صلنفة، اللاذقية"
+        },
+        {
+            "value": "Salqin, Idlib",
+            "label": "Salqin, Idlib",
+            "labelAr": "سلقين، إدلب"
+        },
+        {
+            "value": "Sanjar, Idlib",
+            "label": "Sanjar, Idlib",
+            "labelAr": "سنجار، إدلب"
+        },
+        {
+            "value": "Saraqab, Idlib",
+            "label": "Saraqab, Idlib",
+            "labelAr": "سراقب، إدلب"
+        },
+        {
+            "value": "Sarghaya, Rural Damascus",
+            "label": "Sarghaya, Rural Damascus",
+            "labelAr": "سرغايا، ريف دمشق"
+        },
+        {
+            "value": "Sarin, Aleppo",
+            "label": "Sarin, Aleppo",
+            "labelAr": "صرين، حلب"
+        },
+        {
+            "value": "Sarmin, Idlib",
+            "label": "Sarmin, Idlib",
+            "labelAr": "سرمين، إدلب"
+        },
+        {
+            "value": "Shadadah, Al-Hasakah",
+            "label": "Shadadah, Al-Hasakah",
+            "labelAr": "شدادة، الحسكة"
+        },
+        {
+            "value": "Shaqa, As-Suwayda",
+            "label": "Shaqa, As-Suwayda",
+            "labelAr": "شقا، السويداء"
+        },
+        {
+            "value": "Sharan, Aleppo",
+            "label": "Sharan, Aleppo",
+            "labelAr": "شران، حلب"
+        },
+        {
+            "value": "Shat-ha, Hama",
+            "label": "Shat-ha, Hama",
+            "labelAr": "شطحة، حماة"
+        },
+        {
+            "value": "Sheikh El-Hadid, Aleppo",
+            "label": "Sheikh El-Hadid, Aleppo",
+            "labelAr": "شيخ الحديد، حلب"
+        },
+        {
+            "value": "Sheikh Miskine, Daraa",
+            "label": "Sheikh Miskine, Daraa",
+            "labelAr": "الشيخ مسكين، درعا"
+        },
+        {
+            "value": "Shin, Homs",
+            "label": "Shin, Homs",
+            "labelAr": "شين، حمص"
+        },
+        {
+            "value": "Sibbeh, Tartus",
+            "label": "Sibbeh, Tartus",
+            "labelAr": "سبة، طرطوس"
+        },
+        {
+            "value": "Sidnaya, Rural Damascus",
+            "label": "Sidnaya, Rural Damascus",
+            "labelAr": "صيدنايا، ريف دمشق"
+        },
+        {
+            "value": "Sisniyyeh, Tartus",
+            "label": "Sisniyyeh, Tartus",
+            "labelAr": "السيسنية، طرطوس"
+        },
+        {
+            "value": "Soda Khawabi, Tartus",
+            "label": "Soda Khawabi, Tartus",
+            "labelAr": "سودا خوابي، طرطوس"
+        },
+        {
+            "value": "Sokhneh, Homs",
+            "label": "Sokhneh, Homs",
+            "labelAr": "السخنة، حمص"
+        },
+        {
+            "value": "Suluk, Raqqa",
+            "label": "Suluk, Raqqa",
+            "labelAr": "سلوك، الرقة"
+        },
+        {
+            "value": "Sur, Deir ez-Zor",
+            "label": "Sur, Deir ez-Zor",
+            "labelAr": "صور، دير الزور"
+        },
+        {
+            "value": "Suran, Aleppo",
+            "label": "Suran, Aleppo",
+            "labelAr": "صوران، حلب"
+        },
+        {
+            "value": "Suran, Hama",
+            "label": "Suran, Hama",
+            "labelAr": "صوران، حماة"
+        },
+        {
+            "value": "Susat, Deir ez-Zor",
+            "label": "Susat, Deir ez-Zor",
+            "labelAr": "سوسة، دير الزور"
+        },
+        {
+            "value": "Tabni, Deir ez-Zor",
+            "label": "Tabni, Deir ez-Zor",
+            "labelAr": "التبني، دير الزور"
+        },
+        {
+            "value": "Tadaf, Aleppo",
+            "label": "Tadaf, Aleppo",
+            "labelAr": "تادف، حلب"
+        },
+        {
+            "value": "Tal Hmis, Al-Hasakah",
+            "label": "Tal Hmis, Al-Hasakah",
+            "labelAr": "تل حميس، الحسكة"
+        },
+        {
+            "value": "Tal Tamer, Al-Hasakah",
+            "label": "Tal Tamer, Al-Hasakah",
+            "labelAr": "تل تمر، الحسكة"
+        },
+        {
+            "value": "Talbiseh, Homs",
+            "label": "Talbiseh, Homs",
+            "labelAr": "تلبيسة، حمص"
+        },
+        {
+            "value": "Taldu, Homs",
+            "label": "Taldu, Homs",
+            "labelAr": "تلدو، حمص"
+        },
+        {
+            "value": "Taleen, Tartus",
+            "label": "Taleen, Tartus",
+            "labelAr": "تالين، طرطوس"
+        },
+        {
+            "value": "Tall Ed-daman, Aleppo",
+            "label": "Tall Ed-daman, Aleppo",
+            "labelAr": "تل الضمان، حلب"
+        },
+        {
+            "value": "Tall Refaat, Aleppo",
+            "label": "Tall Refaat, Aleppo",
+            "labelAr": "تل رفعت، حلب"
+        },
+        {
+            "value": "Tamanaah, Idlib",
+            "label": "Tamanaah, Idlib",
+            "labelAr": "التمانعة، إدلب"
+        },
+        {
+            "value": "Tassil, Daraa",
+            "label": "Tassil, Daraa",
+            "labelAr": "تسيل، درعا"
+        },
+        {
+            "value": "Tawahin, Tartus",
+            "label": "Tawahin, Tartus",
+            "labelAr": "الطواحين، طرطوس"
+        },
+        {
+            "value": "Teftnaz, Idlib",
+            "label": "Teftnaz, Idlib",
+            "labelAr": "تفتناز، إدلب"
+        },
+        {
+            "value": "Tell Salhib, Hama",
+            "label": "Tell Salhib, Hama",
+            "labelAr": "تلسلحب، حماة"
+        },
+        {
+            "value": "Thiban, Deir ez-Zor",
+            "label": "Thiban, Deir ez-Zor",
+            "labelAr": "ذيبان، دير الزور"
+        },
+        {
+            "value": "Thibeen, As-Suwayda",
+            "label": "Thibeen, As-Suwayda",
+            "labelAr": "ذيبين، السويداء"
+        },
+        {
+            "value": "Wadi El-oyoun, Hama",
+            "label": "Wadi El-oyoun, Hama",
+            "labelAr": "وادي العيون، حماة"
+        },
+        {
+            "value": "Ya'robiyah, Al-Hasakah",
+            "label": "Ya'robiyah, Al-Hasakah",
+            "labelAr": "يعربية، الحسكة"
+        },
+        {
+            "value": "Zarbah, Aleppo",
+            "label": "Zarbah, Aleppo",
+            "labelAr": "الزربة، حلب"
+        },
+        {
+            "value": "Ziyara, Hama",
+            "label": "Ziyara, Hama",
+            "labelAr": "الزيارة، حماة"
+        },
+        {
+            "value": "Mezzeh, Damascus",
+            "label": "Mezzeh, Damascus",
+            "labelAr": "المزة، دمشق"
+        },
+        {
+            "value": "Abu Rummaneh, Damascus",
+            "label": "Abu Rummaneh, Damascus",
+            "labelAr": "أبو رمانة، دمشق"
+        },
+        {
+            "value": "Qassaa, Damascus",
+            "label": "Qassaa, Damascus",
+            "labelAr": "القصاع، دمشق"
+        },
+        {
+            "value": "Kafar Sousa, Damascus",
+            "label": "Kafar Sousa, Damascus",
+            "labelAr": "كفر سوسة، دمشق"
+        },
+        {
+            "value": "Malki, Damascus",
+            "label": "Malki, Damascus",
+            "labelAr": "المالكي، دمشق"
+        },
+        {
+            "value": "Shaalan, Damascus",
+            "label": "Shaalan, Damascus",
+            "labelAr": "الشعلان، دمشق"
+        },
+        {
+            "value": "Rawda, Damascus",
+            "label": "Rawda, Damascus",
+            "labelAr": "الروضة، دمشق"
+        },
+        {
+            "value": "Muhajireen, Damascus",
+            "label": "Muhajireen, Damascus",
+            "labelAr": "المهاجرين، دمشق"
+        },
+        {
+            "value": "Barzeh, Damascus",
+            "label": "Barzeh, Damascus",
+            "labelAr": "برزة، دمشق"
+        },
+        {
+            "value": "Qaboun, Damascus",
+            "label": "Qaboun, Damascus",
+            "labelAr": "القابون، دمشق"
+        },
+        {
+            "value": "Jobar, Damascus",
+            "label": "Jobar, Damascus",
+            "labelAr": "جوبر، دمشق"
+        },
+        {
+            "value": "Rukn al-Din, Damascus",
+            "label": "Rukn al-Din, Damascus",
+            "labelAr": "ركن الدين، دمشق"
+        },
+        {
+            "value": "Sarouja, Damascus",
+            "label": "Sarouja, Damascus",
+            "labelAr": "ساروجة، دمشق"
+        },
+        {
+            "value": "Midan, Damascus",
+            "label": "Midan, Damascus",
+            "labelAr": "الميدان، دمشق"
+        },
+        {
+            "value": "Dummar, Damascus",
+            "label": "Dummar, Damascus",
+            "labelAr": "دمر، دمشق"
+        },
+        {
+            "value": "Qudsaya, Damascus",
+            "label": "Qudsaya, Damascus",
+            "labelAr": "قدسيا، دمشق"
+        },
+        {
+            "value": "Yaafour, Damascus",
+            "label": "Yaafour, Damascus",
+            "labelAr": "يعفور، دمشق"
+        },
+        {
+            "value": "Jaramana, Damascus",
+            "label": "Jaramana, Damascus",
+            "labelAr": "جرمانا، دمشق"
+        },
+        {
+            "value": "Sayyidah Zaynab, Damascus",
+            "label": "Sayyidah Zaynab, Damascus",
+            "labelAr": "السيدة زينب، دمشق"
+        },
+        {
+            "value": "Darayya, Damascus",
+            "label": "Darayya, Damascus",
+            "labelAr": "داريا، دمشق"
+        },
+        {
+            "value": "Mazzeh 86, Damascus",
+            "label": "Mazzeh 86, Damascus",
+            "labelAr": "مزة 86، دمشق"
+        },
+        {
+            "value": "Mazzeh Villas, Damascus",
+            "label": "Mazzeh Villas, Damascus",
+            "labelAr": "فيلات المزة، دمشق"
+        },
+        {
+            "value": "West Mazzeh, Damascus",
+            "label": "West Mazzeh, Damascus",
+            "labelAr": "المزة الغربي، دمشق"
+        },
+        {
+            "value": "Aziziyah, Aleppo",
+            "label": "Aziziyah, Aleppo",
+            "labelAr": "العزيزية، حلب"
+        },
+        {
+            "value": "Suleimaniyeh, Aleppo",
+            "label": "Suleimaniyeh, Aleppo",
+            "labelAr": "السليمانية، حلب"
+        },
+        {
+            "value": "New Aleppo, Aleppo",
+            "label": "New Aleppo, Aleppo",
+            "labelAr": "حلب الجديدة، حلب"
+        },
+        {
+            "value": "Shahbaa, Aleppo",
+            "label": "Shahbaa, Aleppo",
+            "labelAr": "الشهباء، حلب"
+        },
+        {
+            "value": "Furqan, Aleppo",
+            "label": "Furqan, Aleppo",
+            "labelAr": "الفرقان، حلب"
+        },
+        {
+            "value": "Jamiliyah, Aleppo",
+            "label": "Jamiliyah, Aleppo",
+            "labelAr": "الجميلية، حلب"
+        },
+        {
+            "value": "Seif al-Dawla, Aleppo",
+            "label": "Seif al-Dawla, Aleppo",
+            "labelAr": "سيف الدولة، حلب"
+        },
+        {
+            "value": "Hamdaniyeh, Aleppo",
+            "label": "Hamdaniyeh, Aleppo",
+            "labelAr": "الحمدانية، حلب"
+        },
+        {
+            "value": "Salah al-Din, Aleppo",
+            "label": "Salah al-Din, Aleppo",
+            "labelAr": "صلاح الدين، حلب"
+        },
+        {
+            "value": "Ashrafiyeh, Aleppo",
+            "label": "Ashrafiyeh, Aleppo",
+            "labelAr": "الأشرفية، حلب"
+        },
+        {
+            "value": "Old City, Aleppo",
+            "label": "Old City, Aleppo",
+            "labelAr": "المدينة القديمة، حلب"
+        },
+        {
+            "value": "Corniche, Latakia",
+            "label": "Corniche, Latakia",
+            "labelAr": "الكورنيش، اللاذقية"
+        },
+        {
+            "value": "Project area, Latakia",
+            "label": "Project area, Latakia",
+            "labelAr": "منطقة المشروع، اللاذقية"
+        },
+        {
+            "value": "American Suburb, Latakia",
+            "label": "American Suburb, Latakia",
+            "labelAr": "الضاحية الأمريكية، اللاذقية"
+        },
+        {
+            "value": "Sports City, Latakia",
+            "label": "Sports City, Latakia",
+            "labelAr": "المدينة الرياضية، اللاذقية"
+        },
+        {
+            "value": "Ugarit, Latakia",
+            "label": "Ugarit, Latakia",
+            "labelAr": "أوغاريت، اللاذقية"
+        },
+        {
+            "value": "Al-Ziraa, Latakia",
+            "label": "Al-Ziraa, Latakia",
+            "labelAr": "الزراعة، اللاذقية"
+        },
+        {
+            "value": "Inshaat, Homs",
+            "label": "Inshaat, Homs",
+            "labelAr": "الإنشاءات، حمص"
+        },
+        {
+            "value": "Wadi al-Dhahab, Homs",
+            "label": "Wadi al-Dhahab, Homs",
+            "labelAr": "وادي الذهب، حمص"
+        },
+        {
+            "value": "Akrama, Homs",
+            "label": "Akrama, Homs",
+            "labelAr": "عكرمة، حمص"
+        },
+        {
+            "value": "Al-Zahra, Homs",
+            "label": "Al-Zahra, Homs",
+            "labelAr": "الزهراء، حمص"
+        },
+        {
+            "value": "Al-Waar, Homs",
+            "label": "Al-Waar, Homs",
+            "labelAr": "الوعر، حمص"
+        },
+        {
+            "value": "Old City, Homs",
+            "label": "Old City, Homs",
+            "labelAr": "المدينة القديمة، حمص"
+        },
+        {
+            "value": "Seaside, Tartus",
+            "label": "Seaside, Tartus",
+            "labelAr": "الواجهة البحرية، طرطوس"
+        },
+        {
+            "value": "Corniche, Tartus",
+            "label": "Corniche, Tartus",
+            "labelAr": "الكورنيش، طرطوس"
+        },
+        {
+            "value": "Al-Thawra, Tartus",
+            "label": "Al-Thawra, Tartus",
+            "labelAr": "الثورة، طرطوس"
+        },
+        {
+            "value": "Old City, Hama",
+            "label": "Old City, Hama",
+            "labelAr": "المدينة القديمة، حماة"
+        },
+        {
+            "value": "Al-Hamidiyah, Hama",
+            "label": "Al-Hamidiyah, Hama",
+            "labelAr": "الحميدية، حماة"
+        },
+        {
+            "value": "Al-Andalus, Hama",
+            "label": "Al-Andalus, Hama",
+            "labelAr": "الأندلس، حماة"
+        }
+    ]
+}

@@ -1,13 +1,7 @@
-import type {
-  CarouselSlide,
-  CarouselSlidesResponse,
-} from '@/domain/home/CarouselSlide'
-import { apiFetch } from '@/infrastructure/api/apiClient'
+import { isMockApiEnabled } from '@/infrastructure/mock/isMockApiEnabled'
+import * as api from '@/infrastructure/home/carouselApiRepository'
+import * as mock from '@/infrastructure/home/carouselMockRepository'
 
-/** Fetches panorama carousel slides from the API. */
-export async function fetchCarouselSlides(): Promise<CarouselSlide[]> {
-  const data = await apiFetch<CarouselSlidesResponse>('/carousel/slides', {
-    errorFallback: 'Failed to load carousel slides',
-  })
-  return data.slides ?? []
-}
+const impl = isMockApiEnabled() ? mock : api
+
+export const fetchCarouselSlides = impl.fetchCarouselSlides
